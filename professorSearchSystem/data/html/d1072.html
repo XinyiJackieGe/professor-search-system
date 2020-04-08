@@ -1,0 +1,575 @@
+<html>
+<head>
+
+<title>Simha Sethumadhavan's Home Page</title>
+<style> <!-- @import url(basic.css); --> </style>
+</head>
+
+<body>
+
+<table border="0">
+  <tr>
+    <td width="10%"> <img height=166px border="0" src="profile.jpg" alt="simha"></td> 
+    <td width="25%"> 
+       <font size="+2">Simha Sethumadhavan<br></font>
+       <br>
+        Associate Professor of <a href="http://www.cs.columbia.edu">Computer Science</a><br>
+<!--        Chair, Cybersecurity Center, Data Science Institute <br> -->
+        Alfred P. Sloan Research Fellow <br>
+        <a href="http://www.columbia.edu">simha@columbia.edu</a> <br>
+    </td>
+  </tr>
+</table>
+
+<h1> Research Areas </h1>  
+Computer Architecture, Computer Security
+
+<h1> Research Overview </h1>
+
+<p>
+My research is in computer architecture and computer security, and
+how computer architecture can be used to improve computer security.
+
+<p> I have been professing the <b> hardware-up </b> method for securing
+computer systems for awhile now. While security is a full-system property,
+and both software and hardware have to be secure for a system to be
+secure, I believe that the most practical and principled way to achieve
+full-system security is to secure the hardware first against attacks,
+and then systematically harden each layer in the systems stack as we
+move up the stack through the microarchitecture, ISA interface, system
+software and application software. This method allows us to avoid security
+blind spots in the lower levels when designing security at higher levels
+in the systems stack.
+
+<p> Following this approach, we have invented methods for <a
+href="#backdoors">detecting and mitigating backdoors/trojans</a>
+embedded in the hardware during its design or manufacturing, measuring
+and mitigating security vulnerabilities due to <a
+href="#sidechannels">microarchitectural side channels</a>, and
+developed <a href="#archsupport">architecture support</a> for
+mitigating common software problems such as memory safety, code
+corruption, and malware attacks. We have built several end-to-end
+<a href="demos.html">FPGA based demonstrations</a> including our
+Polyglot system for preventing code injection and code reuse attacks,
+and the Silicon AV malware detection system that uses on-chip
+performance counters.
+
+<p> A common denominator among computer architecture and computer
+security is the need to understand <a href="#progchar">program
+behavior</a>. What began as a quest to automatically discover
+special-purpose functional units (accelerators) has resulted in
+large number of works from methods to precisely measure execution
+times, to techniques for identifying similar code sequences in large
+code bases, to techniques for detecting malware at runtime, and the
+discovery of power law behaviors in programs!
+
+<p> We have also worked on improving the energy-efficiency and
+performance of <a href="#nexgenarch">post-Moore's-Law computers.</a>
+We devised an analog accelerator that can provide performance benefits
+beyond digital accelerators today by side-stepping the 'digital
+tax' in terms of clock and value discretization, showed how they
+can be integrated into systems. We built some <a
+href="demos.html">ASIC chips</a>, and ran robotics and scientific
+applications, and showed that certain types of workloads run faster
+and consume less energy compared to state-of-the-art GPUs.
+
+<p> Finally, a long time ago, when I was a graduate student at
+UT-Austin, I  <a href="#oldarch">contributed</a> to the design,
+implementation, validation and bring-up of the distributed TRIPS
+processor, and also devised a follow-on composable microarchitecture.
+
+<!--
+<p> Our work has had a certain amount of impact: some patents from
+our work have been licensed by industry; our work has influenced
+standards and hardware designs, and also has resulted in fixes to
+existing commodity software. 
+-->
+
+<p> A short bio is <a href="bio.txt">here</a>; and I blog <a href="./blog/">here</a>, and tweet <a href="https://www.twitter.com/thesimha">here</a>.
+
+<h1> Recognition </h1>
+
+<ul> Thanks to my excellent students and collaborators!
+<li> Distinguished Paper Award, Usenix Security 2017 </li>
+<li> IEEE Micro Top Picks Selection: 2004, 2013, 2017 </li>
+<li> IEEE Micro Top Picks Honorable Mention: 2018, 2020 </li>
+<li> Best Student Paper Award, ACM Computer and Communications Security 2013 </li>
+<li> Distinguished Paper Award, ACM International Conference on Program Comprehension 2016 </li>
+<li> Best of Computer Architecture Letters, 2016 </li>
+</ul>
+
+<h1> Publications </h1>
+
+<h2><div id="backdoors"> Hardware Security </div></h2>
+
+<ul>
+<li> 
+Trustworthy Hardware from Untrustworthy Components 
+<i> CACM, Sept 2015 </i> 
+(<a href="https://cacm.acm.org/magazines/2015/9/191186-trustworthy-hardware-from-untrusted-components/abstract">Article</a>, <a href="TrustedHardware_clip_vFinal.mp4">Video</a>) 
+</li>
+
+<li> 
+Silencing Hardware Backdoors 
+<i>IEEE Security and Privacy 2011 (Oakland 11) </i> 
+(<a href="./preprint_oakland11.pdf">pdf</a>) 
+</li>
+
+<li> 
+FANCI: Identification of Stealthy Malicious Logic Using Boolean Functional Analysis 
+<i>CCS 2013 <b> Best Student Paper Award </b></i> 
+(<a href="./preprint_ccs13.pdf">pdf</a>)
+</li>
+
+<li> 
+A Red Team/Blue Team Assessment of Functional Analysis Methods for
+Malicious Circuit Identification 
+<i> DAC 2014</i> 
+(<a href="preprint_dac14.pdf">pdf</a>)
+</li>
+
+<li> 
+Security Implications of Third-Party Accelerators  
+<i> Computer Architecture Letters 2015 </i> 
+(<a href="cal15_taxonomy.pdf">pdf</a>) 
+</li>
+
+<li> 
+Practical Lightweight Secure Inclusion of Third-Party Intellectual Property 
+<i> (IEEE Design and Test) </i> 
+(<a href="http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6462024">
+pdf</a>) 
+</li>
+
+<li> 
+Tamper Evident Microprocessors 
+<i>IEEE Security and Privacy 2010 (Oakland 10) </i> 
+(<a href="cal/pubs/pdfs/TEMP_Oakland10.pdf">pdf</a>) 
+</li>
+</ul>
+
+<h2> <div id="sidechannels">Microarchitectural Side Channels</div> </h2>
+
+
+<ul>
+
+<li> 
+CLKSCREW: Exposing the Perils of Security Oblivious Energy Management
+<i> Usenix Security 2017<b> Usenix Security Distinguished Paper Award</b> and <b> IEEE Micro Top Picks Selection</b></i> 
+(<a href="preprint_USENIX17_clkscrew.pdf">pdf</a>, <a href="https://www.youtube.com/watch?v=0tM2v2SZDxY">Black Hat Talk Video</a>) 
+</li>
+
+
+<li> 
+Side-Channel Vulnerability Factor: A Metric for Measuring Information Leakage 
+<i> ISCA 12, <b> IEEE Micro Top Picks Selection </b></i> 
+(<a href="./preprint_isca12_svf.pdf">pdf</a>, <a href="http://castl.github.com/libsvf/">software</a>) 
+</li>
+
+<li> 
+Side-Channel Vulnerability Factor: SVF vs CSV 
+<i> Workshop on Duplicating, Deconstructing and Debunking </i>
+(<a href="./wddd_svf.pdf">pdf</a>) 
+</li>
+
+<li> TimeWarp: Rethinking Timekeeping and Performance Monitoring Mechanisms
+to Mitigate Side-Channel Attacks 
+<i> ISCA 12 </i> 
+(<a href="./preprint_isca12_tw.pdf">pdf</a>)
+</li> 
+
+<li> The Spy in the Sandbox: Practical Cache Attacks in Javascript and
+their Implications 
+<i> CCS 2015 </i> 
+(<a href="spyjs.ccs15.pdf">pdf</a>) 
+</li>
+
+</ul>
+
+<h2> <div id="archsupport">Architectural Support for Security and Privacy</div> </h2>
+
+<ul> 
+
+<li> Practical Byte-Granular Memory Blacklisting using Califorms
+<i> MICRO 2019 </i>
+(<a href="preprint_micro19_califorms.pdf">pdf</a>, <a href="https://arxiv.org/abs/1906.01838 ">arxiv</a>) 
+<b> IEEE Micro Top Picks Honorable Mention </b>
+</li>
+
+
+<li> 
+YOLO: Frequently Resetting Cyber-Physical Systems for Security
+<i> SPIE 2019 </i>
+(<a href="YOLO_Resetting_CPS_for_Security.pdf">pdf</a>, 
+ <a href="https://arxiv.org/abs/1702.06595">arxiv</a>, 
+<a href="https://www.youtube.com/playlist?list=PL4UBpWp0d9Jq7_NP22SsiBwGRbMa6lPGH">
+demo</a>)
+
+</li>
+
+<li> 
+Heterogeneous Isolated Execution for Commodity GPUs
+<i> ASPLOS 2019 </i>
+(<a href="https://dl.acm.org/citation.cfm?id=3304021">pdf</a>)
+</li>
+
+<li> 
+Practical Memory Safety with REST 
+<i> ISCA 2018 </i> 
+(<a href="preprint_isca18_REST_memory_safety.pdf">pdf</a>) 
+</li>
+
+<li> 
+Reviving Instruction Set Randomization 
+<i> HOST 2017 </i> 
+(<a href="preprint_host17.pdf">pdf</a>)
+</li>
+
+<li> 
+Blacklist Core: Machine-Learning Based Dynamic Operating-Performance-Point Blacklisting for Mitigating Power-Management Security Attacks 
+<i> ISLPED 2018 </i>
+(<a href="https://dl.acm.org/citation.cfm?id=3218624">pdf</a>)
+</li>
+
+<li> 
+A Silicon Anti-virus Engine 
+<i> Hot Chips 2015  <b> Best Poster Award</b></i>
+(<a href="hc27AVdemo.jpg">Poster</a>, <a href="./hpcdemo.mp4">Demo</a>)
+</li>
+
+<li> 
+Unsupervised Anomaly-based Malware Detection using Hardware Features
+<i> RAID 2014 </i> 
+(<a href="preprint_raid14.pdf">pdf</a>) 
+</li>
+
+<li> 
+On the Feasibility of Online Malware Detection with Performance Counters 
+<i> ISCA 13 </i>
+(<a href="./preprint_isca13_malware.pdf">pdf</a>) 
+</li>
+
+<li> WHISK: An Uncore Architecture for Dynamic Information Flow Tracking in
+Heterogeneous Embedded SoCs 
+<i> CODES+ISSS 2013 </i> 
+(<a href="./preprint_codes13.pdf">pdf</a>)
+</li>
+
+<li> 
+The SPARCHS Project: Hardware Support for Software Security 
+<i>SysSEC 2011 </i> 
+(<a href="./sparchs.pdf">pdf</a>) 
+</li>
+
+
+<li> 
+Hardware Enforced Statistical Privacy 
+<i> Computer Architecture Letters 2016 , <b> Best of CAL 2016 </b></i> 
+(<a href="cal_dp.pdf">pdf </a>)
+</li>
+
+<li> 
+Heisenbyte: Thwarting Memory Disclosure Attacks using Destructive Code Reads 
+<i>CCS 2015 </i>  
+(<a href="ccs15_heisenbyte.pdf">pdf</a>) 
+</li>
+
+<li> 
+Concurrency Attacks 
+<i>HotPar 12</i> 
+(<a href="https://www.usenix.org/conference/hotpar12/concurrency-attacks">web</a>)
+</li>
+
+
+</ul>
+
+<h2> <div id="nexgenarch">Next Gen Accelerators and Architectures</a> </h2>
+
+<ul>
+
+<li> 
+Hybrid Analog-Digital Solution of Nonlinear Partial Differential Equations 
+<i> Micro 2017, <b> IEEE Micro Top Picks Honorable Mention </b></i> 
+(<a href="preprint_micro17.pdf">pdf</a>) 
+</li>
+
+<li> 
+An Analog Acceleator for Linear Algebra 
+<i> ISCA 2016, <b> IEEE Micro Top Picks Selection </b> </i>
+(<a href=" preprint_isca16.pdf">pdf</a>) 
+</li> 
+
+<li>
+Energy-Efficient Hybrid Analog/Digital Approximate Computation in Continuous Time
+<i> JSSC Vol 51(7), ESSCIRC 2015 </i>
+(<a href="hcdc_chip_conf.pdf">Conference, <a=href="https://ieeexplore.ieee.org/document/7463004/">Journal</a>)
+</li>
+
+<li> 
+Increasing Reconfigurability with Memristive Interconnects 
+<i>ICCD 2015</i> 
+(<a href="iccd2015.pdf"> pdf </a>) 
+</li> 
+
+<li> A Case for Hybrid Discrete-Continuous Architectures 
+<i> Computer Architecture Letters 2011 </i>
+(<a href="./hdcacase.pdf">pdf</a>) 
+</li>
+
+</ul>
+
+<h2> <div id="progchar">Program Characterization</div>  </h2>
+
+<ul>
+
+<li> 
+Why Do Programs Have Heavy Tails? 
+<i> IISWC 2017, Computer Architecture Letters 2016</i> 
+(<a href="preprint_iiswc17.pdf">pdf</a>, <a href="preprint_cal16_powerlaw.pdf">pdf</a>)
+</li>
+
+<li>
+Robobench: Towards Sustainable Robotics System Benchmarking 
+<i> ICRA 2016 </i> 
+(<a href="icra_robobench.pdf">pdf</a>) </li>
+
+<li>
+Rapid Identification of Architectural Bottlenecks via Precise Event Counting
+<i> ISCA 11 </i> 
+(<a href="./preprint_isca11.pdf">pdf</a>,<a href="http://castl.cs.columbia.edu/limit">software</a>) 
+</li>
+
+
+<li> 
+Code Relatives: Detecting Similarly Behaving Software 
+<i> FSE 2016 </i> 
+(<a href="preprint_fse16.pdf">pdf</a>)
+</li>
+
+<li> 
+Identifying Functionally Similar Code in Complex Codebases 
+<i> ICPC 2016  <b> Distinguished Paper Award </b></i> 
+(<a href="preprint_icpc16.pdf">pdf</a>) 
+</li>
+
+<li> 
+Approximate Graph Clustering for Program Characterization 
+<i> TACO 12 </i> 
+(<a href="./preprint_taco12.pdf">pdf</a>) 
+</li>
+
+<li> COMPASS: A Community-driven Parallelization Advisor for Sequential Software 
+<i> IWMSE 09 </i> 
+(<a href="cal/pubs/pdfs/iwmse09_compass.pdf">pdf</a>) 
+</li>
+
+</ul>
+
+<h2> <div id="oldarch">Traditional Architecture and Microarchitecture</div> </h2>
+
+<ul>
+
+<li> Multitasking Workload Scheduling in Flexible-Core Chip Multiprocessors
+<i>PACT 2008</i> (<a href="cal/pubs/pdfs/pact08.pdf">pdf</a>)
+</li>
+
+<li>Composable Lightweight Processors
+<i>Micro 07</i>
+(<a href="cal/pubs/pdfs/clp.pdf">pdf</a>) 
+</li>
+
+<li> Distributed TRIPS Microarchitecture
+<i>Micro 06</i>
+(<a href="cal/pubs/pdfs/trips_microarchitecture.pdf">pdf</a>)
+</li>
+
+<li> TRIPS Primary Memory System Design
+<i>ICCD 06</i>
+(<a href="cal/pubs/pdfs/dtile.pdf">pdf</a>
+</li>
+
+<li> Bloom Filters for LSQ and Memory Disambiguation 
+<i>Micro 03 <b> IEEE Micro Top Picks Selection </b> </i>
+(<a href="cal/pubs/pdfs/lsq.pdf">pdf</a>)
+</li>
+
+<li> Late Binding Load Store Queues
+<i>ISCA 07 </i>
+(<a href="cal/pubs/pdfs/ulsq.pdf">pdf</a>)
+</li>
+
+
+<li> Distributed Selective Re-Execution
+<i>ASPLOS 04 </i>
+(<a href="cal/pubs/pdfs/dsre.pdf">pdf</a>)
+</ul>
+
+
+
+<h2> Wild and Crazy Ideas at ASPLOS </h2>
+
+<ul>
+<li> Cat-warmer from microprocessor waste heat - Wild and Crazy Ideas, ASPLOS 2006. (<a href=./cal/pubs/pdfs/cat_warmer.pdf>pdf</a>) (<a href=./cal/pubs/pres/cat_warmer.ppt>ppt</a>) 
+<li> I, Robot, Architect - Wild and Crazy Ideas, ASPLOS 2009. (<a
+href="./cal/pubs/pdfs/waci09-IRobotArchitect.pdf">pdf</a>) with John Demme 
+<li> Software Defined Roads, ASPLOS 2018. (<a href="./traffic.pdf">pdf</a>) with Miguel Arroyo 
+</ul>
+
+
+<h1> Recruiting </h1>
+
+If you are an exceptional student and interested in doing cutting-edge
+research in Computer Security, Computer Architecture and Digital
+VLSI Design and Security, I invite you to <a
+href=https://mice.cs.columbia.edu/recruit/index.php?program=GDCOMS>apply</a>
+to join our group.  We welcome people of any gender identity or
+expression, race, ethnicity, nationality, sexual orientation,
+religion, culture, subculture, and political opinion. <font size =
+-3> (Partially reproduced from <i> <a
+href="http://www.dreamwidth.org/legal/diversity"> Dreamwidth</a>)
+</i> </font>. 
+
+<h1> Postdocs and Research Scientists</h1>
+<ul>
+<li> <a href=http://www.cs.columbia.edu/~sasaki>Hiroshi Sasaki</a> </li>
+</ul>
+
+<h1> PhD Students </h1>
+<ul>
+    <li> <a href="http://miguel.arroyo.me/">Miguel Arroyo </a> </li>
+    <li> <a href="http://m-tarekibnziad.strikingly.com/">Mohammed Tarek </a></li>
+    <li> <a href="http://www.cs.columbia.edu/~hastings">Adam Hastings</a></li>
+    <li> <a href="http://www.cs.columbia.edu/~evgeny">Evgeny Manzhosov</a></li>
+    <li> <a href="http://www.cs.columbia.edu/~ass">Abhishek Shah</a></li>
+</ul>
+
+<h1> Research Alumni </h1>
+
+<ol> PhD:
+   <li> Dr. John Demme <br>
+        Thesis: <a href="./thesis/Demme_columbia_0054D_11821.pdf">Overcoming the Intuition Wall: Measurement and Analysis in Computer Architecture</a>  <br>
+        First Employment: Columbia University, Now at Microsoft
+    </li>
+   <li> Dr. Adam Waksman <br>
+        Thesis: <a href="./thesis/Waksman_columbia_0054D_11944.pdf">Producing Trustworthy Hardware Using Untrusted Components, Personnel and Resources</a> <br>
+        First Employment: DE Shaw, Now at Square
+   </li>
+   <li> Dr. Mike Su <br>
+        Thesis: <a href="./thesis/Su_columbia_0054D_14404.pdf">Uncovering Features in Behaviorally Similar Programs</a>  <br>
+        First Employment: Facebook
+   </li>
+   <li> Dr. Adrian Tang <br>
+        Thesis: <a href="./thesis/Tang_columbia_0054D_14465.pdf">Security Engineering of Hardware-Software Interfaces</a> <br>
+        First Employment: Singapore Cyber Security Group 
+   </li>
+   <li> Dr. Yipeng Huang <br>
+        Thesis: <a href="./thesis/Huang_columbia_0054D_14506.pdf">Hybrid
+Analog-Digital Co-processing for Scientific Computation</a> <br>
+        First Employment: Princeton University
+   </li>
+
+    <li> Dr. Kanad Sinha <br>
+         Thesis: <a href="./thesis/Sinha_columbia_0054D_15341.pdf">Repurposing software defenses
+with specialized hardware</a> <br>
+         First Employment: On the market!
+    </li>
+
+</ol>
+
+<ul> Post-Docs:
+   <li> Jon Weisz (Startup)</li>
+   <li> Chester Rebeiro</a> (Assistant Professor, IIT-Madras) </li>
+   <li> Joel Porquet  (Lecturer, University of California, Davis)
+</ul>
+
+<ul> MS Research Students:
+    <li> MAJ Julianna Eum (First Employment: Instructor, US Military Academy, West Point)
+    <li> Matthew Maycock 
+    <li> Robert Martin (First Employment: Google)
+</ul>
+
+<h1>Teaching</h1>
+
+<ul> Teaching Times for Fall 19:
+<li> Monday, Wednesday: 10:10 - 11:25, CSEE 4824 Computer Architecture,
+Hamilton 717.
+</ul>
+
+<ul> Courses
+<li> CSEE 4824: Computer Architecture (Spring 14, Spring 15, Spring 16, Spring 18, Fall 18)
+<li> COMS 6424: Hardware Security (Fall 18)
+<li> CSEE 6824: Parallel Computer Architecture (Fall 08, Spring 09, Spring 10, Spring 11, Spring 12, Spring 13)
+<li> COMS 4121: Computer Systems for Data Sciences (Spring 15)
+<li> EECS 4340: Computer Hardware Design (Fall 09, Fall 10, Fall 11, Fall 12, Fall 13, Fall 14)
+<li> CSEE 3827: Fundamentals of Computer Systems  (Spring 08)
+</ul>
+
+
+<h1> Select Recent Professional Activities </h1>
+
+<ul> Editorial:
+<li> Associate Editor for IEEE Computer Architecture Letters 2016 - Present
+<li> Guest Editor, June 2014, IEEE Journal on Emerging and Selected Topics
+<li> Guest Editor, May 2019, IEEE Micro Magazine, Special Issue on Security.
+</li>
+</ul>
+
+<ul> Program Committees: 
+<li> ISCA (2019, 2018, 2017, 2016, 2015, 2014, 2013)
+<li> IEEE Security and Privacy (2020, 2018, 2017, 2016, 2013, 2012);
+<li> MICRO (2014, 2013); 
+<li> Top Picks (2017, 2014, 2013); 
+<li> RAID (2014, 2013); 
+<li> Usenix Security 2014; 
+<li> CCS 2013; 
+<li> CGO 2013;
+<li> ISPASS 2012;
+<li> ASPLOS 2010;
+<li> IPDPS 2010
+</ul>
+
+<ul> External Review Committees: 
+<li> ASPLOS 2013
+<li> HPCA 2014, HPCA 2013  
+<li> HiPEAC 2014, HiPEAC 2012 
+<li> Also reviewer for several journal papers
+</ul>
+
+<ul> Conference Organization:
+<li> Publicity chair for ISCA 2009
+<li> Registration chair for HPCA 2011
+<li> Local arrangements chair for e-Energy 2011
+<li> Co-organized Embedded Systems Chanllege with NYU-Poly 2013
+</ul>
+
+<ul> Tutorials:
+ <li> <a href="http://castl.cs.columbia.edu/sca">Tutorial on Security for Computer Architects (ISCA 11, HPCA 12, ISCA 12)</a>
+ <li> Tutorial on Computer Architecture for Security Researchers (CCS 12) </a>
+<li> Hardware-up Security, HiPEAC Summer School, 2016
+</ul>
+
+<ul> External Service:
+<li> Federal Communications Commission, <a
+href="https://transition.fcc.gov/dstac/dstac-report-final-08282015.pdf
+">Downloadable Security Technical Advisory Committee</a> </li>
+</ul>
+
+<h1> Contact Information </h1>
+
+    Office: 465 CSB <a href="http://www.cs.columbia.edu/resources/directions">Directions</a> <br> 
+    Phone:1 212 939 7062 <br>
+    Fax:1 212 666 0140 <br> 
+    Snail mail: <br>
+<tt>
+    Prof. Sethumadhavan<br>
+    Department of Computer Science<br>
+    Columbia University<br>
+    1214 Amsterdam Ave.<br>
+    450 CSB <br>
+    Mail Code 0401<br>
+    New York NY 10027.<br>
+</tt>
+
+</body>
+
+</html>

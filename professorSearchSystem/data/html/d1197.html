@@ -1,0 +1,772 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head profile="http://gmpg.org/xfn/11">
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Apparent Horizons</title>
+ 	<meta name="description" content="" />
+	<!--[if IE]>
+	<link rel="stylesheet" href="https://s2.wp.com/wp-content/themes/pub/unsleepable/ie.css" type="text/css" media="screen" />
+	<![endif]-->
+	<!--[if IE 6]>
+	<link rel="stylesheet" href="https://s2.wp.com/wp-content/themes/pub/unsleepable/ie6.css" type="text/css" media="screen" />
+	<![endif]-->
+		
+<!-- Async WordPress.com Remote Login -->
+<script id="wpcom_remote_login_js">
+var wpcom_remote_login_extra_auth = '';
+function wpcom_remote_login_remove_dom_node_id( element_id ) {
+	var dom_node = document.getElementById( element_id );
+	if ( dom_node ) { dom_node.remove(); }
+}
+function wpcom_remote_login_remove_dom_node_classes( class_name ) {
+	var dom_nodes = document.querySelectorAll( '.' + class_name );
+	for ( var i = 0; i < dom_nodes.length; i++ ) {
+		dom_nodes[i].remove();
+	}
+}
+function wpcom_remote_login_final_cleanup() {
+	wpcom_remote_login_remove_dom_node_classes( "wpcom_remote_login_msg" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_remote_login_key" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_remote_login_validate" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_remote_login_js" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_request_access_iframe" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_request_access_styles" );
+}
+
+// Watch for messages back from the remote login
+window.addEventListener( "message", function( e ) {
+	if ( e.origin === "https://r-login.wordpress.com" ) {
+		var data = {};
+		try {
+			data = JSON.parse( e.data );
+		} catch( e ) {
+			wpcom_remote_login_final_cleanup();
+			return;
+		}
+
+		if ( data.msg === 'LOGIN' ) {
+			// Clean up the login check iframe
+			wpcom_remote_login_remove_dom_node_id( "wpcom_remote_login_key" );
+
+			var id_regex = new RegExp( /^[0-9]+$/ );
+			var token_regex = new RegExp( /^.*|.*|.*$/ );
+			if (
+				token_regex.test( data.token )
+				&& id_regex.test( data.wpcomid )
+			) {
+				// We have everything we need to ask for a login
+				var script = document.createElement( "script" );
+				script.setAttribute( "id", "wpcom_remote_login_validate" );
+				script.src = '/remote-login.php?wpcom_remote_login=validate'
+					+ '&wpcomid=' + data.wpcomid
+					+ '&token=' + encodeURIComponent( data.token )
+					+ '&host=' + window.location.protocol
+						+ '//' + window.location.hostname;
+				document.body.appendChild( script );
+			}
+
+			return;
+		}
+
+		// Safari ITP, not logged in, so redirect
+		if ( data.msg === 'LOGIN-REDIRECT' ) {
+			window.location = 'https://wordpress.com/log-in?redirect_to=' + window.location.href;
+			return;
+		}
+
+		// Safari ITP, storage access failed, remove the request
+		if ( data.msg === 'LOGIN-REMOVE' ) {
+			var css_zap = 'html { -webkit-transition: margin-top 1s; transition: margin-top 1s; } /* 9001 */ html { margin-top: 0 !important; } * html body { margin-top: 0 !important; } @media screen and ( max-width: 782px ) { html { margin-top: 0 !important; } * html body { margin-top: 0 !important; } }';
+			var style_zap = document.createElement( 'style' );
+			style_zap.type = 'text/css';
+			style_zap.appendChild( document.createTextNode( css_zap ) );
+			document.body.appendChild( style_zap );
+
+			var e = document.getElementById( 'wpcom_request_access_iframe' );
+			e.parentNode.removeChild( e );
+
+			document.cookie = 'wordpress_com_login_access=denied; path=/; max-age=31536000';
+
+			return;
+		}
+
+		// Safari ITP
+		if ( data.msg === 'REQUEST_ACCESS' ) {
+			console.log( 'request access: safari' );
+
+			// Check ITP iframe enable/disable knob
+			if ( wpcom_remote_login_extra_auth !== 'safari_itp_iframe' ) {
+				return;
+			}
+
+			// If we are in a "private window" there is no ITP.
+			var private_window = false;
+			try {
+				var opendb = window.openDatabase( null, null, null, null );
+			} catch( e ) {
+				private_window = true;
+			}
+
+			if ( private_window ) {
+				console.log( 'private window' );
+				return;
+			}
+
+			var iframe = document.createElement( 'iframe' );
+			iframe.id = 'wpcom_request_access_iframe';
+			iframe.setAttribute( 'scrolling', 'no' );
+			iframe.setAttribute( 'sandbox', 'allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-top-navigation-by-user-activation' );
+			iframe.src = 'https://r-login.wordpress.com/remote-login.php?wpcom_remote_login=request_access&origin=' + encodeURIComponent( data.origin ) + '&wpcomid=' + encodeURIComponent( data.wpcomid );
+
+			var css = 'html { -webkit-transition: margin-top 1s; transition: margin-top 1s; } /* 9001 */ html { margin-top: 46px !important; } * html body { margin-top: 46px !important; } @media screen and ( max-width: 660px ) { html { margin-top: 71px !important; } * html body { margin-top: 71px !important; } #wpcom_request_access_iframe { display: block; height: 71px !important; } } #wpcom_request_access_iframe { border: 0px; height: 46px; position: fixed; top: 0; left: 0; width: 100%; min-width: 100%; z-index: 99999; background: #23282d; } ';
+
+			var style = document.createElement( 'style' );
+			style.type = 'text/css';
+			style.id = 'wpcom_request_access_styles';
+			style.appendChild( document.createTextNode( css ) );
+			document.body.appendChild( style );
+
+			document.body.appendChild( iframe );
+		}
+
+		if ( data.msg === 'DONE' ) {
+			wpcom_remote_login_final_cleanup();
+		}
+	}
+}, false );
+
+// Inject the remote login iframe after the page has had a chance to load
+// more critical resources
+window.addEventListener( "DOMContentLoaded", function( e ) {
+	var iframe = document.createElement( "iframe" );
+	iframe.style.display = "none";
+	iframe.setAttribute( "scrolling", "no" );
+	iframe.setAttribute( "id", "wpcom_remote_login_key" );
+	iframe.src = "https://r-login.wordpress.com/remote-login.php"
+		+ "?wpcom_remote_login=key"
+		+ "&origin=aHR0cHM6Ly9hcHBhcmVudGhvcml6b25zLmNvbQ%3D%3D"
+		+ "&wpcomid=1385"
+		+ "&time=1586087167";
+	document.body.appendChild( iframe );
+}, false );
+</script>
+<link rel='dns-prefetch' href='//s1.wp.com' />
+<link rel='dns-prefetch' href='//s2.wp.com' />
+<link rel='dns-prefetch' href='//gregv.wordpress.com' />
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel="alternate" type="application/rss+xml" title="Apparent Horizons &raquo; Feed" href="https://apparenthorizons.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Apparent Horizons &raquo; Comments Feed" href="https://apparenthorizons.com/comments/feed/" />
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		function addLoadEvent(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != 'function') {
+				window.onload = func;
+			} else {
+				window.onload = function () {
+					oldonload();
+					func();
+				}
+			}
+		}
+		/* ]]> */
+	</script>
+			<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/72x72\/","ext":".png","svgUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/s0.wp.com\/wp-includes\/js\/wp-emoji-release.min.js?m=1582709031h&ver=5.4"}};
+			/*! This file is auto-generated */
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='all-css-0-1' href='https://s0.wp.com/_static/??-eJylU9tuwjAM/aGlWTco8DDtW5LWdGa5KU6o+vdzL0wVjIvGS2QnPidH9rHsgqi9S+CStFkEk1t0JLtQeyvIooH+LCtqohe5gJ0w+2yMIEwgoMGErp3ZZLV7X63e1jvJLNY72SClOb4gW2hAt0eHqf8NHipOX2CBZMhaZkcGICht4KroNnOqIbb8EkFuik1RSp3RNFIbX38Lgzqq2EtK/UM0I4rkAVJQA1z1PifRRmz+SxHV0Ey6A7/ffThyPeOyS43v3PTN06wnlQktGHTwNCHL4ktPiWaFo12OCN1V0trPLSuLt9eiFKNfJ9z0UEyixrk+IW1SZZh3Ke389pZNB5PxvQ0qDRWWf1Jg2LEu3YJNC6h1iEAk+LSYrZisfoH7ewOuzGXxSQtesH52G+/oMhF7ozDegkYYpsZhK7lqkQ6gT/tRrrfrbbUtq+rwA2nSpp0=?cssminify=yes' type='text/css' media='all' />
+<style id='wp-block-library-inline-css'>
+.has-text-align-justify {
+	text-align:justify;
+}
+</style>
+<link rel='stylesheet' id='print-css-1-1' href='https://s2.wp.com/wp-content/mu-plugins/global-print/global-print.css?m=1465851035h&cssminify=yes' type='text/css' media='print' />
+<link rel='stylesheet' id='all-css-2-1' href='https://s0.wp.com/_static/??-eJxlzEEOwiAQheELiZMqELowngUQ6SgMjTOk8fbWpEYTd2/xvR+WWcVGkkigdjWXnpEYfBRsFPzju/aReQc//GOvvRTFKEmlCwpS3ipgx6PWBzNCLi341cizJAYWLxghFE/3v6hMqa5m0tvpDc71NBhnnHWDtbcXJHY//w==?cssminify=yes' type='text/css' media='all' />
+<style id='jetpack-global-styles-frontend-style-inline-css'>
+:root { --font-headings: unset; --font-base: unset; --font-headings-default: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; --font-base-default: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;}
+</style>
+<script type='text/javascript' src='https://s2.wp.com/_static/??-eJx9zk0KhDAMBeALWYtIZTbiWfyJ0mLS2qQM3t4KymwcIZBFPt6L/gZlaVzTBKxdni1B3K9VOi70G1Bol9gLlGjpxqMnAZLTBs+CwNwv8HBFP9gVVGKIGZDkmtk/VXL4pf//9VIdtpUxn9o0jandAcDzUjU='></script>
+<link rel='stylesheet' id='all-css-0-2' href='https://s0.wp.com/wp-content/mu-plugins/highlander-comments/style.css?m=1530132353h&cssminify=yes' type='text/css' media='all' />
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='highlander-comments-ie7-css'  href='https://s2.wp.com/wp-content/mu-plugins/highlander-comments/style-ie7.css?m=1351637563h&#038;ver=20110606' media='all' />
+<![endif]-->
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://gregv.wordpress.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://s1.wp.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress.com" />
+<link rel='shortlink' href='https://wp.me/ml' />
+
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Apparent Horizons" />
+<meta property="og:url" content="https://apparenthorizons.com/" />
+<meta property="og:site_name" content="Apparent Horizons" />
+<meta property="og:image" content="https://s0.wp.com/i/blank.jpg" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:creator" content="@gesteller" />
+<meta name="twitter:site" content="@gesteller" />
+
+<!-- End Jetpack Open Graph Tags -->
+<link rel="shortcut icon" type="image/x-icon" href="https://s1.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48" />
+<link rel="icon" type="image/x-icon" href="https://s1.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48" />
+<link rel="apple-touch-icon" href="https://s2.wp.com/i/webclip.png" />
+<link rel='openid.server' href='https://apparenthorizons.com/?openidserver=1' />
+<link rel='openid.delegate' href='https://apparenthorizons.com/' />
+<link rel="search" type="application/opensearchdescription+xml" href="https://apparenthorizons.com/osd.xml" title="Apparent Horizons" />
+<link rel="search" type="application/opensearchdescription+xml" href="https://s1.wp.com/opensearch.xml" title="WordPress.com" />
+		<style id="wpcom-hotfix-masterbar-style">
+			@media screen and (min-width: 783px) {
+				#wpadminbar .quicklinks li#wp-admin-bar-my-account.with-avatar > a img {
+					margin-top: 5px;
+				}
+			}
+		</style>
+		<meta name="application-name" content="Apparent Horizons" /><meta name="msapplication-window" content="width=device-width;height=device-height" /><meta name="msapplication-task" content="name=Subscribe;action-uri=https://apparenthorizons.com/feed/;icon-uri=https://s1.wp.com/i/favicon.ico" /><meta name="msapplication-task" content="name=Sign up for a free blog;action-uri=http://wordpress.com/signup/;icon-uri=https://s1.wp.com/i/favicon.ico" /><meta name="msapplication-task" content="name=WordPress.com Support;action-uri=http://support.wordpress.com/;icon-uri=https://s1.wp.com/i/favicon.ico" /><meta name="msapplication-task" content="name=WordPress.com Forums;action-uri=http://forums.wordpress.com/;icon-uri=https://s1.wp.com/i/favicon.ico" />
+</head>
+
+<body class="home blog customizer-styles-applied highlander-enabled highlander-light infinite-scroll neverending">
+
+<div id="page">
+
+	<div id="header">
+		<div class="top">
+			<div id="title">
+				<a href="https://apparenthorizons.com/" title="Back to the front page">Apparent Horizons</a>
+			</div>
+
+			<ul id="menu">
+	<li class="page_item page-item-582"><a href="https://apparenthorizons.com/about/">About</a></li>
+<li class="page_item page-item-110"><a href="https://apparenthorizons.com/research/">Research</a></li>
+</ul>
+
+		</div>
+	</div>
+
+	<hr />
+
+<div class="content">
+
+	<div id="primary" class="primary">
+
+		
+
+	
+	
+		
+<div id="post-714" class="item entry post-714 post type-post status-publish format-standard hentry category-posted-by-greg-ver-steeg">
+	<div class="itemhead">
+		<h3>
+					<a href="https://apparenthorizons.com/2019/06/01/icml-and-mixhop/" rel="bookmark">ICML and MixHop</a>
+				</h3>
+		<div class="chronodata">01Jun19</div>
+
+		<!-- The following two sections are for a noteworthy plugin currently in alpha. They'll get cleaned up and integrated better -->
+		
+			
+	</div>
+
+	<div class="itemtext">
+		<p>ICML 2019 is coming up soon, and I plan to be there (except I&#8217;m missing Tuesday). I want to briefly tout the excellent work of a fantastic student who joined our lab, <a href="http://sami.haija.org">Sami Abu-El-Haija.</a>  If you&#8217;ve kept up with develops on learning with graphs, you may be aware of <a href="https://arxiv.org/abs/1609.02907">graph convolutional networks</a>, which combine the best of neural networks and spectral learning on graphs to produce some top-notch results on graph datasets. There is one drawback of the original graph convolution approach. Unlike visual convolutions, it doesn&#8217;t allow for complex weighting of pixels at different locations within the kernel. Basically, the equivalent relative weighting in graph convolutions are constant, and this makes it difficult to distinguish how neighbors in a graph might systematically differ in their effect from neighbors of neighbors. Sami&#8217;s paper <a href="https://arxiv.org/abs/1905.00067">MixHop</a> rectifies this issue and shows that this gives some nice performance boosts. Sami will be presenting the work at ICML and code for the approach is also <a href="https://github.com/samihaija/mixhop">available on github</a>.</p>
+<div data-shortcode="caption" id="attachment_715" style="width: 310px" class="wp-caption aligncenter"><a href="https://arxiv.org/abs/1905.00067"><img aria-describedby="caption-attachment-715" data-attachment-id="715" data-permalink="https://apparenthorizons.com/2019/06/01/icml-and-mixhop/screenshot-2019-06-01-14-46-19/" data-orig-file="https://gregv.files.wordpress.com/2019/06/screenshot-2019-06-01-14.46.19.jpg" data-orig-size="1268,840" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Screenshot 2019-06-01 14.46.19" data-image-description="" data-medium-file="https://gregv.files.wordpress.com/2019/06/screenshot-2019-06-01-14.46.19.jpg?w=300" data-large-file="https://gregv.files.wordpress.com/2019/06/screenshot-2019-06-01-14.46.19.jpg?w=500" class="wp-image-715 size-medium" src="https://gregv.files.wordpress.com/2019/06/screenshot-2019-06-01-14.46.19.jpg?w=300&#038;h=199" alt="" width="300" height="199" srcset="https://gregv.files.wordpress.com/2019/06/screenshot-2019-06-01-14.46.19.jpg?w=300&amp;h=199 300w, https://gregv.files.wordpress.com/2019/06/screenshot-2019-06-01-14.46.19.jpg?w=600&amp;h=398 600w, https://gregv.files.wordpress.com/2019/06/screenshot-2019-06-01-14.46.19.jpg?w=120&amp;h=79 120w" sizes="(max-width: 300px) 100vw, 300px" /></a><p id="caption-attachment-715" class="wp-caption-text">MixHop architecture</p></div>
+
+			</div>
+	<br class="clear" />
+	<small class="metadata">
+		<span class="category">Filed under: <a href="https://apparenthorizons.com/category/posted-by-greg-ver-steeg/" rel="category tag">Posted by Greg Ver Steeg</a>	</span>
+		&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://apparenthorizons.com/2019/06/01/icml-and-mixhop/#respond" class="commentslink" >Leave a <span>Comment</span></a>		<br />	</small>
+</div><!-- #post-714 -->
+
+		
+<div id="post-698" class="item entry post-698 post type-post status-publish format-standard hentry category-posted-by-greg-ver-steeg">
+	<div class="itemhead">
+		<h3>
+					<a href="https://apparenthorizons.com/2018/11/19/fairness-and-information/" rel="bookmark">Fairness and Information</a>
+				</h3>
+		<div class="chronodata">19Nov18</div>
+
+		<!-- The following two sections are for a noteworthy plugin currently in alpha. They'll get cleaned up and integrated better -->
+		
+			
+	</div>
+
+	<div class="itemtext">
+		<p><img data-attachment-id="707" data-permalink="https://apparenthorizons.com/2018/11/19/fairness-and-information/binary-confederate-rip/" data-orig-file="https://gregv.files.wordpress.com/2018/11/binary-confederate-rip.png" data-orig-size="228,180" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="binary confederate rip" data-image-description="" data-medium-file="https://gregv.files.wordpress.com/2018/11/binary-confederate-rip.png?w=228" data-large-file="https://gregv.files.wordpress.com/2018/11/binary-confederate-rip.png?w=228" class="alignnone  wp-image-707" src="https://gregv.files.wordpress.com/2018/11/binary-confederate-rip.png?w=99&#038;h=78" alt="binary confederate rip" width="99" height="78" srcset="https://gregv.files.wordpress.com/2018/11/binary-confederate-rip.png?w=99&amp;h=78 99w, https://gregv.files.wordpress.com/2018/11/binary-confederate-rip.png?w=198&amp;h=156 198w, https://gregv.files.wordpress.com/2018/11/binary-confederate-rip.png?w=120&amp;h=95 120w" sizes="(max-width: 99px) 100vw, 99px" /></p>
+<p><a href="https://en.wikipedia.org/wiki/Disenfranchisement_after_the_Reconstruction_Era#Methods_of_disenfranchisement">Southern information theorists after the civil war</a> realized that although they could no longer exclude former slaves from the polls, they could exclude people based on other criteria like, say, education, and that these criteria happen to be highly correlated with formerly being a slave who was not allowed education. Republican information theorists continue to exploit this observation in ugly ways to exclude voters, like disenfranchising voters without street addresses (<a href="https://www.nytimes.com/2018/10/19/us/politics/north-dakota-voter-identification-registration.html">many Native Americans</a>).</p>
+<p>In the era of big data, these deplorable types of discrimination have become more insidious. Algorithms determine things like what you see on your Facebook feed or whether you are approved for a home loan. Although a loan approval can&#8217;t be explicitly based on race, it might depend on your zip code which may be highly correlated <a href="https://en.wikipedia.org/wiki/Redlining">for historical reasons</a>.</p>
+<p>This leads to an interesting mathematical question: can we design algorithms that are good at predicting things like whether you are a promising applicant for a home loan without being discriminatory? This type of question is the heart of the emerging <a href="http://www.fatml.org">field</a> of &#8220;fair representation learning&#8221;.</p>
+<p>This is effectively an information theory question. We want to know if our data contains information about the thing that we would like to predict, but that is not informative about some protected variable. The contribution of a great PhD student in my group, <a href="http://www-scf.usc.edu/~moyerd/">Daniel</a> <a href="https://twitter.com/dc_moyer">Moyer</a>, to the growing field of fair representation learning was to come up with an explicit and direct information-theoretic characterization of this problem. His results will appear as <a href="https://arxiv.org/abs/1805.09458">a paper at NIPS</a> this year.</p>
+<p>He showed that an information-theoretic approach could be more effective with less effort than previous approaches which rely on an adversary to test whether any protected information has leaked through. He also showed that you can use this approach in other fun ways. For instance, you can imagine counter-factual answers like what the data would look like if we changed just the protected variable and nothing else. As a concrete visual example, you can imagine that our &#8220;protected variable&#8221; is the digit in a handwritten picture. Now our neural net learns to represent the image, but without knowing which specific digit was written. Then we can run the neural net in reverse to reconstruct an image that looks similar to the original stylistically but with any value of the digit that we choose.</p>
+<div data-shortcode="caption" id="attachment_702" style="width: 514px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-702" data-attachment-id="702" data-permalink="https://apparenthorizons.com/2018/11/19/fairness-and-information/vae_mnist-2/" data-orig-file="https://gregv.files.wordpress.com/2018/11/vae_mnist.png" data-orig-size="504,417" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="vae_mnist" data-image-description="" data-medium-file="https://gregv.files.wordpress.com/2018/11/vae_mnist.png?w=300" data-large-file="https://gregv.files.wordpress.com/2018/11/vae_mnist.png?w=500" class="alignnone size-full wp-image-702" src="https://gregv.files.wordpress.com/2018/11/vae_mnist.png?w=500" alt="vae_mnist" srcset="https://gregv.files.wordpress.com/2018/11/vae_mnist.png?w=500 500w, https://gregv.files.wordpress.com/2018/11/vae_mnist.png?w=120 120w, https://gregv.files.wordpress.com/2018/11/vae_mnist.png?w=300 300w, https://gregv.files.wordpress.com/2018/11/vae_mnist.png 504w" sizes="(max-width: 500px) 100vw, 500px"   /><p id="caption-attachment-702" class="wp-caption-text">Fig. 3 from <a href="https://arxiv.org/abs/1805.09458">our paper</a>.</p></div>
+<p>Going back to the original motivation about fairness, even though we can define it in this information-theoretic way it&#8217;s not clear that this fits a human conception of fairness in all scenarios. Formulating fairness in a way that meets societal goals for different situations <em>and </em>is quantifiable is an ongoing problem in this interesting new field.</p>
+
+			</div>
+	<br class="clear" />
+	<small class="metadata">
+		<span class="category">Filed under: <a href="https://apparenthorizons.com/category/posted-by-greg-ver-steeg/" rel="category tag">Posted by Greg Ver Steeg</a>	</span>
+		&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://apparenthorizons.com/2018/11/19/fairness-and-information/#comments" class="commentslink" >1&nbsp;<span>Comment</span></a>		<br />	</small>
+</div><!-- #post-698 -->
+
+		
+<div id="post-700" class="item entry post-700 post type-post status-publish format-standard hentry category-posted-by-greg-ver-steeg">
+	<div class="itemhead">
+		<h3>
+					<a href="https://apparenthorizons.com/2018/11/16/no-blog-iversary-update/" rel="bookmark">No blog-iversary update</a>
+				</h3>
+		<div class="chronodata">16Nov18</div>
+
+		<!-- The following two sections are for a noteworthy plugin currently in alpha. They'll get cleaned up and integrated better -->
+		
+			
+	</div>
+
+	<div class="itemtext">
+		<p>It&#8217;s officially been a year since my last blog. There have been so many exciting new things going on that it&#8217;s been hard to take time out for some nice big picture blog posts. Here are a few areas that I have the best of intentions for getting to.</p>
+<ul>
+<li>Fair representation learning using information theory (<a href="https://arxiv.org/abs/1805.09458">2018 NIPS paper</a>)</li>
+<li><a href="https://ryanjgallagher.github.io/about/">Ryan Gallagher&#8217;s</a> nice work on <a href="https://arxiv.org/abs/1611.10277">anchored topic models</a>.</li>
+<li>Finding coordinated activity in collective sensing games and other spatiotemporal data using structured latent factor discovery. (This is mostly for showing off cool movies.)</li>
+<li> Echo noise. This is a new approach for bounding the information capacity in learning, and allows us to do many cool things like information bottleneck, VAEs, and sparse regression.</li>
+<li>A <a href="https://arxiv.org/abs/1706.03353">blessing of dimensionality</a> and how we can use it for better causal inference.</li>
+<li>I&#8217;ve still never blogged about our work on <a href="https://simonyanlab.hms.harvard.edu/news/presentations-annual-meeting-organization-human-brain-mapping-2018-singapore">neuroimaging</a> or <a href="https://www.frontiersin.org/articles/10.3389/fnagi.2018.00390/full">Alzheimer&#8217;s disease</a> (see an <a href="https://viterbischool.usc.edu/news/2019/01/usc-researchers-use-ai-to-detect-early-signs-of-alzheimers/">article here</a>)</li>
+<li><a href="https://arxiv.org/abs/1711.04044">Sahil Garg&#8217;s paper for AAAI 2019</a> on biomedical relation extraction</li>
+<li><a href="https://arxiv.org/abs/1805.06951">Neal Lawton&#8217;s work at UAI 2018</a> and ongoing mission to improve inference in hidden variable models</li>
+<li>Automating data science! (preview <a href="https://www.isi.edu/~gil/papers/gil-etal-automl18.pdf">here</a>)</li>
+</ul>
+
+			</div>
+	<br class="clear" />
+	<small class="metadata">
+		<span class="category">Filed under: <a href="https://apparenthorizons.com/category/posted-by-greg-ver-steeg/" rel="category tag">Posted by Greg Ver Steeg</a>	</span>
+		&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://apparenthorizons.com/2018/11/16/no-blog-iversary-update/#respond" class="commentslink" >Leave a <span>Comment</span></a>		<br />	</small>
+</div><!-- #post-700 -->
+
+		
+<div id="post-508" class="item entry post-508 post type-post status-publish format-standard hentry category-posted-by-greg-ver-steeg">
+	<div class="itemhead">
+		<h3>
+					<a href="https://apparenthorizons.com/2017/11/12/macro-causality-and-social-science/" rel="bookmark">Macro-causality and social&nbsp;science</a>
+				</h3>
+		<div class="chronodata">12Nov17</div>
+
+		<!-- The following two sections are for a noteworthy plugin currently in alpha. They'll get cleaned up and integrated better -->
+		
+			
+	</div>
+
+	<div class="itemtext">
+		<p>Consider a little science experiment we’ve all done, to find out if a switch controls a light. How many data points does it usually take to convince you? Not many! Even if you didn’t do a randomized trial yourself, and observed somebody else manipulating the switch you’d figure it out pretty quickly. This type of science is easy!</p>
+<p><a href="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-8-29-22-pm.jpg"><img data-attachment-id="509" data-permalink="https://apparenthorizons.com/2017/11/12/macro-causality-and-social-science/screen-shot-2017-10-04-at-8-29-22-pm/" data-orig-file="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-8-29-22-pm.jpg" data-orig-size="1254,778" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="light switch" data-image-description="" data-medium-file="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-8-29-22-pm.jpg?w=300" data-large-file="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-8-29-22-pm.jpg?w=500" class="aligncenter size-large wp-image-509" src="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-8-29-22-pm.jpg?w=500&#038;h=310" alt="" width="500" height="310" srcset="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-8-29-22-pm.jpg?w=500&amp;h=310 500w, https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-8-29-22-pm.jpg?w=1000&amp;h=620 1000w, https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-8-29-22-pm.jpg?w=120&amp;h=74 120w, https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-8-29-22-pm.jpg?w=300&amp;h=186 300w, https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-8-29-22-pm.jpg?w=768&amp;h=476 768w" sizes="(max-width: 500px) 100vw, 500px" /></a></p>
+<p>One thing that makes this easy is that you already know the right level of abstraction for the problem: what a switch is, and what a bulb is. You also have some prior knowledge, e.g. that switches typically have two states, and that it often controls things like lights. What if the data you had was actually a million variables, representing the state of every atom in the switch, or in the room?</p>
+<p><a href="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-8-29-33-pm.jpg"><img data-attachment-id="510" data-permalink="https://apparenthorizons.com/2017/11/12/macro-causality-and-social-science/screen-shot-2017-10-04-at-8-29-33-pm/" data-orig-file="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-8-29-33-pm.jpg" data-orig-size="2042,750" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="fine-grain switch" data-image-description="" data-medium-file="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-8-29-33-pm.jpg?w=300" data-large-file="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-8-29-33-pm.jpg?w=500" class="aligncenter size-large wp-image-510" src="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-8-29-33-pm.jpg?w=500&#038;h=184" alt="" width="500" height="184" srcset="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-8-29-33-pm.jpg?w=500&amp;h=184 500w, https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-8-29-33-pm.jpg?w=1000&amp;h=368 1000w, https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-8-29-33-pm.jpg?w=120&amp;h=44 120w, https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-8-29-33-pm.jpg?w=300&amp;h=110 300w, https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-8-29-33-pm.jpg?w=768&amp;h=282 768w" sizes="(max-width: 500px) 100vw, 500px" /></a></p>
+<p>Even though, technically, this data includes everything about the state of the switch, it’s overkill and not directly useful. For it to be useful, it would be better if you could boil it back down to a “<em>macro</em>” description consisting of just a switch with two states. Unfortunately, it’s not very easy to go from the micro description to the macro one. One reason for this is the &#8220;curse of dimensionality&#8221;: a few samples of a million dimensional space is considered very under-sampled, and directly applying machine learning methods using this type of data typically leads to unreliable results.</p>
+<p>As an example of another thing that could go wrong, imagine that we detect, with p&lt;0.000001, that atom 173 is a perfect predictor of the light being on or off. Headlines immediately proclaim the important role of atom 173 in production of light. A complicated apparatus to manipulate atom 173 is devised only to reveal&#8230; nothing. The role of this atom is meaningless in isolation from the rest of the switch. And this hints at the meaning of &#8220;macro-causality&#8221; &#8211; to identify (simple) causal effects, we first have describe our system at the right level of abstraction. Then we can say that flipping the switch causes the light to go on. While there exists a causal story involving all the atoms in the switch, electrons, etc., but this is not very useful.</p>
+<h3>Social science&#8217;s micro-macro problem</h3>
+<p>Social science has a similar micro-macro problem. If we get &#8220;micro&#8221; data about every decision an individual makes, is it possible to recover the macro state of the individual? You could ask the same where the micro-variables are individuals and you want to know the state of an organization like a company.</p>
+<p><a href="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-8-30-17-pm.jpg"><img data-attachment-id="511" data-permalink="https://apparenthorizons.com/2017/11/12/macro-causality-and-social-science/screen-shot-2017-10-04-at-8-30-17-pm/" data-orig-file="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-8-30-17-pm.jpg" data-orig-size="1556,294" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="social science macro" data-image-description="" data-medium-file="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-8-30-17-pm.jpg?w=300" data-large-file="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-8-30-17-pm.jpg?w=500" class="aligncenter size-large wp-image-511" src="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-8-30-17-pm.jpg?w=500&#038;h=94" alt="" width="500" height="94" srcset="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-8-30-17-pm.jpg?w=500&amp;h=94 500w, https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-8-30-17-pm.jpg?w=995&amp;h=188 995w, https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-8-30-17-pm.jpg?w=120&amp;h=23 120w, https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-8-30-17-pm.jpg?w=300&amp;h=57 300w, https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-8-30-17-pm.jpg?w=768&amp;h=145 768w" sizes="(max-width: 500px) 100vw, 500px" /></a></p>
+<p>Currently, we use expert intuition to come up with macro-states. For individuals, this might be a theory of personality or mood and include states like extroversion, or a test of depression, etc. After dreaming up a good idea for a macro-state, the expert makes up some questions that they think reflect that factor. Finally, they ask an individual to answer these questions. There are many places where things can go wrong in this process. Do experts really know all the macro states for individuals, or organizations? Do the questions they come up with accurately gauge these states? Are the answers that individuals provide a reliable measure?</p>
+<p>Most of social science is about answering the last two questions. We assume that we know what the right macro-states are (mood, personality, etc.) and we just need better ways to measure them. What if we are wrong? There may be hidden states underlying human behavior that remain unknown. This brings us back to the light switch example. If we can identify the right description of our system (a switch with two states), experimenting with the effects of the switch is easy.</p>
+<h3>Macro approaches and limitations</h3>
+<p>The mapping from micro to macro is sometimes called &#8220;coarse-graining&#8221; by physicists. Unfortunately coarse-graining in physics usually relies on reasoning based on the physical laws of the universe, allowing us, for instance, to analytically derive an expression allowing us to go from describing a box of atoms with many degrees of freedom to a simple description involving just three macro-variables: volume, pressure, and temperature.</p>
+<p>The analytic approach isn&#8217;t going to work for social science. If we ask, &#8220;why didn&#8217;t Jane go to the party?&#8221;, an answer involving the firing of neurons in her brain is not very useful, even if it is technically correct. We want a macro-state description that gives us a a more abstract causal explanation, even if the connection with micro-states is not as clean as the ideal gas law.</p>
+<p>There are some more data-driven approaches to coarse-graining. One of the things I work on, <a href="https://arxiv.org/abs/1706.08984">CorEx</a>, says that &#8220;a good macro-variable description should explain most of the relationships among the micro-variables.&#8221; We have gotten some mileage from this idea, finding useful structure in <a href="https://apparenthorizons.com/2016/10/04/cancer-in-the-time-of-algorithms/">gene expression</a> data, social science data, and (in ongoing work) brain imaging, but it&#8217;s far from enough to solve this problem.  Currently these approaches  address course-graining without handling the causal aspect. One promising direction for future work is to jointly model abstractions and causality.</p>
+<p>A long line of research sometimes called computational mechanics and developed by Shalizi and Crutchfield, among others, says that our macro-state description should be a minimal sufficient statistic for optimally predicting the future from the past. Here&#8217;s an older high-level <a href="https://arxiv.org/abs/cond-mat/0303625">summary</a> and long list of <a href="http://csc.ucdavis.edu/~cmg/compmech/pubs.htm">other publications</a>. One of the main problems with this approach for social science is that the sufficient statistics may not give us much insight for systems with many internal degrees of freedom. We would like to be able to structure our macro-states in a meaningful way. <a href="https://arxiv.org/abs/1409.7403">A similar approach</a> also looks for compressed state space representations but focuses more on the complexity and efficiency of simulating a system using its macrostate description.</p>
+<p>Eberhardt and Chalupka introduced me to the term &#8220;macro-causal&#8221; which they have formalized in the &#8220;causal coarsening theorem&#8221;. <a href="http://old.hss.caltech.edu/~fde/papers/CEP2017.pdf">A review</a> of their work using causal coarsening includes a nice example where they infer macro-level climate effects (El Nino) from micro-level wind and temperature data.</p>
+<p>Finally, an idea that I really like but is still in its infancy is to find macro-states that maximize <a href="http://www.mdpi.com/1099-4300/19/5/188/htm">interventional efficiency</a>. A good macro-state description is one that, if we manipulated it, would produce strong causal effects. Scott Aaronson gives a humorous critique of this work, &#8220;<a href="https://www.scottaaronson.com/blog/?p=3294">Higher level causation exists (but I wish it didn&#8217;t)</a>&#8220;. I don&#8217;t think the current formulation of interventional efficiency is correct either, but I think the idea has potential.</p>
+<p>It&#8217;s hard to be both practical and rigorous when it comes to complex systems involving human behavior. The most successful example of discovering a macro-causal effect, I think, comes from the El Nino example but this is still relatively easy compared to the problems in social science. In the climate case, they were able to restrict the focus to homogeneous array of sensors in an area where we expect to find only a small number of relevant macro-variables. For humans, we get a jumble of missing and heterogeneous data and (intuitively) feel that there are many hidden factors at play even in the simplest questions. These challenges guarantee lots of room for improvement.</p>
+<p><a href="http://approximatelycorrect.com">Cross-posted to Approximately Correct.</a></p>
+
+			</div>
+	<br class="clear" />
+	<small class="metadata">
+		<span class="category">Filed under: <a href="https://apparenthorizons.com/category/posted-by-greg-ver-steeg/" rel="category tag">Posted by Greg Ver Steeg</a>	</span>
+		&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://apparenthorizons.com/2017/11/12/macro-causality-and-social-science/#comments" class="commentslink" >2&nbsp;<span>Comments</span></a>		<br />	</small>
+</div><!-- #post-508 -->
+
+		
+<div id="post-522" class="item entry post-522 post type-post status-publish format-standard hentry category-posted-by-greg-ver-steeg">
+	<div class="itemhead">
+		<h3>
+					<a href="https://apparenthorizons.com/2017/10/12/the-grue-problem-and-deep-learning/" rel="bookmark">The &#8220;Grue&#8221; problem (and deep&nbsp;learning)</a>
+				</h3>
+		<div class="chronodata">12Oct17</div>
+
+		<!-- The following two sections are for a noteworthy plugin currently in alpha. They'll get cleaned up and integrated better -->
+		
+			
+	</div>
+
+	<div class="itemtext">
+		<p>The Grue language doesn&#8217;t have words for &#8220;blue&#8221; or &#8220;green&#8221;. Instead Grue speakers have the following concepts:</p>
+<blockquote><p>grue: green during the day and blue at night</p>
+<p>bleen: blue during the day and green at night</p>
+<p><a href="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-7-52-10-pm.jpg"><img data-attachment-id="504" data-permalink="https://apparenthorizons.com/?attachment_id=504" data-orig-file="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-7-52-10-pm.jpg" data-orig-size="1134,606" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="grue and bleen definition" data-image-description="" data-medium-file="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-7-52-10-pm.jpg?w=300" data-large-file="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-7-52-10-pm.jpg?w=500" class="aligncenter size-large wp-image-504" src="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-7-52-10-pm.jpg?w=500&#038;h=267" alt="" width="500" height="267" srcset="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-7-52-10-pm.jpg?w=500&amp;h=267 500w, https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-7-52-10-pm.jpg?w=1000&amp;h=534 1000w, https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-7-52-10-pm.jpg?w=120&amp;h=64 120w, https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-7-52-10-pm.jpg?w=300&amp;h=160 300w, https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-7-52-10-pm.jpg?w=768&amp;h=410 768w" sizes="(max-width: 500px) 100vw, 500px" /></a></p></blockquote>
+<p>(This example is adapted from <a href="https://en.wikipedia.org/wiki/New_riddle_of_induction">the original grue thought experiment.</a>) To us, these concepts seem needlessly complicated. However, to a Grue speaker, it is our language that is unnecessarily complicated. For him, green has the cumbersome definition of &#8220;grue during the day and bleen at night&#8221;.</p>
+<p><a href="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-7-52-18-pm.jpg"><img data-attachment-id="505" data-permalink="https://apparenthorizons.com/?attachment_id=505" data-orig-file="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-7-52-18-pm.jpg" data-orig-size="2840,1200" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="grue troll" data-image-description="" data-medium-file="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-7-52-18-pm.jpg?w=300" data-large-file="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-7-52-18-pm.jpg?w=500" class="aligncenter size-large wp-image-505" src="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-7-52-18-pm.jpg?w=500&#038;h=211" alt="" width="500" height="211" srcset="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-7-52-18-pm.jpg?w=500&amp;h=211 500w, https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-7-52-18-pm.jpg?w=1000&amp;h=422 1000w, https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-7-52-18-pm.jpg?w=120&amp;h=51 120w, https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-7-52-18-pm.jpg?w=300&amp;h=127 300w, https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-7-52-18-pm.jpg?w=768&amp;h=325 768w" sizes="(max-width: 500px) 100vw, 500px" /></a></p>
+<p>How can we wipe the smug smile off this Grue speaker&#8217;s face, and convince him of the obvious superiority of our own concepts of blue and green? What we do is sneak into his house at night and blindfold and drug the Grue speaker. We take him to a cave deep underground and leave him there for a few days. When he wakes up, he has no idea whether it is day or night. We remove his blindfold and present him with a simple choice: press the grue button and we let him go, but press the bleen button&#8230; Now he&#8217;s forced to admit the shortcomings of &#8220;grue&#8221; as a concept. By withholding irrelevant extra information (the time of day), grue does not provide any information about visual appearance. Obviously, if we told him to press the green button, he&#8217;d be much better off.</p>
+<p><a href="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-7-52-30-pm.jpg"><img data-attachment-id="506" data-permalink="https://apparenthorizons.com/?attachment_id=506" data-orig-file="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-7-52-30-pm.jpg" data-orig-size="2516,1528" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Screen Shot 2017-10-04 at 7.52.30 PM" data-image-description="" data-medium-file="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-7-52-30-pm.jpg?w=300" data-large-file="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-7-52-30-pm.jpg?w=500" class="aligncenter size-large wp-image-506" src="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-7-52-30-pm.jpg?w=500&#038;h=304" alt="" width="500" height="304" srcset="https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-7-52-30-pm.jpg?w=500&amp;h=304 500w, https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-7-52-30-pm.jpg?w=1000&amp;h=608 1000w, https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-7-52-30-pm.jpg?w=120&amp;h=73 120w, https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-7-52-30-pm.jpg?w=300&amp;h=182 300w, https://gregv.files.wordpress.com/2017/10/screen-shot-2017-10-04-at-7-52-30-pm.jpg?w=768&amp;h=466 768w" sizes="(max-width: 500px) 100vw, 500px" /></a></p>
+<p>We say that grue-ness and time of day exhibit &#8220;informational synergy&#8221; with respect to predicting the visual appearance of an object. Synergy means the &#8220;whole is more than the sum of the parts&#8221; and in this case, knowing either the time of day or the grue-ness of an object does not help you predict its appearance, but knowing both together gives you perfect information.</p>
+<h3>Grues in deep learning</h3>
+<p>This whimsical story is a very close analogy for what happens in the field of &#8220;representation learning&#8221;. Neural nets and the like learn representations of some data consisting of &#8220;neurons&#8221; that we can think of as concepts or words in a language, like &#8220;grue&#8221;. There&#8217;s no reason for generic deep learners to prefer a representation involving grue/bleen to one with blue/green because either will have the same ability to make good predictions. And so most learned representations are synergistic and when we look at individual neurons in these representations they have no apparent meaning.</p>
+<p>The importance of interpretable models is becoming acutely apparent in biomedical fields where blackbox predictions can be <a href="https://dl.acm.org/citation.cfm?id=2788613">actively dangerous</a>. We would like to quantify and minimize synergies in representation learning to encourage more interpretable and robust representations. Early attempts to do this are described in <a href="https://arxiv.org/abs/1710.03839">this paper about synergy</a> and another paper demonstrates some <a href="https://arxiv.org/abs/1706.03353">benefits of a less synergistic factor model</a>.</p>
+<h3>Revenge of the Grue</h3>
+<p>Now, after making this case, I want to expose our linguo-centrism and provide the Grue apologist&#8217;s argument, adapted from a conversation with <a href="http://jfoulds.informationsystems.umbc.edu">Jimmy Foulds</a>. It turns out the Grue speakers live on an island that has two species of jellyfish: a bleen-colored one that is deadly poisonous and a grue-colored one which is delicious. Since the Grue people encounter these jellyfish on a daily basis and their very lives are at stake, they find it very convenient to speak of &#8220;grue&#8221; jellyfish, since in the time it takes them to warn about a &#8220;blue during the day but green at night jellyfish&#8221;, someone could already be dead. This story doesn&#8217;t contradict the previous one but highlights an important point. Synergy only makes sense with respect to a certain set of predicted variables. If we minimize synergies in our mental model of the world, then our most common observations and tasks will determine what constitutes a parsimonious representation of our reality.</p>
+<h4>Acknowledgments</h4>
+<p>I want to thank some of the <a href="https://github.com/brekelma/character-disentanglement-emnist">PhD students</a> who have been integral to this work. Rob Brekelmans did many nice experiments for the synergy paper. He has provided code for the character disentangling <a href="https://github.com/brekelma/character-disentanglement-emnist">benchmark task</a> in the paper. Dave Kale suggested key aspects of this setup. Finally Hrayr Harutyunyan has been doing some amazing work in understanding and improving on different aspects of these models. The code for the <a href="https://github.com/gregversteeg/LinearCorex">disentangled linear factor models</a> is here, I hope to do some in depth posts about different aspects of that model (like blessings of dimensionality!).</p>
+
+			</div>
+	<br class="clear" />
+	<small class="metadata">
+		<span class="category">Filed under: <a href="https://apparenthorizons.com/category/posted-by-greg-ver-steeg/" rel="category tag">Posted by Greg Ver Steeg</a>	</span>
+		&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://apparenthorizons.com/2017/10/12/the-grue-problem-and-deep-learning/#comments" class="commentslink" >1&nbsp;<span>Comment</span></a>		<br />	</small>
+</div><!-- #post-522 -->
+
+		
+<div id="post-498" class="item entry post-498 post type-post status-publish format-standard hentry category-posted-by-greg-ver-steeg">
+	<div class="itemhead">
+		<h3>
+					<a href="https://apparenthorizons.com/2017/03/21/gene-expression-updates/" rel="bookmark">Gene expression updates</a>
+				</h3>
+		<div class="chronodata">21Mar17</div>
+
+		<!-- The following two sections are for a noteworthy plugin currently in alpha. They'll get cleaned up and integrated better -->
+		
+			
+	</div>
+
+	<div class="itemtext">
+		<p>The work with Shirley Pepke on using CorEx to find patterns in gene expression data is finally <a href="https://bmcmedgenomics.biomedcentral.com/articles/10.1186/s12920-017-0245-6">published in BMC Medical Genomics</a>.</p>
+<p>Shirley wrote a <a href="http://blogs.biomedcentral.com/bmcseriesblog/2017/03/15/machine-learning-reveals-correlations-of-gene-expression-and-outcomes-in-ovarian-cancer/">blog post</a> about it as well. She will present this work at the <a href="https://dbmi.hms.harvard.edu/events/precision-medicine/2017-breakaway-business-models">Harvard Precision Medicine conference</a> and we&#8217;ll both present at <a href="https://dataedge.ischool.berkeley.edu">Berkeley&#8217;s Data Edge conference</a>.</p>
+<p><a href="https://github.com/gregversteeg/bio_corex">The code we used for the paper is online</a>. I&#8217;m excited to see what people discover with these techniques, but I also can see we have more to do. If speed is an issue (it took us two days to run on a dataset with 6000 genes&#8230; many datasets can have an order of magnitude more genes), please get in touch as we have some experimental versions that are faster. We are also working on making the entire analysis pipeline more automated (i.e. connecting discovered factors with known biology and visualizing predictive factors.)</p>
+<p>&nbsp;</p>
+
+			</div>
+	<br class="clear" />
+	<small class="metadata">
+		<span class="category">Filed under: <a href="https://apparenthorizons.com/category/posted-by-greg-ver-steeg/" rel="category tag">Posted by Greg Ver Steeg</a>	</span>
+		&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://apparenthorizons.com/2017/03/21/gene-expression-updates/#respond" class="commentslink" >Leave a <span>Comment</span></a>		<br />	</small>
+</div><!-- #post-498 -->
+
+		
+<div id="post-440" class="item entry post-440 post type-post status-publish format-standard hentry category-posted-by-greg-ver-steeg">
+	<div class="itemhead">
+		<h3>
+					<a href="https://apparenthorizons.com/2016/10/04/cancer-in-the-time-of-algorithms/" rel="bookmark">Cancer in the time of&nbsp;algorithms</a>
+				</h3>
+		<div class="chronodata">04Oct16</div>
+
+		<!-- The following two sections are for a noteworthy plugin currently in alpha. They'll get cleaned up and integrated better -->
+		
+			
+	</div>
+
+	<div class="itemtext">
+		<p>Edit: Also check out the <a href="https://www.washingtonpost.com/news/to-your-health/wp/2016/11/11/how-a-researcher-used-her-computational-know-how-to-beat-her-own-ovarian-cancer/">story by the Washington Post</a> and on <a href="https://www.cancer.gov/about-nci/organization/ccg/blog/2016/personalized-cancer-treatment-TCGA-data">cancer.gov</a>.</p>
+<p>Shirley is a collaborator of mine who works on using gene expression data to get a better understanding of ovarian cancer. She has a remarkable personal story that is featured in a podcast about our work together. I laughed, I cried, I can&#8217;t recommend it enough. It can be found on <a href="https://itunes.apple.com/us/podcast/escape-velocity/id1121369085">itunes</a> and on soundcloud (link below).</p>
+<p>As a physicist, I&#8217;m drawn towards simple principles that can explain phenomena that look complex. In biology, on the other hand, explanations tend to be messy and complicated. My recent work has really revolved around trying to use information theory to cut through messy data to discover the strongest signals. My work with Shirley applies this idea to gene expression data for patients with ovarian cancer. Thanks to Shirley&#8217;s amazing work, we were able to find a ton of interesting biological signals that could potentially have a real impact on treating this deadly disease. You can see a preprint of <a href="http://biorxiv.org/content/early/2016/09/19/043257">our work here</a>.</p>
+<p>I want to share one quick result. People often judge clusters discovered in gene expression data based on how well they recover known biological signals. The plot below shows how well our method (CorEx) does compared to a standard method (k-means) and a very popular method in the literature (hierarchical clustering). We are doing a much better job of finding biologically meaningful clusters (at least according to gene ontology databases), and this is very useful for connecting our discovery of hidden factors that affect long-term survival to new drugs that might be useful for treating ovarian cancer.</p>
+<p><img data-attachment-id="431" data-permalink="https://apparenthorizons.com/?attachment_id=431" data-orig-file="https://gregv.files.wordpress.com/2016/09/tcga-clusters.png" data-orig-size="1512,834" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="TCGA clusters" data-image-description="" data-medium-file="https://gregv.files.wordpress.com/2016/09/tcga-clusters.png?w=300" data-large-file="https://gregv.files.wordpress.com/2016/09/tcga-clusters.png?w=500" class="alignnone size-full wp-image-431" src="https://gregv.files.wordpress.com/2016/09/tcga-clusters.png?w=500" alt="TCGA clusters" srcset="https://gregv.files.wordpress.com/2016/09/tcga-clusters.png?w=500 500w, https://gregv.files.wordpress.com/2016/09/tcga-clusters.png?w=1000 1000w, https://gregv.files.wordpress.com/2016/09/tcga-clusters.png?w=120 120w, https://gregv.files.wordpress.com/2016/09/tcga-clusters.png?w=300 300w, https://gregv.files.wordpress.com/2016/09/tcga-clusters.png?w=768 768w" sizes="(max-width: 500px) 100vw, 500px"   /></p>
+<p>&nbsp;</p>
+<div class="embed-soundcloud"><iframe width="500" height="400" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?visual=true&#038;url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F285256353&#038;show_artwork=true&#038;maxwidth=500&#038;maxheight=750"></iframe></div>
+<p>&nbsp;</p>
+
+			</div>
+	<br class="clear" />
+	<small class="metadata">
+		<span class="category">Filed under: <a href="https://apparenthorizons.com/category/posted-by-greg-ver-steeg/" rel="category tag">Posted by Greg Ver Steeg</a>	</span>
+		&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://apparenthorizons.com/2016/10/04/cancer-in-the-time-of-algorithms/#comments" class="commentslink" >2&nbsp;<span>Comments</span></a>		<br />	</small>
+</div><!-- #post-440 -->
+
+
+
+	
+	<div class="navigation">
+		<div class="left"><a href="https://apparenthorizons.com/page/2/" ><span>&laquo;</span> Older posts</a></div>
+		<div class="right"></div>
+		<div class="clear"></div>
+	</div>
+
+	
+
+	</div>
+
+	
+<hr />
+
+<ul class="secondary">
+
+		<li id="recent-posts-2" class="widget widget_recent_entries">		<h2 class="widgettitle">Recent Posts</h2>
+		<ul>
+											<li>
+					<a href="https://apparenthorizons.com/2019/06/01/icml-and-mixhop/">ICML and MixHop</a>
+									</li>
+											<li>
+					<a href="https://apparenthorizons.com/2018/11/19/fairness-and-information/">Fairness and Information</a>
+									</li>
+											<li>
+					<a href="https://apparenthorizons.com/2018/11/16/no-blog-iversary-update/">No blog-iversary update</a>
+									</li>
+											<li>
+					<a href="https://apparenthorizons.com/2017/11/12/macro-causality-and-social-science/">Macro-causality and social&nbsp;science</a>
+									</li>
+											<li>
+					<a href="https://apparenthorizons.com/2017/10/12/the-grue-problem-and-deep-learning/">The &#8220;Grue&#8221; problem (and deep&nbsp;learning)</a>
+									</li>
+					</ul>
+		</li><li id="twitter_timeline-2" class="widget widget_twitter_timeline"><h2 class="widgettitle">Twitter activity</h2>
+<a class="twitter-timeline" data-height="800" data-theme="light" data-border-color="#e8e8e8" data-lang="EN" data-partner="jetpack" href="https://twitter.com/gesteller" href="https://twitter.com/gesteller">My Tweets</a></li></ul>
+<div class="clear"></div>
+
+	<hr />
+<div id="glass-bottomblock">
+
+	<div class="bottomblockleft">
+		<h2>Recent Entries</h2>
+		<div class="sb-latest">
+		<ul>
+				<li><a href='https://apparenthorizons.com/2019/06/01/icml-and-mixhop/'>ICML and MixHop</a></li>
+	<li><a href='https://apparenthorizons.com/2018/11/19/fairness-and-information/'>Fairness and Information</a></li>
+	<li><a href='https://apparenthorizons.com/2018/11/16/no-blog-iversary-update/'>No blog-iversary update</a></li>
+	<li><a href='https://apparenthorizons.com/2017/11/12/macro-causality-and-social-science/'>Macro-causality and social&nbsp;science</a></li>
+	<li><a href='https://apparenthorizons.com/2017/10/12/the-grue-problem-and-deep-learning/'>The &#8220;Grue&#8221; problem (and deep&nbsp;learning)</a></li>
+	<li><a href='https://apparenthorizons.com/2017/03/21/gene-expression-updates/'>Gene expression updates</a></li>
+	<li><a href='https://apparenthorizons.com/2016/10/04/cancer-in-the-time-of-algorithms/' aria-current="page">Cancer in the time of&nbsp;algorithms</a></li>
+	<li><a href='https://apparenthorizons.com/2016/09/04/premature-optimization-optimization/'>Premature optimization optimization</a></li>
+	<li><a href='https://apparenthorizons.com/2016/06/22/icml-2016-slides/'>ICML 2016 slides</a></li>
+	<li><a href='https://apparenthorizons.com/2016/05/11/psychedelic-starfish/'>Psychedelic starfish</a></li>
+	<li><a href='https://apparenthorizons.com/2016/05/05/the-information-sieve/'>The Information Sieve</a></li>
+		</ul>
+		</div>
+	</div>
+
+	<div class="bottomblockmiddle">
+		<h2>Categories</h2>
+		<div class="sb-categories">
+		<ul>
+				<li class="cat-item cat-item-32367468"><a href="https://apparenthorizons.com/category/posted-by-greg-ver-steeg/">Posted by Greg Ver Steeg</a> (52)
+</li>
+		</ul>
+		</div>
+	</div>
+
+	<div class="bottomblockright">
+		<h2>Archives</h2>
+		<div class="sb-months">
+		<ul>
+				<li><a href='https://apparenthorizons.com/2019/06/'>June 2019</a></li>
+	<li><a href='https://apparenthorizons.com/2018/11/'>November 2018</a></li>
+	<li><a href='https://apparenthorizons.com/2017/11/'>November 2017</a></li>
+	<li><a href='https://apparenthorizons.com/2017/10/'>October 2017</a></li>
+	<li><a href='https://apparenthorizons.com/2017/03/'>March 2017</a></li>
+	<li><a href='https://apparenthorizons.com/2016/10/'>October 2016</a></li>
+	<li><a href='https://apparenthorizons.com/2016/09/'>September 2016</a></li>
+	<li><a href='https://apparenthorizons.com/2016/06/'>June 2016</a></li>
+	<li><a href='https://apparenthorizons.com/2016/05/'>May 2016</a></li>
+	<li><a href='https://apparenthorizons.com/2016/04/'>April 2016</a></li>
+	<li><a href='https://apparenthorizons.com/2015/11/'>November 2015</a></li>
+	<li><a href='https://apparenthorizons.com/2015/07/'>July 2015</a></li>
+	<li><a href='https://apparenthorizons.com/2015/04/'>April 2015</a></li>
+	<li><a href='https://apparenthorizons.com/2015/03/'>March 2015</a></li>
+	<li><a href='https://apparenthorizons.com/2014/05/'>May 2014</a></li>
+	<li><a href='https://apparenthorizons.com/2013/10/'>October 2013</a></li>
+	<li><a href='https://apparenthorizons.com/2013/07/'>July 2013</a></li>
+	<li><a href='https://apparenthorizons.com/2013/05/'>May 2013</a></li>
+	<li><a href='https://apparenthorizons.com/2013/04/'>April 2013</a></li>
+	<li><a href='https://apparenthorizons.com/2013/03/'>March 2013</a></li>
+	<li><a href='https://apparenthorizons.com/2013/01/'>January 2013</a></li>
+	<li><a href='https://apparenthorizons.com/2012/09/'>September 2012</a></li>
+	<li><a href='https://apparenthorizons.com/2012/05/'>May 2012</a></li>
+	<li><a href='https://apparenthorizons.com/2012/03/'>March 2012</a></li>
+	<li><a href='https://apparenthorizons.com/2012/02/'>February 2012</a></li>
+	<li><a href='https://apparenthorizons.com/2011/10/'>October 2011</a></li>
+	<li><a href='https://apparenthorizons.com/2011/07/'>July 2011</a></li>
+	<li><a href='https://apparenthorizons.com/2011/06/'>June 2011</a></li>
+	<li><a href='https://apparenthorizons.com/2011/04/'>April 2011</a></li>
+	<li><a href='https://apparenthorizons.com/2011/01/'>January 2011</a></li>
+	<li><a href='https://apparenthorizons.com/2010/12/'>December 2010</a></li>
+	<li><a href='https://apparenthorizons.com/2010/08/'>August 2010</a></li>
+	<li><a href='https://apparenthorizons.com/2010/03/'>March 2010</a></li>
+	<li><a href='https://apparenthorizons.com/2010/01/'>January 2010</a></li>
+	<li><a href='https://apparenthorizons.com/2009/07/'>July 2009</a></li>
+	<li><a href='https://apparenthorizons.com/2009/06/'>June 2009</a></li>
+	<li><a href='https://apparenthorizons.com/2009/04/'>April 2009</a></li>
+	<li><a href='https://apparenthorizons.com/2009/03/'>March 2009</a></li>
+	<li><a href='https://apparenthorizons.com/2009/02/'>February 2009</a></li>
+	<li><a href='https://apparenthorizons.com/2009/01/'>January 2009</a></li>
+	<li><a href='https://apparenthorizons.com/2008/12/'>December 2008</a></li>
+	<li><a href='https://apparenthorizons.com/2008/11/'>November 2008</a></li>
+	<li><a href='https://apparenthorizons.com/2008/10/'>October 2008</a></li>
+	<li><a href='https://apparenthorizons.com/2008/09/'>September 2008</a></li>
+	<li><a href='https://apparenthorizons.com/2008/08/'>August 2008</a></li>
+	<li><a href='https://apparenthorizons.com/2008/07/'>July 2008</a></li>
+	<li><a href='https://apparenthorizons.com/2005/09/'>September 2005</a></li>
+		</ul>
+		</div>
+	</div>
+
+</div>
+	
+</div>
+<div style="clear:both;"></div>
+</div>
+<!-- Close Page -->
+
+<div id="footer"><br /><hr />
+
+<a href="https://wordpress.com/?ref=footer_blog" rel="nofollow">Blog at WordPress.com.</a>
+</div>
+
+		<script type="text/javascript">
+		//<![CDATA[
+		var infiniteScroll = JSON.parse( decodeURIComponent( '%7B%22settings%22%3A%7B%22id%22%3A%22primary%22%2C%22ajaxurl%22%3A%22https%3A%5C%2F%5C%2Fapparenthorizons.com%5C%2F%3Finfinity%3Dscrolling%22%2C%22type%22%3A%22scroll%22%2C%22wrapper%22%3Atrue%2C%22wrapper_class%22%3A%22infinite-wrap%22%2C%22footer%22%3Atrue%2C%22click_handle%22%3A%221%22%2C%22text%22%3A%22Older%20posts%22%2C%22totop%22%3A%22Scroll%20back%20to%20top%22%2C%22currentday%22%3A%2204.10.16%22%2C%22order%22%3A%22DESC%22%2C%22scripts%22%3A%5B%5D%2C%22styles%22%3A%5B%5D%2C%22google_analytics%22%3Afalse%2C%22offset%22%3A0%2C%22history%22%3A%7B%22host%22%3A%22apparenthorizons.com%22%2C%22path%22%3A%22%5C%2Fpage%5C%2F%25d%5C%2F%22%2C%22use_trailing_slashes%22%3Atrue%2C%22parameters%22%3A%22%22%7D%2C%22query_args%22%3A%7B%22error%22%3A%22%22%2C%22m%22%3A%22%22%2C%22p%22%3A0%2C%22post_parent%22%3A%22%22%2C%22subpost%22%3A%22%22%2C%22subpost_id%22%3A%22%22%2C%22attachment%22%3A%22%22%2C%22attachment_id%22%3A0%2C%22name%22%3A%22%22%2C%22pagename%22%3A%22%22%2C%22page_id%22%3A0%2C%22second%22%3A%22%22%2C%22minute%22%3A%22%22%2C%22hour%22%3A%22%22%2C%22day%22%3A0%2C%22monthnum%22%3A0%2C%22year%22%3A0%2C%22w%22%3A0%2C%22category_name%22%3A%22%22%2C%22tag%22%3A%22%22%2C%22cat%22%3A%22%22%2C%22tag_id%22%3A%22%22%2C%22author%22%3A%22%22%2C%22author_name%22%3A%22%22%2C%22feed%22%3A%22%22%2C%22tb%22%3A%22%22%2C%22paged%22%3A0%2C%22meta_key%22%3A%22%22%2C%22meta_value%22%3A%22%22%2C%22preview%22%3A%22%22%2C%22s%22%3A%22%22%2C%22sentence%22%3A%22%22%2C%22title%22%3A%22%22%2C%22fields%22%3A%22%22%2C%22menu_order%22%3A%22%22%2C%22embed%22%3A%22%22%2C%22category__in%22%3A%5B%5D%2C%22category__not_in%22%3A%5B%5D%2C%22category__and%22%3A%5B%5D%2C%22post__in%22%3A%5B%5D%2C%22post__not_in%22%3A%5B%5D%2C%22post_name__in%22%3A%5B%5D%2C%22tag__in%22%3A%5B%5D%2C%22tag__not_in%22%3A%5B%5D%2C%22tag__and%22%3A%5B%5D%2C%22tag_slug__in%22%3A%5B%5D%2C%22tag_slug__and%22%3A%5B%5D%2C%22post_parent__in%22%3A%5B%5D%2C%22post_parent__not_in%22%3A%5B%5D%2C%22author__in%22%3A%5B%5D%2C%22author__not_in%22%3A%5B%5D%2C%22posts_per_page%22%3A7%2C%22ignore_sticky_posts%22%3Afalse%2C%22suppress_filters%22%3Afalse%2C%22cache_results%22%3Afalse%2C%22update_post_term_cache%22%3Atrue%2C%22lazy_load_term_meta%22%3Atrue%2C%22update_post_meta_cache%22%3Atrue%2C%22post_type%22%3A%22%22%2C%22nopaging%22%3Afalse%2C%22comments_per_page%22%3A%2250%22%2C%22no_found_rows%22%3Afalse%2C%22order%22%3A%22DESC%22%7D%2C%22last_post_date%22%3A%222016-10-04%2018%3A47%3A39%22%2C%22stats%22%3A%22blog%3D1385%26v%3Dwpcom%26tz%3D0%26user_id%3D0%26subd%3Dgregv%26x_pagetype%3Dinfinite%22%7D%7D' ) );
+		//]]>
+		</script>
+		<!--  -->
+<script src='//0.gravatar.com/js/gprofiles.js?ver=202014y'></script>
+<script>
+var WPGroHo = {"my_hash":""};
+</script>
+<script type='text/javascript' src='https://s1.wp.com/wp-content/mu-plugins/gravatar-hovercards/wpgroho.js?m=1380573781h'></script>
+
+	<script>
+		//initialize and attach hovercards to all gravatars
+		jQuery( document ).ready( function( $ ) {
+
+			if (typeof Gravatar === "undefined"){
+				return;
+			}
+
+			if ( typeof Gravatar.init !== "function" ) {
+				return;
+			}			
+
+			Gravatar.profile_cb = function( hash, id ) {
+				WPGroHo.syncProfileData( hash, id );
+			};
+			Gravatar.my_hash = WPGroHo.my_hash;
+			Gravatar.init( 'body', '#wp-admin-bar-my-account' );
+		});
+	</script>
+
+		<div style="display:none">
+	</div>
+<script>
+var HighlanderComments = {"loggingInText":"Logging In\u2026","submittingText":"Posting Comment\u2026","postCommentText":"Post Comment","connectingToText":"Connecting to %s","commentingAsText":"%1$s: You are commenting using your %2$s account.","logoutText":"Log Out","loginText":"Log In","connectURL":"https:\/\/gregv.wordpress.com\/public.api\/connect\/?action=request&domain=apparenthorizons.com","logoutURL":"https:\/\/gregv.wordpress.com\/wp-login.php?action=logout&_wpnonce=af45c8d7ad","homeURL":"https:\/\/apparenthorizons.com\/","postID":"714","gravDefault":"identicon","enterACommentError":"Please enter a comment","enterEmailError":"Please enter your email address here","invalidEmailError":"Invalid email address","enterAuthorError":"Please enter your name here","gravatarFromEmail":"This picture will show whenever you leave a comment. Click to customize it.","logInToExternalAccount":"Log in to use details from one of these accounts.","change":"Change","changeAccount":"Change Account","comment_registration":"","userIsLoggedIn":"","isJetpack":"","text_direction":"ltr"};
+</script>
+<script type='text/javascript' src='https://s0.wp.com/_static/??/wp-content/js/jquery/jquery.autoresize.js,/wp-content/mu-plugins/highlander-comments/script.js?m=1573483029j'></script>
+		<div id="infinite-footer">
+			<div class="container">
+				<div class="blog-info">
+					<a id="infinity-blog-title" href="https://apparenthorizons.com/" rel="home">
+						Apparent Horizons					</a>
+				</div>
+				<div class="blog-credits">
+					<a href="https://wordpress.com/?ref=footer_blog" rel="nofollow">Blog at WordPress.com.</a> 				</div>
+			</div>
+		</div><!-- #infinite-footer -->
+		
+	<div id="carousel-reblog-box">
+		<form action="#" name="carousel-reblog">
+			<textarea id="carousel-reblog-content" name="carousel-reblog-content" placeholder="Add your thoughts here... (optional)"></textarea>
+			<label for="carousel-reblog-to-blog-id" id="carousel-reblog-lblogid">Post to</label>
+			<select name="carousel-reblog-to-blog-id" id="carousel-reblog-to-blog-id">
+						</select>
+
+			<div class="submit">
+				<span class="canceltext"><a href="#" class="cancel">Cancel</a></span>
+				<input type="submit" name="carousel-reblog-submit" class="button" id="carousel-reblog-submit" value="Reblog Post" />
+				<input type="hidden" id="carousel-reblog-blog-id" value="1385" />
+				<input type="hidden" id="carousel-reblog-blog-url" value="https://apparenthorizons.com" />
+				<input type="hidden" id="carousel-reblog-blog-title" value="Apparent Horizons" />
+				<input type="hidden" id="carousel-reblog-post-url" value="" />
+				<input type="hidden" id="carousel-reblog-post-title" value="" />
+			</div>
+
+			<input type="hidden" id="_wpnonce" name="_wpnonce" value="382d446952" /><input type="hidden" name="_wp_http_referer" value="/" />		</form>
+
+		<div class="arrow"></div>
+	</div>
+<link rel='stylesheet' id='all-css-0-3' href='https://s0.wp.com/_static/??-eJx9jNEKwjAMRX/IGGQW5oP4LV0XS7esLUmK7O+d4ERffDz3cg4+KoSSjbJh5RZTVoxtw4EkwsAlzIoTWfVhBvZraQZR0ojv6y6bfAyqB/wqLQ32WPBSmhJ/IvvwT7LENEL0zCTrL72023I9ub7ru/PFuekJkfFIxQ==?cssminify=yes' type='text/css' media='all' />
+<script>
+var actionbardata = {"siteID":"1385","siteName":"Apparent Horizons","siteURL":"https:\/\/apparenthorizons.com","icon":"<img alt='' src='https:\/\/s2.wp.com\/i\/logo\/wpcom-gray-white.png' class='avatar avatar-50' height='50' width='50' \/>","canManageOptions":"","canCustomizeSite":"","isFollowing":"","themeSlug":"pub\/unsleepable","signupURL":"https:\/\/wordpress.com\/start\/","loginURL":"https:\/\/wordpress.com\/log-in?redirect_to=https%3A%2F%2Fapparenthorizons.com%2F2019%2F06%2F01%2Ficml-and-mixhop%2F&signup_flow=account&domain=apparenthorizons.com","themeURL":"","xhrURL":"https:\/\/apparenthorizons.com\/wp-admin\/admin-ajax.php","nonce":"33ccb3487e","isSingular":"","isFolded":"","isLoggedIn":"","isMobile":"","subscribeNonce":"<input type=\"hidden\" id=\"_wpnonce\" name=\"_wpnonce\" value=\"9f5c06123e\" \/>","referer":"https:\/\/apparenthorizons.com\/","canFollow":"1","feedID":"684059","statusMessage":"","customizeLink":"https:\/\/gregv.wordpress.com\/wp-admin\/customize.php?url=https%3A%2F%2Fgregv.wordpress.com%2F","i18n":{"view":"View site","follow":"Follow","following":"Following","edit":"Edit","login":"Log in","signup":"Sign up","customize":"Customize","report":"Report this content","themeInfo":"Get theme: Unsleepable","shortlink":"Copy shortlink","copied":"Copied","followedText":"New posts from this site will now appear in your <a href=\"https:\/\/wordpress.com\/read\">Reader<\/a>","foldBar":"Collapse this bar","unfoldBar":"Expand this bar","editSubs":"Manage subscriptions","viewReader":"View site in Reader","viewReadPost":"View post in Reader","subscribe":"Sign me up","enterEmail":"Enter your email address","followers":"Join 281 other followers","alreadyUser":"Already have a WordPress.com account? <a href=\"https:\/\/wordpress.com\/log-in?redirect_to=https%3A%2F%2Fapparenthorizons.com%2F2019%2F06%2F01%2Ficml-and-mixhop%2F&signup_flow=account&domain=apparenthorizons.com\">Log in now.<\/a>","stats":"Stats"}};
+</script>
+<script>
+var jetpackCarouselStrings = {"widths":[370,700,1000,1200,1400,2000],"is_logged_in":"","lang":"en","ajaxurl":"https:\/\/apparenthorizons.com\/wp-admin\/admin-ajax.php","nonce":"744d915420","display_exif":"1","display_geo":"1","single_image_gallery":"1","single_image_gallery_media_file":"","background_color":"black","comment":"Comment","post_comment":"Post Comment","write_comment":"Write a Comment...","loading_comments":"Loading Comments...","download_original":"View full size <span class=\"photo-size\">{0}<span class=\"photo-size-times\">\u00d7<\/span>{1}<\/span>","no_comment_text":"Please be sure to submit some text with your comment.","no_comment_email":"Please provide an email address to comment.","no_comment_author":"Please provide your name to comment.","comment_post_error":"Sorry, but there was an error posting your comment. Please try again later.","comment_approved":"Your comment was approved.","comment_unapproved":"Your comment is in moderation.","camera":"Camera","aperture":"Aperture","shutter_speed":"Shutter Speed","focal_length":"Focal Length","copyright":"Copyright","comment_registration":"0","require_name_email":"1","login_url":"https:\/\/gregv.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Fapparenthorizons.com%2F2019%2F06%2F01%2Ficml-and-mixhop%2F","blog_id":"1385","meta_data":["camera","aperture","shutter_speed","focal_length","copyright"],"local_comments_commenting_as":"<fieldset><label for=\"email\">Email (Required)<\/label> <input type=\"text\" name=\"email\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-email-field\" \/><\/fieldset><fieldset><label for=\"author\">Name (Required)<\/label> <input type=\"text\" name=\"author\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-author-field\" \/><\/fieldset><fieldset><label for=\"url\">Website<\/label> <input type=\"text\" name=\"url\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-url-field\" \/><\/fieldset>","reblog":"Reblog","reblogged":"Reblogged","reblog_add_thoughts":"Add your thoughts here... (optional)","reblogging":"Reblogging...","post_reblog":"Post Reblog","stats_query_args":"blog=1385&v=wpcom&tz=0&user_id=0&subd=gregv","is_public":"1","reblog_enabled":""};
+</script>
+<script type='text/javascript' src='https://s0.wp.com/_static/??-eJydUu1uwjAMfKGFiA0q+DHtUaaQuJW7xK5it4W3X2gp0tBWafyJLj7fxR+xY2c8kwKpbcUGGNBDd9608mILheRjH0AmDkXtABQ4X6mO46XGGDcJaUlfnLrYN0hi6z5GI6hgIKAiNWZmbHV82+1e90frOSWm2XvGj16pN4sdUo2EermD5989RS5BFhVToP+6dYcwPu8JZThadD1p4JFuxtMpj+RKly1o54rwswzf6oiqkI1igogEKzoXyibMyWWbnBRNQYYHyBmvC7zH/umgudQiayKvyHQV3dFKtneZe4G4dGmWwG8/TsaaTy14/WsnQ2mNrRMBnQTTvcsgawUrRgimcTFCvvy8FdVHet/uD/tDddhWVfsNK58pfA=='></script>
+<script type='text/javascript'>
+( 'fetch' in window ) || document.write( '<script src="https://s0.wp.com/wp-includes/js/dist/vendor/wp-polyfill-fetch.min.js?m=1573572739h&#038;ver=3.0.0"></scr' + 'ipt>' );( document.contains ) || document.write( '<script src="https://s1.wp.com/wp-includes/js/dist/vendor/wp-polyfill-node-contains.min.js?m=1540208548h&#038;ver=3.42.0"></scr' + 'ipt>' );( window.DOMRect ) || document.write( '<script src="https://s0.wp.com/wp-includes/js/dist/vendor/wp-polyfill-dom-rect.min.js?m=1585663916h&#038;ver=3.42.0"></scr' + 'ipt>' );( window.URL && window.URL.prototype && window.URLSearchParams ) || document.write( '<script src="https://s2.wp.com/wp-includes/js/dist/vendor/wp-polyfill-url.min.js?m=1585663916h&#038;ver=3.6.4"></scr' + 'ipt>' );( window.FormData && window.FormData.prototype.keys ) || document.write( '<script src="https://s1.wp.com/wp-includes/js/dist/vendor/wp-polyfill-formdata.min.js?m=1550600082h&#038;ver=3.0.12"></scr' + 'ipt>' );( Element.prototype.matches && Element.prototype.closest ) || document.write( '<script src="https://s2.wp.com/wp-includes/js/dist/vendor/wp-polyfill-element-closest.min.js?m=1540208548h&#038;ver=2.0.2"></scr' + 'ipt>' );
+</script>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script><script type="text/javascript">
+			jQuery.extend( infiniteScroll.settings.scripts, ["jquery-core","jquery-migrate","jquery","postmessage","mobile-useragent-info","spin","jquery.spin","grofiles-cards","wpgroho","jquery.autoresize","highlander-comments","devicepx","wp-polyfill","a8c-fse-common-script","the-neverending-homepage","blog-posts-block-view","event-countdown-js","jetpack-twitter-timeline","wpcom-masterbar-js","wpcom-masterbar-tracks-js","wpcom-actionbar-bar","jetpack-carousel","swfobject","videopress","tiled-gallery"] );
+			jQuery.extend( infiniteScroll.settings.styles, ["wpcom-smileys","a8c-fse-common-style","the-neverending-homepage","infinity-unsleepable","wp-block-library","jetpack-layout-grid","jetpack-ratings","jetpack-event-countdown","jetpack-timeline","blog-posts-block-view","coblocks-frontend","posts-list-block-style","wpcom-core-compat-playlist-styles","wpcom-bbpress2-staff-css","unsleepable","geo-location-flair","reblogging","a8c-global-print","wpcom-actionbar-bar","jetpack-global-styles-frontend-style","h4-global","highlander-comments","highlander-comments-ie7","wpcom-layout-grid-front","jetpack-carousel","tiled-gallery"] );
+		</script><script src="//stats.wp.com/w.js?61" type="text/javascript" async defer></script>
+<script type="text/javascript">
+_tkq = window._tkq || [];
+_stq = window._stq || [];
+_tkq.push(['storeContext', {'blog_id':'1385','blog_tz':'0','user_lang':'en','blog_lang':'en','user_id':'0'}]);
+_stq.push(['view', {'blog':'1385','v':'wpcom','tz':'0','user_id':'0','subd':'gregv'}]);
+_stq.push(['extra', {'crypt':'UE40eW5QN0p8M2Y/RE1TaVhzUzFMbjdWNHpwZGhTayxPSUFCMGNrd29+Smw0TDhnZmRTK0hlRi9QSGh6bi9GXVhBJWIlZlR5U1JMLU8/MkNtblkvY1dhWl8lLXBjLmtadjUmcUZCJVAvR3dBbE13eltwQi0udV1HQUdIQy5hJnpiaGZwa3JjT2hENz0zamxSX0tqUnB5cTJrcnhBVk16YTh8PTlKVXhhYiZpNyV5OHVtSSsmSGNVX29nLTBWN3A5TTlOUTIlUnZETGZ5MXJrZXxOXVRMTzJfd3U4UWstQj01TERZWCZEMk1ZTlBzSjhSTnFDZnhzZ0ZYbj9iSWQ2TXNwMHVBSHg2PUc0JTVna2h1SXVCN3BGOTlQeUJXTlB0'}]);
+_stq.push([ 'clickTrackerInit', '1385', '0' ]);
+	</script>
+<noscript><img src="https://pixel.wp.com/b.gif?v=noscript" style="height:0px;width:0px;overflow:hidden" alt="" /></noscript>
+<script>
+if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+	wpcom_mobile_user_agent_info.init();
+	var mobileStatsQueryString = "";
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+		mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + wpcom_mobile_user_agent_info.matchedPlatformName;
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+		mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + wpcom_mobile_user_agent_info.matchedUserAgentName;
+	
+	if( wpcom_mobile_user_agent_info.isIPad() )
+		mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+	if( "" != mobileStatsQueryString ) {
+		new Image().src = document.location.protocol + '//pixel.wp.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba=' + Math.random();
+	}
+	
+}
+</script>
+
+</body>
+</html>
+<!--
+	generated in 0.128 seconds
+	85987 bytes batcached for 300 seconds
+-->

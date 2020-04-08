@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="Ras Bodik" />
+	<meta name="keywords" content="Ras Bodik homepage program synthesis compilers languages" />
+	<meta name="author" content="Ras Bodik" />
+	<link href='http://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" type="text/css" href="css/origo.css" title="Origo" media="all" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+</head>
+
+<body class="light blue smaller freestyle01">
+<div id="layout">
+	<div class="row smaller">
+		<div class="col c2">
+			<img src="images/ras.jpg" alt="" width="160"/>
+		</div>
+		<div class="col c10">
+			<h1><a href="index.html">Rastislav Bodik</a></h1>
+			Professor<br>
+			Paul G. Allen School of Computer Science & Engineering<br>
+			University of Washington<br>
+			Seattle, WA
+		</div>
+
+	</div>
+  
+	<div class="row">
+		<div class="col c2 alignleft">
+			<ul class="menu">
+				<li><a class="current" href="index.html">Home</a></li>
+				<li><a href="students.html">My Group</a></li>
+				<li><a href="http://homes.cs.washington.edu/~bodik/papers.html">Papers</a></li>
+				<li><a href="service.html">Service</a></li>
+				<li><a href="teaching.html">Teaching</a></li>
+				<li><a href="contact.html">Contact</a></li>
+			</ul>
+		</div>
+ 
+		<div class="main col c10">
+			<p>
+			My research group works on making it easier to write computer programs, mostly using program synthesis, a technique for computer-aided construction of software. Our research agenda is to develop programming languages and tools in which the human is allowed to give incomplete instructions; from these, a complete program is obtained in a dialogue with a “programmer assistant.”</p>
+
+			<h3>Foundations of program synthesis</h3>
+			<p>
+			With collaborators, my group developed the ideas of algorithmic synthesis using  sketches (partial programs) and constraint solving.  We have later generalized the ideas to so-called solver-aided languages, which simplify programming by delegating coding tasks to a constraint solver.  We also work on mining specifications and synthesis-aided programmer tools.
+			</p>
+
+			<div class="project">
+
+				<a href="http://homes.cs.washington.edu/~emina/rosette/">
+				Rosette and solver-aided domain-specific languages.</a>				
+			  	Our work on algorithmic synthesis (sketching, angelic programming) has evolved into extending small languages with constructs that delegate programmer work to a constraint solver.  Rosetter is a host language for SDSL construction, developed by Emina Torlak.
+			</div>
+
+			<div class="project">
+				<p><a target="_blank" href="http://jgalenson.github.io/codehint/">
+				Mining specifications and synthesis of API-level code.</a>				
+			  	Prospector and CodeHint are two synthesizers for construction of code that composes library and framework code. </p>
+			</div>
+
+
+
+			<h3 class="theme">Large-scale synthesis and rethinking compilers</h3>
+			<p>
+				To scale synthesis to system software, we are developing abstract and modular synthesis algorithms.  To facilitate rapid development of advanced compilers, we are exploring the idea of a synthesis-aided compiler.
+			</p>
+
+			<div class="project">
+				<a href="http://pl.eecs.berkeley.edu/projects/layout">
+				Synthesis for layout engines.</a>				
+			  	We used abstract synthesis to generate a parallel layout engine for the web browser and <a target="_blank" href="http://superconductor.github.io/superconductor/">data visualization</a>.  Currently, we are working on synthesis of an efficient incremental layout algorithm that is also statically parallelizable.  A collaboration with Mozilla.
+			</div>
+
+  			<div class="project">
+  			<a href="http://pl.eecs.berkeley.edu/projects/chlorophyll/">
+  				Chlorophyll: a synthesis-aided compiler for spatial architectures.
+  			</a>
+  				Chlorophyll is a synthesis-aided compiler for spatial architectures. It is testbed for exploring how synthesis can simplify compiler construction.  Currently, Chlorophyll synthesizes code for the GreenArrays GA144 processor. 
+  			</div>
+
+			<div class="project">
+				<a target="_blank" href="https://www.cra.com/government-services/decision-management-systems-appril.asp">
+				Probabilistic programming languages. 
+  				</a>
+  				Recently, we began work on synthesis-aided compilation of probabilistic programs.  A collaboration with <a href="https://www.cra.com/government-services/decision-management-systems-appril.asp" target="_blank">CRA</a> and <a href="http://r-nimble.org/" target="_blank">NIMBLE</a>. 
+  			</div>
+
+			<h3>Tools for computational “doing”</h3>
+			<p>Computer-aided programming and data manipulation for scientists and end users. </p>
+
+			<div class="project">
+        		<a href="http://www.cs.berkeley.edu/~koksal/">Program synthesis for executable biology.</a>
+        		Because many mechanistic models of biological cells can be written as executable  programs, synthesis can be used to infer biological models from experimental data. 
+    		</div>	
+    		<div class="project">
+        			<a href="http://pl.eecs.berkeley.edu/projects/web-scripting/">Web scripting by demonstration.</a>
+        			We are designing the stack of components for PBD applications that access and manipulate web data: a deterministic replayer, data scraper, and a synthesizer of relational queries.
+			</div>
+			<div class="project">
+        		<a href="http://pbm.cs.berkeley.edu/">Authoring data visualizations.</a>
+				Programming By Manipulation (PBM) seeks to simplify layout programming by guiding the user during the exploration of candidate layouts.
+    		</div>
+</div>
+</div>
+</div>
+</body>
+</html>

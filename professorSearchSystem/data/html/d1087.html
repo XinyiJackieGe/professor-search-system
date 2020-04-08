@@ -1,0 +1,187 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+  <title> Gennette Gill </title>
+
+<script language="JavaScript"">
+  function toggle(id){
+    if (document.getElementById){
+      if(document.getElementById(id).style.display == 'none'){
+        document.getElementById(id).style.display = 'block';
+      } else {
+        document.getElementById(id).style.display = 'none';
+      }
+    }
+  }
+</script>
+
+<style type="text/css">
+<!--  
+  @import url(style.css);
+-->
+</style>
+</head>
+
+
+<body>
+<table width="690px" height="100%" border="0px" 
+	cellspacing="0px" cellpadding="0px" align="center" bgcolor="#FFFFFF" 
+	style="border-right: 1px solid #b0c4de; border-left: 1px solid #b0c4de;">
+	<tr>
+		<td class="column1" valign="top">
+			<div class="title">Gennette Gill, Postdoctoral Research Scientist<br>
+					 </div>
+      <div class="inbody">
+        <a href="http://www.cs.columbia.edu">Department of Computer Science
+		</a><br>
+        <a href="http://www.columbia.edu">Columbia University</a><br><br>
+			  Research Group: <a href="http://www.cs.columbia.edu/async"> 
+			  Asynchronous Circuits and Systems</a><br>
+			  Advisor: <a href="http://www.cs.columbia.edu/~nowick"> 
+			  Professor Steven M. Nowick</a>  <br><br>
+      </div>
+			<div class="title">Contact Information:</div>
+			<div class="inbody">
+				467 Computer Science Building<br>
+				1214 Amsterdam Avenue <br>
+				Mailcode 0401<br>
+				New York, New York 10027-7003<br><br>
+				Email: ggill@cs.columbia.edu<br><br>
+			</div>
+    </td>
+		<td class="column2" valign="top">
+			<img class="picture" align=left style="border:1px solid #333300;" src="gennette_small.jpg">
+		</td>
+	</tr>
+  <tr>
+
+    <td colspan=2, class="column3" valign="top"> 
+			<div class="title">Current Research Motivation:</div>
+      <div class="inbody"  id="research">
+<br>
+<center><b>Asynchronous Hardware Design for Parallel Architectures</b> </center><br>
+<p>Parallel computing is currently the computing industry's best option for sustaining performance improvements in general purpose processors. After decades of use, the well-known technique of increasing single-processor clock speed is no longer viable; speeds can still be increased, but only with a tremendous increase in power consumption. On the market today, systems with two or four cores are very common. Since the trend towards increased parallelization is likely to continue due to the demand for faster computing, we will soon see hundreds or even thousands of cores on one chip. The fundamental research challenge is to create an interconnection network between the cores that allows for the efficient transmission of data and that is high performance, low power and scalable. <p>Many existing solutions expend unnecessary energy; unused parts of the interconnection network continue to receive clock signals, and clock-gating techniques at the needed granularity have high overheads. Adding to the complexity, cores within one chip will likely be heterogeneous. Microprocessors, fast special-purpose circuits, and memories will all reside together on the same chip. Connecting cores that produce and consume data at a variety of speeds is a vital challenge. A natural solution to the challenges of creating this interconnect is to turn away from global clocking in favor of an asynchronous or "clockless" design. Asynchronous interconnect design facilitates a more scalable and modular architecture that does not expend unnecessary power. </p></div>
+  </td>
+  </tr>
+  <tr>
+
+
+    <td colspan=2, class="column3" valign="top"> 
+			<div id ="publications" class="title">Publications:</div>
+      <div class="inbody">
+
+Gennette Gill and Montek Singh,  <i>"Automated Microarchitectural Exploration for Achieving Throughput Targets in Pipelined Asynchronous Systems,"</i> IEEE International Symposium on Asynchronous Circuits and Systems (ASYNC), May 2010. <br>
+<a name="async10"></a>
+<a href="papers/async10.pdf" 
+          onClick="toggle('async10_abs'); return false;">Abstract
+</a> &#124;
+<a href="papers/async10.pdf">Full Text (pdf)</a> 
+<div id="async10_abs" class="abstract" style="display:none">
+This paper presents a systematic approach for microarchitectural exploration in pipelined asynchronous systems,with the goal of achieving a specified throughput target whileminimizing a given cost function (based on energy, area, etc.).The method includes a general framework that (i) allows fora rich extensible set of microarchitectural transformations forimproving throughput; and (ii) can handle a variety of costfunctions, such as area, energy, E&tau;<sup>2</sup> and the energy-area product.
+<p>
+In general, the space of transformations that can be applied toa given circuit is potentially infinite because an arbitrarily longsequence of transformations may be applicable. To compoundthe challenge, the value of the given cost function can changenon-monotonically as successive transformations are applied (e.g.,some transformations increase area, while others decrease area),thereby making it difficult to apply a typical branch-and-boundapproach to prune the search space. Our method employssimple but effective heuristic search strategies (including greedy,lookahead, and breadth-first). A key contribution is to identifycommutativity of certain transformations, thereby pruning thedesign space significantly. The approach was automated andapplied to a number of examples. Various throughput targetswere assumed: from 50% to 20x throughput improvement.In each example, the approach was successful in meeting thethroughput target.</p></div>
+<br><br>
+
+
+
+
+ Gennette Gill and Montek Singh,  <i>"Bottleneck Analysis and Alleviation in Pipelined Systems: A Fast Hierarchical Approach,"</i> IEEE International Symposium on Asynchronous Circuits and Systems (ASYNC), May 2009. <br>
+<a name="async09"></a>
+<a href="papers/async09.pdf" 
+          onClick="toggle('async09_abs'); return false;">Abstract
+</a> &#124;
+<a href="papers/async09.pdf">Full Text (pdf)</a> 
+<div id="async09_abs" class="abstract" style="display:none">
+Fast bottleneck detection and elimination is animportant component of any design flow that aims at producinghigh-throughput systems. Bottlenecks can be difficult to find andcorrect, because their causes are diverse and often subtle. In thispaper, we build on our recent method for performance analysisto develop a method for bottleneck identification and alleviationfor pipelined asynchronous systems.
+<p>More specifically, this paper makes two contributions. First, weintroduce a method that, given a throughput goal, identifies whichparts of the pipelined system constrain its throughput. Each suchbottleneck is categorized based on the type of structural transformationthat could potentially alleviate it: increase degree ofpipelining (stage splitting, stage duplication, and loop unrolling);decrease forward latency (stage merging and parallelization); andperform slack matching. The second contribution is a methodthat guides the user to systematically apply these modificationsto alleviate the bottlenecks and reach a target throughput goal.
+</p>
+<p>
+We have validated the bottleneck analysis method on severalexamples and were able to attain the desired throughput goalin each case through iterative application of our bottleneckalleviation method. Runtimes were negligible in all cases (lessthan 50&nbsp;ms).</p></div>
+<br><br>
+
+
+
+
+Gennette Gill, John Hansen, Ankur Agiwal, Leandra Vicci and Montek Singh, <i>"A High-Speed GCD Chip: A Case Study in Asynchronous Design,"</i> IEEE Computer Society Annual Symposium on VLSI (ISVLSI), May 2009. <br>
+<a name="isvlsi09"></a>
+<a href="papers/isvlsi09.pdf" 
+          onClick="toggle('isvlsi09_abs'); return false;">Abstract
+</a> &#124;
+<a href="papers/isvlsi09.pdf">Full Text (pdf)</a> 
+<div id="isvlsi09_abs" class="abstract" style="display:none">
+This paper presents the design of a greatest commondivisor (GCD) chip as a case study in asynchronous or clocklessdesign. The design uses fine-grain asynchronous pipelining toachieve fairly high performance. At the same time, the useof robust asynchronous handshaking in lieu of clocking allowsthe design to gracefully adapt its operation to voltage andtemperature variations, without the need for clock recalibration.<p>The design was fabricated in a 0.13μm CMOS process, usingstandard cells and with full testability support. Resulting chipswere evaluated for performance and robustness, using a largeset of test vectors for good fault coverage. Under nominaloperating conditions (1.5V and 27&#176;C), the fabricated parts wereable to deliver up to 8 giga GCD algorithmic iterations persecond (equivalent to 1 GHz clock speed). Moreover, they werefunctionally correct across a wide range of voltages (0.5V to 4V)and temperatures (-45&#176;C to 150&#176;C). This case study bolstersour confidence in the potential of aynchronous design techniquesto help produce reliable ASICS that are fast, testable, and thatoperate under a wide range of conditions.</p></div>
+<br><br>
+
+
+
+Gennette Gill and Montek Singh, <i>"Performance Estimation and Slack Matching for Pipelined Asynchronous Architectures with Choice,"</i> IEEE/ACM International Conference on Computer-Aided Design (ICCAD), November 2008.<br>
+<a name="ICCAD08"></a>
+<a href="papers/iccad08.pdf" 
+          onClick="toggle('iccad08_abs'); return false;">Abstract
+</a> &#124;
+<a href="papers/iccad08.pdf">Full Text (pdf)</a> 
+<div id="iccad08_abs" class="abstract" style="display:none">
+<p>This paper presents a fast analytical method for estimatingthe throughput of pipelined asynchronous systems, and then applies thatmethod to develop a fast solution to the problem of pipeline "slack matching." The approach targets systems with hierarchical topologies,which typically result when high-level (block structured) language specications are compiled into data-driven circuit implementations. A significantcontribution is that our approach is the first to efficiently handlearchitectures with choice (i.e., the presence of conditional computationconstructs such if-then-else and conditional loops).
+</p>
+<p>The key behind the fast speed of our analysis method is exploitinginformation about the hierarchy of a given block-structured system,which yields a runtime that is linear in the number of pipeline stages.In contrast, existing approaches typically represent an entire system as asingle Petri net or marked graph, and then apply Markov chain analysisor other state enumeration methods with costly runtimes.Building upon our analysis approach, we introduce a novel solutionto the problem of slack matching, i.e., determining optimal insertion ofFIFO stages into a pipelined design to improve performance. We presentboth an optimal solution using an MILP formulation, and a fast heuristicalgorithm that yielded optimal results for all of our examples.</p></div>
+<br><br>
+
+
+
+
+Gennette Gill, John Hansen, and Montek Singh, <i>"Loop Pipelining For High-Throughput Stream Computation Using Self-Timed Rings,"</i> IEEE/ACM International Conference on Computer-Aided Design (ICCAD), November 2006.<br>
+<a name="ICCAD06"></a>
+<a href="papers/iccad06.pdf" 
+          onClick="toggle('iccad06_abs'); return false;">Abstract
+</a> &#124;
+<a href="papers/iccad06.pdf">Full Text (pdf)</a> 
+<div id="iccad06_abs" class="abstract" style="display:none">
+<p>We present a technique for increasing the throughput of stream processingarchitectures by removing the bottlenecks caused by loop structures.We implement loops as self-timed pipelined rings that can operateon multiple data sets concurrently. Our contribution includes atransformation algorithm which takes as input a high-level programand gives as output the structure of an optimized pipeline ring. Ourtechnique handles nested loops and is further enhanced by loop unrolling.Simulations run on benchmark examples show a 1.3 to 4.9xspeedup without unrolling and a 2.6 to 9.7x speedup with twofoldloop unrolling.</p></div>
+<br><br>
+
+
+
+Gennette Gill, Ankur Agiwal, Montek Singh, Feng Shi, and Yiorgos Makris, <i>"Low-Overhead Testing of Delay Faults in High-Speed Asynchronous Pipelines,"</i> IEEE International Symposium on Asynchronous Circuits and Systems (ASYNC), March 2006.<br>
+<a name="async06"></a>
+<a href="papers/async06.pdf" 
+          onClick="toggle('async06_abs'); return false;">Abstract
+</a> &#124;
+<a href="papers/async06.pdf">Full Text (pdf)</a> 
+<div id="async06_abs" class="abstract" style="display:none">
+<p>We propose a low-overhead method for delay fault testingin high-speed asynchronous pipelines. The key featuresof our work are: (i) testing strategies can be administeredusing low-speed testing equipment; (ii) testing is minimallyintrusive,i.e. very little testing hardware needs to be added;(iii) testing methods are extended to pipelines with forks andjoins, which is an important first step to testing pipelineswith arbitrary topologies; (iv) test pattern generation takesinto account the likely event that one delay fault causes severalbits of data to become corrupted; and (v) test generationcan leverage existing stuck-at ATPG tools.In describing our testing strategy, we use examples offaults from three very different high-speed pipeline styles:MOUSETRAP, GasP, and high-capacity (HC) pipelines. Inaddition, we give an in-depth example&mdash;including test patterngeneration&mdash;for both linear and non-linear MOUSETRAPpipelines.</p></div>
+<br><br>
+
+
+
+  
+  </td>
+  </tr>
+  <tr>
+    <td colspan=2, class="column3" valign="top"> 
+			<div class="title">Workshop Presentations:</div>
+      <div class="inbody">Gennette Gill and Montek Singh, <i>"A Heuristic Approach to Bottleneck Removal in Asynchronous Pipelined Systems,"</i> IEEE International Workshop on Logic and Synthesis (IWLS), July 2009.        <br><br>
+  
+
+Gennette Gill, Vishal Gupta, and Montek Singh, <i>"Robust Performance Estimation and Slack Matching for Pipelined Asynchronous Architectures with Choice,"</i> IEEE International Workshop on Logic and Synthesis (IWLS), June 2008.
+ <br><br>
+Gennette Gill and Montek Singh, <i>"Robust Synthesis of Asynchronous Burst-Mode Machines,"</i> IEEE International Workshop on Logic and Synthesis (IWLS), June 2005.
+ <br><br>
+Gennette Gill and Montek Singh, <i>"Synthesizing Asynchronous Burst-Mode Machines without the Fundamental-Mode Timing Assumption,"</i> ACM/IEEE International Workshop on Timing Issues (TAU), February 2005.
+ <br><br>
+Andrew Raij, Gennette Gill, Aditi Majumder, Herman Towles and Henry Fuchs, <i>"PixelFlex2: A Comprehensive, Automatic, Casually-Aligned Multi-Projector Display,"</i> IEEE International Workshop on Projector-Camera Systems (Procams), October 2003. 
+
+
+
+      </div>
+	  </td>
+  </tr>
+</table>
+	<html>
+  <body>
+    <p>
+          </p>
+  </body>
+</html>
+</body>
+</html>

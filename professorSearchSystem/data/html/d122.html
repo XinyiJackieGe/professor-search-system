@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html><head>
+	<meta name="generator" content="Hugo 0.64.1" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title></title>
+  <meta name="description" content="abhi shelat">
+
+  <link rel="stylesheet" href="https://shelat.ccis.neu.edu/css/main.css">
+  <link href="https://shelat.ccis.neu.edu/videojs/video-js.min.css" rel="stylesheet">
+
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+  </script>
+
+  <script src="https://shelat.ccis.neu.edu/mathjax/tex-svg.js" id="MathJax-script" async></script>  
+  <script src="https://shelat.ccis.neu.edu/videojs/video.min.js"></script>
+  <script type="text/javascript">
+    var enforce = "";
+    if ((enforce == window.location.host) && (window.location.protocol != "https:"))
+      window.location = window.location.toString().replace(/^http:/, "https:");
+  </script>
+  <script>
+  Element.prototype.documentOffsetTop = function () {
+    return this.offsetTop + ( this.offsetParent ? this.offsetParent.documentOffsetTop() : 0 );
+  };
+  function goto(ts) {
+    videojs('player').currentTime(ts);
+    videojs('player').play();
+    var top = document.getElementById('player').documentOffsetTop() - ( window.innerHeight / 2 );
+    window.scrollTo( 0, top );
+  }
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="https://shelat.ccis.neu.edu/">abhi shelat</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          <a class="page-link" href="https://shelat.ccis.neu.edu/bio">Bio</a>
+          <a class="page-link" href="https://shelat.ccis.neu.edu/teaching">Teaching</a>
+      </div>
+
+    </nav>
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        
+
+
+      <div class="homepage-content">
+        
+        <p>I am an associate professor at the Khoury College of Computer Sciences at Northeastern. My research area is computer security and cryptography and I aim to develop systems that incorporate novel cryptographic techniques in order to achieve interesting security properties.   My work currently focuses on secure computation protocols, zero-knowledge protocols and verifiable computation, and cryptocurrencies and blockchains.  My email is abhi at neu.edu.</p>
+<h2 id="projects">Projects</h2>
+<p>Our group&rsquo;s project page at <a href="https://neucrypt.org%3E">neucrypt.org</a> hosts source code for all of our recent projects. <!--including oram, stable matching, the verifiable asic systems "zebra" and "giraffe", the new SNARK system "hyrax", and anonize.--></p>
+<p>I am the lead PI of the ACHILLES project, which aims to construct a new programming language to assist development of secure computation applications.</p>
+<p>See <a href="%22https://anonize.org%22">anonize.org</a> for our implementation of the ANONIZE scheme.  The implementation was used to run course reviews at CornellTech and class surveys at U of Virginia. Here is a <a href="http://www.wired.com/2015/09/new-crypto-tool-makes-anonymous-surveys-truly-anonymous">Wired story</a> about the scheme.
+Contact me if you are interested in using it.</p>
+<h2 id="students">Students</h2>
+<p>My group is accepting PhD students for 2019, please contact me if you are interested. I also welcome undergraduates to find research projects in my group (there are currently 5 undergraduates who contribute on weekly basis to our projects).</p>
+<p>Current members in my group are:</p>
+<ul>
+<li><a href="https://jackdoerner.net/research/">Jack Doerner</a> (started 2016)</li>
+<li><a href="">Eysa Lee</a> (started 2017)</li>
+<li><a href="https://sites.google.com/site/ykondi/">Yash Kondi</a> (started 2017)</li>
+<li><a href="http://people.csail.mit.edu/rancohen/">Ran Cohen</a> (postdoc 2017&ndash;2019)</li>
+<li>Schuyler Rosefield (started F&rsquo;18)</li>
+</ul>
+<p>My former PhD students include Mona Sergi (2013, now at Google), Chih-hao Shen (2014, now at Google), Ben Kreuter (2018, now at Google), Ben Terner (Masters 2015, going to UCSD to complete PhD).</p>
+<h2 id="research">Research</h2>
+<p>My research is supported by the National Science Foundation, IARPA Hector project, the Microsoft Faculty Fellowship Award, the FEST fellowship award, an Amazon Research award, an SAIC research award, a Jacobs Future of Money Workshop research prize, a Google Faculty Research Award, and a Brave Faculty Research Award.</p>
+
+      </div>
+
+
+  
+  <ul class="post-lis">
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2020-02-01-mpc-efficient-verifiers/">Going Beyond Dual Execution: MPC for Functions with Efficient Verification</a><br/>
+  Carmit Hazay and abhi shelat and Muthu Venkitasubramaniam</br>
+  PKC&#39;2020 and eprint 2020/139</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2019-07-01-secure-sampling/">Securely Sampling Biased Coins with Applications to Differential Privacy</a><br/>
+  Jeffrey Champion and abhi shelat and Jonathan Ullman</br>
+  CCS&#39;2019 and eprint 2019/823</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2018-12-19-adaptive-mpc/">Adaptively Secure MPC with Sublinear Communication Complexity</a><br/>
+  Ran Cohen and abhi shelat and Daniel Wichs</br>
+  CRYPTO&#39;2019 and eprint 2018/1161</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2018-12-01-two-factor-sigs/">Minimizing Trust in Hardware Wallets with Two Factor Signatures</a><br/>
+  Antonio Marcedone and Rafael Pass and abhi shelat</br>
+  Financial Crypto&#39;2019</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2018-10-01-threshold_ecdsa_multiparty/">Threshold ECDSA from ECDSA Assumptions The Multiparty Case</a><br/>
+  Jack Doerner and Yashvanth Kondi and Eysa Lee and abhi shelat</br>
+  Oakland S&amp;P&#39;2019</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2018-08-01-blockchain-consistency/">A better method to analyze  blockchain consistency</a><br/>
+  Lucianna Kiffer, Rajmohan Rajaraman, abhi shelat</br>
+  ACM CCS 2018</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2018-06-01-blindca/">Blind Certificate Authorities</a><br/>
+  Liang Wang, Gilad Asharov, Rafael Pass, Thomas Ristenpart, abhi shelat</br>
+  Oakland S&amp;P&#39;2019</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2018-01-25-ecdsa/">Secure Multi-party Threshold ECDSA from ECDSA Assumptions</a><br/>
+  Jack Doerner and Yashvanth Kondi and Eysa Lee and abhi shelat</br>
+  Oakland S&amp;P&#39;2018</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2017-12-15-mkse/">Multi-Key Searchable Encryption, Revisited</a><br/>
+  Ariel Hamlin and abhi shelat and Mor Weiss and Daniel Wichs</br>
+  PKC&#39;2018</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2017-11-22-zksnark/">Doubly-efficient zkSNARKs without trusted setup</a><br/>
+  Riad S. Wahby and Ioanna Tzialla and abhi shelat and Justin Thaler and Michael Walfish</br>
+  Oakland S&amp;P&#39;2018 and eprint/2017/1132</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2017-03-10-miningpools/">Socially Optimal Mining Pools</a><br/>
+  Ben A. Fisch and Rafael Pass and abhi shelat</br>
+  WINE 2017 and arXiv</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2017-06-01-scaling-oram/">Scaling ORAM for Secure Computation</a><br/>
+  Jack Doerner and abhi shelat</br>
+  CCS&#39;2017 *Best paper award*, eprint/2017/827</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2017-03-15-giraffe-asic/">Full accounting for verifiable outsourcing</a><br/>
+  Riad S. Wahby and Ye Ji and Andrew J. Blumberg and abhi shelat and Justin Thaler and Michael Walfish and Thomas Wies</br>
+  CCS&#39;2017 and eprint 2017/242</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2016-05-13-blockchain/">Analysis of the Blockchain Protocol in Asynchronous Networks</a><br/>
+  Rafael Pass and Lior Seeman and abhi shelat</br>
+  Eurocrypt 2017 and eprint.iacr.org/2016/454</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2016-08-01-stablematching/">Secure Stable Matching at Scale</a><br/>
+  Jack Doerner and Dave Evans and abhi shelat</br>
+  CCS&#39;16</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2016-06-15-boundedkdm/">Bounded KDM Security from iO and OWF</a><br/>
+  Antonio Marcedone and Rafael Pass and abhi shelat</br>
+  SCN&#39;16</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2016-05-10-cut-and-choose/">The Cut-and-Choose Game and its Application to Cryptographic Protocols</a><br/>
+  Ruiyu Zhu, Yan Huang, Jonathan Katz, abhi shelat</br>
+  USENIX Security 2016</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2016-02-10-verifiable-asics/">Verifiable ASICs</a><br/>
+  Riad S. Wahby and Max Howald and Siddharth Garg and abhi shelat and Michael Walfish</br>
+  Oakland S&amp;P 2016 *Best student paper award*</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2015-11-02-snark-lifting/">How to Use SNARKs in Universally Composable Protocols</a><br/>
+  Ahmed Kosba, Zhichao Zhao,rew Miller, Hubert Chan, Charalampos Papamanthou, Rafael Pass, abhi shelat and Elaine Shi</br>
+  eprint/2015/1093</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2015-10-02-io-lower-bound/">Lower Bounds on Assumptions behind Indistinguishability Obfuscation</a><br/>
+  Mohammad Mahmoody, Ameer Mohammed, Soheil Nematihaji, Rafael Pass and abhi shelat</br>
+  TCC 2016</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2015-03-01-impossibility-of-vbb/">Impossibility of VBB Obfuscation with Ideal Constant-Degree Graded Encodings</a><br/>
+  Rafael Pass and abhi shelat</br>
+  TCC 2016</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2015-08-25-secure-millionaire/">Secure Computation from Millionaire</a><br/>
+  abhi shelat and Muthu Venkitasubramaniam</br>
+  Asiacrypt 2015</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2015-07-25-micropayment/">Micropayments for Peer-to-peer currencies</a><br/>
+  Rafael Pass and abhi shelat</br>
+  ACM Conf on Computer Security (CCS) 2015</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2015-04-15-anonize-survey/">An Overview of ANONIZE: A Large scale anonymous survey system</a><br/>
+  S. Hohenberger, S. Myers, R. Pass, and a. shelat</br>
+  IEEE Security &amp; Privacy Journal, Vol 13, No 2, Mar 2015.</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2014-11-01-scoram/">Oblivious RAM for Secure Computation</a><br/>
+  Xiao Wang, Hubert Chen, Yan Huang, abhi shelat, Elaine Shi</br>
+  ACM Conf on Computer Security (CCS) 2014</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2014-04-01-anonize/">ANONIZE: A Large-Scale Anonymous Survey System</a><br/>
+  Susan Hohenberger, Steven Myers, Rafael Pass, abhi shelat</br>
+  IEEE Security &amp; Privacy (Oakland) 2014</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2013-12-01-gpuyao/">GPU and CPU Parallelization of Secure Two-Party Computation</a><br/>
+  Nathaniel Husted, Steven Myers, and abhi shelat</br>
+  Annual Computer Security Applications Conf (ACSAC) 2013</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2013-11-01-minyao/">Fast Two-Party Secure Computation with Minimal Assumptions</a><br/>
+  Chih-hao Shen, abhi shelat</br>
+  ACM Conf on Computer Security (CCS) 2013</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2013-11-01-PCFLessons/">Lessons learned with PCF Scaling Secure Computation</a><br/>
+  Ben Kreuter, abhi shelat</br>
+  Workshop on language support for Privacy Enhancing Technologies (PETSHOP) 2013</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2013-08-01-PCF/">PCF: A Portable Circuit Format For Scalable Two-Party Secure Computation</a><br/>
+  Benjamin Kreuter, a.shelat, Benjamin Mood, Kevin Butler</br>
+  USENIX Security, 2013</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2013-06-01-algorithms_for_compressed_inputs/">Algorithms for Compressed Inputs</a><br/>
+  Nathan Brunelle, Gabe Robins, abhi shelat</br>
+  Data Compression Conference, 2013 (poster)</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2012-10-01-pa1/">Blackbox Construction of A More Than Non-Malleable CCA1 Encryption Scheme from Plaintext </a><br/>
+  Steve Myers, Mona Sergi, abhi shelat</br>
+  J. of Computer Security, Vol 21, No 5, pp 721–748</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2013-02-01-black-box_proof_of_knowledge_of_plaintext_and_multiparty_computation_with_low_communication_overhead/">Black-Box Proof of Knowledge of Plaintext and Multiparty Computation with Low Communication Overhead</a><br/>
+  Steve Myers, Mona Sergi, abhi shelat</br>
+  Theory of Cryptography Conference (TCC) 2013</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2012-09-01-billion-gate_secure_computation_with_malicious_adversaries/">Billion-Gate Secure Computation with Malicious Adversaries</a><br/>
+  Ben Kreuter, Chih-hao Shen, abhi shelat</br>
+  USENIX Security 2012</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2012-09-01-matching_by_propensity_score_in_cohort_studies_with_three_treatment_groups/">Matching by propensity score in cohort studies with three treatment groups</a><br/>
+  J. A. Rassen, a. shelat, J. Myers, R.J. Glynn, and S. Schneeweiss</br>
+  Epidemiology, in press 2012</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2012-05-01-one-to-many_propensity_score_matching_in_cohort_studies/">One-to-many propensity score matching in cohort studies,</a><br/>
+  J. A. Rassen, a. shelat, J. Myers, R. Glynn, K. Rothman, S. Schneeweiss</br>
+  J. of Pharmacoepidemiology and Drug Safety, v21.S2, 12 pages, May 2012</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2012-02-01-computing_on_authenticated_data/">Computing on Authenticated Data</a><br/>
+  J.Ahn, D.Boneh, J.Camenisch, S.Hohenberger, a.shelat, and B.Waters</br>
+  Theory of Cryptography Conference 2012</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2011-12-01-efficient_secure_computation_with_garbled_circuits/">Efficient Secure Computation with Garbled Circuits</a><br/>
+  Y. Huang, C.~Shen, D.~Evans, J.~Katz, and a.~shelat</br>
+  Information systems security 2011</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2011-01-01-blackbox_construction_of_a_more_than_non-malleable_cca1_encryption_scheme_from_plaintext_awareness/">Blackbox Construction of A More Than Non-Malleable CCA1 Encryption Scheme from Plaintext Awareness</a><br/>
+  Steve Myers, Mona Sergi, abhi shelat</br>
+  Secure Computer Networks (SCN) 2011</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2011-06-01-two-output_secure_computation_with_malicious_adversaries/">Two-output Secure Computation With Malicious Adversaries</a><br/>
+  Chih-hao Shen and a. shelat</br>
+  Eurocrypt 2011</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2011-04-01-a_sub-05v_lattice-based_public-key_encryption_scheme_for_rfid_platforms_in_130nm_cmos/">A Sub-0.5V Lattice-Based Public-Key Encryption Scheme for RFID Platforms in 130nm CMOS</a><br/>
+  Yu Yao, Sudhanshu Khanna, Ben Calhoun, Dave Evans, John Lach, and a. shelat</br>
+  RFIDSEC’11 Asia</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2011-01-01-renegotiation-safe_protocols/">Renegotiation-safe Protocols</a><br/>
+  Rafael Pass and a. shelat</br>
+  Innovations in Computer Science ’11 (ICS’11)</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2010-12-01-optimistic_concurrent_zero_knowledge/">Optimistic Concurrent Zero Knowledge</a><br/>
+  Alon Rosen and a. shelat</br>
+  Asiacrypt ’10</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2010-09-01-additive_combinatorics_and_discrete_logarithm_based_range_protocols/">Additive Combinatorics and Discrete Logarithm Based Range Protocols</a><br/>
+  R. Chaabouni, H. Lipmaa, a.shelat</br>
+  Australasian conf Inf Security &amp; Privacy (ACISP’10) and</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2009-10-01-bit_encryption_is_complete/">Bit Encryption is Complete</a><br/>
+  Steven Myers and abhi shelat. FOCS 2009.</br>
+  Proceedings version</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2009-08-01-collusion-free_multiparty_computation_in_the_mediated_model/">Collusion-Free Multiparty Computation in the Mediated Model</a><br/>
+  J. Alwen, J. Katz, Y. Lindell, G. Persiano, a. shelat, and I. Visconti.</br>
+  CRYPTO 2009. Santa Barbara, CA.</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2009-02-01-purely_rational_secret_sharing/">Purely Rational Secret Sharing</a><br/>
+  Silvio Micalli and abhi shelat.</br>
+  Theory of Cryptography Conference (TCC) 2009.</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2008-12-01-efficient_protocols_for_set_membership_and_range_proofs/">Efficient Protocols for Set Membership and Range Proofs</a><br/>
+  Jan Camenisch, Raﬁk Chaabouni, and abhi shelat</br>
+  ASIACRYPT 2008</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2008-08-01-collusion-free_protocols_in_the_mediated_model/">Collusion-Free Protocols in the Mediated Model</a><br/>
+  Joel Alwen, abhi shelat, and Ivan Visconti</br>
+  CRYPTO 2008</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2007-12-01-bounded_cca2-secure_encryption/">Bounded CCA2-Secure Encryption</a><br/>
+  Ronald Cramer, Goichiro Hanaoka, Dennis Hofheinz, Hideki Imai, Eike Kiltz, Rafael Pass, abhi shelat, and Vinod Vaikuntanathan.</br>
+  ASIACRYPT’07, December 2007, Kuching, Malaysia.</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2007-12-01-relations_among_notions_of_non-malleability_for_encryption/">Relations Among Notions of Non-Malleability for Encryption</a><br/>
+  Rafael Pass, abhi shelat, and Vinod Vaikuntanathan.</br>
+  ASIACRYPT’07, December 2007, Kuching, Malaysia.</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2007-10-01-cryptography_from_sunspots_how_to_use_an_imperfect_reference_string/">Cryptography from Sunspots: How to use an Imperfect Reference String</a><br/>
+  Ran Canetti, Rafael Pass, and abhi shelat</br>
+  Foundations of Computer Science (FOCS’07), Providence, Rhode Island, October 2007.</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2007-07-01-efficient_fork-linearizable_access_to_untrusted_shared_memory/">Efficient Fork-Linearizable Access to Untrusted Shared Memory</a><br/>
+  Christian Cachin, abhi shelat, and Alex Shraer</br>
+  Principles of Distributed Computing (PODC’07), Portland, Oregan, Aug 2007.</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2007-05-01-simulatable_adaptive_oblivious_transfer/">Simulatable Adaptive Oblivious Transfer</a><br/>
+  Jan Camenisch, Gregory Neven, and abhi shelat</br>
+  EUROCRYPT 2007, Barcelona, Spain, May 2007. p.573-590.</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2007-02-01-securely_obfuscating_re-encryption/">Securely Obfuscating Re-encryption</a><br/>
+  Susan Hohenberger, Guy Rothblum, abhi shelat, and Vinod Vaikuntanathan</br>
+  Theory of Cryptography Conference (TCC’07), Amsterdam, The Netherlands, Feb 2007, p. 233-252.</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2006-08-01-construction_of_a_non-malleable_encryption_scheme_from_any_semantically-secure_one/">Construction of a Non-malleable Encryption Scheme from Any Semantically-Secure One</a><br/>
+  Rafael Pass, abhi shelat, and Vinod Vaikuntanathan</br>
+  CRYPTO’06, Santa Barbara, CA, Aug 2006, p.271-289.</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2005-08-01-unconditional_characterizations_of_non-interactive_zero-knowledge/">Unconditional Characterizations of Non-Interactive Zero-Knowledge</a><br/>
+  Rafael pass and abhi shelat</br>
+  CRYPTO’05, Santa Barbara, CA, Aug 2005, p.118-134.</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2005-07-01-the_smallest_grammar_problem/">The Smallest Grammar Problem</a><br/>
+  Moses Charikar, Eric Lehman, Ding Liu, Rina Panigrahy, Manoj Prabhakaran, Amit Sahai, abhi shelat</br>
+  IEEE Transactions on Information Theory, Vol. 51, Issue 7, Jul 2005, p2554-2576.</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2005-05-01-collusion-free_protocols/">Collusion-free Protocols</a><br/>
+  Matt Lepinski and Silvio Micali and abhi shelat</br>
+  Symposium on the Theory of Computation (STOC’05), Baltimore, MD, May 2005, p.543-552.</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2005-02-01-fair_zero_knowledge/">Fair Zero Knowledge</a><br/>
+  Matt Lepinski and Silvio Micali and abhi shelat</br>
+  Theory of Cryptography (TCC’05), Cambridge, MA, Feb 2005, p.245-263.</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2004-07-01-completely_fair_sfe_and_coalition-safe_cheap_talk/">Completely Fair SFE and Coalition-Safe Cheap Talk</a><br/>
+  Matt Lepinski and Silvio Micali and Chris Peikert and abhi shelat</br>
+  Principles of Distributed Computing (PODC’04), St. John’s Newfoundland, Jul 2004, p.1-10.</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2004-05-01-searching_for_stable_mechanisms__automated_design_for_imperfect_players/">Searching for Stable Mechanisms : Automated Design for Imperfect Players</a><br/>
+  Andrew Blumberg and abhi shelat</br>
+  AAAI 2004</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2003-02-01-remembrance_of_data_passed_a_study_of_disk_sanitization_practices/">Remembrance of Data Passed: A Study of Disk Sanitization Practices</a><br/>
+  Simson Garfinkel and abhi shelat</br>
+  IEEE Security and Privacy, January/February 2003</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2003-01-01-lower_bounds_for_collusion-secure_fingerprinting/">Lower Bounds for Collusion-Secure Fingerprinting</a><br/>
+  Chris Peikert, abhi shelat, and Adam Smith</br>
+  SODA 2003</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2002-05-01-approximating_the_smallest_grammar_kolmogorov_complexity_in_natural_models/">Approximating the Smallest Grammar: Kolmogorov Complexity in Natural Models</a><br/>
+  Moses Charikar, Eric Lehman, Ding Liu, Rina Panigrahy, Manoj Prabhakaran, April Rasala, Amit Sahai, abhi shelat</br>
+  STOC 2002</p>
+  </li>
+  
+  <li><p>
+  <a href="https://shelat.ccis.neu.edu/research/2002-01-01-approximation_algorithms_for_grammar-based_compression/">Approximation Algorithms for Grammar-Based Compression</a><br/>
+  Eric Lehman and abhi shelat</br>
+  SODA 2002</p>
+  </li>
+  
+  </ul>
+  
+      </div>
+    </div>
+
+<footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+        <li>621 ISEC, 805 Columbus Ave, CCIS, Northeastern
+        <li>Boston, MA 02115
+        <li><a href="mailto:abhi@neu.edu">abhi@neu.edu</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          <li>
+            <a href="https://github.com/abhvious">
+              <span class="icon  icon--github">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#FFF" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+                </svg>
+              </span>
+
+              <span class="username">abhvious</span>
+            </a>
+          </li>
+
+          <li>
+            
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text">
+            academic homepage for abhi shelat, associate professor of computer science at Northeastern</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer></body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+  <title> Peggy B. McGee </title>
+
+<script language="JavaScript"">
+  function toggle(id){
+    if (document.getElementById){
+      if(document.getElementById(id).style.display == 'none'){
+        document.getElementById(id).style.display = 'block';
+      } else {
+        document.getElementById(id).style.display = 'none';
+      }
+    }
+  }
+</script>
+
+<style type="text/css">
+<!--  
+  @import url(style.css);
+-->
+</style>
+</head>
+
+
+<body>
+<table width="690px" height="100%" border="0px" 
+	cellspacing="0px" cellpadding="0px" align="center" bgcolor="#FFFFFF" 
+	style="border-right: 1px solid #b0c4de; border-left: 1px solid #b0c4de;">
+	<tr>
+		<td class="column1" valign="top">
+			<div class="title">Peggy B. McGee, Ph.D<br></div>
+      <div class="inbody">
+        <a href="http://www.cs.columbia.edu">Department of Computer Science
+		</a><br>
+        <a href="http://www.columbia.edu">Columbia University</a><br><br>
+			  Research Group: <a href="http://www.cs.columbia.edu/async"> 
+			  Asynchronous Circuits and Systems</a><br>
+			  Advisor: <a href="http://www.cs.columbia.edu/~nowick"> 
+			  Professor Steven M. Nowick</a>  <br><br>
+      </div>
+			<div class="title">Contact Information:</div>
+			<div class="inbody">
+				467 Computer Science Building<br>
+				1214 Amsterdam Avenue <br>
+				Mailcode 0401<br>
+				New York, New York 10027-7003<br><br>
+				Tel: 646 775 6007<br><br>
+				Email: pmcgee@cs.columbia.edu<br><br>
+			</div>
+    </td>
+		<td class="column2" valign="top">
+			<img align=left src="photo.jpg">
+		</td>
+	</tr>
+  <tr>
+    <td colspan=2, class="column3" valign="top"> 
+			<div class="title">Publications:</div>
+      <div class="inbody">
+
+<b>"A Level-Encoded Transition Signaling Protocol for High-Throughput
+Asynchronous Global Communication"</b> <br>
+Peggy B. McGee, Melinda Y. Agyekum, Moustafa A. Mohamed and Steven M. Nowick,
+<br>
+in <i>Proceedings of the 14th  IEEE International Symposium on
+Asynchronous Circuits and Systems (ASYNC'08), pages 116-127</i><br>
+<a name="async08"></a>
+<a href="papers/async08_abs.html" 
+          onClick="toggle('async08_abs'); return false;">Abstract
+</a> &#124;
+<a href="papers/async08_bibtex.html" 
+  onClick="window.open('papers/async08_bibtex.html',
+  'async08_bibtex','location=0,status=0,height=300,width=800'); return false;">
+  BibTex
+</a> &#124;
+<a href="papers/async08.pdf">Full Text (pdf)</a> 
+<div id="async08_abs" class="abstract" style="display:none">
+A new delay-insensitive data encoding scheme for global communication,
+level-encoded transition signaling (LETS), is introduced.
+LETS is a generalization of level-encoded dual rail (LEDR),
+an earlier non-return-to-zero encoding scheme where one of two wires changes
+value per data bit per transaction.
+In LETS, only one of $N=2^n$ (1-of-$N$) wire changes value per n data bits per
+transaction. Compared to most common return-to-zero encoding schemes, 
+LETS has potential
+power and throughput advantages, since fewer rails switch and no
+return-to-zero phase is required.
+Compared to existing non-return-to-zero schemes (i.e., LEDR),
+higher-dimension LETS codes have a potential power advantage,
+with significantly reduced switching activity per data bit.
+
+Two alternative 1-of-4 LETS codes are proposed,
+and efficient hardware for completion detection
+and conversion to return-to-zero protocols is introduced.
+Finally, a general theoretical framework is presented which
+characterizes the properties of arbitrary 1-of-$N$ LETS codes,
+as well as a simple procedure to generate such codes.
+  <p align=right><a href="#async08" onClick="toggle('async08_abs');return
+  false;">&laquo; hide abstract</a></p>
+</div>
+<br><br>
+
+<b>"An Efficient Algorithm for Time Separation of Events in Concurrent
+Systems"</b><br>
+Peggy B. McGee and Steven M. Nowick, <br> 
+in <i>Proceedings of the 2007 IEEE/ACM International Conference on
+Computer-Aided Design (ICCAD'07), pages 180-187</i><br>
+<a name="iccad07"></a>
+<a href="papers/iccad07_abs.html" 
+          onClick="toggle('iccad07_abs'); return false;">Abstract
+</a> &#124;
+<a href="papers/iccad07_bibtex.html" 
+  onClick="window.open('papers/iccad07_bibtex.html',
+  'iccad07_bibtex','location=0,status=0,height=300,width=800'); return false;">
+  BibTex
+</a> &#124;
+<a href="papers/iccad07.pdf">Full Text (pdf)</a> 
+<div id="iccad07_abs" class="abstract" style="display:none">
+The time separation of events (TSE) problem is that of finding the
+maximum and minimum separation between the times of occurrence of two events
+in a concurrent system.
+It has applications in the performance analysis,
+optimization and verification of concurrent digital systems.
+This paper introduces an efficient polynomial-time algorithm to give 
+exact bounds on TSE's 
+for choice-free concurrent systems, whose operational semantics obey
+the max-causality rule.
+A choice-free concurrent system is modeled as a strongly-connected
+marked graph, where delays on operations
+are modeled as bounded intervals with unspecified distributions.
+While previous approaches handle acyclic systems only, or else require
+graph unfolding until a steady-state behavior is reached, the proposed
+approach directly identifies and evaluates the asymptotic
+steady-state behavior of a cyclic system via a graph-theoretical approach.
+As a result, the method has significantly lower computational complexity
+than  previously-proposed solutions.
+A prototype CAD tool has been developed 
+to demonstrate the feasibility and efficacy of our method.
+A set of experiments have been performed on the tool as well as two
+existing tools, with noticeable improvement on runtime and accuracy for
+several examples.
+  <p align=right><a href="#iccad07" onClick="toggle('iccad07_abs');return
+  false;">&laquo; hide abstract</a></p>
+</div>
+<br><br>
+
+        <b>"Efficient Performance Analysis of Asynchronous Systems Based on
+        Periodicity"</b><br> 
+        Peggy B. McGee, Steven M. Nowick and E.G. Coffman Jr.,<br>
+        in <i>Proceeding of the Third IEEE/ACM/IFIP International Conference
+        on Hardware/Software Codesign and System Synthesis (CODES+ISSS'05)</i>, 
+        pages 225-230.<br>
+        <a name="codes05"></a>
+        <a href="papers/codes05_abs.html" 
+          onClick="toggle('codes05_abs'); return false;">Abstract
+        </a> &#124;
+        <a href="papers/codes05_bibtex.html" 
+          onClick="window.open('papers/codes05_bibtex.html',
+          'codes05_bibtex','location=0,status=0,height=300,width=800');
+          return false;">
+          BibTex
+        </a> &#124;
+        <a href="papers/codes05.pdf">Full Text (pdf)</a> 
+        <div id="codes05_abs" class="abstract" style="display:none">
+          This paper presents an efficient method for the performance analysis
+          and optimization of asynchronous systems.
+          An asynchronous system is modeled as a marked graph with
+          probabilistic delay distributions.
+          We show that these systems exhibit inherent periodic behaviors. 
+          Based on this property, we derive
+          an algorithm to construct the state space of the system through
+          composition and capture the time evolution of the states into 
+          a periodic Markov chain.
+          The system is solved for important performance metrics such as
+          the distribution of input arrival time at a component, 
+          which is useful for subsequent system optimization,
+          as well as relative component utilization, system latency and
+          throughput. 
+          We also present a tool to demonstrate the feasibility of this method.
+          Initial experimental results are promising, showing over three 
+          orders of magnitude improvement in 
+          runtime and nearly two orders of magnitude decrease in the size of the
+          state space over previously published results.
+          While the focus of this paper is on asynchronous digital systems,
+          our technique can be applied to other concurrent systems that exhibit
+          global asynchronous behavior, such as GALS and embedded systems.
+          <p align=right><a href="#codes05" onClick="toggle('codes05_abs');return
+          false;">&laquo; hide abstract</a></p>
+        </div>
+        <br><br>
+
+        <b>"A Lattice-based Framework for the Classification and Design of
+        Asynchronous Pipelines"</b><br> 
+        Peggy B. McGee and Steven M. Nowick,<br>
+        in <i>Proceeding of the 42nd Annual Conference on Design Automation
+        (DAC'05)</i>, pages /491-496.<br>
+        <a name="dac05"></a>
+        <a href="papers/dac05_abs.html" 
+          onClick="toggle('dac05_abs'); return false;">Abstract
+        </a> &#124;
+        <a href="papers/dac05_bibtex.html" 
+          onClick="window.open('papers/dac05_bibtex.html',
+          'dac05_bibtex','location=0,status=0,height=300,width=800');
+          return false;">
+          BibTex
+        </a> &#124;
+        <a href="papers/dac05.pdf">Full Text (pdf)</a> 
+        <div id="dac05_abs" class="abstract" style="display:none">
+          This paper presents a unifying framework for the modeling of 
+          asynchronous pipeline circuits.
+          A pipeline protocol is captured in a graph-based model which
+          defines the partial ordering of both its control and data events.
+          The relationship between an entire space of different protocols is 
+          then captured in a semi-lattice,
+          which has well-defined top and bottom elements, corresponding to 
+          the most concurrent and least concurrent protocol variants, 
+          respectively.  This framework also provides a set of 
+          correct-by-construction transformation 
+          rules which allows for the systematic exploration of the 
+          entire design space by their successive application. 
+          To the best of our knowledge, this is the first formal framework
+          for asynchronous pipelines which can capture protocols from a variety           of logic style families, including both dynamic and static. It is also          the first to provide a formal foundation for the design-space 
+          exploration of asynchronous pipelines.
+          <p align=right><a href="#dac05" onClick="toggle('dac05_abs');return
+          false;">&laquo; hide abstract</a></p>
+        </div>
+        <br><br>
+
+        <b>"Self-timed Meshes are Faster than Synchronous"</b> <br>
+        Peggy B. K. Pang and Mark R. Greenstreet,<br> 
+        in <i>Proceeding of the Third International Symposium on Advanced
+        Research in Asynchronous Circuits and Systems</i>,
+        pages 30-39.<br>
+        <a name="async97"></a>
+        <a href="papers/async97_abs.html" 
+          onClick="toggle('async97_abs'); return false;">
+          Abstract
+        </a> &#124;
+        <a href="papers/async97_bibtex.html" 
+          onClick="window.open('papers/async97_bibtex.html',
+          'async97_bibtex','location=0,status=0,height=300,width=800');
+          return false;">
+          BibTex
+        </a> &#124;
+        <a href="papers/async97.pdf">Full Text (pdf)</a> 
+        <div id="async97_abs" class="abstract" style="display:none">
+This paper shows that self-timed meshes can achieve linear speed-up.
+The per-processor performance of a mesh is the average number of operations
+per processor per unit time.
+For synchronous processors, it has been shown that the per-processor
+performance of a mesh goes to zero as the size of the mesh goes to infinity.
+This paper shows that for self-timed meshes, the per-processor performance
+can be bounded below by a positive constant.
+Thus, self-timed meshes are asymptotically faster than synchronous ones.
+Furthermore, simulation and analytic results are used to show that analysis
+based solely on average case times can be optimistic and lead to poor design
+decisions.
+          <p align=right><a href="#async97" 
+             onClick="toggle('async97_abs');return false;">
+             &laquo; hide abstract
+          </a></p>
+        </div>
+        <br><br>
+      </div>
+	  </td>
+  </tr>
+  <tr>
+    <td colspan=2, class="column3" valign="top"> 
+			<div class="title">Workshop Presentations:</div>
+      <div class="inbody">
+        <b>"A Lattice-Based Framework for the Classification and Design of
+        Asynchronous Pipelines"</b><br> 
+        Peggy B. McGee and Steven M. Nowick,<br>
+        in <i>ACM/IEEE International Workshop on Timing Issues (TAU'05)</i>, 
+        March, 2005.
+        <br><br>
+        <br><br><br>
+        <br><br>
+      </div>
+	  </td>
+  </tr>
+</table>
+	<html>
+  <body>
+    <p>
+          </p>
+  </body>
+</html>
+</body>
+</html>

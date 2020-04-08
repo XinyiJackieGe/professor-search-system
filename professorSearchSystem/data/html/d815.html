@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="https://eecs.berkeley.edu/sites/all/themes/eecs/kalastatic/build/images/favicon.ico" type="image/vnd.microsoft.icon" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="https://eecs.berkeley.edu/sites/all/themes/eecs/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="apple-touch-icon" href="https://eecs.berkeley.edu/sites/all/themes/eecs/kalastatic/build/images/touch-icon.png" />
+<link rel="icon" href="https://eecs.berkeley.edu/sites/all/themes/eecs/kalastatic/build/images/favicon.png" />
+<meta name="msapplication-TileImage" content="/Assets/touch-icon.png" />
+<meta name="msapplication-TileColor" content="#003262" />
+
+<!-- YOUR TITLE next -->
+
+
+
+<title>Kurt Keutzer | EECS at UC Berkeley</title>
+
+    
+
+<style type="text/css" media="all">
+@import url("https://eecs.berkeley.edu/modules/system/system.base.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/modules/system/system.messages.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/modules/system/system.theme.css?q7cnpi");
+</style>
+<style type="text/css" media="all">
+@import url("https://eecs.berkeley.edu/profiles/panopoly/modules/panopoly/panopoly_core/css/panopoly-jquery-ui-theme.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/profiles/panopoly/modules/contrib/jquery_update/replace/ui/themes/base/minified/jquery.ui.accordion.min.css?q7cnpi");
+</style>
+<style type="text/css" media="all">
+@import url("https://eecs.berkeley.edu/modules/book/book.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/profiles/panopoly/modules/contrib/date/date_api/date.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/profiles/panopoly/modules/contrib/date/date_popup/themes/datepicker.1.7.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/modules/field/theme/field.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/sites/all/modules/contrib/google_cse/google_cse.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/modules/node/node.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/profiles/panopoly/modules/panopoly/panopoly_admin/panopoly-admin-navbar.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/profiles/panopoly/modules/panopoly/panopoly_core/css/panopoly-dropbutton.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/profiles/panopoly/modules/panopoly/panopoly_magic/css/panopoly-magic.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/profiles/panopoly/modules/panopoly/panopoly_theme/css/panopoly-featured.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/profiles/panopoly/modules/panopoly/panopoly_theme/css/panopoly-accordian.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/profiles/panopoly/modules/panopoly/panopoly_theme/css/panopoly-layouts.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/profiles/panopoly/modules/panopoly/panopoly_widgets/panopoly-widgets-spotlight.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/profiles/panopoly/modules/panopoly/panopoly_wysiwyg/panopoly-wysiwyg.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/sites/all/modules/contrib/picture/picture_wysiwyg.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/profiles/panopoly/modules/contrib/radix_layouts/radix_layouts.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/modules/search/search.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/modules/user/user.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/profiles/panopoly/modules/contrib/views/css/views.css?q7cnpi");
+</style>
+<style type="text/css" media="all">
+@import url("https://eecs.berkeley.edu/profiles/panopoly/modules/contrib/ctools/css/ctools.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/profiles/panopoly/modules/contrib/panels/css/panels.css?q7cnpi");
+</style>
+<style type="text/css" media="screen">
+@import url("https://eecs.berkeley.edu/sites/all/themes/kalatheme/css/tweaks.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/sites/all/themes/kalatheme/css/panopoly.css?q7cnpi");
+</style>
+<style type="text/css" media="all">
+@import url("https://eecs.berkeley.edu/sites/all/themes/eecs/kalastatic/build/styles/main.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/sites/all/themes/eecs/css/eecs.css?q7cnpi");
+</style>
+<style type="text/css" media="all">
+@import url("https://eecs.berkeley.edu/profiles/panopoly/modules/panopoly/panopoly_images/panopoly-images.css?q7cnpi");
+</style>
+
+<script type="text/javascript" src="https://eecs.berkeley.edu/profiles/panopoly/modules/contrib/jquery_update/replace/jquery/1.10/jquery.min.js?v=1.10.2"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/misc/jquery-extend-3.4.0.js?v=1.10.2"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/misc/jquery.once.js?v=1.2"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/misc/drupal.js?q7cnpi"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/profiles/panopoly/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.core.min.js?v=1.10.2"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/profiles/panopoly/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.widget.min.js?v=1.10.2"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/profiles/panopoly/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.tabs.min.js?v=1.10.2"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/profiles/panopoly/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.accordion.min.js?v=1.10.2"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/profiles/panopoly/modules/panopoly/panopoly_images/panopoly-images.js?q7cnpi"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/sites/all/modules/contrib/google_cse/google_cse.js?q7cnpi"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/profiles/panopoly/modules/panopoly/panopoly_admin/panopoly-admin.js?q7cnpi"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/profiles/panopoly/modules/panopoly/panopoly_magic/panopoly-magic.js?q7cnpi"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/profiles/panopoly/modules/panopoly/panopoly_theme/js/panopoly-accordion.js?q7cnpi"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/profiles/panopoly/libraries/jquery.imagesloaded/jquery.imagesloaded.min.js?q7cnpi"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/sites/all/themes/eecs/kalastatic/assets/vendor/jquery-match-height/dist/jquery.matchHeight-min.js?q7cnpi"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/sites/all/themes/eecs/kalastatic/assets/vendor/Chart.js/Chart.min.js?q7cnpi"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/sites/all/themes/eecs/kalastatic/build/js/charts.js?q7cnpi"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/sites/all/themes/eecs/kalastatic/build/js/eecs.js?q7cnpi"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/sites/all/themes/eecs/kalastatic/assets/vendor/bootstrap-sass-twbs/assets/javascripts/bootstrap.min.js?q7cnpi"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"eecs","theme_token":"xZcRPa7XE_TD7iRlI4hjnIX4Ma4rkqMGjYG-GCMsmsk","js":{"profiles\/panopoly\/modules\/contrib\/jquery_update\/replace\/jquery\/1.10\/jquery.min.js":1,"misc\/jquery-extend-3.4.0.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"profiles\/panopoly\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.core.min.js":1,"profiles\/panopoly\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.widget.min.js":1,"profiles\/panopoly\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.tabs.min.js":1,"profiles\/panopoly\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.accordion.min.js":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_images\/panopoly-images.js":1,"sites\/all\/modules\/contrib\/google_cse\/google_cse.js":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_admin\/panopoly-admin.js":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_magic\/panopoly-magic.js":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_theme\/js\/panopoly-accordion.js":1,"profiles\/panopoly\/libraries\/jquery.imagesloaded\/jquery.imagesloaded.min.js":1,"sites\/all\/themes\/eecs\/kalastatic\/assets\/vendor\/jquery-match-height\/dist\/jquery.matchHeight-min.js":1,"sites\/all\/themes\/eecs\/kalastatic\/assets\/vendor\/Chart.js\/Chart.min.js":1,"sites\/all\/themes\/eecs\/kalastatic\/build\/js\/charts.js":1,"sites\/all\/themes\/eecs\/kalastatic\/build\/js\/eecs.js":1,"sites\/all\/themes\/eecs\/kalastatic\/assets\/vendor\/bootstrap-sass-twbs\/assets\/javascripts\/bootstrap.min.js":1}},"googleCSE":{"cx":"010464314754576911738:fu9nvbsz9t0","language":"","resultsWidth":600,"domain":"www.google.com"},"CToolsModal":{"modalSize":{"type":"scale","width":".9","height":".9","addWidth":0,"addHeight":0,"contentRight":25,"contentBottom":75},"modalOptions":{"opacity":".55","background-color":"#FFF"},"animationSpeed":"fast","modalTheme":"CToolsModalDialog","throbberTheme":"CToolsModalThrobber"},"panopoly_magic":{"pane_add_preview_mode":"single"}});
+//--><!]]>
+</script>
+
+<!-- pagehead1 file, then title element, then this file -->
+</head>
+<body class="html not-front not-logged-in no-sidebars page-node region-content" >
+  <div id="skip-link">
+    <a href="#main-content" class="element-focusable element-invisible">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+
+ <!-- Page Header -->
+<header class="navbar navbar-default">
+  <div class="navbar-header">
+
+    <div class='brand navbar-brand'>
+      <a href="https://eecs.berkeley.edu/" title="Home" rel="home" class="logo">
+      </a>
+    </div>
+
+    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="element-invisible">Toggle navigation</span>
+      <span class="icon-bar" aria-hidden="true"></span>
+      <span class="icon-bar" aria-hidden="true"></span>
+      <span class="icon-bar" aria-hidden="true"></span>
+    </button>
+
+    <div id="site-name-slogan" class="brand navbar-brand">
+
+      <h1 id="site-name" class="element-invisible">
+        <strong>
+          <a href="https://eecs.berkeley.edu/" title="Home" rel="home" tabindex="-1">
+            <span>EECS at UC Berkeley</span>
+          </a>
+        </strong>
+      </h1>
+
+    </div> <!-- /#name-and-slogan -->
+
+  </div><!-- /.navbar-header -->
+
+  <nav class="collapse navbar-collapse" role="navigation">
+        <h2 class="element-invisible">Main menu</h2><ul id="main-nav" class="nav navbar-nav links clearfix"><li class="mid-2018 first dropdown clearfix"><a href="https://eecs.berkeley.edu/about" class="first expanded" id="main-menu-dropdown-1" data-toggle="dropdown" aria-haspopup="true">About<span class="caret" aria-hidden="true"></span></a><span class="element-invisible">Toggle submenu for About</span></a><ul class="dropdown-menu" aria-labelledby="main-menu-dropdown-1" aria-expanded="false"><li class="mid-2019 first"><a href="https://eecs.berkeley.edu/about" class="first leaf">About Overview</a></li>
+<li class="mid-3902"><a href="https://eecs.berkeley.edu/about/by-the-numbers" class="leaf">By the Numbers</a></li>
+<li class="mid-2343"><a href="https://eecs.berkeley.edu/about/diversity" class="collapsed">Diversity</a></li>
+<li class="mid-2020"><a href="https://eecs.berkeley.edu/about/history" class="collapsed">History</a></li>
+<li class="mid-3889"><a href="https://eecs.berkeley.edu/about/special-events" class="collapsed">Special Events</a></li>
+<li class="mid-2345 last"><a href="https://eecs.berkeley.edu/about/visiting" class="last collapsed">Visiting</a></li>
+</ul></li><div class='clearfix visible-xs'></div>
+<li class="mid-1632 dropdown clearfix"><a href="https://eecs.berkeley.edu/academics" class="expanded" id="main-menu-dropdown-2" data-toggle="dropdown" aria-haspopup="true">Academics<span class="caret" aria-hidden="true"></span></a><span class="element-invisible">Toggle submenu for Academics</span></a><ul class="dropdown-menu" aria-labelledby="main-menu-dropdown-2" aria-expanded="false"><li class="mid-2015 first"><a href="https://eecs.berkeley.edu/academics" class="first leaf">Academics Overview</a></li>
+<li class="mid-2353"><a href="https://eecs.berkeley.edu/academics/undergraduate" class="collapsed">Undergraduate Admissions &amp; Programs</a></li>
+<li class="mid-2352"><a href="https://eecs.berkeley.edu/academics/graduate" class="collapsed">Graduate Admissions &amp; Programs</a></li>
+<li class="mid-3374"><a href="https://eecs.berkeley.edu/resources/students" class="leaf">For Current Students</a></li>
+<li class="mid-1716 last"><a href="https://eecs.berkeley.edu/academics/courses" class="last leaf">Courses</a></li>
+</ul></li><div class='clearfix visible-xs'></div>
+<li class="mid-1635 dropdown clearfix"><a href="https://eecs.berkeley.edu/research" class="expanded" id="main-menu-dropdown-3" data-toggle="dropdown" aria-haspopup="true">Research<span class="caret" aria-hidden="true"></span></a><span class="element-invisible">Toggle submenu for Research</span></a><ul class="dropdown-menu" aria-labelledby="main-menu-dropdown-3" aria-expanded="false"><li class="mid-2023 first"><a href="https://eecs.berkeley.edu/research" class="first leaf">Research Overview</a></li>
+<li class="mid-2025"><a href="https://www2.eecs.berkeley.edu/Research/Areas/" class="leaf">Areas</a></li>
+<li class="mid-2024"><a href="https://www2.eecs.berkeley.edu/Research/Areas/Centers/" class="leaf">Centers &amp; Labs</a></li>
+<li class="mid-2326"><a href="https://eecs.berkeley.edu/research/colloquium" class="leaf">Colloquium</a></li>
+<li class="mid-4575 last"><a href="https://eecs.berkeley.edu/research/bears/2020" class="last collapsed">BEARS Symposium</a></li>
+</ul></li><div class='clearfix visible-xs'></div>
+<li class="mid-1634 dropdown clearfix"><a href="https://eecs.berkeley.edu/people" class="expanded" id="main-menu-dropdown-4" data-toggle="dropdown" aria-haspopup="true">People<span class="caret" aria-hidden="true"></span></a><span class="element-invisible">Toggle submenu for People</span></a><ul class="dropdown-menu" aria-labelledby="main-menu-dropdown-4" aria-expanded="false"><li class="mid-2029 first"><a href="https://eecs.berkeley.edu/people" class="first leaf">People Overview</a></li>
+<li class="mid-2035"><a href="https://www2.eecs.berkeley.edu/Directories/directory-nostudents.html" class="leaf">Directory</a></li>
+<li class="mid-2034"><a href="https://eecs.berkeley.edu/people/leadership" class="leaf">Leadership</a></li>
+<li class="mid-2201"><a href="https://eecs.berkeley.edu/people/faculty" class="leaf">Faculty</a></li>
+<li class="mid-2032"><a href="https://eecs.berkeley.edu/people/students" class="collapsed">Students</a></li>
+<li class="mid-2348"><a href="https://eecs.berkeley.edu/people/staff" class="collapsed">Staff</a></li>
+<li class="mid-2028 last"><a href="https://eecs.berkeley.edu/people/alumni" class="last collapsed">Alumni</a></li>
+</ul></li><div class='clearfix visible-xs'></div>
+<li class="mid-1633 last dropdown clearfix"><a href="https://eecs.berkeley.edu/connect" class="last expanded" id="main-menu-dropdown-5" data-toggle="dropdown" aria-haspopup="true">Connect<span class="caret" aria-hidden="true"></span></a><span class="element-invisible">Toggle submenu for Connect</span></a><ul class="dropdown-menu" aria-labelledby="main-menu-dropdown-5" aria-expanded="false"><li class="mid-2203 first"><a href="https://eecs.berkeley.edu/connect" class="first leaf">Connect Overview</a></li>
+<li class="mid-2531"><a href="https://eecs.berkeley.edu/connect/support" class="collapsed">Support EECS</a></li>
+<li class="mid-2208"><a href="https://eecs.berkeley.edu/connect/k-12" class="leaf">K-12 Outreach</a></li>
+<li class="mid-3244"><a href="https://eecs.berkeley.edu/industry/recruit-students" class="leaf">Recruit Students</a></li>
+<li class="mid-3384"><a href="https://eecs.berkeley.edu/csa" class="leaf">Student Affairs</a></li>
+<li class="mid-3663"><a href="https://eecs.berkeley.edu/faculty-jobs" class="leaf">Faculty Positions</a></li>
+<li class="mid-3669 last"><a href="https://eecs.berkeley.edu/contact" class="last leaf">Contact</a></li>
+</ul></li><div class='clearfix visible-xs'></div>
+</ul>
+    
+    <h2 class="element-invisible">Secondary menu</h2><ul id="utility-nav" class="nav navbar-nav secondary-links"><li class="menu-1608 first home" id="" style=""><a href="https://eecs.berkeley.edu/"><span class="sr-only home">Home</span></a></li>
+<li class="menu-1628 " id="" style=""><a href="https://eecs.berkeley.edu/resources/students" title="Information for Current Students">For Students</a></li>
+<li class="menu-1629 " id="" style=""><a href="https://eecs.berkeley.edu/resources/faculty-staff" title="Information for Current Faculty/Staff">For Faculty/Staff</a></li>
+<li class="menu-1630 " id="" style=""><a href="https://eecs.berkeley.edu/industry" title="Information for Industry contacts">Industry</a></li>
+<li class="menu-1631 " id="" style=""><a href="https://eecs.berkeley.edu/news">News</a></li>
+<li class="menu-1885 " id="" style=""><a href="https://eecs.berkeley.edu/events">Events</a></li>
+<li class="menu-2772 last " id="" style=""><a href="https://eecs.berkeley.edu/connect/support" class="highlight">Give</a></li>
+</ul>  </nav>
+
+  <a href="#" aria-hidden="true" class="search-toggle" data-toggle="collapse" data-target=".search-collapse" aria-expanded="true"><span>Toggle Search</span><i class="icon search" aria-hidden="true"></i></a>
+
+  <div class="search-container">
+    <form class="google-cse" action="https://eecs.berkeley.edu/" method="post" id="search-block-form" accept-charset="UTF-8" role="form"><div><div class="container-inline form-inline search-collapse collapse">
+      <h2 class="element-invisible">Search form</h2>
+    <div class="form-item form-type-textfield form-item-search-block-form form-group">
+  <label class="sr-only" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." placeholder="Search" class="form-control form-text fa-on" type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" />
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><button type="submit" id="edit-submit" name="op" class="form-submit btn btn-default btn-primary"><span>Search</span><i class="icon search" aria-hidden="true"></i></button></div><input type="hidden" name="form_build_id" value="form-7m35LscTMGWckWlp-4yTB7x2wy7cOinWL9G6QIGqRqw" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div>
+</div></form>  </div>
+</header>
+
+
+
+<main role="main" class="main">
+    <div class="eecs-static">
+        
+    <div id="breadcrumb">
+        <div class="item-list">
+            <ol class="breadcrumb">
+                <li class="first"><a href="https://eecs.berkeley.edu/">Home</a></li>
+                    <li><a href="https://eecs.berkeley.edu/people">People</a></li>
+                        <li><a href="https://eecs.berkeley.edu/people/faculty">Faculty</a></li>
+                        <li class="active last">Kurt Keutzer</li>
+                        </ol>
+        </div>
+    </div>
+
+        <div class="vcard faculty-and-staff-profile">
+            
+    
+
+    <article class="profile">
+        <a id="main-content"></a>
+        <div class="photo">
+            <img src="https://www2.eecs.berkeley.edu/Faculty/Photos/Homepages/keutzer.jpg"
+                 width=150
+                 alt="Photo for Kurt Keutzer"
+                 title="Kurt Keutzer Photo"
+            >
+                            <div>
+                    <a title="Click to View Larger Photo for Kurt Keutzer" href="https://www2.eecs.berkeley.edu/Faculty/Photos/Fullsize/keutzer.jpg">Larger
+                        Photo</a>
+                </div>
+                    </div>
+        <div class="content">
+            <header>
+                <h1 class="fn">Kurt Keutzer</h1>
+                <p class="title">Professor Emeritus, Professor in the Graduate School</p>
+            </header>
+
+            <section class="section info-links">
+                <h2 class="sr-only">Info Links</h2>
+
+                <div class="grouping">
+                                                                                    <h3>Research Areas</h3>
+                        <ul class="Research Areas">
+                                                            <li>
+                                    <a href="/Research/Areas/ARC">Computer Architecture &amp; Engineering (ARC)</a></li>
+                                                            <li>
+                                    <a href="/Research/Areas/DMA">Design, Modeling and Analysis (DMA)</a></li>
+                                                            <li>
+                                    <a href="/Research/Areas/SCI">Scientific Computing (SCI)</a></li>
+                                                                                </ul>
+                                    </div>
+                <div class="grouping">
+                                                                <h3>Research Centers</h3>
+                        <ul class="Research Areas">
+                                                            <li>
+                                                                            <a href="http://bair.berkeley.edu/">Berkeley Artificial Intelligence Research Lab (BAIR)</a>
+                                                                    </li>
+                                                            <li>
+                                                                            <a href="https://deepdrive.berkeley.edu/">Berkeley Deep Drive (BDD)</a>
+                                                                    </li>
+                                                    </ul>
+                                    </div>
+
+                <div class="grouping">
+                                    </div>
+            </section>
+
+            <section class="section bio">
+                                    <h2>Biography</h2>
+                    <div>
+                        <p>Kurt received his Ph.D. degree in Computer Science from Indiana University in 1984 and then joined the research division of AT&amp;T Bell Laboratories. In 1991 he joined Synopsys, Inc. where he ultimately became Chief Technical Officer and Senior Vice-President of Research. In 1998 Kurt became Professor of Electrical Engineering and Computer Science at the University of California at Berkeley. Kurt’s research now focuses on systems issues associated with the application of Deep Learning to computer vision, speech recognition, natural language processing, and finance.</p><p><p>Kurt has published six books, over 250 refereed articles, and is among the most highly cited authors in Hardware and Design Automation. Kurt was elected a Fellow of the IEEE in 1996. At the 50th Design Automation Conference Kurt received a number of awards reflecting achievements over the 50 year history of the conference. These included  “Top Ten Cited Author” and “Top Ten Cited Paper.” He was also recognized as among one of only three people to have received four Best Paper Awards in the history of the conference.  Kurt's research on Deep Learning has also received Best Paper Awards at the Embedded Vision Workshop and at the International Conference on Parallel Processing.</p><p><p>As an entrepreneur Kurt has served as an angel investor and advisor to over twenty-five start-up companies including C-Cube Microsystems, Coverity, Simplex, and Tensilica. Kurt co-founded DeepScale with his PhD student Forrest Iandola. DeepScale was acquired by Tesla in 2019. 
+</p>
+                    </div>
+                            </section>
+
+            <section class="section publications">
+                                            </section>
+
+            <section class="section publications">
+                                    <h2>Selected Publications</h2>
+                    <ul>
+                                                    <li>
+                                A. Gholami, A. Azad, P. Jin, K. Keutzer, and A. Bulu&ccedil;, "<a href="http://eecs.berkeley.edu/~aydin/integrateddnn_spaa2018.pdf">Integrated Model, Batch, and Domain Parallelism in Training Neural Networks</a>," in <em>SPAA'18: 30th ACM Symposium on Parallelism in Algorithms and Architectures</em>, 2018.
+                            </li>
+                                                    <li>
+                                M. Anderson, B. Catanzaro, J. Chong, E. Gonina, K. Keutzer, C. Lai, M. W. Moskewicz, M. Murphy, B. Su, and K. Keutzer, "<a href="http://www.amazon.com/Multiprocessor-System-Chip-Hardware-Integration/dp/1441964592">PALLAS: Mapping Applications onto Manycore</a>," in <em>Multiprocessor System-on-Chip: Hardware Design and Tool Integration</em>, Springer, 2010, pp. 89-114.
+                            </li>
+                                                    <li>
+                                M. Anderson, B. Catanzaro, J. Chong, E. Gonina, K. Keutzer, C. Lai, M. W. Moskewicz, M. Murphy, B. Su, and K. Keutzer, "<a href="http://www.amazon.com/Multiprocessor-System-Chip-Hardware-Integration/dp/1441964592">PALLAS: Mapping Applications onto Manycore</a>," in <em>Multiprocessor System-on-Chip: Hardware Design and Tool Integration</em>, Springer, 2010, pp. 89-114.
+                            </li>
+                                                    <li>
+                                J. Chong, E. Gonina, K. You, and K. Keutzer, "<a href="http://www.eecs.berkeley.edu/~egonina/docs/is2010.pdf">Exploring Recognition Network Representations for Efficient Speech Inference on Highly Parallel Platforms</a>," in <em>Proceedings of the 11th Annual Conference of the International Speech Communication Association</em>, 2010, pp. 1489-1492.
+                            </li>
+                                                    <li>
+                                D. Kolossa, J. Chong, S. Zeiler, and K. Keutzer, "Efficient Manycore CHMM Speech Recognition for Audiovisual and Multistream Data," in <em>Proceedings of the 11th Annual Conference of the International Speech Communication Association</em>, 2010, pp. 2698-2701.
+                            </li>
+                                                    <li>
+                                J. Chong, E. Gonina, and K. Keutzer, "<a href="http://www.upcrc.illinois.edu/workshops/paraplop10/papers/paraplop10_submission_15.pdf">Monte Carlo Methods</a>," in <em>2nd Annual Conference on Parallel Programming Patterns (ParaPLoP'10)</em>, 2010.
+                            </li>
+                                                    <li>
+                                M. Dixon, J. Chong, and K. Keutzer, "<a href="http://doi.acm.org/10.1145/1645413.1645418">Acceleration of Market Value-at-Risk Estimation</a>," in <em>Proceedings of the 2nd Workshop on High Performance Computational Finance</em>, WHPCF '09, New York, NY, USA: ACM, 2009, pp. 5:1--5:8.
+                            </li>
+                                                    <li>
+                                K. You, J. Chong, Y. Yi, E. Gonina, C. Hughes, Y. Chen, W. Sung, and K. Keutzer, "<a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=5230811">Parallel Scalability in Speech Recognition: Inference engine in large vocabulary continuous speech recognition</a>," <em>IEEE Signal Processing Magazine</em>, vol. 26, no. 6, pp. 124-135, Nov. 2009.
+                            </li>
+                                                    <li>
+                                J. Chong, E. Gonina, Y. Yi, and K. Keutzer, "<a href="http://www.eecs.berkeley.edu/~egonina/docs/is2009.pdf">A Fully Data Parallel WFST-based Large Vocabulary Continuous Speech Recognition on a Graphics Processing Unit</a>," in <em>Proceedings of the 10th Annual Conference of the International Speech  Communication Association (InterSpeech)</em>, 2009, pp. 1183&ndash;1186.
+                            </li>
+                                                    <li>
+                                J. Chong, E. Gonina, Y. Yi, and K. Keutzer, "A Fully Data Parallel WFST-based Large Vocabulary Continuous Speech Recognition on a Graphics Processing Unit," in <em>Proceedings of the 10th Annual Conference of the International Speech  Communication Association (InterSpeech)</em>, 2009, pp. 1183&ndash;1186.
+                            </li>
+                                                    <li>
+                                J. Chong, Y. Yi, A. Faria, N. Satish, and K. Keutzer, "Data-Parallel Large Vocabulary Continuous Speech Recognition on Graphics Processors," in <em>Proceedings of the 1st Annual Workshop on Emerging Applications and Many Core Architecture</em>, 2008, pp. 23-35.
+                            </li>
+                                                    <li>
+                                J. Chong, Y. Yi, A. Faria, N. Satish, and K. Keutzer, "Data-Parallel Large Vocabulary Continuous Speech Recognition on Graphics Processors," in <em>Proceedings of the 1st Annual Workshop on Emerging Applications and Many Core Architecture (EAMA)</em>, 2008, pp. 23--35.
+                            </li>
+                                                    <li>
+                                J. Chong, N. R. Satish, B. C. Catanzaro, K. Ravindran, and K. Keutzer, "<a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=4285040">Efficient parallelization of H.264 decoding with macro block level scheduling</a>," in <em>Proc. 2007 Intl. Conf. on Multimedia and Expo (ICME 2007)</em>, Piscataway, NJ: IEEE Press, 2007, pp. 1874-1877.
+                            </li>
+                                                    <li>
+                                Y. Jin, N. R. Satish, K. Ravindran, and K. Keutzer, "<a href="http://doi.acm.org/10.1145/1084834.1084903">An Automated Exploration Framework for FPGA-based Soft Multiprocessor Systems</a>," in <em>Proceedings of the 3rd IEEE/ACM/IFIP International Conference on Hardware/Software Codesign and System Synthesis (CODES)</em>, ACM Press, 2005, pp. 273-278.
+                            </li>
+                                                    <li>
+                                K. Ravindran, N. R. Satish, Y. Jin, and K. Keutzer, "<a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=1515769">An FPGA-based Soft Multiprocessor for IPv4 Packet Forwarding</a>," in <em>15th International Conference on Field Programmable Logic and Applications (FPL)</em>, 2005, pp. 487-492.
+                            </li>
+                                                    <li>
+                                D. Chinnery and K. Keutzer, <em>Closing the Gap Between ASIC &amp; Custom: Tools and Techniques for High-Performance ASIC Design</em>, Boston, MA: Kluwer Academic Publishers, 2002.
+                            </li>
+                                                    <li>
+                                K. Keutzer, S. Malik, A. R. Newton, J. M. Rabaey, and A. L. Sangiovanni-Vincentelli, "<a href="http://ieeexplore.ieee.org/iel5/43/19457/00898830.pdf">Invited Paper: System-level design: Orthogonalization of concerns and platform-based design</a>," <em>IEEE Trans. Computer-Aided Design of Integrated Circuits and Systems</em>, vol. 19, no. 12, pp. 1523-1543, Dec. 2000.
+                            </li>
+                                                    <li>
+                                D. Sylvester and K. Keutzer, "<a href="http://ieeexplore.ieee.org/iel4/5975/16008/00742874.pdf?isnumber=16008&amp;prod=CNF&amp;arnumber=742874&amp;arSt=+203&amp;ared=+211&amp;arAuthor=Sylvester%2C+D.%3B+Keutzer%2C+K.">Getting to the bottom of deep submicron</a>," in <em>1998 IEEE/ACM Intl. Conf. on Computer-Aided Design. Digest of Technical Papers</em>, New York, NY: ACM, 1998, pp. 203-11.
+                            </li>
+                                                    <li>
+                                S. Liao, S. Devadas, K. Keutzer, S. Tjiang, and A. Wang, "<a href="http://delivery.acm.org/10.1145/210000/207139/p186-liao.pdf?key1=207139&amp;key2=9600497611&amp;coll=GUIDE&amp;dl=GUIDE&amp;CFID=8326027&amp;CFTOKEN=27090265">Storage assignment to decrease code size</a>," <em>SIGPLAN Notices</em>, vol. 30, no. 6, pp. 186-195, June 1995.
+                            </li>
+                                                    <li>
+                                A. Ghosh, S. Devadas, K. Keutzer, and J. White, "<a href="http://ieeexplore.ieee.org/iel2/411/5909/00227826.pdf?arnumber=227826">Estimation of average switching activity in combinational and sequential circuits</a>," in <em>Proc. 29th ACM/IEEE Conf. on Design Automation</em>, Los Alamitos, CA: IEEE Computer Society Press, 1992, pp. 253-259.
+                            </li>
+                                            </ul>
+                            </section>
+
+            <section class="section awards">
+                                                    <h2>Awards, Memberships and Fellowships</h2>
+                    <ul>
+                                                    <li>
+                                                                    <a href="/Faculty/Awards/ieee.html#62">Institute of Electrical &amp; Electronics Engineers (IEEE) Fellow</a>,
+                                                                1996
+                            </li>
+                                            </ul>
+                            </section>
+        </div>
+    </article>
+
+    <aside class="links-and-contact-info">
+        <h2 class="sr-only">Links and Contact Info</h2>
+
+        <section class="links">
+            <h3>Links</h3>
+            <ul>
+                                    <li class="url">
+                        <a href="http://www-cad.eecs.berkeley.edu/~keutzer/">Personal Homepage</a>
+                    </li>
+                                                    <li class="url">
+                        <a href="https://www2.eecs.berkeley.edu/Research/Projects/Faculty/keutzer.html">Projects</a>
+                    </li>
+                                                    <li class="url">
+                        <a href="https://www2.eecs.berkeley.edu/Pubs/Faculty/keutzer.html">Publications</a>
+                    </li>
+                                                    <li class="url">
+                        <a href="https://www2.eecs.berkeley.edu/Pubs/Dissertations/Faculty/keutzer.html">Dissertations</a>
+                    </li>
+                            </ul>
+        </section>
+
+                    <section class="contact-info">
+                <h3>Contact Information</h3>
+                                                                            <p class="adr">566 Soda Hall</p>
+                                                    <p class="tel">tel:
+                                <a href="tel:+1-510-642-9267">510-642-9267</a>
+                            </p>
+                                                                                                                        <div class="email">
+                        <a href="mailto:keutzer@berkeley.edu">keutzer@berkeley.edu</a>
+                    </div>
+                            </section>
+        
+                    <section class="office-hours">
+                                            </section>
+        
+                    <section>
+                                                    <h3>Assistant</h3>
+                                            <p>
+                            Roxana Infante
+                                                            <br>563 Soda
+                                                                                        <br><a href="tel:+1-643-1455">643-1455</a>
+                                                                                        <br><a href="mailto:parlab-admin@eecs.berkeley.edu">parlab-admin@eecs.berkeley.edu</a>
+                                                    </p>
+                                                                                        <h3>Research Support</h3>
+                                            <p>
+                            Sanchita Pal
+                                                            <br>684 Soda
+                                                                                        <br><a href="tel:+1-2-9579">2-9579</a>
+                                                                                        <br><a href="mailto:spal@berkeley.edu">spal@berkeley.edu</a>
+                                                    </p>
+                                                </section>
+            </aside>
+
+
+        </div>
+    </div>
+</main>
+
+
+<footer class="footer">
+  <div class="brand navbar-brand">
+    <a href="https://eecs.berkeley.edu/" title="Home" rel="home" class="logo"><span class="sr-only">Home</span></a>
+  </div>
+  <ul class="nav navbar-nav footer-nav"><li class="mid-2039 first "><a href="https://eecs.berkeley.edu/about" class="first expanded">About</a><ul class="nav"><li class="mid-2197 first"><a href="https://eecs.berkeley.edu/about/history" class="first collapsed">History</a></li>
+<li class="mid-2344"><a href="https://eecs.berkeley.edu/about/diversity" class="collapsed">Diversity</a></li>
+<li class="mid-2346"><a href="https://eecs.berkeley.edu/about/visiting" class="leaf">Visiting</a></li>
+<li class="mid-3972 last"><a href="https://eecs.berkeley.edu/about/special-events" class="last collapsed">Special Events</a></li>
+</ul></li><div class='clearfix visible-xs'></div>
+<li class="mid-1585 "><a href="https://eecs.berkeley.edu/academics" class="expanded">Academics</a><ul class="nav"><li class="mid-2355 first"><a href="https://eecs.berkeley.edu/academics/undergraduate" class="first collapsed">Undergrad Admissions &amp; Programs</a></li>
+<li class="mid-2354"><a href="https://eecs.berkeley.edu/academics/graduate" class="leaf">Graduate Admissions &amp; Programs</a></li>
+<li class="mid-2041"><a href="https://eecs.berkeley.edu/academics/courses" class="collapsed">Courses</a></li>
+<li class="mid-2393"><a href="https://eecs.berkeley.edu/academics/prospective-women" class="leaf">Prospective Women Students</a></li>
+<li class="mid-3373 last"><a href="https://eecs.berkeley.edu/resources/students" class="last leaf">Current Students</a></li>
+</ul></li><div class='clearfix visible-xs'></div>
+<li class="mid-1588 "><a href="https://eecs.berkeley.edu/research" class="expanded">Research</a><ul class="nav"><li class="mid-1593 first"><a href="https://www2.eecs.berkeley.edu/Research/Areas/" class="first leaf">Areas</a></li>
+<li class="mid-2042"><a href="https://www2.eecs.berkeley.edu/Research/Areas/Centers/" class="leaf">Centers &amp; Labs</a></li>
+<li class="mid-2043"><a href="https://www2.eecs.berkeley.edu/Research/Projects/" class="leaf">Projects</a></li>
+<li class="mid-2045"><a href="https://www2.eecs.berkeley.edu/Pubs/TechRpts/" class="leaf">Technical Reports</a></li>
+<li class="mid-2046"><a href="https://www2.eecs.berkeley.edu/Pubs/Dissertations/" class="leaf">PhD Dissertations</a></li>
+<li class="mid-2327 last"><a href="https://eecs.berkeley.edu/research/colloquium" class="last collapsed">Joint Colloquium</a></li>
+</ul></li><div class='clearfix visible-xs'></div>
+<li class="mid-1589 "><a href="https://eecs.berkeley.edu/people" class="expanded">People</a><ul class="nav"><li class="mid-2047 first"><a href="https://www2.eecs.berkeley.edu/Directories/directory-nostudents.html" class="first leaf">Directory</a></li>
+<li class="mid-1594"><a href="https://eecs.berkeley.edu/people/leadership" class="leaf">Leadership</a></li>
+<li class="mid-2202"><a href="https://eecs.berkeley.edu/people/faculty" class="leaf">Faculty</a></li>
+<li class="mid-2407"><a href="https://eecs.berkeley.edu/people/students" class="collapsed">Students</a></li>
+<li class="mid-2397"><a href="https://eecs.berkeley.edu/people/staff" class="collapsed">Staff</a></li>
+<li class="mid-2051 last"><a href="https://eecs.berkeley.edu/people/alumni" class="last leaf">Alumni</a></li>
+</ul></li><div class='clearfix visible-xs'></div>
+<li class="mid-3342 "><a href="https://eecs.berkeley.edu/resources" class="expanded">Resources</a><ul class="nav"><li class="mid-3676 first"><a href="https://eecs.berkeley.edu/resources/facilities/room-reservations" class="first leaf">Room Reservations</a></li>
+<li class="mid-2755"><a href="https://www2.eecs.berkeley.edu/deptinfo" class="leaf">My EECS Info</a></li>
+<li class="mid-2212"><a href="https://eecs.berkeley.edu/resources/students" class="collapsed">For Students</a></li>
+<li class="mid-2409"><a href="https://eecs.berkeley.edu/resources/grads" class="collapsed">For Grads</a></li>
+<li class="mid-2577"><a href="https://eecs.berkeley.edu/resources/undergrads" class="collapsed">For Undergrads</a></li>
+<li class="mid-2811"><a href="https://eecs.berkeley.edu/resources/gsis" class="collapsed">GSIs/Readers/Tutors</a></li>
+<li class="mid-2184"><a href="http://iris.eecs.berkeley.edu/" class="leaf">IT Services</a></li>
+<li class="mid-2717"><a href="https://eecs.berkeley.edu/resources/facilities" class="collapsed">Facilities/Safety</a></li>
+<li class="mid-1595"><a href="https://eecs.berkeley.edu/resources/faculty-staff" class="collapsed">For Faculty/Staff</a></li>
+<li class="mid-2357 last"><a href="https://eecs.berkeley.edu/resources/visiting-scholars" class="last collapsed">Visiting Scholars</a></li>
+</ul></li><div class='clearfix visible-xs'></div>
+<li class="mid-1591 "><a href="https://eecs.berkeley.edu/industry" class="expanded">Industry</a><ul class="nav"><li class="mid-2196 first"><a href="https://eecs.berkeley.edu/industry/recruit-students" class="first collapsed">Recruit Students</a></li>
+<li class="mid-3324 last"><a href="https://eecs.berkeley.edu/industry/entrepreneurship" class="last leaf">Entrepreneurial Activity</a></li>
+</ul></li><div class='clearfix visible-xs'></div>
+<li class="mid-1592 last "><a href="https://eecs.berkeley.edu/connect" class="last expanded">Connect</a><ul class="nav"><li class="mid-2189 first"><a href="https://eecs.berkeley.edu/connect/support" class="first collapsed">Support Us</a></li>
+<li class="mid-2207"><a href="https://eecs.berkeley.edu/connect/k-12" class="collapsed">K-12 Outreach</a></li>
+<li class="mid-3670"><a href="https://eecs.berkeley.edu/contact" class="leaf">Contact</a></li>
+<li class="mid-3664 last"><a href="https://eecs.berkeley.edu/faculty-jobs" class="last leaf">Faculty Positions</a></li>
+</ul></li><div class='clearfix visible-xs'></div>
+</ul>
+  <div class="footer-tier">
+    <ul class="nav navbar-nav links utility-nav clearfix"><li class="mid-1598 first "><a href="https://eecs.berkeley.edu/" class="first leaf"><i class="fa fa-home"></i><span class="sr-only">Home</span></a></li>
+<li class="mid-1710 "><a href="https://ee.berkeley.edu/" class="leaf">EE</a></li>
+<li class="mid-1711 "><a href="https://cs.berkeley.edu/" class="leaf">CS</a></li>
+<li class="mid-1712 "><a href="http://berkeley.edu/" class="leaf">UC Berkeley</a></li>
+<li class="mid-1713 "><a href="http://engineering.berkeley.edu/" class="leaf">Berkeley Engineering</a></li>
+<li class="mid-1603 "><a href="https://eecs.berkeley.edu/news" class="leaf">News</a></li>
+<li class="mid-2037 last "><a href="https://eecs.berkeley.edu/events" class="last leaf">Events</a></li>
+</ul>    <ul class="nav navbar-nav links social"><li class="mid-1599 first twitter"><a href="https://twitter.com/Berkeley_EECS" target="_blank" class="first leaf"><span class="sr-only">Berkley EECS on Twitter</span></a></li>
+<li class="mid-3895 instagram"><a href="https://www.instagram.com/ucb_eecs/" target="_blank" class="leaf"><span class="sr-only">Berkeley EECS on Instagram</span></a></li>
+<li class="mid-4224 linkedin-social"><a href="https://www.linkedin.com/school/uc-berkeley-eecs/" target="_blank" class="leaf"><span class="sr-only">Berkeley EECS on LinkedIn</span></a></li>
+<li class="mid-4225 last youtube-social"><a href="http://www.youtube.com/c/UCBerkeleyEECSEvents" target="_blank" class="last leaf"><span class="sr-only">Berkeley EECS on YouTube</span></a></li>
+</ul>  </div>
+  <div class="small-print">
+    <div class="copyright">&copy; 2020 UC Regents</div>
+
+    <ul class="links policies">
+      <li>
+        <a href="https://eecs.berkeley.edu/privacy-policy"><span>Privacy Policy</span></a>
+      </li>
+    </ul>
+  </div>
+</footer>
+
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WZMWWC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script type="text/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0];var j=d.createElement(s);var dl=l!='dataLayer'?'&l='+l:'';j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;j.type='text/javascript';j.async=true;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WZMWWC');</script>
+<!-- End Google Tag Manager -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+</body>
+</html>
+

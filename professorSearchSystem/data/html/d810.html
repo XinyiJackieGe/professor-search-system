@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link rel="stylesheet" href="jemdoc.css" type="text/css" />
+<title>Michael (Miki) Lustig</title>
+</head>
+<body>
+<table summary="Table for page layout." id="tlayout">
+<tr valign="top">
+<td id="layout-menu">
+<div class="menu-category">Page</div>
+<div class="menu-item"><a href="index.html" class="current">home</a></div>
+<div class="menu-item"><a href="CV.html">Biography</a></div>
+<div class="menu-category">Research</div>
+<div class="menu-item"><a href="https://sites.google.com/berkeley.edu/mikgroupwiki/home">MikLab</a></div>
+<div class="menu-item"><a href="Publications.html">Publications</a></div>
+<div class="menu-item"><a href="Software.html">Software</a></div>
+<div class="menu-item"><a href="CS.html">Compressed&nbsp;Sensing&nbsp;MRI</a></div>
+<div class="menu-item"><a href="Students.html">People</a></div>
+<div class="menu-category">Teaching</div>
+<div class="menu-item"><a href="Teaching.html">EE123</a></div>
+<div class="menu-item"><a href="Teaching.html">EE194</a></div>
+<div class="menu-item"><a href="Teaching.html">Past</a></div>
+<div class="menu-category">Personal</div>
+<div class="menu-item"><a href="http://web.archive.org/web/20130521005555/http://www.stanford.edu/~mlustig/">Old&nbsp;Page</a></div>
+<div class="menu-item"><a href="http://web.archive.org/web/20020607125338/http://harduf.technion.ac.il:80/~sm313/michael/">Ancient&nbsp;Page</a></div>
+<div class="menu-category">Social Media</div>
+<div class="menu-item"><a href="https://twitter.com/sm313?lang=en">Twitter</a></div>
+<div class="menu-item"><a href="https://www.instagram.com/mrlustig/">Instagram</a></div>
+<div class="menu-item"><a href="https://www.youtube.com/user/sm313">YouTube</a></div>
+<div class="menu-item"><a href="https://kk6mri.tumblr.com">Tumblr</a></div>
+</td>
+<td id="layout-content">
+<div id="toptitle">
+<h1>Michael (Miki) Lustig</h1>
+</div>
+<p>&ldquo;I See The MRI&rdquo; </p>
+<table class="imgtable"><tr><td>
+<img src="ISeeTheMRI.png" alt="I See The MRI" width="254px" height="200px" />&nbsp;</td>
+<td align="left"><p>Michael Lustig, Associate Professor, <br />
+Department of Electrical Engineering and Computer Science,<br />
+UC Berkeley</p>
+</td></tr></table>
+<p>(c) Nogah Lustig 2013 (age 5)</p>
+<table class="imgtable"><tr><td>
+<img src="dce.gif" alt="I See The MRI" width="213px" height="240px" />&nbsp;</td>
+<td align="left"><p>&ldquo;We see kids with MRI&rdquo;<br />
+Free breathing, dynamic contrast enhanced MRI<br />
+at high spatio-temporal resolution<br />
+of a pediatric patient</p>
+</td></tr></table>
+<p>Frank Ong PhD. 2018</p>
+<p>Press <a href="https://www.ismrm.org/18/plenaryvideos/04-Tuesday/04-Tuesday.mp4">here</a> for a video describing out pediatric MRI work.</p>
+<h2>Contact</h2>
+<p>506 Cory Hall, Berkeley, CA, 94720<br />
+Tel: (510)643-9338<br />
+(<a href="mailto:mlustig@eecs.berkeley.edu">mlustig@eecs.berkeley.edu</a>)<br />
+<a href="http://www.eecs.berkeley.edu/~mlustig">http://www.eecs.berkeley.edu/~mlustig</a><br />
+Callsign: KK6MRI</p>
+<div id="footer">
+<div id="footer-text">
+Page generated 2020-02-03 10:39:11 PST, by <a href="http://jemdoc.jaboc.net/">jemdoc</a>.
+</div>
+</div>
+</td>
+</tr>
+</table>
+<script src="gatag.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-16833277-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script>
+var search_term = "(Lustig, Michael[Full Author Name] NOT "Environ Health"[Journal] OR (Lustig M[AU] AND (2011[Date] OR 2012[Date]))) NOT Lustig MJ[AU] NOT Lustig ME[AU] NOT "Healthcare financial management : journal of the Healthcare Financial Management Association"[Journal] AND ("2006/01/01"[PDAT] : "3000/12/31"[PDAT])";
+$(document).ready(function() {
+	args = {'apikey' : '8a3fca6bf6bda325a11f7d6a5b06f13c',
+	        'db'     : 'pubmed',
+	        'term'   : search_term,
+	        'retmax' : 100,          // maximum number of results from Esearch
+	        'max'    : 100,          // maximum number of results passed to Esummary
+	        'start'  : 0};
+	$.getJSON('http://entrezajax.appspot.com/esearch+esummary?callback=?', args, function(data) {
+		$.each(data.result, function(jj, item) {
+			var author_list = '';
+			for(var i = 0; i < item.AuthorList.length; i ++) {
+				if(i != 0) {
+					author_list += ', ';
+				}
+				author_list += item.AuthorList[i];
+			}
+			var numj = jj+1;
+			var html = '<p>'+ numj + ') ' + '<a href=\'http://www.ncbi.nlm.nih.gov/pubmed/' + item.ArticleIds.pubmed + '\'>' + item.Title + '</a><br/>' + author_list + '<br/>' + item.Source + ' ' + item.PubDate + ';' + item.Issue + ':' + item.Pages +  '.</p>';
+			$("<div/>").html(html).appendTo('#result');
+		});
+	});
+});
+</script>
+</body>
+</html>

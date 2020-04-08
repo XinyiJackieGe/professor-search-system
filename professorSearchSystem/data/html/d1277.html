@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel='stylesheet' type='text/css' href="css/styles.css" />
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<script type="text/javascript" src="jquery-latest.js"> </script>
+<script type="text/javascript">
+
+
+
+
+function gallery() {
+	
+	//if no IMGs have the show class, grab the first image
+	var current = ($('#gallery a.show')?  $('#gallery a.show') : $('#gallery a:first'));
+
+	//Get next image, if it reached the end of the slideshow, rotate it back to the first image
+	var next = ((current.next().length) ? ((current.next().hasClass('caption'))? $('#gallery a:first') :current.next()) : $('#gallery a:first'));	
+	
+	//Get next image caption
+	var caption = next.find('img').attr('rel');	
+	
+	//Set the fade in effect for the next image, show class has higher z-index
+	next.css({opacity: 0.0})
+	.addClass('show')
+	.animate({opacity: 1.0}, 1000);
+
+	//Hide the current image
+	current.animate({opacity: 0.0}, 1000)
+	.removeClass('show');
+	
+	//Set the opacity to 0 and height to 1px
+	$('#gallery .caption').animate({opacity: 0.0}, { queue:false, duration:0 }).animate({height: '1px'}, { queue:true, duration:300 });	
+	
+	//Animate the caption, opacity to 0.7 and heigth to 100px, a slide up effect
+	$('#gallery .caption').animate({opacity: 0.7},100 ).animate({height: '50px'},500 );
+	
+	//Display the content
+	$('#gallery .content').html(caption);
+	
+	
+}
+	
+
+</script>
+        
+
+
+        
+    
+	
+
+</head>
+<body >
+<div id="bigwrapper">
+            
+<div id="wrapper">
+<div id="topnav">
+    <div class="pagewidth">
+        <a style="text-decoration:none;" href="http://www.usc.edu/">
+            <h3 class="mycss2">UNIVERSITY OF SOUTHERN CALIFORNIA</h3>
+        </a>
+        <form class="search-form" name="gs" method="GET" action="http://search.usc.edu/">
+              <input type="hidden" name="cx" value="017196764489587948961:0uzwqg1rcr4">
+              <input type="hidden" name="ie" value="utf8">
+              <input type="hidden" name="oe" value="utf8">
+              <label for="search">Search USC</label>
+              <input type="text" name="q" class="search" id="search" value="">
+              <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+<div>
+<div id="main_id"> 
+<h1 class="mycss">CACS </h1>
+<h2 class="mycss1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; COLLABORATORY OF ADVANCED COMPUTING AND SIMULATIONS</h2>
+
+    <div id='cssmenu' >
+    <ul>
+       <li class="active"><a href='index.php'><span>Home</span></a></li>
+      
+       <li ><a href='http://cacs.usc.edu/people.php'><span>People</span></a>
+          <ul>
+             <li ><a href='http://cacs.usc.edu/faculty.php'><span>Faculty & Staff</span></a>
+             </li>
+             <!--
+                <ul>
+                   <li><a href='#'><span>Sub Item</span></a></li>
+                   <li class='last'><a href='#'><span>Sub Item</span></a></li>
+                </ul>
+             </li>
+             -->
+             <li ><a href='http://cacs.usc.edu/student.php'><span>Students</span></a>
+                
+             </li>
+             <li ><a href='http://cacs.usc.edu/visitor.php'><span>Visitors</span></a>
+                
+             </li>
+             <li ><a href='http://cacs.usc.edu/alumni.php'><span>Alumini</span></a>
+                
+             </li>
+                          
+          </ul>
+       </li>
+       <li><a href='http://cacs.usc.edu/videos.php'><span>Research</span></a>
+       <ul>
+       <li ><a href='http://cacs.usc.edu/research/publications.php'><span>Publications</span></a>
+                
+             </li>
+             <li ><a href='http://cacs.usc.edu/projects.php'><span>Projects</span></a>
+                
+             </li>
+             <li ><a href='http://cacs.usc.edu/facilities.php'><span>Computing & Visualization</span></a>
+                
+             </li>
+             
+       </ul>
+       
+       
+       </li>
+       <li ><a href='http://cacs.usc.edu/outreach.php'><span>Outreach</span></a>
+       <ul>
+       <li ><a href='http://cacs.usc.edu/workshop1.php'><span>Workshop </span></a></li>
+       </ul>
+       
+       </li>
+       <li><a href='http://cacs.usc.edu/education.php'><span>Education</span></a>
+       <ul>
+       <li ><a href="http://cacs.usc.edu/dual_degree.php"><span>
+       Dual Degree Program</span></a>
+       
+       </li>
+       <li ><a href="http://cacs.usc.edu/teaching.php"><span>
+      Teaching</span></a>
+       
+       </li>
+               </ul>
+       
+       
+       </li>
+       
+       <li ><a href='http://cacs.usc.edu/contact.php'><span>Contacts</span></a></li>
+       <li><a href='http://cacs.usc.edu/members.php'><span>Members Only</span></a></li>
+    </ul>
+    
+    </div>
+</div>
+</div>
+</div>
+<div style="width:100%;margin-top:30px; margin-bottom:20px;margin-left:65px;">
+   
+    <p style="margin-left:0%; margin-right:10%;text-shadow:1px 1px 0 rgba(NaN,NaN,NaN,1);font-weight:bold;color:#990000;letter-spacing:1pt;word-spacing:2pt;font-size:18px;font-family:georgia, serif;line-height:1;"> Aiichiro Nakano </p>
+    <p>anakano@usc.edu</p>	
+     <div id="content12">
+          <img src="images_new/nakano.jpg" width="100%" height="100%">
+          
+        </div>  
+        <div>  
+        <p style="text-shadow:1px 1px 0 rgba(NaN,NaN,NaN,1);text-transform:uppercase;color:#oooo;letter-spacing:1pt;word-spacing:2pt;font-size:16px;font-family:georgia, serif;line-height:1;">Professor of Computer Science, Physics & Astronomy, Chemical Engineering & Materials Science, and Biological Sciences</p>
+     <p style="text-shadow:1px 1px 0 rgba(NaN,NaN,NaN,1);text-transform:uppercase;color:#oooo;letter-spacing:1pt;word-spacing:2pt;font-size:14px;font-family:georgia, serif;line-height:1;">Ph.D. University of Tokyo, Japan, 1989</p>
+     
+<p style="text-shadow:1px 1px 0 rgba(NaN,NaN,NaN,1);text-transform:uppercase;color:#oooo;letter-spacing:1pt;word-spacing:2pt;font-size:14px;font-family:georgia, serif;line-height:1; font-weight:bold">Contact Information</p>
+ <a href="../"> Collaboratory for Advanced Computing and Simulations (CACS)</a><br/>
+ <a href="http://www.cs.usc.edu/">Department of Computer Science</a><br />
+<a href="http://dornsife.usc.edu/physics/">
+Department of Physics &amp; Astronomy</a><br/>
+<a href="http://chems.usc.edu/">Mork Family Department of Chemical Engineering &amp; Materials Science</a><br />
+<a href="http://dornsife.usc.edu/bisc/mcb/">Department of Biological Sciences/Molecular & Computational Biology</a><br />
+<a href="http://www.usc.edu/">University of Southern California</a><br />
+
+	3651 Watt Way, VHE 614<br/>
+	Los Angeles, CA 90089-0242<br/>
+	<br/>
+	
+Tel: </span>213-821-2657<br/>
+Fax: 213-821-2664<br />
+
+
+     <p style="text-shadow:1px 1px 0 rgba(NaN,NaN,NaN,1);text-transform:uppercase;color:#oooo;letter-spacing:1pt;word-spacing:2pt;font-size:16px;font-family:georgia, serif; font-weight:bold;line-height:1;">Research Interests</p>
+    <p style="margin-right: 12%; ">High-end scientific computing on geographically distributed parallel supercomputers and virtual environment: </p>
+     <ul>
+	    <li> <p style="margin-right: 12%; ">Divide-conquer-recombine simulation algorithms based on spatial locality with low time/space/bandwidth complexity and tight error control.</p> </li>
+	    <li><p style="margin-right: 12%; ">A space-time-ensemble parallel approach based on temporal locality to predict long-time dynamics.</p> </li>
+        <li><p style="margin-right: 12%; ">Metascalable ("design once, scale on new architectures") parallel-and-distributed supercomputing frameworks.</p> </li>
+        <li><p style="margin-right: 12%; ">Immersive and interactive visualization and analytics of large scientific datasets (billion-atom chemical bond networks).</p> </li>
+        <li><p style="margin-right: 12%; ">Hierarchical simulations and validation that automatically embed quantum-mechanical and atomistic calculations within continuum calculation on demand with guaranteed quality-of-solutions.</p> </li>
+        <li><p style="margin-right: 12%; ">High-end computational materials science.</p> </li>
+	</ul>
+    
+    <p style="margin-right: 12%; "> We have demonstrated:</p>
+     <ul>
+	    <li> <p style="margin-right: 12%; ">Unprecedented scales of quantum-mechanically accurate and well validated, chemically reactive molecular dynamics (MD) simulations--8.5 billion-atom reactive molecular dynamics (RMD) and 39.8 trillion electronic degrees-of-freedom (50.3 million-atom) quantum molecular dynamics (QMD) in the framework of density functional theory--in addition to 5.0 trillion-atom space-time multiresolution MD, with parallel efficiency over 0.98 on 786,432 Blue Gene/Q processors.</p> </li>
+	    <li><p style="margin-right: 12%; ">An automated execution of hierarchical QMD/MD simulation on a Grid of 6 supercomputer centers in the US and Japan, in which the number of processors changed dynamically on demand and resources were allocated and migrated dynamically in response to unexpected faults.</p> </li>
+        <li><p style="margin-right: 12%; ">Real-time visualization of a billion-atom chemical bond network, with an embedded graph-based topological analysis.</p> </li>
+        
+	</ul>
+    
+   
+    </div>
+    
+         <h3><a href="../publications.php">Publications</a></h3>
+        <p style="text-shadow:1px 1px 0 rgba(NaN,NaN,NaN,1);text-transform:uppercase;color:#oooo;letter-spacing:1pt;word-spacing:2pt;font-size:16px;font-family:georgia, serif;line-height:1; font-weight:bold"><a href="../">Collaboratory for Advanced Computing and Simulations (CACS)</a></p>
+       With Professors Priya Vashishta and Rajiv Kalia, I have co-founded CACS in 2002. The vision of CACS is:
+            <ul>
+                <li><p style="margin-right: 12%; ">To follow advances in computing technologies (hardware, software, algorithms) from teraflops to petaflops and beyond, to establish a comprehensive collaborative environment for geographically distributed computational scientists and information technology (IT) experts to perform the largest bio-nano simulations.</p> </li>
+                <li><p style="margin-right: 12%; ">To establish educational programs to propel students into careers in emerging areas of nano, bio, and information technologies both in academic and industrial settings. CACS has excellent computing and visualization facilities: a 4,096-processor Linux cluster, and a visualization laboratory with an 8' by 14' tiled display and an immersive and interactive 3D visualization environment. </p></li>
+            </ul>
+ <p style="text-shadow:1px 1px 0 rgba(NaN,NaN,NaN,1);text-transform:uppercase;color:#oooo;letter-spacing:1pt;word-spacing:2pt;font-size:16px;font-family:georgia, serif; font-weight:bold;line-height:1;">Dual-degree Graduate Education in High Performance Computing and Simulations</p>
+ <p style="margin-right: 12%; "> At USC, we have introduced a dual-degree program that allows students to obtain a Ph.D. in the physical sciences/engineering and an MS in Computer Science (CS). I have developed an MSCS program with specialization in High Performance Computing and Simulations 
+(<a href="http://www.cs.usc.edu/academics/masters/mshighperform.htm">MSCS-HPCS</a>), 
+for which I serve as the faculty coordinator. For the MSCS-HPCS program, I have developed HPCS courses: 
+<a href="../education/cs596.html">CSCI596</a> (Scientific Computing and Visualization), 
+<a href="../education/cs653.html">CSCI653</a> (High Performance Computing and Simulations), 
+<a href="../education/phys516.html">PHYS516</a> (Methods of Computational Physics), and 
+<a href="../education/cs699.html">CSCI699</a> (Extreme-Scale Quantum Simulations).&nbsp;</p>
+ <p style="text-shadow:1px 1px 0 rgba(NaN,NaN,NaN,1);text-transform:uppercase;color:#oooo;letter-spacing:1pt;word-spacing:2pt;font-size:16px;font-family:georgia, serif; font-weight:bold;line-height:1;">Minority Research and Education</p>
+ <p style="margin-right: 12%; ">CACS organizes annual Computational Science Workshops for Underrepresented Groups (CSWUG) to provide undergraduate students and mentors from underrepresented groups with hands-on experience in HPCS. </p>
+       
+ </div> 
+ 
+  <div style="position:relative; margin-top:15%">&nbsp;</div>
+ <div id="footer">
+ <div id="footer_text"><a href="index.php" style="color:#FAF0E6">Home</a> | <a href="http://cacs.usc.edu/people.php" style="color:#FAF0E6">People</a> | <a href="http://cacs.usc.edu/research.php" style="color:#FAF0E6">Research</a> | <a href="http://cacs.usc.edu/outreach.php" style="color:#FAF0E6">Outreach</a> | <a href="http://cacs.usc.edu/education.php" style="color:#FAF0E6">Education</a> | <a href="http://cacs.usc.edu/contact.php" style="color:#FAF0E6">Contacts</a>
+ </div>
+ <br/><br/>
+<div id="copyright">
+3651 Watt Way, VHE 608
+Los Angeles, CA 90089-0242              
+<br/>
+  ©2013 Univeristy of Southern California
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

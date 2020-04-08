@@ -1,0 +1,499 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Changxi Zheng's Homepage</title>
+  <meta name="author" content="Changxi Zheng" />
+  <meta name="copyright" content="Changxi's Homepage" />
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta name="keywords" content="Changxi Zheng, Computer Graphics, Research">
+  <base target="_top" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <script type="text/JavaScript" src="js/jquery-1.12.0.min.js"></script>
+  <script type="text/javascript" src="js/velocity.min.js"></script>
+  <script type="text/javascript" src="js/jquery.smoothState.min.js"></script>
+  <script type="text/javascript" src="js/jquery.BlackAndWhite.min.js"></script>
+  <script type="text/javascript" src="js/masonry.pkgd.min.js"></script>
+  <script type="text/javascript" src="js/imagesloaded.pkgd.min.js"></script>
+  <script type="text/JavaScript" src="js/init_index.js"></script>
+  <script type="text/JavaScript" src="js/init_scroll.min.js"></script>
+  <script type="text/JavaScript" src="js/init_fade.min.js"></script>
+</head>
+
+<body>
+
+<div id="background">
+  <div id="press">
+    <div id="header">
+        <img style="margin-left: 20px; margin-top: 10px;" src="img/logo_small.jpg" alt="Columbia University" border="0" />
+        <div id="headerText">
+          <a href="http://www.cs.columbia.edu"><span style="font-size: 22px;">Computer Science Department</span></a>
+          </br>
+          <a href="http://www.columbia.edu/"><span style="font-size: 31px; font-weight: bold;">Columbia University</span></a>
+        </div>
+        <div id="headerText" style="top: 36px; left: 500px; width: 500px; text-align: right; line-height: 200%;">
+          <span style="font-size: 32px; font-weight: bold;">Changxi Zheng</span>
+          </br>
+          <span style="font-size: 18px;">Associate Professor &nbsp</span>
+        </div>
+    </div>
+    <div id="mainMenu">
+      <div id="mainMenuContent">
+        <p class="button"><a id="nav_home" href="index.htm">About Me</a></p>
+        <p class="button"><a id="nav_pub"  href="publications.php">Publications</a></p>
+        <p class="button"><a id="nav_research" href="research.htm">Research</a></p>
+        <p class="button"><a id="nav_teach" href="teaching.htm">Teaching</a></p>
+        <p class="button"><a id="nav_press" href="press.htm">Press</a></p>
+      </div>
+    </div>
+
+    <div id="oldDummy"></div>
+    <div id="newDummy">
+      <div id="fadeInContent">
+        <div id="pubContainer">
+          <div class="section">
+            <div id="people_para">
+Throughout the course of my research, many of our work has attracted a great deal of 
+public interest. Here are some selected media coverages, reflecting 
+my research from a different perspective. 
+            </div>
+
+            <div id="press-item" style="height: auto;">
+              <p/>
+              <b><a href="http://www.cs.columbia.edu/cg/fontcode/">FontCode</a></b>
+              <p/>
+              <div class="grid">
+                <div class="grid-sizer"></div>
+                <div class="grid-item"> 
+                  <a class="BWImg" href="https://www.wired.com/story/fontcode-invisible-messages-steganography/"><img src="press_icons/wired.jpg" alt="WIRED" width="206"/></a>
+                  <div class="label">
+                    <a href="https://www.wired.com/story/fontcode-invisible-messages-steganography/">YOU CAN SEND INVISIBLE MESSAGES WITH SUBTLE FONT TWEAKS</a>
+                  </div>
+                </div>
+                <div class="grid-item grid-item--width2"> 
+                  <a class="BWImg" href="https://spectrum.ieee.org/tech-talk/computing/software/hiding-information-in-plain-text"><img src="press_icons/IEEESpect.jpg" alt="IEEE" width="434"/></a>
+                  <div class="label">
+                    <a href="https://spectrum.ieee.org/tech-talk/computing/software/hiding-information-in-plain-text">Hiding Information in Plain Text</a>
+                  </div>
+                </div>
+                <div class="grid-item"> 
+                  <a class="BWImg" href="https://www.popularmechanics.com/technology/a19734094/clever-technique-can-hide-secret-messages-in-the-most-unassuming-text/"><img src="press_icons/pop_mech.jpg" alt="PopMech" width="206"/></a>
+                  <div class="label">
+                    <a href="https://www.popularmechanics.com/technology/a19734094/clever-technique-can-hide-secret-messages-in-the-most-unassuming-text/">Clever Technique Can Hide Secret Messages in the Most Unassuming Text</a>
+                  </div>
+                </div>
+                <div class="grid-item"> 
+                  <a class="BWImg" href="https://www.digitaltrends.com/cool-tech/fontcode-embeds-messages-in-text/"><img src="press_icons/digitaltrends.png" alt="DigitalTrends" width="206"/></a>
+                  <div class="label">
+                    <a href="https://www.digitaltrends.com/cool-tech/fontcode-embeds-messages-in-text/">This algorithm can hide secret messages in regular-looking text</a>
+                  </div>
+                </div>
+                <div class="grid-item"> 
+                  <a class="BWImg" href="https://interestingengineering.com/researchers-invent-method-to-hide-info-in-plain-text"><img src="press_icons/interesting-engineering.png" alt="InterestingEngineering" width="206"/></a>
+                  <div class="label">
+                    <a href="https://interestingengineering.com/researchers-invent-method-to-hide-info-in-plain-text">Researchers Invent Method to Hide Info in Plain Text</a>
+                  </div>
+                </div>
+                <div class="grid-item"> 
+                  <a class="BWImg" href="https://newatlas.com/fontcode-text-code/54588/"><img src="press_icons/newatlas.png" alt="InterestingEngineering" width="206"/></a>
+                  <div class="label">
+                    <a href="https://newatlas.com/fontcode-text-code/54588/">FontCode hides letters within letters</a>
+                  </div>
+                </div>
+                <div class="grid-item"> 
+                  <a class="BWImg" href="https://www.sciencedaily.com/releases/2018/05/180510150231.htm"><img src="press_icons/sd.png" alt="ScienceDaily" width="206"/></a>
+                  <div class="label">
+                    <a href="https://www.sciencedaily.com/releases/2018/05/180510150231.htm">Researchers hide information in plain text</a>
+                  </div>
+                </div>
+                <div class="grid-item grid-item--width2"> 
+                  <a class="BWImg" href="https://engineering.columbia.edu/press-releases/changxi-zheng-fontcode"><img src="press_icons/cu_eng.png" alt="CU_ENG" width="434"/></a>
+                  <div class="label">
+                    <a href="https://engineering.columbia.edu/press-releases/changxi-zheng-fontcode">Researchers Hide Information in Plain Text</a>
+                  </div>
+                </div>
+                <div class="grid-item"> 
+                  <a class="BWImg" href="https://www.fastcodesign.com/90167210/helvetica-is-now-an-encryption-device"><img src="press_icons/fastcodesign.png" alt="FastCoDesign" width="206"/></a>
+                  <div class="label">
+                    <a href="https://www.fastcodesign.com/90167210/helvetica-is-now-an-encryption-device">Helvetica Is Now An Encryption Device</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+<!-- ====== -->
+
+            <div id="press-item" style="height: auto;">
+              <p/>
+              <b><a href="http://www.cs.columbia.edu/cg/aircode/">AirCode</a></b>
+              <p/>
+              <div class="grid">
+                <div class="grid-sizer"></div>
+                <div class="grid-item"> 
+                  <a class="BWImg" href="https://www.theregister.co.uk/2017/07/21/watermark_3d_printed_plastic_with_air/"><img src="press_icons/TheRegister.png" alt="TheRegister" width="206"/></a>
+                  <div class="label">
+                    <a href="https://www.theregister.co.uk/2017/07/21/watermark_3d_printed_plastic_with_air/">Boffins back bubbles for better bonding with beautiful belongings</a>
+                  </div>
+                </div>
+                <div class="grid-item grid-item--width2"> 
+                  <a class="BWImg" href="https://www.cs.columbia.edu/2017/invisible-machine-readable-aircode-tags-make-tagging-objects-part-of-3d-fabrication-process/"><img src="press_icons/cu_eng.png" alt="CU_ENG" width="434"/></a>
+                  <div class="label">
+                    <a href="https://www.cs.columbia.edu/2017/invisible-machine-readable-aircode-tags-make-tagging-objects-part-of-3d-fabrication-process/">Invisible, machine-readable AirCode tags make tagging objects part of 3D-fabrication process</a>
+                  </div>
+                </div>
+                <div class="grid-item"> 
+                  <a class="BWImg" href="https://3dprintingindustry.com/news/3d-printing-air-pockets-physical-tagging-aircode-118982/"><img src="press_icons/3DPrintingIndustry.png" alt="3DPrintingIndustry" width="206"/></a>
+                  <div class="label">
+                    <a href="https://3dprintingindustry.com/news/3d-printing-air-pockets-physical-tagging-aircode-118982/">3D printing with air pockets for physical tagging: Aircode</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+<!-- ====== -->
+
+            <div id="press-item" style="height: auto;">
+              <p/>
+              <b><a href="http://www.cs.columbia.edu/cg/lego/">Acoustic Voxels</a></b>
+              <p/>
+              <div class="grid">
+                <div class="grid-sizer"></div>
+                <div class="grid-item"> 
+                  <a class="BWImg" href="http://www.sciencedaily.com/releases/2016/07/160718133206.htm"><img src="press_icons/sd.png" alt="ScienceDaily" width="206"/></a>
+                  <div class="label">
+                    <a href="http://www.sciencedaily.com/releases/2016/07/160718133206.htm">Researchers use acoustic voxels to embed sound with data</a>
+                  </div>
+                </div>
+                <div class="grid-item grid-item--width2"> 
+                  <a class="BWImg" href="http://engineering.columbia.edu/press-releases/changxi-zheng-acoustic-voxels-sound-data"><img src="press_icons/cu_eng.png" alt="CU_ENG" width="434"/></a>
+                  <div class="label">
+                    <a href="http://engineering.columbia.edu/press-releases/changxi-zheng-acoustic-voxels-sound-data">Using Acoustic Voxels to Embed Sound with Data</a>
+                  </div>
+                </div>
+                <div class="grid-item"> 
+                  <a class="BWImg" href="http://www.engineering.com/DesignerEdge/DesignerEdgeArticles/ArticleID/13003/Noisy-Information--Embedding-Data-in-Sound.aspx"><img src="press_icons/engineering.jpg" alt="engineering" width="206"/></a>
+                  <div class="label">
+                    <a href="http://www.engineering.com/DesignerEdge/DesignerEdgeArticles/ArticleID/13003/Noisy-Information--Embedding-Data-in-Sound.aspx">Noisy Information - Embedding Data in Sound</a>
+                  </div>
+                </div>
+                <div class="grid-item"> 
+                  <a class="BWImg" href="http://scienceblog.com/486094/researchers-create-audio-counterpart-qr-codes-rfid-tags/"><img src="press_icons/scienceblog.png" alt="ScienceBlog" width="206"/></a>
+                  <div class="label">
+                    <a href="http://scienceblog.com/486094/researchers-create-audio-counterpart-qr-codes-rfid-tags/">Researchers create audio counterpart of QR codes, RFID tags</a>
+                  </div>
+                </div>
+                <div class="grid-item"> 
+                  <a class="BWImg" href="http://www.inavateonthenet.net/news/article/hippopotamus-that-sounds-likes-a-trumpet-key-to-acoustic-tagging"><img src="press_icons/inavate.jpg" alt="InAVate" width="206"/></a>
+                  <div class="label">
+                    <a href="http://www.inavateonthenet.net/news/article/hippopotamus-that-sounds-likes-a-trumpet-key-to-acoustic-tagging">Hippopotamus that sounds like a trumpet key to acoustic tagging</a>
+                  </div>
+                </div>
+                <div class="grid-item"> 
+                  <a class="BWImg" href="http://3dprint.com/142823/acoustic-tagging-3d-prints/"><img src="press_icons/3dprint.png" alt="3dprint" width="206"/></a>
+                  <div class="label">
+                    <a href="http://3dprint.com/142823/acoustic-tagging-3d-prints/">Looking Toward Cloaking & Acoustic Tagging: Researchers Implant 3D Printed Objects with Sound Data</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+<!-- ====== -->
+            <div id="press-item" style="height: auto;">
+              <p/>
+              <b><a href="">Computational Metallophone Design</a></b>
+              <p/>
+              <div class="grid">
+                <div class="grid-sizer"></div>
+                <div class="grid-item grid-item--width2"> 
+                  <a class="BWImg" href="http://science360.gov/obj/video/35aecb16-96d4-4f2d-b817-265595f46669/extra-6-animal-sounds"><img src="press_icons/nsf360.jpg" alt="NSF360" width="434"/></a>
+                  <div class="label">
+                    <a href="http://science360.gov/obj/video/35aecb16-96d4-4f2d-b817-265595f46669/extra-6-animal-sounds">Animal Sounds</a>
+                  </div>
+                </div>
+                <div class="grid-item"> 
+                  <a class="BWImg" href="http://www.wired.com/2015/11/this-animal-shaped-glockenspiel-is-really-a-rad-experiment"><img src="press_icons/wired.jpg" alt="WIRED" width="206"/></a>
+                  <div class="label">
+                    <a href="http://www.wired.com/2015/11/this-animal-shaped-glockenspiel-is-really-a-rad-experiment">This Animal-Shaped Glockenspiel Is Really a Rad Experiment</a>
+                  </div>
+                </div>
+                <div class="grid-item"> 
+                  <a class="BWImg" href="http://www.popsci.com/3-d-printed-zoolophone-demonstrates-connection-between-shape-and-sound"><img style="margin:28px;" src="press_icons/PopSci.jpg" alt="PopSci" width="170"/></a>
+                  <div class="label">
+                    <a href="http://www.popsci.com/3-d-printed-zoolophone-demonstrates-connection-between-shape-and-sound">3D PRINTED 'ZOOLOPHONE' DEMONSTRATES CONNECTION BETWEEN SHAPE AND SOUND</a>
+                  </div>
+                </div>
+                <div class="grid-item"> 
+                  <a class="BWImg" href="http://gizmodo.com/you-need-geniuses-at-mit-harvard-and-columbia-to-make-1739689295"><img src="press_icons/gizmodo.jpg" alt="GIZMODO" width="206"/></a>
+                  <div class="label">
+                    <a href="http://gizmodo.com/you-need-geniuses-at-mit-harvard-and-columbia-to-make-1739689295">You Need Geniuses at MIT, Harvard, and Columbia To Make an Animal-Shaped Xylophone</a>
+                  </div>
+                </div>
+                <div class="grid-item"> 
+                  <a class="BWImg" href="https://www.inverse.com/article/7556-a-computer-scientist-is-building-the-musical-instruments-of-the-future"><img src="press_icons/inverse.jpg" alt="INVERSE" width="206"/></a>
+                  <div class="label">
+                    <a href="https://www.inverse.com/article/7556-a-computer-scientist-is-building-the-musical-instruments-of-the-future">A Computer Scientist Is Building the Musical Instruments of the Future</a>
+                  </div>
+                </div>
+                <div class="grid-item grid-item--width2"> 
+                  <a class="BWImg" href="http://engineering.columbia.edu/change-shape-change-sound"><img src="press_icons/cu_eng.png" alt="CU_ENG" width="434"/></a>
+                  <div class="label">
+                    <a href="http://engineering.columbia.edu/change-shape-change-sound">Change the Shape, Change the Sound</a>
+                  </div>
+                </div>
+                <div class="grid-item"> 
+                  <a class="BWImg" href="http://3dprint.com/102906/3d-printed-metallophone/"><img src="press_icons/3dprint.png" alt="3dprint" width="206"/></a>
+                  <div class="label">
+                    <a href="http://3dprint.com/102906/3d-printed-metallophone/">Making New Music with 3D Printed Metallophone Instruments</a>
+                  </div>
+                </div>
+                <div class="grid-item"> 
+                  <a class="BWImg" href="http://www.gizmag.com/zoolophone/40175/"><img src="press_icons/gizmag.png" alt="gizmag" width="206"/></a>
+                  <div class="label">
+                    <a href="http://www.gizmag.com/zoolophone/40175/">"Zoolophone" features custom-shaped keys that still produce the right notes</a>
+                  </div>
+                </div>
+                <div class="grid-item"> 
+                  <a class="BWImg" href="http://www.techradar.com/us/news/world-of-tech/would-you-like-to-play-this-3d-printed-zoolophone--1307740"><img src="press_icons/techradar.png" alt="TECHRADAR" width="206"/></a>
+                  <div class="label">
+                    <a href="http://www.techradar.com/us/news/world-of-tech/would-you-like-to-play-this-3d-printed-zoolophone--1307740">Would you like to play this 3D-printed 'zoolophone'?</a>
+                  </div>
+                </div>
+                <div class="grid-item"> 
+                  <a class="BWImg" href="http://www.sciencedaily.com/releases/2015/10/151029103401.htm"><img src="press_icons/sd.png" alt="ScienceDaily" width="206"/></a>
+                  <div class="label">
+                    <a href="http://www.sciencedaily.com/releases/2015/10/151029103401.htm">Algorithm to 3-D print vibrational sounds</a>
+                  </div>
+                </div>
+                <div class="grid-item"> 
+                  <a class="BWImg" href="http://3dfabprint.com/zoolophone-musical-instrument-made-of-animal-shapes/"><img src="press_icons/3dfabprint.jpg" alt="3DFabPrint" width="206"/></a>
+                  <div class="label">
+                    <a href="http://3dfabprint.com/zoolophone-musical-instrument-made-of-animal-shapes/">Zoolophone musical instrument made of animal shapes</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="press-item" style="height: auto;">
+              <p/>
+              <b><a href="http://www.cs.columbia.edu/cg/hydrographics/">Computational Hydrographic Printing</a></b>
+              <p/>
+              <div class="grid">
+                <div class="grid-sizer"></div>
+                <div class="grid-item"> 
+                  <a class="BWImg" href="https://www.asme.org/engineering-topics/articles/manufacturing-design/coloring-complex-3d-printed-objects"><img src="press_icons/asme.jpg" alt="3DFabPrint" width="200"/></a>
+                  <div class="label">
+                    <a href="https://www.asme.org/engineering-topics/articles/manufacturing-design/coloring-complex-3d-printed-objects">Coloring Complex 3D Printed Objects</a>
+                  </div>
+                </div>
+
+                <div class="grid-item grid-item--width2"> 
+                  <a class="BWImg" href="http://engineering.columbia.edu/new-computational-technique-advances-color-3d-printing-process"><img src="press_icons/cu_eng.png" alt="CU_ENG" width="434"/></a>
+                  <div class="label">
+                    <a href="http://engineering.columbia.edu/new-computational-technique-advances-color-3d-printing-process">New Computational Technique Advances Color 3D Printing Process</a>
+                  </div>
+                </div>
+
+                <div class="grid-item"> 
+                  <a class="BWImg" href="http://3dprint.com/64979/precision-hydrographic-print/"><img src="press_icons/3dprint.png" alt="3dprint" width="206"/></a>
+                  <div class="label">
+                    <a href="http://3dprint.com/64979/precision-hydrographic-print/">Precision Hydrographic Printing: A Fascinating New Way to Precisely Add Color to 3D Prints</a>
+                  </div>
+                </div>
+
+                <div class="grid-item"> 
+                  <a class="BWImg" href="http://www.fastcodesign.com/3046264/this-crazy-way-to-paint-patterns-on-3-d-objects-is-like-a-cartoon-come-to-life"><img src="press_icons/fastcodesign.png" alt="FastCoDesign" width="206"/></a>
+                  <div class="label">
+                    <a href="http://www.fastcodesign.com/3046264/this-crazy-way-to-paint-patterns-on-3-d-objects-is-like-a-cartoon-come-to-life">Crazy Way To Paint Patterns On 3-D Objects Is Like A Cartoon Come To Life</a>
+                  </div>
+                </div>
+
+                <div class="grid-item"> 
+                  <a class="BWImg" href="http://www.popsci.com/watch-futuristic-vat-water-paint-cat"><img style="margin:28px;" src="press_icons/PopSci.jpg" alt="PopSci" width="170"/></a>
+                  <div class="label">
+                    <a href="http://www.popsci.com/watch-futuristic-vat-water-paint-cat">WATCH THIS FUTURISTIC VAT OF WATER PAINT A CAT</a>
+                  </div>
+                </div>
+                <div class="grid-item"> 
+                  <a class="BWImg" href="http://www.wired.com/2015/05/crazy-way-add-intricate-color-3-d-printed-creations/"><img src="press_icons/wired.jpg" alt="WIRED" width="206"/></a>
+                  <div class="label">
+                    <a href="http://www.wired.com/2015/05/crazy-way-add-intricate-color-3-d-printed-creations/">A Crazy Way to Add Intricate Color to 3-D Printed Creations</a>
+                  </div>
+                </div>
+
+                <div class="grid-item"> 
+                  <a class="BWImg" href="https://all3dp.com/hydrographic-printing-affordable-full-color-prints-everyone/"><img src="press_icons/all3dp.jpg" alt="All3DP" width="206"/></a>
+                  <div class="label">
+                    <a href="https://all3dp.com/hydrographic-printing-affordable-full-color-prints-everyone/">Hydrographic Printing: Affordable Full-Color Prints for Everyone</a>
+                  </div>
+                </div>
+
+                <div class="grid-item"> 
+                  <a class="BWImg" href="http://www.sciencedaily.com/releases/2015/05/150522112207.htm"><img src="press_icons/sd.png" alt="ScienceDaily" width="206"/></a>
+                  <div class="label">
+                    <a href="http://www.sciencedaily.com/releases/2015/05/150522112207.htm">New computational technique advances color 3D printing process</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="press-item" style="height: auto;">
+              <p/>
+              <b><a href="http://www.cs.columbia.edu/cg/twisty/">Computational Design of Twisty Joints and Puzzles</a></b>
+              <p/>
+              <div class="grid">
+                <div class="grid-sizer"></div>
+                <div class="grid-item"> 
+                  <a class="BWImg" href="http://www.popularmechanics.com/technology/design/a16218/turn-anything-into-a-rubiks-cube/"><img src="press_icons/pop_mech.jpg" alt="PopMech" width="206"/></a>
+                  <div class="label">
+                    <a href="http://www.popularmechanics.com/technology/design/a16218/turn-anything-into-a-rubiks-cube/">How to Turn Any Object Into a Rubik's Cube</a>
+                  </div>
+                </div>
+
+                <div class="grid-item grid-item--width2"> 
+                  <a class="BWImg" href="http://spectrum.ieee.org/tech-talk/computing/software/3d-print-and-rubiks-cubeify-almost-anything"><img src="press_icons/IEEESpect.jpg" alt="IEEE" width="434"/></a>
+                  <div class="label">
+                    <a href="http://spectrum.ieee.org/tech-talk/computing/software/3d-print-and-rubiks-cubeify-almost-anything">3-D Print and Rubik's Cube-ify Almost Anything</a>
+                  </div>
+                </div>
+
+                <div class="grid-item"> 
+                  <a class="BWImg" href="http://www.industrytap.com/transform-object-rubiks-cube-twisty-joints/29928"><img src="press_icons/industrytap.jpg" alt="IndustryTap" width="206"/></a>
+                  <div class="label">
+                    <a href="http://www.industrytap.com/transform-object-rubiks-cube-twisty-joints/29928">Transform Any Object Into a Rubik’s Cube With Twisty Joints</a>
+                  </div>
+                </div>
+
+                <div class="grid-item"> 
+                  <a class="BWImg" href="http://gizmodo.com/this-new-software-turns-any-object-into-a-rubiks-cube-p-1713482440"><img src="press_icons/gizmodo.jpg" alt="GIZMODO" width="206"/></a>
+                  <div class="label">
+                    <a href="http://gizmodo.com/this-new-software-turns-any-object-into-a-rubiks-cube-p-1713482440">This New Software Turns Any Object Into a Rubik's Cube Puzzle</a>
+                  </div>
+                </div>
+
+                <div class="grid-item"> 
+                  <a class="BWImg" href="http://3dprint.com/76320/3d-printable-twisty-puzzles/"><img src="press_icons/3dprint.png" alt="3dprint" width="206"/></a>
+                  <div class="label">
+                    <a href="http://3dprint.com/76320/3d-printable-twisty-puzzles/">New Software Turns Any 3D Printable Model into a Rubik’s Cube Style Twisty Puzzle</a>
+                  </div>
+                </div>
+
+                <div class="grid-item"> 
+                  <a class="BWImg" href="http://www.solidsmack.com/cad/this-new-software-is-capable-of-turning-any-3d-model-into-a-rubiks-cube-puzzle/"><img src="press_icons/solidsmack.jpg" alt="solidsmack" width="206"/></a>
+                  <div class="label">
+                    <a href="http://www.solidsmack.com/cad/this-new-software-is-capable-of-turning-any-3d-model-into-a-rubiks-cube-puzzle/">Columbia Researchers Develop Software That Converts Any 3D Model into a Rubik’s Cube Puzzle</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="press-item" style="height: auto;">
+              <p/>
+              <b>Physics-Based Sound Synthesis</b>
+              <p/>
+              <div class="grid">
+                <div class="grid-sizer"></div>
+                <div class="grid-item"> 
+                  <a class="BWImg" href="http://www.news.cornell.edu/stories/2012/08/scientists-make-animated-collisions-sound-realistic"><img src="press_icons/cornell.png" alt="Cornell" width="206"/></a>
+                  <div class="label">
+                    <a href="http://www.news.cornell.edu/stories/2012/08/scientists-make-animated-collisions-sound-realistic">'Acceleration noise' adds realism to animated collisions</a>
+                  </div>
+                </div>
+
+                <div class="grid-item"> 
+                  <a class="BWImg" href="http://www.npr.org/2011/08/12/139579622/the-future-of-computer-generated-sound-effects"><img src="press_icons/npr.jpg" alt="NPR" width="206"/></a>
+                  <div class="label">
+                    <a href="http://www.npr.org/2011/08/12/139579622/the-future-of-computer-generated-sound-effects">The Future Of Computer-Generated Sound Effects</a>
+                  </div>
+                </div>
+
+                <div class="grid-item"> 
+                  <a class="BWImg" href="http://www.bbc.co.uk/programmes/b0132p7x"><img src="press_icons/bbc.jpg" alt="BBC" width="206"/></a>
+                  <div class="label">
+                    <a href="http://www.bbc.co.uk/programmes/b0132p7x">The Art of Water Music</a>
+                  </div>
+                </div>
+
+                <div class="grid-item"> 
+                  <a class="BWImg" href="https://www.newscientist.com/blogs/nstv/2011/06/future-of-virtual-reality-make-a-crash-sound-lifelike.html"><img src="press_icons/new-scientist.jpg" alt="NewScientist" width="206"/></a>
+                  <div class="label">
+                    <a href="https://www.newscientist.com/blogs/nstv/2011/06/future-of-virtual-reality-make-a-crash-sound-lifelike.html">Future of virtual reality: Make a crash sound lifelike</a>
+                  </div>
+                </div>
+
+                <div class="grid-item"> 
+                  <a class="BWImg" href="http://www.news.cornell.edu/stories/2010/07/researchers-create-sounds-animated-things-breaking"><img src="press_icons/cornell.png" alt="Cornell" width="206"/></a>
+                  <div class="label">
+                    <a href="http://www.news.cornell.edu/stories/2010/07/researchers-create-sounds-animated-things-breaking">Researchers create sounds of animated things breaking</a>
+                  </div>
+                </div>
+
+                <div class="grid-item"> 
+                  <a class="BWImg" href="https://www.newscientist.com/article/mg20727704.500-perfecting-synthetic-sounds-for-animated-worlds/"><img src="press_icons/new-scientist.jpg" alt="NewScientist" width="206"/></a>
+                  <div class="label">
+                    <a href="https://www.newscientist.com/article/mg20727704.500-perfecting-synthetic-sounds-for-animated-worlds/">Perfecting synthetic sounds for animated worlds</a>
+                  </div>
+                </div>
+
+                <div class="grid-item"> 
+                  <a class="BWImg" href="https://www.newscientist.com/article/dn17276-computer-generated-sound-effects-make-a-splash/"><img src="press_icons/new-scientist.jpg" alt="NewScientist" width="206"/></a>
+                  <div class="label">
+                    <a href="https://www.newscientist.com/article/dn17276-computer-generated-sound-effects-make-a-splash/">Computer-generated sound effects make a splash</a>
+                  </div>
+                </div>
+
+                <div class="grid-item"> 
+                  <a class="BWImg" href="http://www.sciencedaily.com/releases/2009/06/090603182120.htm"><img src="press_icons/sd.png" alt="ScienceDaily" width="206"/></a>
+                  <div class="label">
+                    <a href="http://www.sciencedaily.com/releases/2009/06/090603182120.htm">Computer Graphics Researchers Simulate The Sounds Of Water And Other Liquids</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="press-item" style="height: auto;">
+              <p/>
+              <b>Others</b>
+              <p/>
+              <div class="grid">
+                <div class="grid-sizer"></div>
+                <div class="grid-item"> 
+                  <a class="BWImg" href="http://www.forbes.com/sites/liyanchen/2014/10/21/meet-the-forbes-under-30-inventors-who-are-breaking-the-boundaries/#4757544c6a68"><img src="press_icons/forbes.jpg" alt="Forbes" width="206"/></a>
+                  <div class="label">
+                    <a href="http://www.forbes.com/sites/liyanchen/2014/10/21/meet-the-forbes-under-30-inventors-who-are-breaking-the-boundaries/#4757544c6a68">Meet The Forbes Under 30 Inventors Who Are Breaking The Boundaries</a>
+                  </div>
+                </div>
+                <div class="grid-item grid-item--width2"> 
+                  <a class="BWImg" href="http://engineering.columbia.edu/changxi-zheng-are-we-hearing-real"><img src="press_icons/cu_eng.png" alt="CU_ENG" width="434"/></a>
+                  <div class="label">
+                    <a href="http://engineering.columbia.edu/changxi-zheng-are-we-hearing-real">Are We Hearing This For Real?</a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="loading" class="hidden"> Loading ......  </div>
+    <div id="copyright"> COPYRIGHT 2012-2018. ALL RIGHTS RESERVED.  </div>
+  </div>
+</div>
+
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=8249258; 
+var sc_invisible=1; 
+var sc_security="cb1214c1"; 
+</script>
+<script type="text/javascript"
+src="http://www.statcounter.com/counter/counter.js"></script>
+<noscript><div class="statcounter"><a title="tumblr site
+counter" href="http://statcounter.com/tumblr/"
+target="_blank"><img class="statcounter"
+src="http://c.statcounter.com/8249258/0/cb1214c1/1/"
+alt="tumblr site counter"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+</body>
+</html>

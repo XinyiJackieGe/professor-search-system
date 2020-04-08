@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="https://eecs.berkeley.edu/sites/all/themes/eecs/kalastatic/build/images/favicon.ico" type="image/vnd.microsoft.icon" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="https://eecs.berkeley.edu/sites/all/themes/eecs/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="apple-touch-icon" href="https://eecs.berkeley.edu/sites/all/themes/eecs/kalastatic/build/images/touch-icon.png" />
+<link rel="icon" href="https://eecs.berkeley.edu/sites/all/themes/eecs/kalastatic/build/images/favicon.png" />
+<meta name="msapplication-TileImage" content="/Assets/touch-icon.png" />
+<meta name="msapplication-TileColor" content="#003262" />
+
+<!-- YOUR TITLE next -->
+
+
+
+<title>Richard M. White | EECS at UC Berkeley</title>
+
+    
+
+<style type="text/css" media="all">
+@import url("https://eecs.berkeley.edu/modules/system/system.base.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/modules/system/system.messages.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/modules/system/system.theme.css?q7cnpi");
+</style>
+<style type="text/css" media="all">
+@import url("https://eecs.berkeley.edu/profiles/panopoly/modules/panopoly/panopoly_core/css/panopoly-jquery-ui-theme.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/profiles/panopoly/modules/contrib/jquery_update/replace/ui/themes/base/minified/jquery.ui.accordion.min.css?q7cnpi");
+</style>
+<style type="text/css" media="all">
+@import url("https://eecs.berkeley.edu/modules/book/book.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/profiles/panopoly/modules/contrib/date/date_api/date.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/profiles/panopoly/modules/contrib/date/date_popup/themes/datepicker.1.7.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/modules/field/theme/field.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/sites/all/modules/contrib/google_cse/google_cse.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/modules/node/node.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/profiles/panopoly/modules/panopoly/panopoly_admin/panopoly-admin-navbar.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/profiles/panopoly/modules/panopoly/panopoly_core/css/panopoly-dropbutton.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/profiles/panopoly/modules/panopoly/panopoly_magic/css/panopoly-magic.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/profiles/panopoly/modules/panopoly/panopoly_theme/css/panopoly-featured.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/profiles/panopoly/modules/panopoly/panopoly_theme/css/panopoly-accordian.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/profiles/panopoly/modules/panopoly/panopoly_theme/css/panopoly-layouts.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/profiles/panopoly/modules/panopoly/panopoly_widgets/panopoly-widgets-spotlight.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/profiles/panopoly/modules/panopoly/panopoly_wysiwyg/panopoly-wysiwyg.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/sites/all/modules/contrib/picture/picture_wysiwyg.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/profiles/panopoly/modules/contrib/radix_layouts/radix_layouts.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/modules/search/search.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/modules/user/user.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/profiles/panopoly/modules/contrib/views/css/views.css?q7cnpi");
+</style>
+<style type="text/css" media="all">
+@import url("https://eecs.berkeley.edu/profiles/panopoly/modules/contrib/ctools/css/ctools.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/profiles/panopoly/modules/contrib/panels/css/panels.css?q7cnpi");
+</style>
+<style type="text/css" media="screen">
+@import url("https://eecs.berkeley.edu/sites/all/themes/kalatheme/css/tweaks.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/sites/all/themes/kalatheme/css/panopoly.css?q7cnpi");
+</style>
+<style type="text/css" media="all">
+@import url("https://eecs.berkeley.edu/sites/all/themes/eecs/kalastatic/build/styles/main.css?q7cnpi");
+@import url("https://eecs.berkeley.edu/sites/all/themes/eecs/css/eecs.css?q7cnpi");
+</style>
+<style type="text/css" media="all">
+@import url("https://eecs.berkeley.edu/profiles/panopoly/modules/panopoly/panopoly_images/panopoly-images.css?q7cnpi");
+</style>
+
+<script type="text/javascript" src="https://eecs.berkeley.edu/profiles/panopoly/modules/contrib/jquery_update/replace/jquery/1.10/jquery.min.js?v=1.10.2"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/misc/jquery-extend-3.4.0.js?v=1.10.2"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/misc/jquery.once.js?v=1.2"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/misc/drupal.js?q7cnpi"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/profiles/panopoly/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.core.min.js?v=1.10.2"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/profiles/panopoly/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.widget.min.js?v=1.10.2"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/profiles/panopoly/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.tabs.min.js?v=1.10.2"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/profiles/panopoly/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.accordion.min.js?v=1.10.2"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/profiles/panopoly/modules/panopoly/panopoly_images/panopoly-images.js?q7cnpi"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/sites/all/modules/contrib/google_cse/google_cse.js?q7cnpi"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/profiles/panopoly/modules/panopoly/panopoly_admin/panopoly-admin.js?q7cnpi"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/profiles/panopoly/modules/panopoly/panopoly_magic/panopoly-magic.js?q7cnpi"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/profiles/panopoly/modules/panopoly/panopoly_theme/js/panopoly-accordion.js?q7cnpi"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/profiles/panopoly/libraries/jquery.imagesloaded/jquery.imagesloaded.min.js?q7cnpi"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/sites/all/themes/eecs/kalastatic/assets/vendor/jquery-match-height/dist/jquery.matchHeight-min.js?q7cnpi"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/sites/all/themes/eecs/kalastatic/assets/vendor/Chart.js/Chart.min.js?q7cnpi"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/sites/all/themes/eecs/kalastatic/build/js/charts.js?q7cnpi"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/sites/all/themes/eecs/kalastatic/build/js/eecs.js?q7cnpi"></script>
+<script type="text/javascript" src="https://eecs.berkeley.edu/sites/all/themes/eecs/kalastatic/assets/vendor/bootstrap-sass-twbs/assets/javascripts/bootstrap.min.js?q7cnpi"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"eecs","theme_token":"xZcRPa7XE_TD7iRlI4hjnIX4Ma4rkqMGjYG-GCMsmsk","js":{"profiles\/panopoly\/modules\/contrib\/jquery_update\/replace\/jquery\/1.10\/jquery.min.js":1,"misc\/jquery-extend-3.4.0.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"profiles\/panopoly\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.core.min.js":1,"profiles\/panopoly\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.widget.min.js":1,"profiles\/panopoly\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.tabs.min.js":1,"profiles\/panopoly\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.accordion.min.js":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_images\/panopoly-images.js":1,"sites\/all\/modules\/contrib\/google_cse\/google_cse.js":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_admin\/panopoly-admin.js":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_magic\/panopoly-magic.js":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_theme\/js\/panopoly-accordion.js":1,"profiles\/panopoly\/libraries\/jquery.imagesloaded\/jquery.imagesloaded.min.js":1,"sites\/all\/themes\/eecs\/kalastatic\/assets\/vendor\/jquery-match-height\/dist\/jquery.matchHeight-min.js":1,"sites\/all\/themes\/eecs\/kalastatic\/assets\/vendor\/Chart.js\/Chart.min.js":1,"sites\/all\/themes\/eecs\/kalastatic\/build\/js\/charts.js":1,"sites\/all\/themes\/eecs\/kalastatic\/build\/js\/eecs.js":1,"sites\/all\/themes\/eecs\/kalastatic\/assets\/vendor\/bootstrap-sass-twbs\/assets\/javascripts\/bootstrap.min.js":1}},"googleCSE":{"cx":"010464314754576911738:fu9nvbsz9t0","language":"","resultsWidth":600,"domain":"www.google.com"},"CToolsModal":{"modalSize":{"type":"scale","width":".9","height":".9","addWidth":0,"addHeight":0,"contentRight":25,"contentBottom":75},"modalOptions":{"opacity":".55","background-color":"#FFF"},"animationSpeed":"fast","modalTheme":"CToolsModalDialog","throbberTheme":"CToolsModalThrobber"},"panopoly_magic":{"pane_add_preview_mode":"single"}});
+//--><!]]>
+</script>
+
+<!-- pagehead1 file, then title element, then this file -->
+</head>
+<body class="html not-front not-logged-in no-sidebars page-node region-content" >
+  <div id="skip-link">
+    <a href="#main-content" class="element-focusable element-invisible">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+
+ <!-- Page Header -->
+<header class="navbar navbar-default">
+  <div class="navbar-header">
+
+    <div class='brand navbar-brand'>
+      <a href="https://eecs.berkeley.edu/" title="Home" rel="home" class="logo">
+      </a>
+    </div>
+
+    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="element-invisible">Toggle navigation</span>
+      <span class="icon-bar" aria-hidden="true"></span>
+      <span class="icon-bar" aria-hidden="true"></span>
+      <span class="icon-bar" aria-hidden="true"></span>
+    </button>
+
+    <div id="site-name-slogan" class="brand navbar-brand">
+
+      <h1 id="site-name" class="element-invisible">
+        <strong>
+          <a href="https://eecs.berkeley.edu/" title="Home" rel="home" tabindex="-1">
+            <span>EECS at UC Berkeley</span>
+          </a>
+        </strong>
+      </h1>
+
+    </div> <!-- /#name-and-slogan -->
+
+  </div><!-- /.navbar-header -->
+
+  <nav class="collapse navbar-collapse" role="navigation">
+        <h2 class="element-invisible">Main menu</h2><ul id="main-nav" class="nav navbar-nav links clearfix"><li class="mid-2018 first dropdown clearfix"><a href="https://eecs.berkeley.edu/about" class="first expanded" id="main-menu-dropdown-1" data-toggle="dropdown" aria-haspopup="true">About<span class="caret" aria-hidden="true"></span></a><span class="element-invisible">Toggle submenu for About</span></a><ul class="dropdown-menu" aria-labelledby="main-menu-dropdown-1" aria-expanded="false"><li class="mid-2019 first"><a href="https://eecs.berkeley.edu/about" class="first leaf">About Overview</a></li>
+<li class="mid-3902"><a href="https://eecs.berkeley.edu/about/by-the-numbers" class="leaf">By the Numbers</a></li>
+<li class="mid-2343"><a href="https://eecs.berkeley.edu/about/diversity" class="collapsed">Diversity</a></li>
+<li class="mid-2020"><a href="https://eecs.berkeley.edu/about/history" class="collapsed">History</a></li>
+<li class="mid-3889"><a href="https://eecs.berkeley.edu/about/special-events" class="collapsed">Special Events</a></li>
+<li class="mid-2345 last"><a href="https://eecs.berkeley.edu/about/visiting" class="last collapsed">Visiting</a></li>
+</ul></li><div class='clearfix visible-xs'></div>
+<li class="mid-1632 dropdown clearfix"><a href="https://eecs.berkeley.edu/academics" class="expanded" id="main-menu-dropdown-2" data-toggle="dropdown" aria-haspopup="true">Academics<span class="caret" aria-hidden="true"></span></a><span class="element-invisible">Toggle submenu for Academics</span></a><ul class="dropdown-menu" aria-labelledby="main-menu-dropdown-2" aria-expanded="false"><li class="mid-2015 first"><a href="https://eecs.berkeley.edu/academics" class="first leaf">Academics Overview</a></li>
+<li class="mid-2353"><a href="https://eecs.berkeley.edu/academics/undergraduate" class="collapsed">Undergraduate Admissions &amp; Programs</a></li>
+<li class="mid-2352"><a href="https://eecs.berkeley.edu/academics/graduate" class="collapsed">Graduate Admissions &amp; Programs</a></li>
+<li class="mid-3374"><a href="https://eecs.berkeley.edu/resources/students" class="leaf">For Current Students</a></li>
+<li class="mid-1716 last"><a href="https://eecs.berkeley.edu/academics/courses" class="last leaf">Courses</a></li>
+</ul></li><div class='clearfix visible-xs'></div>
+<li class="mid-1635 dropdown clearfix"><a href="https://eecs.berkeley.edu/research" class="expanded" id="main-menu-dropdown-3" data-toggle="dropdown" aria-haspopup="true">Research<span class="caret" aria-hidden="true"></span></a><span class="element-invisible">Toggle submenu for Research</span></a><ul class="dropdown-menu" aria-labelledby="main-menu-dropdown-3" aria-expanded="false"><li class="mid-2023 first"><a href="https://eecs.berkeley.edu/research" class="first leaf">Research Overview</a></li>
+<li class="mid-2025"><a href="https://www2.eecs.berkeley.edu/Research/Areas/" class="leaf">Areas</a></li>
+<li class="mid-2024"><a href="https://www2.eecs.berkeley.edu/Research/Areas/Centers/" class="leaf">Centers &amp; Labs</a></li>
+<li class="mid-2326"><a href="https://eecs.berkeley.edu/research/colloquium" class="leaf">Colloquium</a></li>
+<li class="mid-4575 last"><a href="https://eecs.berkeley.edu/research/bears/2020" class="last collapsed">BEARS Symposium</a></li>
+</ul></li><div class='clearfix visible-xs'></div>
+<li class="mid-1634 dropdown clearfix"><a href="https://eecs.berkeley.edu/people" class="expanded" id="main-menu-dropdown-4" data-toggle="dropdown" aria-haspopup="true">People<span class="caret" aria-hidden="true"></span></a><span class="element-invisible">Toggle submenu for People</span></a><ul class="dropdown-menu" aria-labelledby="main-menu-dropdown-4" aria-expanded="false"><li class="mid-2029 first"><a href="https://eecs.berkeley.edu/people" class="first leaf">People Overview</a></li>
+<li class="mid-2035"><a href="https://www2.eecs.berkeley.edu/Directories/directory-nostudents.html" class="leaf">Directory</a></li>
+<li class="mid-2034"><a href="https://eecs.berkeley.edu/people/leadership" class="leaf">Leadership</a></li>
+<li class="mid-2201"><a href="https://eecs.berkeley.edu/people/faculty" class="leaf">Faculty</a></li>
+<li class="mid-2032"><a href="https://eecs.berkeley.edu/people/students" class="collapsed">Students</a></li>
+<li class="mid-2348"><a href="https://eecs.berkeley.edu/people/staff" class="collapsed">Staff</a></li>
+<li class="mid-2028 last"><a href="https://eecs.berkeley.edu/people/alumni" class="last collapsed">Alumni</a></li>
+</ul></li><div class='clearfix visible-xs'></div>
+<li class="mid-1633 last dropdown clearfix"><a href="https://eecs.berkeley.edu/connect" class="last expanded" id="main-menu-dropdown-5" data-toggle="dropdown" aria-haspopup="true">Connect<span class="caret" aria-hidden="true"></span></a><span class="element-invisible">Toggle submenu for Connect</span></a><ul class="dropdown-menu" aria-labelledby="main-menu-dropdown-5" aria-expanded="false"><li class="mid-2203 first"><a href="https://eecs.berkeley.edu/connect" class="first leaf">Connect Overview</a></li>
+<li class="mid-2531"><a href="https://eecs.berkeley.edu/connect/support" class="collapsed">Support EECS</a></li>
+<li class="mid-2208"><a href="https://eecs.berkeley.edu/connect/k-12" class="leaf">K-12 Outreach</a></li>
+<li class="mid-3244"><a href="https://eecs.berkeley.edu/industry/recruit-students" class="leaf">Recruit Students</a></li>
+<li class="mid-3384"><a href="https://eecs.berkeley.edu/csa" class="leaf">Student Affairs</a></li>
+<li class="mid-3663"><a href="https://eecs.berkeley.edu/faculty-jobs" class="leaf">Faculty Positions</a></li>
+<li class="mid-3669 last"><a href="https://eecs.berkeley.edu/contact" class="last leaf">Contact</a></li>
+</ul></li><div class='clearfix visible-xs'></div>
+</ul>
+    
+    <h2 class="element-invisible">Secondary menu</h2><ul id="utility-nav" class="nav navbar-nav secondary-links"><li class="menu-1608 first home" id="" style=""><a href="https://eecs.berkeley.edu/"><span class="sr-only home">Home</span></a></li>
+<li class="menu-1628 " id="" style=""><a href="https://eecs.berkeley.edu/resources/students" title="Information for Current Students">For Students</a></li>
+<li class="menu-1629 " id="" style=""><a href="https://eecs.berkeley.edu/resources/faculty-staff" title="Information for Current Faculty/Staff">For Faculty/Staff</a></li>
+<li class="menu-1630 " id="" style=""><a href="https://eecs.berkeley.edu/industry" title="Information for Industry contacts">Industry</a></li>
+<li class="menu-1631 " id="" style=""><a href="https://eecs.berkeley.edu/news">News</a></li>
+<li class="menu-1885 " id="" style=""><a href="https://eecs.berkeley.edu/events">Events</a></li>
+<li class="menu-2772 last " id="" style=""><a href="https://eecs.berkeley.edu/connect/support" class="highlight">Give</a></li>
+</ul>  </nav>
+
+  <a href="#" aria-hidden="true" class="search-toggle" data-toggle="collapse" data-target=".search-collapse" aria-expanded="true"><span>Toggle Search</span><i class="icon search" aria-hidden="true"></i></a>
+
+  <div class="search-container">
+    <form class="google-cse" action="https://eecs.berkeley.edu/" method="post" id="search-block-form" accept-charset="UTF-8" role="form"><div><div class="container-inline form-inline search-collapse collapse">
+      <h2 class="element-invisible">Search form</h2>
+    <div class="form-item form-type-textfield form-item-search-block-form form-group">
+  <label class="sr-only" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." placeholder="Search" class="form-control form-text fa-on" type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" />
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><button type="submit" id="edit-submit" name="op" class="form-submit btn btn-default btn-primary"><span>Search</span><i class="icon search" aria-hidden="true"></i></button></div><input type="hidden" name="form_build_id" value="form-7m35LscTMGWckWlp-4yTB7x2wy7cOinWL9G6QIGqRqw" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div>
+</div></form>  </div>
+</header>
+
+
+
+<main role="main" class="main">
+    <div class="eecs-static">
+        
+    <div id="breadcrumb">
+        <div class="item-list">
+            <ol class="breadcrumb">
+                <li class="first"><a href="https://eecs.berkeley.edu/">Home</a></li>
+                    <li><a href="https://eecs.berkeley.edu/people">People</a></li>
+                        <li><a href="https://eecs.berkeley.edu/people/faculty">Faculty</a></li>
+                        <li class="active last">Richard M. White</li>
+                        </ol>
+        </div>
+    </div>
+
+        <div class="vcard faculty-and-staff-profile">
+            
+    
+
+    <article class="profile">
+        <a id="main-content"></a>
+        <div class="photo">
+            <img src="https://www2.eecs.berkeley.edu/Faculty/Photos/Homepages/white.jpg"
+                 width=150
+                 alt="Photo for Richard M. White"
+                 title="Richard M. White Photo"
+            >
+                            <div>
+                    <a title="Click to View Larger Photo for Richard M. White" href="https://www2.eecs.berkeley.edu/Faculty/Photos/Fullsize/white.jpg">Larger
+                        Photo</a>
+                </div>
+                    </div>
+        <div class="content">
+            <header>
+                <h1 class="fn">Richard M. White</h1>
+                <p class="title">Professor Emeritus</p>
+            </header>
+
+            <section class="section info-links">
+                <h2 class="sr-only">Info Links</h2>
+
+                <div class="grouping">
+                                                                                    <h3>Research Areas</h3>
+                        <ul class="Research Areas">
+                                                            <li>
+                                    <a href="/Research/Areas/ENE">Energy (ENE)</a></li>
+                                                                                                                            <li>
+                                        Solid-State Devices
+                                    </li>
+                                                                                    </ul>
+                                    </div>
+                <div class="grouping">
+                                                        </div>
+
+                <div class="grouping">
+                                    </div>
+            </section>
+
+            <section class="section bio">
+                                    <h2>Biography</h2>
+                    <div>
+                        Richard M. White is a professor emeritus in the Department of Electrical Engineering and Computer Sciences and a Co-Founding Director of the Berkeley Sensor &amp; Actuator Center. His research interests include wireless microsensors, energy scavenging devices for use in electric power systems, and portable particulate matter monitors for measuring concentrations of airborne aerosols and diesel exhaust particulates.<p>Prior to joining the faculty at UC Berkeley in 1963, Professor White conducted microwave device research at General Electric. Professor White also holds numerous U.S. patents and has co-authored texts and reference books on Solar Cells (1983), Acoustic Wave Sensors (1997), and Electronics (2001). In addition to the 2003 Rayleigh Award of the IEEE for seminal contributions to surface acoustic wave technology, Professor White is a member of the National Academy of Engineering, a Fellow of the IEEE and the American Association for the Advancement of Science, and is the recipient of many academic awards including the IEEE Cledo Brunetti Award (1986), U.C. Berkeley Chancellor's Professorship, and the 2003 U.C. Berkeley Community Service citation award. In 2013, Professor White was a co-recipient of the IEEE/RSE/Wolfson, James Clerk Maxwell Award with Professor Richard Muller.<p>Professor White earned his A.B. and A.M. degrees in Engineering Science and Applied Physics from Harvard University, and his Ph.D. degree in Applied Physics in 1956, also from Harvard.
+                    </div>
+                            </section>
+
+            <section class="section publications">
+                                                    <h2>Education</h2>
+                    <ul>
+                                                    <li>
+                                1956, Ph.D., Applied Physics, Harvard University
+                            </li>
+                                                    <li>
+                                1952, A.M., Engineering Science and Applied Physics, Harvard University
+                            </li>
+                                                    <li>
+                                1951, A.B., Engineering Science and Applied Physics, Harvard University
+                            </li>
+                                            </ul>
+                            </section>
+
+            <section class="section publications">
+                                    <h2>Selected Publications</h2>
+                    <ul>
+                                                    <li>
+                                A. H. Meng, N. Nguyen, and R. M. White, "<a href="http://www.springerlink.com/content/h1243228631m271q/fulltext.pdf">Focused flow micropump using ultrasonic flexural plate waves</a>," <em>Biomedical Microdevices</em>, vol. 2, no. 3, pp. 169-174, June 2000.
+                            </li>
+                                                    <li>
+                                S. E. Cowan, J. Black, J. D. Keasling, and R. M. White, "<a href="http://pubs.acs.org/cgi-bin/article.cgi/ancham/1999/71/i16/pdf/ac9809884.pdf">Ultrasonic flexural-plate-wave sensor for detecting the concentration of settling E. coli W3110 cells</a>," <em>Analtyical Chemistry</em>, vol. 71, no. 16, pp. 3622-3625, Aug. 1999.
+                            </li>
+                                                    <li>
+                                J. W. Grate, S. J. Martin, and R. M. White, "<a href="http://pubs.acs.org/cgi-bin/archive.cgi/ancham/1993/65/i22/pdf/ac00070a002.pdf">Acoustic wave microsensors: Part II</a>," <em>Analytical Chemistry</em>, vol. 65, no. 22, pp. 987A-996A, Nov. 1993.
+                            </li>
+                                                    <li>
+                                J. W. Grate, S. J. Martin, and R. M. White, "<a href="http://pubs.acs.org/cgi-bin/archive.cgi/ancham/1993/65/i21/pdf/ac00069a002.pdf">Acoustic wave microsensors: Part I</a>," <em>Analytical Chemistry</em>, vol. 65, no. 21, pp. 940A-948A, Nov. 1993.
+                            </li>
+                                                    <li>
+                                J. W. Grate, S. W. Wenzel, and R. M. White, "<a href="http://pubs.acs.org/cgi-bin/archive.cgi/ancham/1991/63/i15/pdf/ac00015a011.pdf">Flexural plate wave devices for chemical analysis</a>," <em>Analtyical Chemistry</em>, vol. 63, no. 15, pp. 1552-1561, Aug. 1991.
+                            </li>
+                                                    <li>
+                                R. M. Moroney, R. M. White, and R. T. Howe, "<a href="http://scitation.aip.org/getabs/servlet/GetabsServlet?prog=normal&amp;id=APPLAB000059000007000774000001&amp;idtype=cvips&amp;gifs=yes">Microtransport induced by ultrasonic Lamb waves</a>," <em>Applied Physics Letters</em>, vol. 59, no. 7, pp. 774-776, Aug. 1991.
+                            </li>
+                                                    <li>
+                                S. W. Wenzel and R. M. White, "<a href="http://scitation.aip.org/getabs/servlet/GetabsServlet?prog=normal&amp;id=APPLAB000054000020001976000001&amp;idtype=cvips&amp;gifs=yes">Analytic comparison of the sensitivities of bulk-wave, surface-wave, and flexural plate-wave ultrasonic gravimetric sensors</a>," <em>Applied Physics Letters</em>, vol. 54, no. 20, pp. 1976-1978, May 1989.
+                            </li>
+                                                    <li>
+                                E. T. Zellers, R. M. White, and S. W. Wenzel, "<a href="http://www.sciencedirect.com/science?_ob=ArticleURL&amp;_udi=B6W97-44W5J6P-B6&amp;_user=4420&amp;_coverDate=05%2F31%2F1988&amp;_rdoc=1&amp;_fmt=&amp;_orig=search&amp;_sort=d&amp;view=c&amp;_acct=C000059607&amp;_version=1&amp;_urlVersion=0&amp;_user">Computer modelling of polymer-coated ZnO/Si surface-acoustic-wave and Lamb-wave chemical sensors</a>," <em>Sensors and Actuators</em>, vol. 14, no. 1, pp. 35-45, May 1988.
+                            </li>
+                                                    <li>
+                                R. M. White, P. J. Wicher, S. W. Wenzel, and E. T. Zellers, "<a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=1539899">Plate-mode ultrasonic oscillator sensors</a>," <em>IEEE Trans. Ultrasonics, Ferroelectrics and Frequency Control</em>, vol. 34, no. 2, pp. 162-171, March 1987.
+                            </li>
+                                                    <li>
+                                J. J. Bernstein and R. M. White, "<a href="http://www.ecsdl.org/getpdf/servlet/GetPDFServlet?filetype=pdf&amp;id=JESOAN000131000005001050000001&amp;idtype=cvips&amp;prog=normal">Piezo-electrocapillary effect: A new effect observed in porous anodic oxide films</a>," <em>J. Electrochemical Society</em>, vol. 131, no. 5, pp. 1050-1053, May 1984.
+                            </li>
+                                                    <li>
+                                K. Uozumi, K. Ohsone, and R. M. White, "<a href="http://scitation.aip.org/getabs/servlet/GetabsServlet?prog=normal&amp;id=APPLAB000043000010000917000001&amp;idtype=cvips&amp;gifs=yes">Generation and detection of ultrasonic Lamb waves in a thin deposited film by using interdigital transducers</a>," <em>Applied Physics Letters</em>, vol. 43, no. 10, pp. 917-919, Nov. 1983.
+                            </li>
+                                                    <li>
+                                C. T. Chuang, R. M. White, and J. J. Bernstein, "<a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=1482622">A thin-membrane surface-acoustic-wave vapor-sensing device</a>," <em>IEEE Electron Device Letters</em>, vol. 3, no. 6, pp. 145-148, June 1982.
+                            </li>
+                                                    <li>
+                                A. R. Neureuther, R. M. White, and C. Wright, "Introduction to Electronics: Sophomore Self-Study Course," <em>IEEE Trans. Education</em>, vol. E-22, no. 1, pp. 17-20, Feb. 1979.
+                            </li>
+                                                    <li>
+                                T. I. Chappell and R. M. White, "<a href="http://scitation.aip.org/getpdf/servlet/GetPDFServlet?filetype=pdf&amp;id=APPLAB000028000008000422000001&amp;idtype=cvips">Characteristics of a water absorber in front of a silicon solar cell</a>," <em>Applied Physics Letters</em>, vol. 28, no. 8, pp. 422-423, April 1976.
+                            </li>
+                                                    <li>
+                                G. Y. Robinson and R. M. White, "A laboratory experiment on semiconductor bulk-effect oscillators," <em>IEEE Trans. Education</em>, vol. E-15, no. 3, pp. 187-188, Aug. 1972.
+                            </li>
+                                                    <li>
+                                R. M. White, "<a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=1449830">Surface elastic waves</a>," <em>Proc. IEEE</em>, vol. 58, no. 8, pp. 1238-1276, Aug. 1970.
+                            </li>
+                                                    <li>
+                                N. C. MacDonald, G. Y. Robinson, R. M. White, N. C. MacDonald, G. Y. Robinson, and R. M. White, "<a href="http://scitation.aip.org/getabs/servlet/GetabsServlet?prog=normal&amp;id=JAPIAU000040000011004516000001&amp;idtype=cvips&amp;gifs=yes">Time-resolved scanning electron microscopy and its application to bulk-effect oscillators</a>," <em>J. Applied Physics</em>, vol. 40, no. 11, pp. 4516-4528, Oct. 1969.
+                            </li>
+                                                    <li>
+                                S. G. Joshi and R. M. White, "<a href="http://scitation.aip.org/getabs/servlet/GetabsServlet?prog=normal&amp;id=JASMAN00004600001A000017000001&amp;idtype=cvips&amp;gifs=yes">Excitation and detection of surface elastic waves in piezoelectric crystals</a>," <em>J. Acoustical Society of America</em>, vol. 46, no. 1A, pp. 17-27, July 1969.
+                            </li>
+                                                    <li>
+                                G. Y. Robinson and R. M. White, "<a href="http://scitation.aip.org/getabs/servlet/GetabsServlet?prog=normal&amp;id=APPLAB000010000011000320000001&amp;idtype=cvips&amp;gifs=yes">Scanning electron microscopy of ferroelectric domains in barium titanate</a>," <em>Applied Physics Letters</em>, vol. 10, no. 11, pp. 320-323, June 1967.
+                            </li>
+                                                    <li>
+                                R. M. White and F. W. Voltmer, "<a href="http://scitation.aip.org/getabs/servlet/GetabsServlet?prog=normal&amp;id=APPLAB000008000002000040000001&amp;idtype=cvips&amp;gifs=yes">Ultrasonic surface-wave amplification in cadmium sulfide</a>," <em>Applied Physics Letters</em>, vol. 8, no. 2, pp. 40-42, Jan. 1966.
+                            </li>
+                                            </ul>
+                            </section>
+
+            <section class="section awards">
+                                                    <h2>Awards, Memberships and Fellowships</h2>
+                    <ul>
+                                                    <li>
+                                                                    <a href="/Faculty/Awards/ieee.html#377">IEEE James Clerk Maxwell Medal</a>,
+                                                                2013
+                            </li>
+                                                    <li>
+                                                                    <a href="/Faculty/Awards/ieee.html#330">UFFC Rayleigh Ultrasonics Award</a>,
+                                                                2003
+                            </li>
+                                                    <li>
+                                                                    <a href="/Faculty/Awards/ieee.html#329">UFFC W. G. Cady Frequency Control Award</a>,
+                                                                2000
+                            </li>
+                                                    <li>
+                                                                    <a href="/Faculty/Awards/society.html#2">American Association for the Advancement of Science (AAAS) Fellow</a>,
+                                                                1994
+                            </li>
+                                                    <li>
+                                                                    <a href="/Faculty/Awards/index.html#100">National Academy of Engineering (NAE) Member</a>,
+                                                                1994
+                            </li>
+                                                    <li>
+                                                                    <a href="/Faculty/Awards/ieee.html#328">UFFC Achievement Award</a>,
+                                                                1988
+                            </li>
+                                                    <li>
+                                                                    <a href="/Faculty/Awards/ieee.html#329">UFFC W. G. Cady Frequency Control Award</a>,
+                                                                1987
+                            </li>
+                                                    <li>
+                                                                    <a href="/Faculty/Awards/ieee.html#14">IEEE Cledo Brunetti Award</a>,
+                                                                1986
+                            </li>
+                                                    <li>
+                                                                    <a href="/Faculty/Awards/ieee.html#62">Institute of Electrical &amp; Electronics Engineers (IEEE) Fellow</a>,
+                                                                1972
+                            </li>
+                                                    <li>
+                                                                    <a href="/Faculty/Awards/government.html#243">Guggenheim Fellow</a>,
+                                                                1968
+                            </li>
+                                            </ul>
+                            </section>
+        </div>
+    </article>
+
+    <aside class="links-and-contact-info">
+        <h2 class="sr-only">Links and Contact Info</h2>
+
+        <section class="links">
+            <h3>Links</h3>
+            <ul>
+                                    <li class="url">
+                        <a href="http://www.eecs.berkeley.edu/~rwhite/">Personal Homepage</a>
+                    </li>
+                                                    <li class="url">
+                        <a href="https://www2.eecs.berkeley.edu/Research/Projects/Faculty/white.html">Projects</a>
+                    </li>
+                                                    <li class="url">
+                        <a href="https://www2.eecs.berkeley.edu/Pubs/Faculty/white.html">Publications</a>
+                    </li>
+                                                    <li class="url">
+                        <a href="https://www2.eecs.berkeley.edu/Pubs/Dissertations/Faculty/white.html">Dissertations</a>
+                    </li>
+                            </ul>
+        </section>
+
+                    <section class="contact-info">
+                <h3>Contact Information</h3>
+                                                                            <p class="adr">571 Cory Hall</p>
+                                                    <p class="tel">tel:
+                                <a href="tel:+1-510-642-0540">510-642-0540</a>
+                            </p>
+                                                                                                                        <div class="email">
+                        <a href="mailto:rwhite@eecs.berkeley.edu">rwhite@eecs.berkeley.edu</a>
+                    </div>
+                            </section>
+        
+                    <section class="office-hours">
+                                                    <h3>Office Hours</h3>
+                                            <p class="note">By email appointment, only</p>
+                                                </section>
+        
+                    <section>
+                                                                                    <h3>Research Support</h3>
+                                            <p>
+                            Thomas Parsons
+                                                            <br>353 Cory
+                                                                                        <br><a href="tel:+1-3-0664">3-0664</a>
+                                                                                        <br><a href="mailto:tparsons@berkeley.edu">tparsons@berkeley.edu</a>
+                                                    </p>
+                                                </section>
+            </aside>
+
+
+        </div>
+    </div>
+</main>
+
+
+<footer class="footer">
+  <div class="brand navbar-brand">
+    <a href="https://eecs.berkeley.edu/" title="Home" rel="home" class="logo"><span class="sr-only">Home</span></a>
+  </div>
+  <ul class="nav navbar-nav footer-nav"><li class="mid-2039 first "><a href="https://eecs.berkeley.edu/about" class="first expanded">About</a><ul class="nav"><li class="mid-2197 first"><a href="https://eecs.berkeley.edu/about/history" class="first collapsed">History</a></li>
+<li class="mid-2344"><a href="https://eecs.berkeley.edu/about/diversity" class="collapsed">Diversity</a></li>
+<li class="mid-2346"><a href="https://eecs.berkeley.edu/about/visiting" class="leaf">Visiting</a></li>
+<li class="mid-3972 last"><a href="https://eecs.berkeley.edu/about/special-events" class="last collapsed">Special Events</a></li>
+</ul></li><div class='clearfix visible-xs'></div>
+<li class="mid-1585 "><a href="https://eecs.berkeley.edu/academics" class="expanded">Academics</a><ul class="nav"><li class="mid-2355 first"><a href="https://eecs.berkeley.edu/academics/undergraduate" class="first collapsed">Undergrad Admissions &amp; Programs</a></li>
+<li class="mid-2354"><a href="https://eecs.berkeley.edu/academics/graduate" class="leaf">Graduate Admissions &amp; Programs</a></li>
+<li class="mid-2041"><a href="https://eecs.berkeley.edu/academics/courses" class="collapsed">Courses</a></li>
+<li class="mid-2393"><a href="https://eecs.berkeley.edu/academics/prospective-women" class="leaf">Prospective Women Students</a></li>
+<li class="mid-3373 last"><a href="https://eecs.berkeley.edu/resources/students" class="last leaf">Current Students</a></li>
+</ul></li><div class='clearfix visible-xs'></div>
+<li class="mid-1588 "><a href="https://eecs.berkeley.edu/research" class="expanded">Research</a><ul class="nav"><li class="mid-1593 first"><a href="https://www2.eecs.berkeley.edu/Research/Areas/" class="first leaf">Areas</a></li>
+<li class="mid-2042"><a href="https://www2.eecs.berkeley.edu/Research/Areas/Centers/" class="leaf">Centers &amp; Labs</a></li>
+<li class="mid-2043"><a href="https://www2.eecs.berkeley.edu/Research/Projects/" class="leaf">Projects</a></li>
+<li class="mid-2045"><a href="https://www2.eecs.berkeley.edu/Pubs/TechRpts/" class="leaf">Technical Reports</a></li>
+<li class="mid-2046"><a href="https://www2.eecs.berkeley.edu/Pubs/Dissertations/" class="leaf">PhD Dissertations</a></li>
+<li class="mid-2327 last"><a href="https://eecs.berkeley.edu/research/colloquium" class="last collapsed">Joint Colloquium</a></li>
+</ul></li><div class='clearfix visible-xs'></div>
+<li class="mid-1589 "><a href="https://eecs.berkeley.edu/people" class="expanded">People</a><ul class="nav"><li class="mid-2047 first"><a href="https://www2.eecs.berkeley.edu/Directories/directory-nostudents.html" class="first leaf">Directory</a></li>
+<li class="mid-1594"><a href="https://eecs.berkeley.edu/people/leadership" class="leaf">Leadership</a></li>
+<li class="mid-2202"><a href="https://eecs.berkeley.edu/people/faculty" class="leaf">Faculty</a></li>
+<li class="mid-2407"><a href="https://eecs.berkeley.edu/people/students" class="collapsed">Students</a></li>
+<li class="mid-2397"><a href="https://eecs.berkeley.edu/people/staff" class="collapsed">Staff</a></li>
+<li class="mid-2051 last"><a href="https://eecs.berkeley.edu/people/alumni" class="last leaf">Alumni</a></li>
+</ul></li><div class='clearfix visible-xs'></div>
+<li class="mid-3342 "><a href="https://eecs.berkeley.edu/resources" class="expanded">Resources</a><ul class="nav"><li class="mid-3676 first"><a href="https://eecs.berkeley.edu/resources/facilities/room-reservations" class="first leaf">Room Reservations</a></li>
+<li class="mid-2755"><a href="https://www2.eecs.berkeley.edu/deptinfo" class="leaf">My EECS Info</a></li>
+<li class="mid-2212"><a href="https://eecs.berkeley.edu/resources/students" class="collapsed">For Students</a></li>
+<li class="mid-2409"><a href="https://eecs.berkeley.edu/resources/grads" class="collapsed">For Grads</a></li>
+<li class="mid-2577"><a href="https://eecs.berkeley.edu/resources/undergrads" class="collapsed">For Undergrads</a></li>
+<li class="mid-2811"><a href="https://eecs.berkeley.edu/resources/gsis" class="collapsed">GSIs/Readers/Tutors</a></li>
+<li class="mid-2184"><a href="http://iris.eecs.berkeley.edu/" class="leaf">IT Services</a></li>
+<li class="mid-2717"><a href="https://eecs.berkeley.edu/resources/facilities" class="collapsed">Facilities/Safety</a></li>
+<li class="mid-1595"><a href="https://eecs.berkeley.edu/resources/faculty-staff" class="collapsed">For Faculty/Staff</a></li>
+<li class="mid-2357 last"><a href="https://eecs.berkeley.edu/resources/visiting-scholars" class="last collapsed">Visiting Scholars</a></li>
+</ul></li><div class='clearfix visible-xs'></div>
+<li class="mid-1591 "><a href="https://eecs.berkeley.edu/industry" class="expanded">Industry</a><ul class="nav"><li class="mid-2196 first"><a href="https://eecs.berkeley.edu/industry/recruit-students" class="first collapsed">Recruit Students</a></li>
+<li class="mid-3324 last"><a href="https://eecs.berkeley.edu/industry/entrepreneurship" class="last leaf">Entrepreneurial Activity</a></li>
+</ul></li><div class='clearfix visible-xs'></div>
+<li class="mid-1592 last "><a href="https://eecs.berkeley.edu/connect" class="last expanded">Connect</a><ul class="nav"><li class="mid-2189 first"><a href="https://eecs.berkeley.edu/connect/support" class="first collapsed">Support Us</a></li>
+<li class="mid-2207"><a href="https://eecs.berkeley.edu/connect/k-12" class="collapsed">K-12 Outreach</a></li>
+<li class="mid-3670"><a href="https://eecs.berkeley.edu/contact" class="leaf">Contact</a></li>
+<li class="mid-3664 last"><a href="https://eecs.berkeley.edu/faculty-jobs" class="last leaf">Faculty Positions</a></li>
+</ul></li><div class='clearfix visible-xs'></div>
+</ul>
+  <div class="footer-tier">
+    <ul class="nav navbar-nav links utility-nav clearfix"><li class="mid-1598 first "><a href="https://eecs.berkeley.edu/" class="first leaf"><i class="fa fa-home"></i><span class="sr-only">Home</span></a></li>
+<li class="mid-1710 "><a href="https://ee.berkeley.edu/" class="leaf">EE</a></li>
+<li class="mid-1711 "><a href="https://cs.berkeley.edu/" class="leaf">CS</a></li>
+<li class="mid-1712 "><a href="http://berkeley.edu/" class="leaf">UC Berkeley</a></li>
+<li class="mid-1713 "><a href="http://engineering.berkeley.edu/" class="leaf">Berkeley Engineering</a></li>
+<li class="mid-1603 "><a href="https://eecs.berkeley.edu/news" class="leaf">News</a></li>
+<li class="mid-2037 last "><a href="https://eecs.berkeley.edu/events" class="last leaf">Events</a></li>
+</ul>    <ul class="nav navbar-nav links social"><li class="mid-1599 first twitter"><a href="https://twitter.com/Berkeley_EECS" target="_blank" class="first leaf"><span class="sr-only">Berkley EECS on Twitter</span></a></li>
+<li class="mid-3895 instagram"><a href="https://www.instagram.com/ucb_eecs/" target="_blank" class="leaf"><span class="sr-only">Berkeley EECS on Instagram</span></a></li>
+<li class="mid-4224 linkedin-social"><a href="https://www.linkedin.com/school/uc-berkeley-eecs/" target="_blank" class="leaf"><span class="sr-only">Berkeley EECS on LinkedIn</span></a></li>
+<li class="mid-4225 last youtube-social"><a href="http://www.youtube.com/c/UCBerkeleyEECSEvents" target="_blank" class="last leaf"><span class="sr-only">Berkeley EECS on YouTube</span></a></li>
+</ul>  </div>
+  <div class="small-print">
+    <div class="copyright">&copy; 2020 UC Regents</div>
+
+    <ul class="links policies">
+      <li>
+        <a href="https://eecs.berkeley.edu/privacy-policy"><span>Privacy Policy</span></a>
+      </li>
+    </ul>
+  </div>
+</footer>
+
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WZMWWC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script type="text/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0];var j=d.createElement(s);var dl=l!='dataLayer'?'&l='+l:'';j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;j.type='text/javascript';j.async=true;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WZMWWC');</script>
+<!-- End Google Tag Manager -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+</body>
+</html>
+

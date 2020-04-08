@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/overall.dwt" codeOutsideHTMLIsLocked="false" -->
+<!-- DW6 -->
+<head>
+<!-- Copyright 2005 Macromedia, Inc. All rights reserved. -->
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>David Waltz's Home Page</title>
+<!-- InstanceEndEditable -->
+<link rel="stylesheet" href="emx_nav_left.css" type="text/css" />
+<script type="text/javascript">
+<!--
+var time = 3000;
+var numofitems = 7;
+
+//menu constructor
+function menu(allitems,thisitem,startstate){ 
+  callname= "gl"+thisitem;
+  divname="subglobal"+thisitem;  
+  this.numberofmenuitems = allitems;
+  this.caller = document.getElementById(callname);
+  this.thediv = document.getElementById(divname);
+  this.thediv.style.visibility = startstate;
+}
+
+//menu methods
+function ehandler(event,theobj){
+  for (var i=1; i<= theobj.numberofmenuitems; i++){
+    var shutdiv =eval( "menuitem"+i+".thediv");
+    shutdiv.style.visibility="hidden";
+  }
+  theobj.thediv.style.visibility="visible";
+}
+				
+function closesubnav(event){
+  if ((event.clientY <48)||(event.clientY > 107)){
+    for (var i=1; i<= numofitems; i++){
+      var shutdiv =eval('menuitem'+i+'.thediv');
+      shutdiv.style.visibility='hidden';
+    }
+  }
+}
+// -->
+</script>
+<style type="text/css">
+<!--
+body {
+	background-image: url(bgBlue.jpg);
+	background-repeat: no-repeat;
+	background-color: #2D2A62;
+}
+.style1 {
+	font-size: 125%;
+	color: #000000;
+	font-weight: bold;
+}
+-->
+</style>
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</head>
+<body onmousemove="closesubnav(event);">
+<div class="skipLinks">skip to: <a href="#content">page content</a> | <a href="#pageNav">links on this page</a> | <a href="#globalNav">site navigation</a> | <a href="#siteInfo">footer (site information)</a> </div>
+<div id="masthead">
+  <h1 id="siteName">David Waltz's Homepage </h1>
+  <div id="globalNav"> <img alt="" src="gblnav_left.gif" height="32" width="4" id="gnl" /> <img alt="" src="glbnav_right.gif" height="32" width="4" id="gnr" />
+    <div class="glink" id="globalLink"> <a href="index.html" id="gl5" class="glink" onmouseover="ehandler(event,menuitem5);">Home</a><a href="personal.html" target="_self" class="glink" id="gl1" onmouseover="ehandler(event,menuitem1);">Personal</a><a href="papers.html" target="_self" class="glink" id="gl2" onmouseover="ehandler(event,menuitem2);">Selected Papers </a><a href="waltzCV.pdf" target="_blank" class="glink" id="gl3" onmouseover="ehandler(event,menuitem3);">CV</a><a href="http://www.ccls.columbia.edu" target="_blank" class="glink" id="gl4" onmouseover="ehandler(event,menuitem4);">CCLS</a><a href="http://www.columbia.edu" target="_blank" class="glink" id="gl4" onmouseover="ehandler(event,menuitem4);">Columbia University </a></div>
+    <!--end globalLinks-->
+    <form id="search" action="">
+      <input name="searchFor" type="text" size="10" />
+      <a href="">search</a>
+    </form>
+  </div>
+  <!-- end globalNav -->
+  <!-- **subMenus** <div id="subglobal1" class="subglobalNav"> <a href="#">subglobal1 link</a> | <a href="#">subglobal1 link</a> | <a href="#">subglobal1 link</a> | <a href="#">subglobal1 link</a> | <a href="#">subglobal1 link</a> | <a href="#">subglobal1 link</a> | <a href="#">subglobal1 link</a> </div>
+  <div id="subglobal2" class="subglobalNav"> <a href="#">subglobal2 link</a> | <a href="#">subglobal2 link</a> | <a href="#">subglobal2 link</a> | <a href="#">subglobal2 link</a> | <a href="#">subglobal2 link</a> | <a href="#">subglobal2 link</a> | <a href="#">subglobal2 link</a> </div>
+  <div id="subglobal3" class="subglobalNav"> <a href="#">subglobal3 link</a> | <a href="#">subglobal3 link</a> | <a href="#">subglobal3 link</a> | <a href="#">subglobal3 link</a> | <a href="#">subglobal3 link</a> | <a href="#">subglobal3 link</a> | <a href="#">subglobal3 link</a> </div>
+  <div id="subglobal4" class="subglobalNav"> <a href="#">subglobal4 link</a> | <a href="#">subglobal4 link</a> | <a href="#">subglobal4 link</a> | <a href="#">subglobal4 link</a> | <a href="#">subglobal4 link</a> | <a href="#">subglobal4 link</a> | <a href="#">subglobal4 link</a> </div>
+  <div id="subglobal5" class="subglobalNav"> <a href="#">subglobal5 link</a> | <a href="#">subglobal5 link</a> | <a href="#">subglobal5 link</a> | <a href="#">subglobal5 link</a> | <a href="#">subglobal5 link</a> | <a href="#">subglobal5 link</a> | <a href="#">subglobal5 link</a> </div>
+  <div id="subglobal6" class="subglobalNav"> <a href="#">subglobal6 link</a> | <a href="#">subglobal6 link</a> | <a href="#">subglobal6 link</a> | <a href="#">subglobal6 link</a> | <a href="#">subglobal6 link</a> | <a href="#">subglobal6 link</a> | <a href="#">subglobal6 link</a> </div>
+  <div id="subglobal7" class="subglobalNav"> <a href="#">subglobal7 link</a> | <a href="#">subglobal7 link</a> | <a href="#">subglobal7 link</a> | <a href="#">subglobal7 link</a> | <a href="#">subglobal7 link</a> | <a href="#">subglobal7 link</a> | <a href="#">subglobal7 link</a> </div>
+  <div id="subglobal8" class="subglobalNav"> <a href="#">subglobal8 link</a> | <a href="#">subglobal8 link</a> | <a href="#">subglobal8 link</a> | <a href="#">subglobal8 link</a> | <a href="#">subglobal8 link</a> | <a href="#">subglobal8 link</a> | <a href="#">subglobal8 link</a> </div>
+</div> -->
+<!-- end masthead -->
+<div id="pagecell1">
+  <!--pagecell1-->
+  <img alt="" src="tl_curve_white.gif" height="6" width="6" id="tl" /> <img alt="" src="tr_curve_white.gif" height="6" width="6" id="tr" />
+  <div id="breadCrumb"></div>
+  <div id="pageName">
+    <h2>David L. Waltz </h2>
+  </div>
+  <!-- InstanceBeginEditable name="RightMenus" -->
+  <div id="pageNav">
+    <div id="sectionLinks">
+      <div id="div">
+        <div id="div2"> <a href="index.html" target="_self">Home</a> <a href="personal.html" target="_self">Personal Page </a> <a href="waltzCV.pdf" target="_blank">CV</a> <a href="papers.html" target="_self">Selected Papers </a></div>
+        <div class="relatedLinks"></div>
+      </div>
+    </div>
+    </div>
+  <!-- InstanceEndEditable -->
+  <div id="content"><!-- InstanceBeginEditable name="IDSpace" -->
+    <div class="feature"><img src="waltz(2).jpg" alt="David Waltz" width="197" height="223" />
+        <h3>Director, <a href="http://www.ccls.columbia.edu" target="_blank">Center for Computational Learning Systems</a>, <a href="http://www.columbia.edu" target="_blank">Columbia University </a></h3>
+      <p>&nbsp;</p>
+      <br />
+        <h4 class="style1">&nbsp;</h4>
+      <p class="style1">&nbsp;</p>
+      <h4 class="style1">&nbsp;</h4>
+      <h4 class="style1">&nbsp;</h4>
+      <h4 class="style1">Addresses</h4>
+      <p>Office: 212-870-1275 <br />
+        FAX: 212-870-1285 <br />
+        EMAIL: my last name at ccls.columbia.edu <br />
+        WWW: http://www1.cs.columbia.edu/~waltz/ <br />
+        SNAIL: Suite 850, 475 Riverside Drive, MC 7717, New York, NY, 10115 <br />
+        Department Administrator: Nancy Burroughs, 212-870-1280, nancy at ccls.columbia.edu </p>
+    </div>
+    <!-- InstanceEndEditable --><!-- InstanceBeginEditable name="MainParagraph" -->
+    <div class="story">
+      <h3>Biography</h3>
+      <p align="left"> David L. Waltz has been Director of the <a href="http://www.ccls.columbia.edu" target="_blank">Center for Computational Learning Systems (CCLS)</a> at <a href="http://www.columbia.edu" target="_blank">Columbia University</a> since 2003. He was formerly President of the <a href="http://www.nec-labs.com" target="_blank">NEC Research Institute</a> in Princeton, and from 1984-1993 was Director of Advanced Information Systems at <a href="http://en.wikipedia.org/wiki/Thinking_Machines" target="_blank">Thinking Machines Corporation</a> and Professor of <a href="http://www.cs.brandeis.edu" target="_blank">Computer Science at Brandeis University</a>. He had also been Professor of Electrical and Computer Engineering at the <a href="http://www.csl.uiuc.edu" target="_blank">University of Illinois (CSL</a> and<a href="http://www.ece.uiuc.edu" target="_blank"> ECE Department</a>) for 11 years. Waltz served as president of <a href="http://www.aaai.org/home.html" target="_blank">AAAI (American Association for Artificial Intelligence)</a> from 1997-1999, and is a Fellow of AAAI and <a href="http://www.acm.org" target="_blank">ACM (Association for Computing Machinery)</a>, a Senior Member of<a href="http://www.ieee.org/portal/site" target="_blank"> IEEE (Institute for Electrical and Electronics Engineers)</a>, and former Chairman of <a href="http://www.sigart.org" target="_blank">ACM SIGART</a> (Special Interest Group on Artificial Intelligence). He is currently on the <a href="http://www.arl.army.mil/www/default.cfm?Action=20" target="_blank">Army Research Lab</a> Technical Advisory Board and the Advisory Board of the <a href="http://www.ihmc.us" target="_blank">Florida Institute for Human and Machine Cognition</a>, the Technical Advisory Board of <a href="http://4c.ucc.ie/web/index.jsp" target="_blank">4C (Cork Constraint Computation Center, Ireland)</a> and has served on recent external advisory boards for Rutgers University, Carnegie-Mellon University, Brown University, and EPFL (Ecole Polytechnique Federale de Lausanne). He is on the Advisory Board for <a href="http://www.computer.org/portal/site/intelligent/" target="_blank">IEEE Intelligent Systems</a>, and the <a href="http://www.cra.org/ccc/" target="_blank">Computing Community Consortium Boar</a>d of the <a href="http://www.cra.org/">CRA (Computing Research Association),</a> and NSF Computer Science Advisory Board.</p>
+      <p align="left">Dr. Waltz received all his degrees from MIT, including his Ph.D. for work at the<a href="http://www.csail.mit.edu/index.php" target="_blank"> MIT AI Lab</a>. His thesis on computer vision originated the field of <a href="http://en.wikipedia.org/wiki/History_of_artificial_intelligence#The_golden_years_1956.E2.88.921974" target="_blank">constraint propagation</a>, and with Craig Stanfill, he originated the field of memory-based reasoning branch of <a href="http://en.wikipedia.org/wiki/Case-based_reasoning" target="_blank">CBR (Case-Based Reasoning)</a>. His current primary research interest is in machine learning applications, especially to the <a href="http://www.encyclopedia.com/doc/1G1-157035557.html" target="_blank">electric power grid</a>. His research interests have also included massively parallel information retrieval, data mining, learning and automatic classification with applications protein structure prediction, and natural language processing.</p>
+    </div>
+    <!-- InstanceEndEditable -->
+    <div class="story"><!-- InstanceBeginEditable name="Additional info" -->
+    <table width="100%" cellpadding="0" cellspacing="0" summary="">
+      <tr valign="top">
+        <td class="storyLeft"><p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <h3>&nbsp;</h3>
+          <h3>&nbsp;</h3>
+          </td>
+        </tr>
+    </table>
+    <!-- InstanceEndEditable --></div>
+  </div>
+  <div id="siteInfo"><a href="personal.html" target="_self">About Me </a>| <a href="mailto:waltz@ccls.columbia.edu" target="_blank">Contact Me </a> | <a href="http://www.columbia.edu" target="_blank">Columbia University</a> | <a href="waltzCV.pdf" target="_blank">CV</a></div>
+</div>
+<!--end pagecell1-->
+<br />
+<script type="text/javascript">
+    <!--
+      var menuitem1 = new menu(7,1,"hidden");
+			var menuitem2 = new menu(7,2,"hidden");
+			var menuitem3 = new menu(7,3,"hidden");
+			var menuitem4 = new menu(7,4,"hidden");
+			var menuitem5 = new menu(7,5,"hidden");
+			var menuitem6 = new menu(7,6,"hidden");
+			var menuitem7 = new menu(7,7,"hidden");
+    // -->
+    </script>
+</body>
+<!-- InstanceEnd --></html>

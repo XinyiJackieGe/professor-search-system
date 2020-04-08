@@ -1,0 +1,419 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMS W4705 - Fall 2019</title>
+    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:600|Open+Sans:300" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css"> 
+</head>
+<body>
+    <div class="header">
+      <header>
+        <h1>CS 4705: Introduction to Natural Language Processing, Fall 2019</h1>
+      </header>
+    </div>
+    <div class="mainSectionWrapper">
+
+	  <div class="courseInfo">
+      <h2>Course Information</h2>
+      <table class="tableCourseInfo">
+        <tr>
+          <td><b>Time</b></td>
+          <td>MW 1:10-2:25pm</td>
+        </tr>
+        <tr>
+          <td><b>Place</b></td>
+          <td>451 Computer Science Building</td>
+        </tr>
+        <tr>
+          <td><b>Professor</b></td>
+          <td>Kathleen McKeown</td>
+        </tr>
+        <tr>
+          <td><b>Office Hours</b></td>
+          <td>M 2:30-3:30, W 5-6, 722 CEPSR</td>
+        </tr>
+        <tr>
+          <td><b>Email</b></td>
+          <td>kathy@cs.columbia.edu</td>
+        </tr>
+        <tr>
+          <td><b>Phone</b></td>
+          <td>212-939-7114</td>
+        </tr>
+      </table>
+		<!--<p><b>Time:</b> MW 1:10-2:25pm</p>
+		<p><b>Place:</b> 451 Computer Science Building</p>
+		<p><b>Professor:</b> Kathleen McKeown</p>
+		<p><b>Office Hours:</b> M 2:30-3:30, W 5-6, 722 CEPSR</p>
+		<p><b>Email:</b> kathy@cs.columbia.edu</p>
+		<p><b>Phone:</b> 212-939-7114</p>
+		<br/>-->
+		  <p>Weekly TA hours are listed below. All TA hours will be held in the NLP lab (7LW1 CEPSR).</p>
+   
+      <table class="tableTAInfo">
+        <tr>
+          <td><b>Monday</b></td>
+          <td>Alyssa Hwang</td>
+          <td>ahh2143@columbia.edu</td>
+          <td>3:30-5:30pm</td>
+        </tr>
+        <tr>
+          <td><b>Tuesday</b></td>
+          <td>Elsbeth Turcan (Head TA)</td>
+          <td>eturcan@cs.columbia.edu</td>
+          <td>11am-1pm</td>
+        </tr>
+        <tr>
+          <td><b>Wednesday</b></td>
+          <td>Katy Gero</td>
+          <td>katy@cs.columbia.edu</td>
+          <td>11am-1pm</td>
+        </tr>
+        <tr>
+          <td><b>Thursday</b></td>
+          <td>Emily Allaway</td>
+          <td>eallaway@cs.columbia.edu</td>
+          <td>2-4pm</td>
+        </tr>
+        <tr>
+          <td><b>Friday</b></td>
+          <td>Fei-Tzin Lee</td>
+          <td>feitzin@cs.columbia.edu</td>
+          <td>4:30-6:30pm</td>
+        </tr>
+      </table>
+      
+		<!--<p><b>Monday:</b> Alyssa Hwang (ahh2143@columbia.edu), 3:30-5:30pm</p>
+		<p><b>Tuesday:</b> Elsbeth Turcan (Head TA; eturcan@cs.columbia.edu), 11am-1pm</p>
+		<p><b>Wednesday:</b> Katy Gero (katy@cs.columbia.edu), 11am-1pm</p>
+		<p><b>Thursday:</b> Emily Allaway (eallaway@cs.columbia.edu), 2-4pm</p>
+		<p><b>Friday:</b> Fei-Tzin Lee (feitzin@cs.columbia.edu), 2-4pm</p>
+		<br/>-->
+   
+		  <p><a href="CEPSR7.png">Here</a> is where to find these rooms on the 7th floor of CEPSR.</p>
+      </div>
+
+	  <!--<br/>
+
+	  <p class="announce">Announcements: Office hours for Thursday 9/19 are canceled. Office hours on Friday 9/20 and Friday 9/27 will be held from 4:30-6:30.</p>
+
+	  <br/>-->
+	  <br/>
+
+      <div class="navigation">
+	<h3> The following topics are discussed on this webpage: </h3>
+        <nav>
+	  <font size +1>
+        <a href="#one">Course Description</a> |
+        <a href="#two">Requirements</a> |
+        <a href="#three">Textbook</a> |
+        <a href="#four">Syllabus</a> |
+        <a href="#seven">Announcements</a> |
+        <!--<a href="#five">Submission Directions</a> |
+        <a href="#six">Links to Resources</a> |-->
+        <a href="#eight">Academic Integrity</a>
+	<font size -1>
+      </nav>
+      </div>
+      <div class="mainCourseDetails">
+      <section>
+        <div class="courseDescription">
+          <a name="one"></a><h2>Course Description</h2>
+          <p>
+            This course provides an introduction to the field of natural language processing (NLP). We will learn how to create systems that can analyze, understand and produce language. We will begin by discussing machine learning methods for NLP as well as  core NLP, such as language modeling, part of speech tagging and parsing. We will also discuss applications such as information extraction, machine translation, text generation and automatic summarization. The course will primarily cover statistical and machine learning based approaches to language processing, but it will also introduce the use of linguistic concepts that play a role. We will study machine learning methods currently used in NLP, including supervised machine learning, hidden markov models, and neural networks. Homework assignments will include both written components and programming assignments.
+          </p>
+        </div>
+        <div class="requirements">
+          <h2><a name="two">Requirements</a></h2>
+          <p>
+              Four homework assignments, a midterm and a final exam. Each student in the course is allowed a total of 4 late days on homeworks with no questions asked; after that, 10% per late day will be deducted from the homework grade, unless you have a note from your doctor.  Do not use these up early!  Save them for real emergencies.
+          </p>
+          <p>
+            We will use Google Cloud for the course. Instructions for setting up the cloud can be found <a href="F19_GCloudSetup.pdf">here</a>.
+          </p>
+        </div>
+        <div class="textbook">
+          <h2><a name="three">Textbook</a></h2>
+          <p>
+           Required:  <a href="https://github.com/jacobeisenstein/gt-nlp-class/blob/master/notes/eisenstein-nlp-notes.pdf">Natural Language Processing</a>,  by Jacob Eisenstein. It is available on github but you can also purchase the final hard copy version from MIT Press. It should be available on Amazon.
+          </p>
+          <p>
+            Recommended: <a href="https://web.stanford.edu/~jurafsky/slp3/">Speech and Language Processing</a>, 3rd Edition, by Jurafsky and Martin.
+          </p>
+	  <p>
+	   Recommended:  <a href="http://www.morganclaypool.com/doi/abs/10.2200/S00762ED1V01Y201703HLT037"> Neural Network Methods for Natural Language Processing</a> by Yoav Goldberg. It is available online but you can also purchase a hard copy from the publisher.
+	  </p>
+        </div>
+        <div class="syllabus">
+          <h2><a name="four">Syllabus</a></h2>
+          <h3> This syllabus is still subject to change. Readings may change. But it will give you a good idea of what we will cover. </h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Week</th>
+                <th>Class</th>
+                <th>Topic</th>
+                <th>Reading</th>
+                <th>Assignments</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Sep 4</td>
+                <td><a href="ClassSlides/Class1-Intro/Class1_Introduction.pdf"> Introduction and Course Overview</a></td>
+
+                <td>Ch 1, NLP</td>
+                <td> <a href="F19_Homework0.pdf">HW0</a> (DUE SEPT 7th 10AM) <br> <a href="hw0.zip">Provided code</a></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Sep 9</td>
+                <td><a href="ClassSlides/Class2-Ngrams/Class2_ngrams_final.pdf"> Language modeling</a></td>
+
+                <td>Ch 6 through 6.2, NLP</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Sep 11</td>
+                <td><a href="ClassSlides/Class3-SupervisedLearning/SupervisedLearningfinal.pdf"> Supervised machine learning</a>, text classification</td>
+
+                <td>Ch 2.1-2.6, 2.8, NLP </td>
+                <td> <a href="NLP_hw1.pdf">HW1: Stance Detection</a> <br/> <a href="stance-data.csv">HW1 Data</a></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Sep 16</td>
+                <td><a href="ClassSlides/Class4-Probabilities/NaiveBayes.pdf"> Supervised machine learning</a>, <a href="ClassSlides/Scikit.pdf"> Scikit Learn Tutorial</a> </td>
+
+                <td>C 4.4, 4.5 NLP</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Sep 18</td>
+                <td><a href="ClassSlides/Class5-NeuralNets/NeuralNets.pdf"> Neural Nets</a></td>
+                <td>C 3, NLP</td>
+               <td></td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Sep 23</td>
+                <td> <a href="9-23-slides.pdf">Distributional Hypothesis and Word Embeddings</a></td>
+                <td>C 14.2, 14.3, NLP</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Sep 25</td>
+                <td> <a href="ClassSlides/Class7-Sentiment/sentiment_posting.pdf">Neural nets and sentiment analysis</a></td>
+                <td>C 4.2 NLP</td>
+                <td>HW1 due</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Sep 30</td>
+                <td> <a href="ClassSlides/Class8-POS/Class8pos_F19.pdf">POS tagging</a></td>
+                <td>C 8.1-8.3 Speech and Language, 8.1 NLP</td>
+                <td> <a href="NLP_hw2.pdf">HW2: Emotion Detection</a> <a href="hw2.zip">Provided code</a></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Oct 2</td>
+                <td> <a href="ClassSlides/Class9-Viterbi/my-hmm2019post.pdf">Methods: Hidden Markov Models</a></td>
+                <td>C 7 (through 7.5) NLP; C 8.4 Speech and Language </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>Oct 7</td>
+                <td> <a href="ClassSlides/Class10-Syntax/Syntax-F19-class.pdf">Syntax</a></td>
+                <td>C 11-11.1, Speech and Language; 10.2, 11-11.1, NLP</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Oct 9</td>
+                <td> <a href="ClassSlides/Class11-DependencyParsing/dependency_parsing_FINAL.pdf">Dependency Parsing</a></td>
+                <td>C 11.2-11.4 NLP</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>Oct 14</td>
+                <td> <a href="ClassSlides/Class12-Semantics/meaning.pdf">Introduction to Semantics</a></td>
+                <td>C 19-19.3, Speech and Language  </td>
+                <td>HW 2 due</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Oct 16</td>
+                <td> <a href="ClassSlides/Class13-Review/meaningandreview.pdf">Semantics and Midterm Review</a></td>
+                <td>C 4.2, NLP          <a href="ClassSlides/Class13-Review/SampleMidtermQuestions2019NN.pdf">Sample Midterm Questions</a> <a href="ClassSlides/Class13-Review/SampleMidtermAnswers2019NN.pdf">Sample Midterm Questions and Answers</a></td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td>Oct 21</td>
+                <td>Midterm</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Oct 23</td>
+                <td> <a href="Word_Embeddings_2.pdf">Advanced Word embeddings and semantics</a> </td>
+                <td>Reference papers</td>
+                <td><a href="NLP_hw3.pdf">HW3: Word embeddings and semantics</a> <a href="hw3.zip">Provided code</a></td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td>Oct 28</td>
+                <td> <a href="WSD.pdf">Word Sense Disambiguation</a></td>
+                <td>C 13 NLP</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Oct 30</td>
+                <td> <a href="ClassSlides/Class16MT/MT2019.pdf">Machine Translation</a></td>
+                <td>C 18.1-18.2 NLP</td>
+				<td></td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td>Nov 4</td>
+                <td> Academic Holiday</td>
+                <td>Academic Holiday, no classes</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Nov 6</td>
+                <td> <a href="ClassSlides/Class17NMT/NMT.pdf">Neural MT</a></td>
+                <td>C 18.3-18.5 NLP</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>11</td>
+                <td>Nov 11</td>
+                <td> <a href="ClassSlides/Class18Summarization/summarization.pdf">Summarization</a></td>
+                <td> <a href = "https://arxiv.org/pdf/1603.07252.pdf">  Extractive Neural Net Approach </a></td</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Nov 13</td>
+                <td> <a href="ClassSlides/Class19Summarization/summarization2_v2.pdf">Summarization</a></td>
+                <td> <a href= "https://arxiv.org/pdf/1509.00685.pdf"> Abstractive Neural net approach </a></td>
+                <td>HW 3 due<br><a href="NLP_hw4.pdf">HW4: Sequence to Sequence Modeling</a><br><a href="hw4.zip">Provided code</a></td>
+              </tr>
+              <tr>
+                <td>12</td>
+                <td>Nov 18</td>
+                <td> <a href="ClassSlides/Class20Generation/generation_final.pdf">Language Generation</a></td>
+                <td> <a href="https://www.aclweb.org/anthology/P16-2008.pdf">Seq2seq language generation </a></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Nov 20</td>
+                <td> <a href="ClassSlides/Class21-Dialog/dialog_systems.pdf">Dialog</a></td>
+                <td> Dialog</td>
+                <td>Guest speaker: Or Biran</td>
+              </tr>
+              <tr>
+                <td>13</td>
+                <td>Nov 25</td>
+                <td> <a href="ClassSlides/Class22-Bias/bias.pdf">Bias</a></td>
+                <td> <a href="https://science.sciencemag.org/content/356/6334/183">Bias in word embeddings </a></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Nov 27</td>
+                <td> Academic Holiday</td>
+                <td>Academic Holiday, no classes</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>14</td>
+                <td>Dec 2</td>
+                              <td> <a href="ClassSlides/Class23-IE/InformationExtraction2019.pdf">Information Extraction</a></td>
+                <td>Neural Nets, C. 17.4, 17.5.1</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Dec 4</td>
+                <td> <a href="ClassSlides/Class24-ResearchReview/ResearchReview.pdf">Research and Review</a></td>
+                          <td> <a href="ClassSlides/Class24-ResearchReview/SampleQuestions.pdf">Sample Final Questions</a></td>
+                <td>HW4 due</td>
+              </tr>
+              <tr>
+                <td>15</td>
+                <td>Dec 9</td>
+                <td>In-class Final Exam</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!--<div class="submissionDirections">
+          <h2><a href="submission_instructions.pdf">Submission Directions</a></h2>
+          <p>
+
+          </p>
+        </div>-->
+<!--        <div class="linksResources">
+          <h2><a name="six">Links to Resources</a></h2>
+          <h3>l</h3>
+            <ol>
+              <li><a href="#">Karen Chung Language and Linguistics</a></li>
+              <li><a href="#">CatSpeak</a></li>
+            </ol>
+          <h3>Terminology Definitions and Descriptions</h3>
+            <ol>
+              <li><a href="#">Oxford Dictionary of Linguistics</a></li>
+              <li><a href="#">Interesting Language Factoids and Non</a></li>
+            </ol>
+        </div>
+        -->
+        <div class="announcements">
+          <h2><a name="seven">Announcements</a></h2>
+          <p>
+               Check <a href="https://piazza.com/columbia/fall2019/comsw4705_001_2019_3naturallanguageprocessing/">Piazza</a> for announcements and check courseworks for your grades (only you will see them), and discussion. All questions should be posted through Piazza instead of emailing Professor McKeown or the TAs. They will monitor the discussion lists to answer questions.
+          </p>
+        </div>
+        <div class="academicIntegrity">
+          <h2><a name="eight">Academic Integrity</a></h2>
+          <p>
+              Copying or paraphrasing someone's work (code included), or permitting your own work to be copied or paraphrased, even if only in part, is not allowed, and will result in an automatic grade of 0 for the entire assignment or exam in which the copying or paraphrasing was done. Your grade should reflect your own work. If you believe you are going to have trouble completing an assignment, please talk to the instructor or TA in advance of the due date.
+          </p>
+        </div>
+      </section>
+    </div>
+      <div class="navigation">
+        <nav>
+	  <font size +1>
+        <a href="#one">Course Description</a> |
+        <a href="#two">Requirements</a> |
+        <a href="#three">Textbook</a> |
+        <a href="#four">Syllabus</a> |
+        <a href="#seven">Announcements</a> |
+        <!--<a href="#five">Submission Directions</a> |
+        <a href="#six">Links to Resources</a> |-->
+        <a href="#eight">Academic Integrity</a>
+	<font size -1>
+      </nav>
+      </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel='stylesheet' type='text/css' href="css/styles.css" />
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<script type="text/javascript" src="jquery-latest.js"> </script>
+<script type="text/javascript">
+
+
+
+
+function gallery() {
+	
+	//if no IMGs have the show class, grab the first image
+	var current = ($('#gallery a.show')?  $('#gallery a.show') : $('#gallery a:first'));
+
+	//Get next image, if it reached the end of the slideshow, rotate it back to the first image
+	var next = ((current.next().length) ? ((current.next().hasClass('caption'))? $('#gallery a:first') :current.next()) : $('#gallery a:first'));	
+	
+	//Get next image caption
+	var caption = next.find('img').attr('rel');	
+	
+	//Set the fade in effect for the next image, show class has higher z-index
+	next.css({opacity: 0.0})
+	.addClass('show')
+	.animate({opacity: 1.0}, 1000);
+
+	//Hide the current image
+	current.animate({opacity: 0.0}, 1000)
+	.removeClass('show');
+	
+	//Set the opacity to 0 and height to 1px
+	$('#gallery .caption').animate({opacity: 0.0}, { queue:false, duration:0 }).animate({height: '1px'}, { queue:true, duration:300 });	
+	
+	//Animate the caption, opacity to 0.7 and heigth to 100px, a slide up effect
+	$('#gallery .caption').animate({opacity: 0.7},100 ).animate({height: '50px'},500 );
+	
+	//Display the content
+	$('#gallery .content').html(caption);
+	
+	
+}
+	
+
+</script>
+        
+
+
+        
+    
+	
+
+</head>
+<body >
+<div id="bigwrapper">
+            
+<div id="wrapper">
+<div id="topnav">
+    <div class="pagewidth">
+        <a style="text-decoration:none;" href="http://www.usc.edu/">
+            <h3 class="mycss2">UNIVERSITY OF SOUTHERN CALIFORNIA</h3>
+        </a>
+        <form class="search-form" name="gs" method="GET" action="http://search.usc.edu/">
+              <input type="hidden" name="cx" value="017196764489587948961:0uzwqg1rcr4">
+              <input type="hidden" name="ie" value="utf8">
+              <input type="hidden" name="oe" value="utf8">
+              <label for="search">Search USC</label>
+              <input type="text" name="q" class="search" id="search" value="">
+              <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+<div>
+<div id="main_id"> 
+<h1 class="mycss">CACS </h1>
+<h2 class="mycss1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; COLLABORATORY OF ADVANCED COMPUTING AND SIMULATIONS</h2>
+
+    <div id='cssmenu' >
+    <ul>
+       <li class="active"><a href='index.php'><span>Home</span></a></li>
+      
+       <li ><a href='http://cacs.usc.edu/people.php'><span>People</span></a>
+          <ul>
+             <li ><a href='http://cacs.usc.edu/faculty.php'><span>Faculty & Staff</span></a>
+             </li>
+             <!--
+                <ul>
+                   <li><a href='#'><span>Sub Item</span></a></li>
+                   <li class='last'><a href='#'><span>Sub Item</span></a></li>
+                </ul>
+             </li>
+             -->
+             <li ><a href='http://cacs.usc.edu/student.php'><span>Students</span></a>
+                
+             </li>
+             <li ><a href='http://cacs.usc.edu/visitor.php'><span>Visitors</span></a>
+                
+             </li>
+             <li ><a href='http://cacs.usc.edu/alumni.php'><span>Alumini</span></a>
+                
+             </li>
+                          
+          </ul>
+       </li>
+       <li><a href='http://cacs.usc.edu/videos.php'><span>Research</span></a>
+       <ul>
+       <li ><a href='http://cacs.usc.edu/research/publication.php'><span>Publications</span></a>
+                
+             </li>
+             <li ><a href='http://cacs.usc.edu/projects.php'><span>Projects</span></a>
+                
+             </li>
+             <li ><a href='http://cacs.usc.edu/facilities.php'><span>Computing & Visualization</span></a>
+                
+             </li>
+             
+       </ul>
+       
+       
+       </li>
+       <li ><a href='http://cacs.usc.edu/outreach.php'><span>Outreach</span></a>
+       <ul>
+       <li ><a href='http://cacs.usc.edu/workshop1.php'><span>Workshop </span></a></li>
+       </ul>
+       
+       </li>
+       <li><a href='http://cacs.usc.edu/education.php'><span>Education</span></a>
+       <ul>
+       <li ><a href="http://cacs.usc.edu/dual_degree.php"><span>
+       Dual Degree Program</span></a>
+       
+       </li>
+       <li ><a href="http://cacs.usc.edu/teaching.php"><span>
+      Teaching</span></a>
+       
+       </li>
+               </ul>
+       
+       
+       </li>
+       
+       <li ><a href='http://cacs.usc.edu/contact.php'><span>Contacts</span></a></li>
+       <li><a href='http://cacs.usc.edu/members.php'><span>Members Only</span></a></li>
+    </ul>
+    
+    </div>
+</div>
+</div>
+</div>
+<div style="width:100%;margin-top:30px; margin-bottom:20px;margin-left:65px;">
+   
+    <p style="margin-left:0%; margin-right:10%;text-shadow:1px 1px 0 rgba(NaN,NaN,NaN,1);font-weight:bold;color:#990000;letter-spacing:1pt;word-spacing:2pt;font-size:18px;font-family:georgia, serif;line-height:1;"> Rajiv K. Kalia </p>
+    <p>rkalia@usc.edu</p>	
+     <div id="content14">
+          <img src="images_new/rajiv.jpg" width="100%" height="100%">
+          
+        </div>  
+        <div>  
+        <p>Professor of Physics and Astronomy, Chemical Engineering and Materials Science, and Computer Science</p>
+	Ph.D. Northwestern University 1976.<br />
+	<a href="../"> Collaboratory for Advanced Computing and Simulations (CACS)</a><br />
+	<h3>Contact Information</h3>
+	Mork Family Department of Chemical Engineering and Materials Science<br />
+	University of Southern California<br />
+	3651 Watt Way, VHE 614<br />
+	Los Angeles, CA 90089-0242<br />
+	<br />
+	Tel: 213-821-2663<br />
+	Fax: 213-821-2664<br />
+    
+
+<h3>Vision</h3>
+	<ul>
+	    <li>Follow advances in computing technologies (hardware, software, algorithms) from teraflop to petaflop to establish a comprehensive collaborative environment for geographically distributed computational scientists and IT experts to perform the largest bio-nano simulations. </li>
+	    <li>Establish educational programs to propel students into careers in emerging areas of nano, bio, and information technologies both in academic and industrial settings. </li>
+	</ul>
+	<h3>Research</h3>
+	<p>Computing technology will grow by a factor of more than a thousand in the next ten to fifteen years. Our goal is to follow this computing revolution from teraflops (1012 flops) to petaflops (1015 flops). Using this unprecedented computing power, available for the first time in the history of science and engineering, it will be possible to carry out realistic simulations of complex systems and processes in the areas of materials, nanotechnology, and bioengineered systems. Coupled with immersive and interactive visualization this will offer unprecedented opportunity for research as well as modifying graduate and undergraduate education in science and engineering. </p>
+
+	<img align="left" width="190" height="167" alt="" src="../img/IBN.gif" />
+	<strong>Applications </strong>
+            <ul>
+            <li>Bio-inspired paradigms for information processing</li>
+            <li>Information processing &amp; nanostructure-inspired applications in life sciences &amp; bio-technologies </li>
+            </ul>
+	<strong>Within Reach</strong>
+
+	        <ul>
+                <li>At the nano-scale (&lt;=100nm)<br />
+                - 10 million -10 billion atom bio-nano systems (inorganic, organic, biochemical) can be simulated &amp; visualized while maintaining their atomistic nature </li>
+                <li>At micro-to meso-scales (0.1mm to mms) <br />
+                </li>
+
+                <li>Seamless transition from discrete to continuum model  </li>
+		</ul> 
+
+		<h3><a href="publication.php">Publications</a></h3>
+        <h3>Education</h3>
+        In the education arena, the CACS is establishing: 
+            <ul>
+                <li>A dual-degree curriculum that will afford graduate students the opportunity to obtain a Ph.D. in the physical sciences or in materials or biomedical sciences/engineering together with an M.S. in computer science. </li>
+                <li>Innovative courses that are simultaneously offered to students in the US, Europe, and Asia through an Access Grid -- a dedicated electronic space with a large tiled projection wall and video/audio capture systems to enable wide-area integration of desktops and presentations</li>
+            </ul>
+   
+ </div> 
+ 
+  <div style="position:relative; margin-top:15%">&nbsp;</div>
+ <div id="footer">
+ <div id="footer_text"><a href="index.php" style="color:#FAF0E6">Home</a> | <a href="http://cacs.usc.edu/people.php" style="color:#FAF0E6">People</a> | <a href="http://cacs.usc.edu/research.php" style="color:#FAF0E6">Research</a> | <a href="http://cacs.usc.edu/outreach.php" style="color:#FAF0E6">Outreach</a> | <a href="http://cacs.usc.edu/education.php" style="color:#FAF0E6">Education</a> | <a href="http://cacs.usc.edu/contact.php" style="color:#FAF0E6">Contacts</a>
+ </div>
+ <br/><br/>
+<div id="copyright">
+3651 Watt Way, VHE 608
+Los Angeles, CA 90089-0242              
+<br/>
+  ©2013 Univeristy of Southern California
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
