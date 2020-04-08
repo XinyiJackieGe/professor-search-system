@@ -13,7 +13,7 @@ public class RootHandler implements HttpHandler {
             + "<h3 align=\"center\">Search Professors</h3>\n"
             + "<form method=\"Post\"\n"
             + "    action=\"search\">\n"
-            + "    Your keywords: <input type=\"text\" name=\"query\"><br>\n"
+            + "    Your keywords: <input type=\"text\" name=\"query\" size=\"60\"><br>\n"
             + "    <input type=\"submit\" value=\"Search\"><br><br>\n"
             + "</form>\n"
             + "</body>\n"

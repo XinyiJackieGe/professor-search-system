@@ -9,10 +9,28 @@ import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.SimpleFSDirectory;
 import org.apache.lucene.util.Version;
 import preprocessing.ParseDoc;
+import preprocessing.UrlMap;
 
 /** A class for building inverted index given a local directory. */
 public class Indexing {
   private static Directory directory;
+
+  /**
+   * Build inverted indexes with and without stemming.
+   *
+   * @param args
+   * @throws Exception
+   */
+  public static void main(String[] args) throws Exception {
+    File indexPath1 = new File("data/invertedIndex");
+    File indexPath2 = new File("data/invertedIndexStem");
+    File docsPath = new File("data/html");
+    File urlPath = new File("data/txt");
+    UrlMap.createUrlMap(urlPath);
+    Map<String, String> urlMap = UrlMap.getMap();
+    Indexing.buildIndex(docsPath, indexPath1, urlMap, "NotStem");
+    Indexing.buildIndex(docsPath, indexPath2, urlMap, "Stem");
+  }
 
   /**
    * Build index.
@@ -22,14 +40,24 @@ public class Indexing {
    * @param urlMap (docId, url) map
    * @throws Exception
    */
-  public static void buildIndex(File docsPath, File indexPath, Map<String, String> urlMap)
-      throws Exception {
+  public static void buildIndex(
+      File docsPath, File indexPath, Map<String, String> urlMap, String isStem) throws Exception {
     directory = new SimpleFSDirectory(indexPath);
-    IndexWriter writer =
-        new IndexWriter(
-            directory,
-            new StandardAnalyzer(Version.LUCENE_30),
-            IndexWriter.MaxFieldLength.UNLIMITED);
+    IndexWriter writer;
+    if (isStem.contentEquals("Stem")) {
+      writer =
+          new IndexWriter(
+              directory,
+              new PositionalPorterStopAnalyzer(), // new StandardAnalyzer(Version.LUCENE_30),
+              IndexWriter.MaxFieldLength.UNLIMITED);
+    }else {
+      writer =
+          new IndexWriter(
+              directory,
+              new StandardAnalyzer(Version.LUCENE_30), // new StandardAnalyzer(Version.LUCENE_30),
+              IndexWriter.MaxFieldLength.UNLIMITED);
+    }
+    
     String docId = "";
     String title = "";
     String content = "";

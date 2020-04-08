@@ -18,7 +18,8 @@ public class AnalyzerDemo {
         new WhitespaceAnalyzer(),
         new SimpleAnalyzer(),
         new StopAnalyzer(Version.LUCENE_30),
-        new StandardAnalyzer(Version.LUCENE_30)
+        new StandardAnalyzer(Version.LUCENE_30),
+        new PositionalPorterStopAnalyzer()
       };
 
   public static void main(String[] args) throws IOException {

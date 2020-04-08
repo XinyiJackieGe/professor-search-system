@@ -12,6 +12,7 @@ import org.apache.lucene.store.SimpleFSDirectory;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import ranking.QuerySearch;
+//import org.apache.commons.text.StringEscapeUtils;
 
 /** Post Handler to receive post request, search query and output relevant links. */
 public class EchoPostHandler implements HttpHandler {
@@ -21,6 +22,7 @@ public class EchoPostHandler implements HttpHandler {
     InputStreamReader isr = new InputStreamReader(he.getRequestBody(), "utf-8");
     BufferedReader br = new BufferedReader(isr);
     String query = br.readLine();
+//    query = StringEscapeUtils.unescapeHtml4(query);
     query = query.toLowerCase().split("=")[1];
     System.out.println(query);
 
@@ -38,9 +40,10 @@ public class EchoPostHandler implements HttpHandler {
 
     // Send response.
     File indexPath = new File("data/invertedIndex");
-
+    
     // Search query.
     Directory dir = SimpleFSDirectory.open(indexPath);
+    System.out.println(dir); 
     IndexSearcher searcher = new IndexSearcher(dir);
     String response =
         "<!DOCTYPE html>\n" + "<html><body>\n" + "<h3>Relevant Professors:</h3>\n" + "<p>";
