@@ -44,7 +44,7 @@ public class EchoPostHandler implements HttpHandler {
     System.out.println(queryTerms);
 
     // Send response.
-    File indexPath = new File("data/invertedIndex");
+    File indexPath = new File("data/invertedIndexStem");
 
     // Search query.
     Directory dir = SimpleFSDirectory.open(indexPath);
