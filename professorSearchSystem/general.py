@@ -46,7 +46,8 @@ class QuotesSpider(CrawlSpider):
                  deny=r'.*(students|admin|index|page)'), callback='parse_items', follow=True),
              Rule(LinkExtractor(allow=r'https://www.seas.upenn.edu/directory/profile.php\?ID=.*'), callback='parse_items', follow=True),
              Rule(LinkExtractor(allow=r'https://www.cc.gatech.edu/people/.*'), callback='parse_items', follow=True),
-             Rule(LinkExtractor(allow=r'http://www.cc.gatech.edu/~.*'), callback='parse_items', follow=True)
+             Rule(LinkExtractor(allow=r'http://www.cc.gatech.edu/~.*',
+                 deny=r'.*(reading|admin|index|page|courses)'), callback='parse_items', follow=True)
 
         ]
 
