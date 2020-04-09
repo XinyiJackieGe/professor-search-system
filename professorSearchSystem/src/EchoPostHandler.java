@@ -16,6 +16,7 @@ import org.apache.lucene.store.SimpleFSDirectory;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import preprocessing.ParseDoc;
+import indexing.PositionalPorterStopAnalyzer;
 import ranking.QuerySearch;
 // import org.apache.commons.text.StringEscapeUtils;
 
@@ -41,6 +42,16 @@ public class EchoPostHandler implements HttpHandler {
       }
     }
     String queryTerms = queryT.toString();
+    System.out.println(queryTerms);
+    
+    Analyzer analyzer = new PositionalPorterStopAnalyzer();
+    String queryTerms = "";
+    TokenStream stream = analyzer.tokenStream("contents", new StringReader(queryTermsTemp));
+    TermAttribute term = stream.addAttribute(TermAttribute.class);
+    while (stream.incrementToken()) {
+      queryTerms += term.term() + " ";
+    }
+    queryTerms.trim();
     System.out.println(queryTerms);
 
     // Send response.
