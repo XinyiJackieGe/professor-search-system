@@ -9,16 +9,11 @@ import java.util.Map;
 
 public class UrlMap {
   private static Map<String, String> urlMap;
-  
-//  public UrlMap(File urlPaths) throws IOException {
-//    urlMap = createUrlMap(urlPaths);
-//  }
-  
-  public static Map<String, String> getMap(){
+
+  public static Map<String, String> getMap() {
     return urlMap;
   }
-  
-  
+
   public static void createUrlMap(File urlPaths) throws IOException {
     Map<String, String> map = new HashMap<>();
     for (File file : urlPaths.listFiles()) {
@@ -26,9 +21,9 @@ public class UrlMap {
       String line = reader.readLine();
       String[] urlInfo = line.split(" ");
       reader.close();
-      map.put(urlInfo[0], urlInfo[1]); 
+      map.put(urlInfo[0], urlInfo[1]);
     }
-    
-    urlMap= map;
+
+    urlMap = map;
   }
 }

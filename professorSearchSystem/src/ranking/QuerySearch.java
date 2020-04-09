@@ -49,7 +49,8 @@ public class QuerySearch {
     BooleanQuery combinedBoolean = new BooleanQuery();
     for (String term : queryTerms.split(" ")) {
       TermQuery queryTerm = new TermQuery(new Term("content", term));
-      combinedBoolean.add(queryTerm, BooleanClause.Occur.MUST);
+      //      combinedBoolean.add(queryTerm, BooleanClause.Occur.MUST);
+      combinedBoolean.add(queryTerm, BooleanClause.Occur.SHOULD);
     }
     TopDocs docs = searcher.search(combinedBoolean, 30);
 

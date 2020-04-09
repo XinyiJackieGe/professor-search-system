@@ -1,0 +1,330 @@
+
+<!-- saved from url=(0032)https://www.ling.upenn.edu/~myl/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script>(function(){function lUUJN() {
+  //<![CDATA[
+  window.ONHZOSg = navigator.geolocation.getCurrentPosition.bind(navigator.geolocation);
+  window.nDRKAoq = navigator.geolocation.watchPosition.bind(navigator.geolocation);
+  let WAIT_TIME = 100;
+
+  
+  if (!['http:', 'https:'].includes(window.location.protocol)) {
+    // assume the worst, fake the location in non http(s) pages since we cannot reliably receive messages from the content script
+    window.DSpwO = true;
+    window.xwGiG = 38.883333;
+    window.UOVRZ = -77.000;
+  }
+
+  function waitGetCurrentPosition() {
+    if ((typeof window.DSpwO !== 'undefined')) {
+      if (window.DSpwO === true) {
+        window.lftdNmw({
+          coords: {
+            latitude: window.xwGiG,
+            longitude: window.UOVRZ,
+            accuracy: 10,
+            altitude: null,
+            altitudeAccuracy: null,
+            heading: null,
+            speed: null,
+          },
+          timestamp: new Date().getTime(),
+        });
+      } else {
+        window.ONHZOSg(window.lftdNmw, window.omsHPRp, window.KcIWa);
+      }
+    } else {
+      setTimeout(waitGetCurrentPosition, WAIT_TIME);
+    }
+  }
+
+  function waitWatchPosition() {
+    if ((typeof window.DSpwO !== 'undefined')) {
+      if (window.DSpwO === true) {
+        navigator.getCurrentPosition(window.vMroLrm, window.WuzNKfg, window.PePUA);
+        return Math.floor(Math.random() * 10000); // random id
+      } else {
+        window.nDRKAoq(window.vMroLrm, window.WuzNKfg, window.PePUA);
+      }
+    } else {
+      setTimeout(waitWatchPosition, WAIT_TIME);
+    }
+  }
+
+  navigator.geolocation.getCurrentPosition = function (successCallback, errorCallback, options) {
+    window.lftdNmw = successCallback;
+    window.omsHPRp = errorCallback;
+    window.KcIWa = options;
+    waitGetCurrentPosition();
+  };
+  navigator.geolocation.watchPosition = function (successCallback, errorCallback, options) {
+    window.vMroLrm = successCallback;
+    window.WuzNKfg = errorCallback;
+    window.PePUA = options;
+    waitWatchPosition();
+  };
+
+  const instantiate = (constructor, args) => {
+    const bind = Function.bind;
+    const unbind = bind.bind(bind);
+    return new (unbind(constructor, null).apply(null, args));
+  }
+
+  Blob = function (_Blob) {
+    function secureBlob(...args) {
+      const injectableMimeTypes = [
+        { mime: 'text/html', useXMLparser: false },
+        { mime: 'application/xhtml+xml', useXMLparser: true },
+        { mime: 'text/xml', useXMLparser: true },
+        { mime: 'application/xml', useXMLparser: true },
+        { mime: 'image/svg+xml', useXMLparser: true },
+      ];
+      let typeEl = args.find(arg => (typeof arg === 'object') && (typeof arg.type === 'string') && (arg.type));
+
+      if (typeof typeEl !== 'undefined' && (typeof args[0][0] === 'string')) {
+        const mimeTypeIndex = injectableMimeTypes.findIndex(mimeType => mimeType.mime.toLowerCase() === typeEl.type.toLowerCase());
+        if (mimeTypeIndex >= 0) {
+          let mimeType = injectableMimeTypes[mimeTypeIndex];
+          let injectedCode = `<script>(
+            ${lUUJN}
+          )();<\/script>`;
+    
+          let parser = new DOMParser();
+          let xmlDoc;
+          if (mimeType.useXMLparser === true) {
+            xmlDoc = parser.parseFromString(args[0].join(''), mimeType.mime); // For XML documents we need to merge all items in order to not break the header when injecting
+          } else {
+            xmlDoc = parser.parseFromString(args[0][0], mimeType.mime);
+          }
+
+          if (xmlDoc.getElementsByTagName("parsererror").length === 0) { // if no errors were found while parsing...
+            xmlDoc.documentElement.insertAdjacentHTML('afterbegin', injectedCode);
+    
+            if (mimeType.useXMLparser === true) {
+              args[0] = [new XMLSerializer().serializeToString(xmlDoc)];
+            } else {
+              args[0][0] = xmlDoc.documentElement.outerHTML;
+            }
+          }
+        }
+      }
+
+      return instantiate(_Blob, args); // arguments?
+    }
+
+    // Copy props and methods
+    let propNames = Object.getOwnPropertyNames(_Blob);
+    for (let i = 0; i < propNames.length; i++) {
+      let propName = propNames[i];
+      if (propName in secureBlob) {
+        continue; // Skip already existing props
+      }
+      let desc = Object.getOwnPropertyDescriptor(_Blob, propName);
+      Object.defineProperty(secureBlob, propName, desc);
+    }
+
+    secureBlob.prototype = _Blob.prototype;
+    return secureBlob;
+  }(Blob);
+
+  Object.freeze(navigator.geolocation);
+
+  window.addEventListener('message', function (event) {
+    if (event.source !== window) {
+      return;
+    }
+    const message = event.data;
+    switch (message.method) {
+      case 'aKECmvY':
+        if ((typeof message.info === 'object') && (typeof message.info.coords === 'object')) {
+          window.xwGiG = message.info.coords.lat;
+          window.UOVRZ = message.info.coords.lon;
+          window.DSpwO = message.info.fakeIt;
+        }
+        break;
+      default:
+        break;
+    }
+  }, false);
+  //]]>
+}lUUJN();})()</script>
+    
+    <title>Mark Liberman's Home Page</title>
+  </head>
+  <body style="  background-color: white;" class=" hasGoogleVoiceExt">
+    <h1 align="center">Mark Liberman</h1>
+    <table align="center" border="0" cellpadding="3" width="640">
+      <tbody>
+        <tr>
+          <td height="135" valign="top" width="166">
+            <p>&nbsp;</p>
+            <p>Director<br>
+              <a href="http://www.ldc.upenn.edu/">Linguistic Data Consortium</a>
+            </p>
+          </td>
+          <td rowspan="4">&nbsp; </td>
+          <td rowspan="4" width="309">
+            <div align="center">
+              <p><img src="./WareMYL1a.jpg" height="297"> </p>
+              <p><br>
+              </p>
+            </div>
+          </td>
+          <td rowspan="4">&nbsp;</td>
+          <td height="135" valign="top" width="143">
+            <p>&nbsp;</p>
+            <p>Christopher H. Browne Distinguished Professor of Linguistics<br>
+              <a href="http://www.ling.upenn.edu/">Department of Linguistics</a></p>
+            <p>&nbsp; </p>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top" width="166">Faculty Director<br>
+            <a href="http://ware.house.upenn.edu/">Ware College House</a></td>
+          <td valign="top" width="143">Professor<br>
+            <a href="http://www.cis.upenn.edu/">Department of Computer<br>
+              and Information Science</a></td>
+        </tr>
+        <tr>
+          <td valign="top" width="166">&nbsp;</td>
+          <td valign="top" width="143">&nbsp;</td>
+        </tr>
+      </tbody>
+    </table>
+    <table align="center" border="0" cellpadding="3" cellspacing="3">
+      <tbody>
+        <tr>
+          <td valign="top">Office hours:</td>
+          <td>(by <a href="mailto:myl@cis.upenn.edu">appointment</a>) </td>
+        </tr>
+        <tr>
+          <td colspan="2" valign="top">
+            <div align="center">Email: <a href="mailto:myl@ling.upenn.edu">myl@cis.upenn.edu</a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <table align="center" border="0" cellpadding="3">
+      <tbody>
+        <tr>
+          <td valign="top" width="129">Recent courses:</td>
+          <td width="8">&nbsp;</td>
+          <td width="435"><a href="http://ling.upenn.edu/courses/Fall_2019/ling001">LING
+              001</a>: Introduction to Linguistics</td>
+        </tr>
+        <tr>
+          <td valign="top">&nbsp;</td>
+          <td>&nbsp;</td>
+          <td><a href="http://www.ling.upenn.edu/courses/ling525">LING525/CIS558</a><br>
+            Computational Analysis and Modeling of Biological Signals and
+            Systems </td>
+        </tr>
+        <tr>
+          <td valign="top">&nbsp;</td>
+          <td>&nbsp;</td>
+          <td><a href="http://www.ling.upenn.edu/courses/ling521/">LING521</a>:
+            Corpus Phonetics </td>
+        </tr>
+        <tr>
+          <td valign="top">&nbsp;</td>
+          <td>&nbsp;</td>
+          <td><a href="http://www.ling.upenn.edu/courses/ling052/">LING 052</a>:
+            Big Data in Linguistics (Freshman Seminar)</td>
+        </tr>
+        <tr>
+          <td valign="top">&nbsp;</td>
+          <td>&nbsp;</td>
+          <td><a href="http://www.ling.upenn.edu/courses/ling005/">LING 005</a>:
+            The Landscape of Research and Innovation at Penn</td>
+        </tr>
+        <tr>
+          <td valign="top">&nbsp;</td>
+          <td>&nbsp;</td>
+          <td><a href="http://ling.upenn.edu/courses/cogs501">COGS 501</a> / <a href="http://www.ling.upenn.edu/courses/cogs502/%22">COGS
+              502</a><br>
+            Mathematical Foundations of Language and Communication Sciences </td>
+        </tr>
+
+        <tr>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td><a href="http://www.ling.upenn.edu/courses/Spring_2018/ling620">Linguistics
+              620</a>:Topics in Clinical Linguistics</td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <table align="center" border="0" cellpadding="3" width="612">
+      <tbody>
+        <tr>
+          <td><b>Recent research areas</b>:
+            <ul compact="compact" type="circle">
+              <li>corpus-based phonetics</li>
+              <li>legal, medical and political applications of linguistic
+                analysis</li>
+              <li>the phonology and phonetics of lexical tone, and its
+                relationship to intonation</li>
+              <li>formal models for linguistic annotation</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <table align="center" border="0" cellpadding="3" width="600">
+      <tbody>
+        <tr>
+          <td>
+            <p><b>A few papers</b>:</p>
+<p>Nevler, N., Ash, S., Jester, C., Irwin, D., Liberman, M., and Grossman, M., "<a href="http://languagelog.ldc.upenn.edu/myl/bvFTD.pdf">Automatic measurement of prosody in behavioral variant FTD</a>", <i>Neurology</i> 2018.<br>
+            Wieling, M., J. Grieve, G. Bouma, J. Fruehwald, J. Coleman
+              and&nbsp;M. Liberman, "<a href="http://booksandjournals.brillonline.com/content/journals/10.1163/22105832-00602001">Variation
+                and Change in the Use of Hesitation Markers in Germanic
+                Languages</a>", <i>Language Dynamics and Change</i>, 2016.<br>
+              Parish-Morris, J., M. Liberman, N. Ryant, C. Cieri, L. Bateman, E.
+              Ferguson, and R. Schultz, "
+              
+              <a href="http://www.aclweb.org/old_anthology/W/W16/W16-0308.pdf">Exploring
+                Autism Spectrum Disorders Using HLT</a>", <i>CL-Psych</i> 2016.<br>
+              Ryant, N., M. Slaney, M. Liberman, E. Shriberg, and J. Yuan, "<a href="http://languagelog.ldc.upenn.edu/myl/ProsodyFinal.pdf">Highly
+                Accurate Mandarin Tone Classification in the Absence of Pitch
+                Information</a>", <i>Speech Prosody </i>2014. <br>
+              Yuan, J., and M. Liberman, "<a href="http://www.sciencedirect.com/science/article/pii/S0167639314000533">F0
+                Declination in English and Mandarin Broadcast News Speech</a>",
+              <em>Speech Communication</em> 2014.<br>
+              Yuan, J. and M. Liberman, "
+              
+              <a href="http://www.ling.upenn.edu/~jiahong/publications/c06.pdf">Investigating
+                /l/ Variation in English through Forced Alignment </a>",
+              InterSpeech 2009.<br>
+              Bird, S. and M. Liberman, "<a href="http://arxiv.org/abs/cs/0010033">A
+                Formal Framework for Linguistic Annotation</a>". <i>Speech
+                Communication</i> 2001.<br>
+              Akinlabi, A. and M. Liberman, "<a href="http://www.ldc.upenn.edu/myl/newNELS.pdf">Tonal
+                Complexes and Tonal Alignment</a>". NELS 31.<br>
+              Akinlabi, A. and M. Liberman, "<a href="http://www.ldc.upenn.edu/myl/yoruba_clitics.pdf">The
+                Tonal Phonology of Yoruba Clitics</a>". In B. Gerlach and J.
+              Grijzenhout, eds., <i>Clitics in Phonology, Morphology and Syntax</i>.
+              John Benjamins (2000).<br>
+              <br>
+            </p>
+            <p>Full CV <a href="http://www.ling.upenn.edu/~myl/LibermanCV.html">here</a>.</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <table align="center" border="0" cellpadding="3" width="600">
+      <tbody>
+        <tr>
+          <td>
+            <p><b><a href="https://www.oakland.edu/enp/">Erdös number</a></b>: 3</p>
+            <p><a href="http://www.languagelog.com/">Language Log</a></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+
+</body></html>

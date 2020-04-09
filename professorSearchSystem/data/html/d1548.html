@@ -1,0 +1,377 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Insup Lee</title>
+    <meta name="keywords" content="control theory, control systems, hybrid systems, hybrid control, embedded systems, hierarchical control, distributed control systems, robotics, unmanned aerial vehicles, multi-agent systems, green buildings, energy efficient buildings, systems biology, wireless control networks">
+	<link rel="stylesheet" href="style.css">
+    <script language="JavaScript" type="text/javascript" src="includes/scripts.js"></script>
+   		<script type="text/javascript">
+          
+    /***********************************************
+    * Ultimate Fade-In Slideshow (v1.51): © Dynamic Drive (http://www.dynamicdrive.com)
+    * This notice MUST stay intact for legal use
+    * Visit http://www.dynamicdrive.com/ for this script and 100s more.
+    ***********************************************/
+     
+    var fadeimages=new Array()
+    //SET IMAGE PATHS. Extend or contract array as needed
+    fadeimages[0]=["images/flip_1.jpg", "", ""] //plain image syntax
+    fadeimages[1]=["images/flip_2.jpg", "", ""] //image with link syntax
+    fadeimages[2]=["images/flip_3.jpg", "", ""] //image with link syntax
+    fadeimages[3]=["images/flip_4.jpg", "", ""] //image with link syntax
+
+    var fadebgcolor="white"
+    
+    ////NO need to edit beyond here/////////////
+     
+    var fadearray=new Array() //array to cache fadeshow instances
+    var fadeclear=new Array() //array to cache corresponding clearinterval pointers
+     
+    var dom=(document.getElementById) //modern dom browsers
+    var iebrowser=document.all
+     
+    function fadeshow(theimages, fadewidth, fadeheight, borderwidth, delay, pause, displayorder){
+    this.pausecheck=pause
+    this.mouseovercheck=0
+    this.delay=delay
+    this.degree=10 //initial opacity degree (10%)
+    this.curimageindex=0
+    this.nextimageindex=1
+    fadearray[fadearray.length]=this
+    this.slideshowid=fadearray.length-1
+    this.canvasbase="canvas"+this.slideshowid
+    this.curcanvas=this.canvasbase+"_0"
+    if (typeof displayorder!="undefined")
+    theimages.sort(function() {return 0.5 - Math.random();}) //thanks to Mike (aka Mwinter) :)
+    this.theimages=theimages
+    this.imageborder=parseInt(borderwidth)
+    this.postimages=new Array() //preload images
+    for (p=0;p<theimages.length;p++){
+    this.postimages[p]=new Image()
+    this.postimages[p].src=theimages[p][0]
+    }
+     
+    var fadewidth=fadewidth+this.imageborder*2
+    var fadeheight=fadeheight+this.imageborder*2
+     
+    if (iebrowser&&dom||dom) //if IE5+ or modern browsers (ie: Firefox)
+    document.write('<div id="master'+this.slideshowid+'" style="position:relative;width:'+fadewidth+'px;height:'+fadeheight+'px;overflow:hidden;"><div id="'+this.canvasbase+'_0" style="position:absolute;width:'+fadewidth+'px;height:'+fadeheight+'px;top:0;left:0;filter:progid:DXImageTransform.Microsoft.alpha(opacity=10);opacity:0.1;-moz-opacity:0.1;-khtml-opacity:0.1;background-color:'+fadebgcolor+'"></div><div id="'+this.canvasbase+'_1" style="position:absolute;width:'+fadewidth+'px;height:'+fadeheight+'px;top:0;left:0;filter:progid:DXImageTransform.Microsoft.alpha(opacity=10);opacity:0.1;-moz-opacity:0.1;-khtml-opacity:0.1;background-color:'+fadebgcolor+'"></div></div>')
+    else
+    document.write('<div><img name="defaultslide'+this.slideshowid+'" src="'+this.postimages[0].src+'"></div>')
+     
+    if (iebrowser&&dom||dom) //if IE5+ or modern browsers such as Firefox
+    this.startit()
+    else{
+    this.curimageindex++
+    setInterval("fadearray["+this.slideshowid+"].rotateimage()", this.delay)
+    }
+    }
+    
+    function fadepic(obj){
+    if (obj.degree<100){
+    obj.degree+=10
+    if (obj.tempobj.filters&&obj.tempobj.filters[0]){
+    if (typeof obj.tempobj.filters[0].opacity=="number") //if IE6+
+    obj.tempobj.filters[0].opacity=obj.degree
+    else //else if IE5.5-
+    obj.tempobj.style.filter="alpha(opacity="+obj.degree+")"
+    }
+    else if (obj.tempobj.style.MozOpacity)
+    obj.tempobj.style.MozOpacity=obj.degree/101
+    else if (obj.tempobj.style.KhtmlOpacity)
+    obj.tempobj.style.KhtmlOpacity=obj.degree/100
+    else if (obj.tempobj.style.opacity&&!obj.tempobj.filters)
+    obj.tempobj.style.opacity=obj.degree/101
+    }
+    else{
+    clearInterval(fadeclear[obj.slideshowid])
+    obj.nextcanvas=(obj.curcanvas==obj.canvasbase+"_0")? obj.canvasbase+"_0" : obj.canvasbase+"_1"
+    obj.tempobj=iebrowser? iebrowser[obj.nextcanvas] : document.getElementById(obj.nextcanvas)
+    obj.populateslide(obj.tempobj, obj.nextimageindex)
+    obj.nextimageindex=(obj.nextimageindex<obj.postimages.length-1)? obj.nextimageindex+1 : 0
+    setTimeout("fadearray["+obj.slideshowid+"].rotateimage()", obj.delay)
+    }
+    }
+     
+    fadeshow.prototype.populateslide=function(picobj, picindex){
+    var slideHTML=""
+    if (this.theimages[picindex][1]!="") //if associated link exists for image
+    slideHTML='<a href="'+this.theimages[picindex][1]+'" target="'+this.theimages[picindex][2]+'">'
+    slideHTML+='<img src="'+this.postimages[picindex].src+'" border="'+this.imageborder+'px">'
+    if (this.theimages[picindex][1]!="") //if associated link exists for image
+    slideHTML+='</a>'
+    picobj.innerHTML=slideHTML
+    }
+     
+     
+    fadeshow.prototype.rotateimage=function(){
+    if (this.pausecheck==1) //if pause onMouseover enabled, cache object
+    var cacheobj=this
+    if (this.mouseovercheck==1)
+    setTimeout(function(){cacheobj.rotateimage()}, 100)
+    else if (iebrowser&&dom||dom){
+    this.resetit()
+    var crossobj=this.tempobj=iebrowser? iebrowser[this.curcanvas] : document.getElementById(this.curcanvas)
+    crossobj.style.zIndex++
+    fadeclear[this.slideshowid]=setInterval("fadepic(fadearray["+this.slideshowid+"])",50)
+    this.curcanvas=(this.curcanvas==this.canvasbase+"_0")? this.canvasbase+"_1" : this.canvasbase+"_0"
+    }
+    else{
+    var ns4imgobj=document.images['defaultslide'+this.slideshowid]
+    ns4imgobj.src=this.postimages[this.curimageindex].src
+    }
+    this.curimageindex=(this.curimageindex<this.postimages.length-1)? this.curimageindex+1 : 0
+    }
+     
+    fadeshow.prototype.resetit=function(){
+    this.degree=10
+    var crossobj=iebrowser? iebrowser[this.curcanvas] : document.getElementById(this.curcanvas)
+    if (crossobj.filters&&crossobj.filters[0]){
+    if (typeof crossobj.filters[0].opacity=="number") //if IE6+
+    crossobj.filters(0).opacity=this.degree
+    else //else if IE5.5-
+    crossobj.style.filter="alpha(opacity="+this.degree+")"
+    }
+    else if (crossobj.style.MozOpacity)
+    crossobj.style.MozOpacity=this.degree/101
+    else if (crossobj.style.KhtmlOpacity)
+    crossobj.style.KhtmlOpacity=this.degree/100
+    else if (crossobj.style.opacity&&!crossobj.filters)
+    crossobj.style.opacity=this.degree/101
+    }
+     
+     
+    fadeshow.prototype.startit=function(){
+    var crossobj=iebrowser? iebrowser[this.curcanvas] : document.getElementById(this.curcanvas)
+    this.populateslide(crossobj, this.curimageindex)
+    if (this.pausecheck==1){ //IF SLIDESHOW SHOULD PAUSE ONMOUSEOVER
+    var cacheobj=this
+    var crossobjcontainer=iebrowser? iebrowser["master"+this.slideshowid] : document.getElementById("master"+this.slideshowid)
+    crossobjcontainer.onmouseover=function(){cacheobj.mouseovercheck=1}
+    crossobjcontainer.onmouseout=function(){cacheobj.mouseovercheck=0}
+    }
+    this.rotateimage()
+    }
+    
+    </script>
+</head>
+<body>
+<table border="0" cellpadding="0" cellspacing="0" width="960" align="center">
+<tr>
+	<td><img src="images/top_grad.jpg" width="960" height="10" border="0"></td>
+</tr>
+<tr>
+	<td class="dblue">
+        	<table border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td><img src="images/penn_eng.jpg" alt="UPenn Engineering" width="320" height="103" border="0"></td>
+		<td width="100%" align="right">
+        <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td class="yellow"><img src="images/clear.gif" width="3" height="3" alt="" border="0"></td>
+            <td><img src="images/clear.gif" width="20" height="20" alt="" border="0"></td>
+            <td align="left">
+            <a href="http://www.cis.upenn.edu/" target="_blank" class="toplinks">Department of Computer & Information Science</a><br>
+            <a href="http://www.seas.upenn.edu/" target="_blank" class="toplinks">School of Engineering and Applied Science</a><br>
+            <a href="http://www.upenn.edu/" target="_blank" class="toplinks">University of Pennsylvania</a>
+            </td>
+        </tr>
+        </table>
+        </td>
+        <td><img src="images/clear.gif" width="20" height="103" alt="" border="0"></td>
+	</tr>
+	</table>
+	</td>
+</tr>
+<tr>
+	<td>
+	<table border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td><img src="images/home_left.png" alt="Insup Lee" width="520" height="227"></td>
+		<td class="white">
+		<script type="text/javascript">
+        //new fadeshow(IMAGES_ARRAY_NAME, slideshow_width, slideshow_height, borderwidth, delay, pause (0=no, 1=yes), optionalRandomOrder)
+        new fadeshow(fadeimages, 440, 227, 0, 3000, 1, "R")
+        </script>
+        </td>
+	</tr>
+	</table>
+	</td>
+</tr>
+<tr>
+	<td class="lblue">
+    	<table border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td class="yellow"><img src="images/clear.gif" width="10" height="10" alt="" border="0"></td>
+		<td><a href="index.shtml" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image1','','images/n_home_on.jpg',1)"><img src="images/n_home_off.jpg" alt="Home" name="Image1" border="0"></a></td>
+		<td><a href="about/index.shtml" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image8','','images/n_about_on.jpg',1)"><img src="images/n_about_off.jpg" alt="About Me" name="Image8" border="0"></a></td>
+		<td><a href="group/index.shtml" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image4','','images/n_group_on.jpg',1)"><img src="images/n_group_off.jpg" alt="Group" name="Image4" border="0"></a></td>
+		<td><a href="research/index.shtml" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image2','','images/n_research_on.jpg',1)"><img src="images/n_research_off.jpg" alt="Research" name="Image2" border="0"></a></td>
+		<td><a href="teaching/index.shtml" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image3','','images/n_teaching_on.jpg',1)"><img src="images/n_teaching_off.jpg" alt="Teaching" name="Image3" border="0"></a></td>
+		<td><a href="http://precise.seas.upenn.edu/" target="_blank" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image9','','images/n_precise_on.jpg',1)"><img src="images/n_precise_off.jpg" alt="PRECISE" name="Image9" border="0"></a></td>
+		<td><a href="news/index.shtml" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image5','','images/n_news_on.jpg',1)"><img src="images/n_news_off.jpg" alt="News" name="Image5" border="0"></a></td>
+		<td><a href="publications/index.shtml" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image6','','images/n_publications_on.jpg',1)"><img src="images/n_publications_off.jpg" alt="Publications" name="Image6" border="0"></a></td>
+		<td><a href="awards/index.shtml" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image7','','images/n_awards_on.jpg',1)"><img src="images/n_awards_off.jpg" alt="Awards" name="Image7" border="0"></a></td>
+		<td><a href="contact/index.shtml" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image8','','images/n_contact_on.jpg',1)"><img src="images/n_contact_off.jpg" alt="Contact" name="Image8" border="0"></a></td>
+	</tr>
+	</table>
+	</td>
+</tr>
+<tr>
+	<td class="white">
+	<table border="0" cellpadding="0" cellspacing="0">
+	<tr valign="top">
+		<td width="320" class="columnbg">
+        <table border="0" cellpadding="20" cellspacing="0">
+        <tr>
+            <td>
+            <div><img src="images/clear.gif" width="20" height="12" alt="" border="0"></div>
+            <img src="images/hdr_sm_welcome.jpg" width="280" height="35">
+<!-- Welcome Start awp awp awp awp awp awp awp awp awp awp awp awp awp awp awp awp  -->
+<p>Insup Lee is the
+ <a href="http://www.archives.upenn.edu/faids/upt/upt50/mooreaf_family.html">Cecilia Fitler Moore</a> Professor in
+the <a href="http://www.cis.upenn.edu/">Department of Computer and
+Information Science</a>, Director of
+<a href="http://precise.seas.upenn.edu/">PRECISE Center</a>, and Co-Director of <a href="https://healthtech.upenn.edu/">Penn Health-Tech</a> at
+the <a href="http://www.upenn.edu/">University of Pennsylvania</a>.  He also holds a secondary appointment in the Department of Electrical and Systems Engineering.
+
+His research interests include cyber-physical systems (CPS), real-time systems, embedded systems, high-confidence medical device systems, formal methods and tools, run-time verification, software certification, and trust management.  The theme of his research activities has been to assure and improve the correctness, safety, and timeliness of life-critical embedded systems. 
+
+He is ACM fellow and IEEE fellow and received IEEE TC-RTS Outstanding Technical Achievement and Leadership Award in 2008. </p>
+<p>&nbsp;</p>
+<p>A founding co-Editor-in-Chief of <a href="https://health.acm.org/" target="_blank">ACM Transactions on Computing for Healthcare (HEALTH)</a></p>
+<p><a href="https://scholar.google.com/citations?user=qPlUgrgAAAAJ&hl=en" target="_blank">Google Scholar</a></p>
+<p><a href="https://dblp.uni-trier.de/pers/hd/l/Lee:Insup" target="_blank">dblp</a></p>
+<p>&nbsp;</p>
+<p>Please contact Professor <a href="mailto:lee@cis.upenn.edu">Insup Lee</a> if you are interested in joining his group as a PhD student or Postdoctoral fellow.</p>
+<p>&nbsp;</p>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td class="lgray"><img src="images/clear.gif" width="20" height="3" alt="" border="0"></td>
+    </tr>
+</table>
+          <p>&nbsp;</p>
+          <p align="right">[ <a href="about/index.shtml">About Me</a> ]</p>
+
+
+
+<!-- Welcome End awp awp awp awp awp awp awp awp awp awp awp awp awp awp awp awp --></td>
+        </tr>
+        </table>
+        </td>
+		<td width="320" class="vline">
+        <table border="0" cellpadding="20" cellspacing="0">
+        <tr>
+            <td>
+            <div><img src="images/clear.gif" width="20" height="12" alt="" border="0"></div>
+            <img src="images/hdr_sm_news.jpg" width="280" height="35">
+<!-- News Start awp awp awp awp awp awp awp awp awp awp awp awp awp awp awp awp  --> 
+<p><strong>March 2020:</strong>The inaugural issue of ACM Transactions on Computing for Healthcare (HEALTH) with Insup Lee as Co-Editor-in-Chief has been published and is now available in the <a href="https://orange.hosting.lsoft.com/trk/click?ref=znwrbbrs9_6-24222x320bc4x017090&" target="_blank">ACM Digital Library</a>!</p>
+<p><strong>November 2019:</strong> &nbsp;&nbsp;PRECISE members Insup Lee and Oleg Sokolsky, along with Sampath Kannan, Moonzoo Kim, and Mahesh Viswanathan, win the Test-of-Time Award for their 2001 paper "<a href="ftp://ftp.cis.upenn.edu/pub/rtg/Paper/Full_Postscript/01rv.pdf">Java-MaC: a run-time assurance tool for Java programs</a>" at the 2019 Conference on Runtime Verification.</p>
+<p><strong>October 2019:</strong> &nbsp;&nbsp;The Best Paper Award for the 17th ACM-IEEE International Conference on Formal Methods and Models for System Design (<a href="https://memocode.github.io/2019/">MEMOCODE'19</a>) went to the paper entitled <a href="https://dl.acm.org/citation.cfm?id=3361212">Detecting Security Leaks in Hybrid Systems with Information Flow Analysis</a> by Luan Nguyen, Gautam Mohan, James Weimer, Oleg Sokolsky, Insup Lee and Rajeev Alur. <a href="https://precise.seas.upenn.edu/news/20191010-precises-team-won-best-paper-award-memocode">Read more</a>.</p>
+<p><strong>April 2019:</strong> &nbsp;&nbsp;The Best Paper Award for the 25th IEEE Real-Time and Embedded Technology and Applications Symposium (RTAS 2019) went to the paper entitled <a href="https://repository.upenn.edu/cis_papers/850/">Holistic resource allocation for multi-core real-time systems</a> by Meng Xu, Linh Thi Xuan Phan, Hyon-Young Choi, Yuhan Lin, Haoran Li, Chenyang Lu, Insup Lee. <a href="https://precise.seas.upenn.edu/news/20190422-linh-thi-xuan-phan-and-her-team-won-best-paper-awards-25th-ieee-rtas-2019">Read more</a>.</p>
+
+
+  <p>&nbsp;</p>
+  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+    <td class="lgray"><img src="images/clear.gif" width="20" height="3" alt="" border="0"></td>
+    </tr>
+</table>
+          <p>&nbsp;</p>
+          <p align="right">[ <a href="news/index.shtml">All News</a> ]</p>
+            </td>
+        </tr>
+        </table>
+       </td>
+		<td width="320" class="vline">
+        <table border="0" cellpadding="20" cellspacing="0">
+        <tr>
+            <td>
+            <div><img src="images/clear.gif" width="20" height="12" alt="" border="0"></div>
+            <img src="images/hdr_sm_recent.jpg" width="280" height="35">
+<!-- Recent Publications Start awp awp awp awp awp awp awp awp awp awp awp awp awp awp awp awp  -->
+ 				<p><strong><a href="http://repository.upenn.edu/cis_papers/856">Calibrated Prediction with Covariate Shift via Unsupervised Domain Adaptation</a></strong>. Sangdon Park, Osbert Bastani, James Weimer, and Insup Lee. To appear in Proceedings of <em> 23rd International Conference on Artificial Intelligence and Statistics (AISTATS 2020)</em>, Palermo, Italy, June 2020. </p> 				<!---  June 3-5, 2020. --->
+ 				<p><strong><a href="http://repository.upenn.edu/cis_papers/858">PAC Confidence Sets for Deep Neural Networks via Calibrated Prediction</a></strong>. Sangdon Park, Osbert Bastani, Nikolai Matni, and Insup Lee. To appear in Proceedings of <em> International Conference on Learning Representations (ICLR 2020)</em>, Addis Ababa, Ethiopia, April 2020. </p> 				<!---  April 26-30, 2020. --->
+ 				<p><strong><a href="http://repository.upenn.edu/cis_papers/860">Case Study: Verifying the Safety of an Autonomous Racing Car with a Neural Network Controller</a></strong>. Radoslav Ivanov, Taylor J. Carpenter, James Weimer, Rajeev Alur, George Pappas, and Insup Lee. To appear in Proceedings of <em> 23rd ACM International Conference on Hybrid Systems: Computation and Control (HSCC 2020)</em>, Sydney, Australia, April 2020. <strong>(Received HSCC repeatability badge)</strong></p> 		<!---  April 21-24, 2020. --->
+				<p><strong><a href="https://arxiv.org/abs/1909.05304">Reinforcement Learning for Temporal Logic Control Synthesis with Probabilistic Satisfaction Guarantees</a></strong>.M. Hasanbeig, Y. Kantaros, A. Abate, D. Kroening, G. J. Pappas, I. Lee. In Proceedings of <em>58th IEEE Conference on Decision and Control (CDC 2019)</em>, Nice, France, December 2019.</p> 				<!---  December 11-13, 2019 --->
+
+   
+              
+              <p>&nbsp;</p>
+<!-- Recent Publications End awp awp awp awp awp awp awp awp awp awp awp awp awp awp awp awp -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+              <td class="lgray"><img src="images/clear.gif" width="20" height="3" alt="" border="0"></td>
+          </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p align="right">[ <a href="publications/index.shtml">All Publications</a> ]</p>
+            </td>
+        </tr>
+        </table>
+       </td>
+	</tr>
+	</table>
+	</td>
+</tr>
+<tr>
+	<td class="lblue">
+	<table border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td class="dblue"><img src="images/clear.gif" width="320" height="10" alt="" border="0"></td>
+		<td></td>
+	</tr>
+	</table>
+	</td>
+</tr>
+<tr>
+	<td>
+   	 	<table border="0" cellpadding="40" cellspacing="0" align="center">
+	<tr>
+		<td>
+        <p align="center" class="wtext">Copyright &copy; 2011-2019 University of Pennsylvania. All Rights Reserved. Site designed by <a href="http://www.academicwebpages.com" target="_blank" class="wlink">Academic Web Pages</a>.</p>
+        </td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

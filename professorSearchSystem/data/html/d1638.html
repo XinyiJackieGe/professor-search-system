@@ -1,0 +1,1109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="Alexey Tumanov, Berkeley, CMU, Toronto" />
+	<meta name="keywords" content="Alexey Tumanov,TetriSched,alsched,cluster scheduling,cloud computing" />
+	<meta name="author" content="Alexey Tumanov" />
+	<link rel="stylesheet" type="text/css" href="andreas03.css" />
+	<title>Alexey Tumanov</title>
+<!--
+	<meta name="google-site-verification" content="nRZOXkPsvBL9Kbb7AGQvwU-mcDGE4yqi1uOWhLI3VM0" />
+    	<script type="text/javascript" 
+        src="http://code.jquery.com/jquery-1.7.2.min.js" ></script>
+-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!--
+    <script src="libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <link href="http://fonts.googleapis.com/css?family=Nunito|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <script src="libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+-->
+    <link rel="stylesheet" href="maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<script type="text/javascript">
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover({
+        placement : 'top'
+    });
+});
+</script>
+</head>
+
+<body>
+<div id="top">
+	<p class="hide">Skip to: <a href="#sitemenu" accesskey="2">Site menu</a> | <a href="#maincontent" accesskey="3">Main content</a></p>
+</div>
+
+<div id="container">
+	<div id="main">
+		
+		<div id="logo">
+            <img src="img/Tumanov-RISERetreat2017.jpg" width="100%" height="%100">
+		</div>
+
+		<div id="intro">
+            <br>
+			<h2 id="maincontent">Alexey Tumanov</h2>
+			<p> <br>
+Assistant Professor <br>
+School of Computer Science <br>
+Georgia Institute of Technology <br>
+        <br>
+		KACB 3346 <br>
+		atumanov[at]gatech[dot]edu<br>
+        <br>
+[<a href="https://scholar.google.com/citations?user=7P-gZioAAAAJ&hl=en"><b>Google Scholar</b></a>]
+[<a href="https://arxiv.org/search/?query=%22Alexey+Tumanov%22&searchtype=author&source=header"><b>arXiv</b></a>]
+[<a href="https://dblp.org/pers/hd/t/Tumanov:Alexey"><b>DBLP</b></a>]
+[<a href="https://github.com/atumanov"><b>GitHub</b></a>]
+[<a href="https://twitter.com/alsched"><b>Twitter</b></a>]
+
+<!--
+            <div class="btn-group btn-group-vertical">
+              <h4><a href="docs/atumanov_cv_academic.pdf" target="_blank"
+                  data-toggle="popover" tabindex="0" data-trigger="hover"
+                  title="CV" data-content="Dec 11, 2018"><span
+                    class="fa fa-user"></span> Resume/CV</a></h4>
+              <h4>Links:
+                <a
+                  href="https://scholar.google.com/citations?user=7P-gZioAAAAJ&hl=en"
+                  target="_blank" data-toggle="popover" tabindex="1"
+                  title="Google Scholar"
+                  data-trigger="hover" data-content="Google Scholar"><span
+                    class="fa fa-graduation-cap"></span></a>
+                <a
+                  href="https://dblp.org/pers/hd/t/Tumanov:Alexey"
+                  target="_blank" data-toggle="popover" tabindex="1"
+                  title="DBLP"
+                  data-trigger="hover" data-content="DBLP"><span
+                    class="fa fa-book"></span></a>
+                <a href="https://github.com/atumanov" target="_blank"
+                  data-toggle="popover" tabindex="2" data-trigger="hover"
+                  title="Github"
+                  data-content="GitHub"><span class="fa
+                    fa-github"></span></a>
+                <a href="https://www.linkedin.com/in/atumanov" target="_blank"
+                  data-toggle="popover" tabindex="3" data-trigger="hover"
+                  title="LinkedIn"
+                  data-content="LinkedIn"><span class="fa
+                    fa-linkedin-square"></span></a>
+              </h4>
+            </div>
+-->
+		</div>
+
+		<h2 id="aboutme" class="headerstyle">Brief Bio</h2>
+		<p>
+I am a tenure-track Assistant Professor in the School of Computer Science at Georgia Tech since August 2019.
+I completed my postdoc at the University of California, Berkeley, working with
+<a href="http://www.cs.berkeley.edu/~istoica/"> Ion Stoica</a>
+and collaborating closely with 
+<a href="http://www.cs.berkeley.edu/~jegonzal">Joseph Gonzalez</a>.
+I completed my Ph.D. at Carnegie Mellon University, advised by 
+<a href="http://www.ece.cmu.edu/~ganger">Gregory Ganger</a>.
+At Carnegie Mellon, I was honored by the prestigious 
+<a href="http://www.nserc-crsng.gc.ca/">NSERC</a>
+<a href="http://www.nserc-crsng.gc.ca/Students-Etudiants/PG-CS/BellandPostgrad-BelletSuperieures_eng.asp">Alexander Graham Bell Canada Graduate Scholarship</a>
+(<a href="http://www.nserc-crsng.gc.ca/NSERC-CRSNG/FundingDecisions-DecisionsFinancement/ScholarshipsAndFellowships-ConcoursDeBourses/ForeignApplicants-CandidatsEtrangers_eng.asp?Year=2011"><b>NSERC CGS-D3</b></a>)
+and partially funded by 
+the Intel Science and Technology Centre for Cloud Computing and the Parallel Data Lab industry consortium.
+I came to Carnegie Mellon from the University of Toronto, where I worked with
+<a href="http://www.cs.toronto.edu/~delara">Eyal de Lara</a> on  
+agile stateful VM replication with para-virtualization.
+My interest in cloud computing, datacenter operating systems, and programming the cloud
+brought me to the University of Toronto from industry,
+where I had been developing cluster middleware for 
+distributed datacenter resource management.
+I build novel distributed systems and contribute to open source.
+My earliest open source contributions were to 
+<a href="http://clusterready.intel.com/about/">Intel Cluster Ready</a> Open Cluster Stack,
+where I was one of the key contributors.
+        </p>
+
+        <h2 id="synopsis" class="headerstyle">Research Synopsis</h2>
+        <p>
+My current research interest is in
+systems support and resource management for distributed machine learning frameworks and applications.
+Specifically, I am currently working on distributed systems and scheduling algorithms for <i>soft-real time Machine Learning inference</i>
+and
+co-scheduling ML inference and online training.
+This builds on the body of research and development at Carnegie Mellon 
+modeling, designing, and developing
+abstractions, primitives, algorithms and systems for a <i>general</i> resource management framework 
+with support for static and dynamic heterogeneity, hard and soft placement constraints, 
+time-varying resource capacity guarantees, and combinatorial constraints in heterogeneous resource contexts.
+Cost- and latency-efficient resource management is fundamental to commoditizing Machine Learning.
+    </p>
+
+		<p class="internallink">[ <a href="#top">Back to top</a> ]</p>
+
+	<h2 id="researchgroup" class="headerstyle">Research Group</h2>
+<p>
+<b><a href="https://www.cc.gatech.edu/~akhare39">Alind Khare</a></b>
+	: SCS PhD student<br>
+<b><a href="https://www.cc.gatech.edu/grads/s/spriambada3">Satria Priambada</a></b>
+	: SCS PhD student<br>
+<b><a href="https://jheo4.github.io">Jin Heo</a></b>
+	: SCS PhD student, co-advised with 
+	<a href="https://www.cc.gatech.edu/home/ada/">Ada Gavrilovska</a><br>
+<b><a href="https://www.cc.gatech.edu/grads/m/mpark339/profile.html">Misun Park</a></b>
+	: SCS PhD student, co-advised with 
+	<a href="https://www.cc.gatech.edu/home/ada/">Ada Gavrilovska</a><br>
+<b><a href="https://sahnimanas.github.io/">Manas Sahni</a></b>
+	: SCS MSc student<br>
+<b><a href="">Khang Vu</a></b>
+	: Undergraduate Research Assistant<br>
+<b><a href="">Shiva Devarajan</a></b>
+	: Undergraduate Research Assistant<br>
+<br>
+<p> <b><i><font color="blue" size="-1">I am looking for exceptional and highly motivated PhD students</font></b></i>
+
+<p class="internallink">[ <a href="#top">Back to top</a> ]</p>
+
+
+
+	<h2 id="research" class="headerstyle">Publications</h2>
+
+
+<b><font color="blue" size="-2">[SoCC19]</font>
+<i>HyperSched: Dynamic Resource Reallocation for Model Development on a Deadline.</b></i>
+<img src="img/new.gif">
+<br>
+Richard Liaw, Romil Bhardwaj, Lisa Dunlap, Yitian Zou, Joseph Gonzalez, Ion Stoica, <u>Alexey Tumanov</u>.<br>
+To appear in Proc. of the 10th ACM Symposium on Cloud Computing, SoCC'19, Nov 2019.<br>
+[<a href="">arXiv</a>]
+[<a href="">PDF</a>]
+[<a onClick="$('#hypersched-bib').toggle();">BibTeX</a>]
+        <div class="bib-bibtex" id="hypersched-bib">
+<pre>
+@inproceedings{hypersched-socc19,
+    author = {Richard Liaw and Romil Bhardwaj and Lisa Dunlap and Yitian Zou
+              and Alexey Tumanov and Joseph Gonzalez and Ion Stoica},
+    title = {{H}yper{S}ched: Dynamic Resource Reallocation for 
+             Model Development on a Deadline},
+    booktitle = {Proc. of the 10th ACM Symposium on Cloud Computing},
+    series = {SOCC '19},
+    year = {2019},
+    Publisher = {ACM},
+}
+</pre>
+        </div>
+        </p>
+
+
+<b><font color="blue" size="-2">[SoCC19]</font>
+<i>Cirrus: A Serverless Framework for End-to-end ML Workflows.</b></i>
+<br>
+Joao Carreira, Pedro Fonseca,  <u>Alexey Tumanov</u>, Andrew Zhang, Randy Katz.<br>
+To appear in Proc. of the 10th ACM Symposium on Cloud Computing, SoCC'19, Nov 2019.<br>
+[<a href="">Abstract</a>]
+[<a href="">PDF</a>]
+[<a onClick="$('#serverlessml-bib').toggle();">BibTeX</a>]
+        <div class="bib-bibtex" id="serverlessml-bib">
+<pre>
+@inproceedings{serverlessml-socc19,
+    author = {Joao Carreira and Pedro Fonseca and Alexey Tumanov
+              and Andrew Zhang and Randy Katz},
+    title = {Cirrus: A Serverless Framework for End-to-end ML Workflows},
+    booktitle = {Proc. of the 10th ACM Symposium on Cloud Computing},
+    series = {SOCC '19},
+    year = {2019},
+    Publisher = {ACM},
+}
+</pre>
+        </div>
+        </p>
+
+
+<b><font color="blue" size="-2">[SOSP19]</font>
+<i>Lineage Stash: Fault Tolerance Off the Critical Path.</b></i>
+<br>
+Stephanie Wang, John Liagouris, Robert Nishihara, Philipp Moritz, Ujval Misra, <u>Alexey Tumanov</u>, Ion Stoica.<br>
+To appear in Proc. of the Symposium on Operating Systems Principles, SOSP'19, Oct 2019.<br>
+[<a href="">Abstract</a>]
+[<a href="">PDF</a>]
+[<a onClick="$('#lineage-bib').toggle();">BibTeX</a>]
+        <div class="bib-bibtex" id="lineage-bib">
+<pre>
+@inproceedings{lineage-sosp19,
+    title = {Lineage Stash: Fault Tolerance Off the Critical Path},
+    booktitle = {Proc. of SOSP'19},
+    series = {SOSP '19},
+    year = {2019},
+    Publisher = {ACM},
+}
+</pre>
+        </div>
+        </p>
+
+
+<b><font color="blue" size="-2">[CIDR19]</font>
+<i>Serverless Computing: One Step Forward, Two Steps Back</i></b>
+<!-- <img src="img/new.gif"> -->
+<br>
+Joseph M. Hellerstein, Jose Faleiro, Joseph E. Gonzalez, Johann Schleier-Smith,
+Vikram Sreekanti, <u>Alexey Tumanov</u>, Chenggang Wu.<br>
+In Proc. of Conference on Innovative Data Systems Research (CIDR'19), Jan, 2019.<br>
+[<a href="https://arxiv.org/abs/1812.03651">arXiv</a>]
+[<a href="">PDF</a>]
+[<a href="https://news.ycombinator.com/item?id=18689544">HackerNews</a>]
+[<a onClick="$('#cidr19-bib').toggle();">BibTeX</a>]
+        <div class="bib-bibtex" id="cidr19-bib">
+<pre>
+</pre>
+        </div>
+        </p>
+
+<b><font color="blue" size="-2">[MLSYS18]</font>
+<i>A Case for Serverless Machine Learning</i></b>
+<br>
+Joao Carreira, Pedro Fonseca, <u>Alexey Tumanov</u>, Andrew Zhang, Randy Katz.<br>
+In Proc. of Workshop on Systems for ML at NIPS 2018 (MLSYS'18), Dec 2018.<br>
+[<a href="">Abstract</a>]
+[<a href="">PDF</a>]
+[<a onClick="$('#mlsys-cirrus-bib').toggle();">BibTeX</a>]
+        <div class="bib-bibtex" id="mlsys-cirrus-bib">
+<pre>
+</pre>
+        </div>
+        </p>
+
+<b><font color="blue" size="-2">[MLSYS18]</font>
+<i>Dynamic Space-Time Scheduling for GPU Inference</i></b>
+<br>
+Paras Jain, Xiangxi Mo, Ajay Jain, Harikaran Subbaraj, Rehan Sohail Durrani,
+<u>Alexey Tumanov</u>, Joseph Gonzalez, Ion Stoica. <br>
+In Proc. of Workshop on Systems for ML at NIPS 2018 (MLSYS'18), Dec 2018.<br>
+[<a href="https://arxiv.org/abs/1901.00041">arXiv</a>]
+[<a href="https://arxiv.org/pdf/1901.00041.pdf">PDF</a>]
+[<a onClick="$('#mlsys-gpu-bib').toggle();">BibTeX</a>]
+        <div class="bib-bibtex" id="mlsys-gpu-bib">
+<pre>
+@article{gpusched-mlsys18,
+  author    = {Paras Jain and Xiangxi Mo and Ajay Jain and 
+               Harikaran Subbaraj and Rehan Sohail Durrani and
+               Alexey Tumanov and Joseph Gonzalez and Ion Stoica},
+  title     = {Dynamic Space-Time Scheduling for GPU Inference},
+  journal   = {CoRR},
+  volume    = {abs/1901.00041},
+  year      = {2018},
+  url       = {https://arxiv.org/abs/1901.00041},
+  month     = {Dec},
+  archivePrefix = {arXiv}
+}
+</pre>
+        </div>
+        </p>
+
+<b><font color="blue" size="-2">[OSDI18]</font>
+<i>Ray: A Distributed Framework for Emerging AI Applications</i></b>
+<br>
+Philipp Moritz*, Robert Nishihara*, Stephanie Wang, <u>Alexey Tumanov</u>, Richard Liaw, 
+Eric Liang, Melih Elibol, Zongheng Yang, William Paul, Michael I. Jordan, Ion Stoica.
+<br>
+In Proc. of Usenix OSDI'18, Oct, 2018.<br>
+[<a href="https://www.usenix.org/conference/osdi18/presentation/nishihara">Abstract</a>]
+[<a href="https://arxiv.org/abs/1712.05889">arXiv</a>]
+[<a href="https://arxiv.org/pdf/1712.05889.pdf">PDF</a>]
+[<a onClick="$('#ray-bib').toggle();">BibTeX</a>]
+        <div class="bib-bibtex" id="ray-bib">
+<pre>
+@inproceedings{ray-osdi18,
+  title = {{Ray}: A Distributed Framework for Emerging {AI} Applications},
+  author = {Philipp Moritz and Robert Nishihara and Stephanie Wang and Alexey Tumanov and 
+            Richard Liaw and Eric Liang and Melih Elibol and Zongheng Yang and 
+            William Paul and Michael I. Jordan and Ion Stoica}
+  booktitle = {13th {USENIX} Symposium on Operating Systems Design and Implementation 
+             ({OSDI} 18)},
+  year = {2018},
+  address = {Carlsbad, CA},
+  url = {https://www.usenix.org/conference/osdi18/presentation/nishihara},
+  publisher = {{USENIX} Association},
+}
+</pre>
+        </div>
+        </p>
+
+<b><font color="blue" size="-2">[UAI18]</font>
+<i>IDK Cascades: Fast Deep Learning by Learning not to Overthink</i></b>
+<br>
+Xin Wang, Yujia Luo, Daniel Crankshaw, <u>Alexey Tumanov</u>, Fisher Yu, Joseph E. Gonzalez.
+In Proc. of Uncertainty in Artificial Intelligence (UAI'18), August, 2018.
+[<a href="https://arxiv.org/abs/1706.00885">arXiv</a>]
+[<a href="http://auai.org/uai2018/proceedings/papers/212.pdf">PDF</a>]
+<!-- [<a onClick="$('#idkcascades-bib').toggle();">Preprint bib</a>]
+        <div class="bib-bibtex" id="idkcascades-bib">
+<pre>
+@article{DBLP:journals/corr/WangLCTG17,
+  author    = {Xin Wang and
+               Yujia Luo and
+               Daniel Crankshaw and
+               Alexey Tumanov and
+               Joseph E. Gonzalez},
+  title     = {{IDK} Cascades: Fast Deep Learning by Learning not to Overthink},
+  journal   = {CoRR},
+  volume    = {abs/1706.00885},
+  year      = {2017},
+  url       = {http://arxiv.org/abs/1706.00885},
+  archivePrefix = {arXiv},
+  eprint    = {1706.00885},
+  timestamp = {Mon, 03 Jul 2017 13:29:02 +0200},
+  biburl    = {http://dblp.org/rec/bib/journals/corr/WangLCTG17},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+</pre>
+        </div>
+-->
+        </p>
+
+<b><font color="blue" size="-2">[ATC18]</font>
+<i>Tributary: spot-dancing for elastic services with latency SLOs</b></i>
+<br>
+Aaron Harlap, Andrew Chung, <u>Alexey Tumanov</u>, Gregory R. Ganger, Phillip B. Gibbons<br>
+In Proc. of USENIX ATC'18, Boston, MA, July 2018.<br>
+[<a href="http://www.pdl.cmu.edu/PDL-FTP/BigLearning/CMU-PDL-18-102_abs.shtml">Abstract</a>]
+[<a href="">PDF</a>]
+[<a onClick="$('#eu17-bib').toggle();">BibTeX</a>]
+        <div class="bib-bibtex" id="eu17-bib">
+<pre>
+@inproceedings{tributary-atc18,
+author = {Aaron Harlap and Andrew Chung and Alexey Tumanov and 
+          Gregory R. Ganger and Phillip B. Gibbons},
+title = {Tributary: spot-dancing for elastic services with latency SLOs},
+booktitle = {2018 {USENIX} Annual Technical Conference ({USENIX} {ATC} 18)},
+year = {2018},
+isbn = {978-1-931971-44-7},
+address = {Boston, MA},
+pages = {1--14},
+url = {https://www.usenix.org/conference/atc18/presentation/harlap},
+publisher = {{USENIX} Association},
+}
+</pre>
+        </div>
+    </p>
+
+<b><font color="blue" size="-2">[EuroSys18]</font>
+<i>3Sigma: distribution-based cluster scheduling for runtime uncertainty</b></i>
+<br>
+Jun Woo Park, <u>Alexey Tumanov</u>, Angela Jiang, Michael A. Kozuch, Gregory R. Ganger. <br>
+In Proc. of EuroSys'18, Porto, Portugal, April 2018.<br>
+[<a href="https://dl.acm.org/citation.cfm?id=3190515">Abstract</a>]
+[<a href="http://www.pdl.cmu.edu/PDL-FTP/CloudComputing/eurosys18-final49.pdf">PDF</a>]
+[<a onClick="$('#eurosys18-bib').toggle();">BibTeX</a>]
+        <div class="bib-bibtex" id="eurosys18-bib">
+<pre>
+@inproceedings{3sigma-eurosys18,
+ author = {Park, Jun Woo and Tumanov, Alexey and Jiang, Angela and 
+           Kozuch, Michael A. and Ganger, Gregory R.},
+ title = {3Sigma: Distribution-based Cluster Scheduling for Runtime Uncertainty},
+ booktitle = {Proceedings of the Thirteenth EuroSys Conference},
+ series = {EuroSys '18},
+ year = {2018},
+ isbn = {978-1-4503-5584-1},
+ location = {Porto, Portugal},
+ pages = {2:1--2:17},
+ articleno = {2},
+ numpages = {17},
+ url = {http://doi.acm.org/10.1145/3190508.3190515},
+ doi = {10.1145/3190508.3190515},
+ acmid = {3190515},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+}
+</pre>
+  </div>
+    </p>
+
+<b><font color="blue" size="-2">[HotOS17]</font> 
+<i>Real-Time Machine Learning: the Missing Pieces</b></i>
+<br>
+Robert Nishihara, Philipp Moritz, Stephanie Wang, <u>Alexey Tumanov</u>, 
+William Paul, Johann Schleier-Smith, Richard Liaw, Michael I. Jordan, Ion Stoica<br>
+In Proc. of HotOS XVI, May 2017.<br>
+[<a href="https://dl.acm.org/citation.cfm?id=3102998">Abstract</a>]
+[<a href="https://arxiv.org/pdf/1703.03924">PDF</a>]
+[<a onClick="$('#hotos17-bib').toggle();">BibTeX</a>]
+        <div class="bib-bibtex" id="hotos17-bib">
+<pre>
+@inproceedings{ray-hotos17,
+ author = {Nishihara, Robert and Moritz, Philipp and Wang, Stephanie and Tumanov, Alexey 
+           and Paul, William and Schleier-Smith, Johann and Liaw, Richard 
+           and Niknami, Mehrdad and Jordan, Michael I. and Stoica, Ion},
+ title = {Real-Time Machine Learning: The Missing Pieces},
+ booktitle = {Proceedings of the 16th Workshop on Hot Topics in Operating Systems},
+ series = {HotOS '17},
+ year = {2017},
+ isbn = {978-1-4503-5068-6},
+ location = {Whistler, BC, Canada},
+ pages = {106--110},
+ numpages = {5},
+ url = {http://doi.acm.org/10.1145/3102980.3102998},
+ doi = {10.1145/3102980.3102998},
+ acmid = {3102998},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+}
+</pre>
+        </div>
+    </p>
+
+<b><font color="blue" size="-2">[EuroSys17]</font>
+<i>Proteus: agile ML elasticity through tiered reliability in dynamic resource markets</b></i>
+<br>
+Aaron Harlap, <u>Alexey Tumanov</u>, Andrew Chung, Gregory R. Ganger, Phil Gibbons<br>
+In Proc. of EuroSys'17, Apr 2017.<br>
+[<a href="https://dl.acm.org/citation.cfm?id=3064182">Abstract</a>]
+[<a href="http://www.pdl.cmu.edu/PDL-FTP/BigLearning/Proteus.pdf">PDF</a>]
+[<a onClick="$('#proteus-eu17-bib').toggle();">BibTeX</a>]
+        <div class="bib-bibtex" id="proteus-eu17-bib">
+<pre>
+@inproceedings{proteus-eurosys17,
+ author = {Harlap, Aaron and Tumanov, Alexey and Chung, Andrew and 
+           Ganger, Gregory R. and Gibbons, Phillip B.},
+ title = {Proteus: Agile ML Elasticity Through Tiered Reliability 
+          in Dynamic Resource Markets},
+ booktitle = {Proceedings of the Twelfth European Conference on Computer Systems},
+ series = {EuroSys '17},
+ year = {2017},
+ isbn = {978-1-4503-4938-3},
+ location = {Belgrade, Serbia},
+ pages = {589--604},
+ numpages = {16},
+ url = {http://doi.acm.org/10.1145/3064176.3064182},
+ doi = {10.1145/3064176.3064182},
+ acmid = {3064182},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+}
+</pre>
+        </div>
+    </p>
+
+<b><font color="blue" size="-2">[OSDI16]</font>
+<i>Morpheus: Towards Automated SLOs for Enterprise Clusters</b></i>
+<br>
+S. Jyothi, C. Curino, I. Menache, S. Narayanamurthy, <u>A. Tumanov</u>, J. Yaniv, R. Mavlyutov, I. Goiri, S. Krishnan, J. Kulkarni, S. Rao<br>
+In Proc. of USENIX OSDI'16, Nov 2016.<br>
+[<a href="https://www.usenix.org/conference/osdi16/technical-sessions/presentation/jyothi">Abstract</a>]
+[<a href="https://www.usenix.org/system/files/conference/osdi16/osdi16-jyothi.pdf">PDF</a>]
+[<a href="https://www.usenix.org/sites/default/files/conference/protected-files/osdi16_slides_jyothi.pdf">Slides</a>]
+[<a onClick="$('#osdi16-bib').toggle();">BibTeX</a>]
+        <div class="bib-bibtex" id="osdi16-bib">
+<pre>
+@inproceedings{morpheus-osdi16,
+  author = {Sangeetha Abdu Jyothi and Carlo Curino 
+and Ishai Menache and Shravan Matthur Narayanamurthy 
+and Alexey Tumanov and Jonathan Yaniv and Ruslan Mavlyutov 
+and Inigo Goiri and Subru Krishnan and Janardhan Kulkarni and Sriram Rao},
+  title = {Morpheus: Towards Automated SLAs for Enterprise Clusters},
+  booktitle = {Proc. of the 12th USENIX OSDI (OSDI'16)},
+  year = {2016},
+  address = {GA},
+  url = {https://www.usenix.org/conference/osdi16/technical-sessions/presentation/jyothi},
+  publisher = {USENIX Association},
+}
+</pre>
+        </div>
+	</p>
+
+<b><font color="blue" size="-2">[EuroSys16]</font>
+<i>TetriSched: global rescheduling with adaptive plan-ahead in dynamic heterogeneous clusters.</b></i> 
+<b><font color="FF0000">[best student paper]</font></b><br>
+<u>Alexey Tumanov</u>, Timothy Zhu, Jun Woo Park, Michael A. Kozuch, Mor Harchol-Balter, Gregory R. Ganger.<br>
+In Proc. of EuroSys'16, London, UK, April 2016.<br>
+[<a href="http://www.pdl.cmu.edu/PDL-FTP/CloudComputing/tetrisched-tumanov-eurosys16_abs.shtml">Abstract</a>]
+[<a href="http://www.pdl.cmu.edu/PDL-FTP/CloudComputing/tetrisched-tumanov-eurosys16.pdf">PDF</a>]
+[<a href="docs/tetrisched-eurosys16-slides.pdf">Slides</a>]
+[<a onClick="$('#eurosys16-bib').toggle();">BibTeX</a>]
+        <div class="bib-bibtex" id="eurosys16-bib">
+<pre>
+@inproceedings{tetrisched,
+ author = {Alexey Tumanov and Timothy Zhu and Jun Woo Park and Michael A. Kozuch
+and Mor Harchol-Balter and Gregory R. Ganger},
+ title = {{T}etri{S}ched: global rescheduling with adaptive plan-ahead in dynamic
+heterogeneous clusters},
+ booktitle = {Proc. of the 11th European Conference on Computer Systems},
+ series = {EuroSys '16},
+ year = {2016},
+ month = {Apr},
+ location = {London, UK},
+ Publisher = {ACM},
+}
+</pre>
+        </div>
+        </p>
+
+<b><font color="blue" size="-2">[SoCC14]</font>
+<i>PriorityMeister: Tail Latency QoS for Shared Networked Storage.</b></i><br>
+Timothy Zhu, <u>Alexey Tumanov</u>, Michael A. Kozuch, Mor Harchol-Balter, Gregory R. Ganger.<br>
+In Proc. of the 5th ACM Symposium on Cloud Computing, SoCC'14, Nov 2014.<br>
+[<a href="http://www.pdl.cmu.edu/PDL-FTP/CloudComputing/pmeister-SoCC14_abs.shtml">Abstract</a>]
+[<a href="http://www.pdl.cmu.edu/PDL-FTP/CloudComputing/pmeister-SoCC14.pdf">PDF</a>]
+[<a onClick="$('#pm-bib').toggle();">BibTeX</a>]
+        <div class="bib-bibtex" id="pm-bib">
+<pre>
+@inproceedings{pm-socc14,
+    author = {Timothy Zhu and Alexey Tumanov and Michael A. Kozuch and
+              Mor Harchol-Balter and Gregory R. Ganger},
+    title = {{P}riority{M}eister: Tail Latency QoS for Shared Networked Storage},
+    booktitle = {Proc. of the 5th ACM Symposium on Cloud Computing},
+    series = {SOCC '14},
+    year = {2014},
+    location = {Seattle, WA},
+    Publisher = {ACM},
+}
+</pre>
+        </div>
+        </p>
+
+<b><font color="blue" size="-2">[SoCC14]</font>
+<i>Exploiting iterative-ness for parallel ML computations.</i></b><br>
+Henggang Cui, <u>Alexey Tumanov</u>, Jinliang Wei, Lianghong Xu, Wei Dai, Jesse Haber-Kucharsky, Qirong Ho, 
+Gregory R. Ganger, Phil B. Gibbons, Garth A. Gibson, Eric P. Xing.<br>
+In Proc. of the 5th ACM Symposium on Cloud Computing, SoCC'14, Nov 2014.<br>
+[<a href="http://www.pdl.cmu.edu/PDL-FTP/CloudComputing/cui-SoCC14_abs.shtml">Abstract</a>]
+[<a href="http://www.pdl.cmu.edu/PDL-FTP/CloudComputing/cui-SoCC14.pdf">PDF</a>]
+[<a onClick="$('#iterstore-bib').toggle();">BibTeX</a>]
+        <div class="bib-bibtex" id="iterstore-bib">
+<pre>
+</pre>
+        </div>
+        </p>
+
+<b><font color="blue" size="-2">[TOS14]</font></b>
+<b><i>Agility and performance in elastic distributed storage.</i></b><br>
+Lianghong Xu, James Cipar, Elie Krevat, <u>Alexey Tumanov</u>, Nitin Gupta, Michael A. Kozuch, and Gregory R. Ganger.<br>
+Trans. Storage, 10(4):16:1– 16:27, October 2014.<br>
+[<a href="http://dl.acm.org/citation.cfm?id=2668129&CFID=439947601&CFTOKEN=28271129">Abstract</a>]
+[<a href="http://dl.acm.org/ft_gateway.cfm?id=2668129&ftid=1510487&dwn=1&CFID=439947601&CFTOKEN=28271129">PDF</a>]
+[<a onClick="$('#TOS14-bib').toggle();">BibTeX</a>]
+        <div class="bib-bibtex" id="TOS14-bib">
+<pre>
+@article{Xu:2014,
+ author = {Xu, Lianghong and Cipar, James and Krevat, Elie and Tumanov, Alexey 
+           and Gupta, Nitin and Kozuch, Michael A. and Ganger, Gregory R.},
+ title = {Agility and Performance in Elastic Distributed Storage},
+ journal = {Trans. Storage},
+ issue_date = {October 2014},
+ volume = {10},
+ number = {4},
+ month = oct,
+ year = {2014},
+ issn = {1553-3077},
+ pages = {16:1--16:27},
+ articleno = {16},
+ numpages = {27},
+ url = {http://doi.acm.org/10.1145/2668129},
+ doi = {10.1145/2668129},
+ acmid = {2668129},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {Cloud storage, agility, distributed file systems, elastic storage, power, write offloading},
+}
+</pre>
+        </div>
+        </p>
+
+<b><font color="blue" size="-2">[FAST14]</font>
+<i>SpringFS: Bridging Agility and Performance in Elastic Distributed Storage</i></b><br>
+Lianghong Xu, James Cipar, Elie Krevat, <u>Alexey Tumanov</u>, Nitin Gupta, Michael A. Kozuch, Gregory R. Ganger.<br>
+In Proc. of Usenix FAST’14, Feb 2014.<br>
+[<a href="https://www.usenix.org/conference/fast14/technical-sessions/presentation/xu">Abstract</a>]
+[<a href="https://www.usenix.org/system/files/conference/fast14/fast14-paper_xu.pdf">PDF</a>]
+[<a onClick="$('#springfs-bib').toggle();">BibTeX</a>][acceptance: 18%]
+        <div class="bib-bibtex" id="springfs-bib">
+<pre>
+@inproceedings{springfs,
+    author = {Lianghong Xu and James Cipar and Elie Krevat and Alexey Tumanov
+              and Nitin Gupta and Michael A. Kozuch and Gregory R. Ganger},
+    title = {SpringFS: Bridging Agility and Performance in Elastic Distributed Storage},
+    booktitle = {Proc. of the 12th USENIX FAST},
+    year = {2014},
+    isbn = {ISBN 978-1-931971-08-9},
+    location = {Santa Clara, CA},
+    pages = {243-255},
+    publisher = {USENIX},
+    address = {Berkeley, CA}
+}
+</pre>
+        </div>
+        </p>
+
+        <!-- <h4 id="pubs2013">2013</h4> -->
+
+<b><font color="blue" size="-2">[TR13]</font></b>
+<b><i>TetriSched: Space-Time Scheduling for Heterogeneous Datacenters.</i></b><br>
+<u>Alexey Tumanov</u>, Timothy Zhu, Michael A. Kozuch, Mor Harchol-Balter, Gregory R. Ganger.<br>
+Carnegie Mellon University PDL Technical Report CMU-PDL-13-112, Dec 2013.<br> 
+[<a href="http://www.pdl.cmu.edu/PDL-FTP/CloudComputing/CMU-PDL-13-112_abs.shtml">Abstract</a>]
+[<a href="http://www.pdl.cmu.edu/PDL-FTP/CloudComputing/CMU-PDL-13-112.pdf">PDF</a>]
+[<a onClick="$('#tetrischedtr-bib').toggle();">BibTeX</a>]
+        <div class="bib-bibtex" id="tetrischedtr-bib">
+<pre>
+@techreport{tetrischedTR,
+    Author = { Alexey Tumanov and Timothy Zhu and Michael A. Kozuch and 
+               Mor Harchol-Balter and Gregory R. Ganger },
+    Title = {{T}etri{S}ched: Space-Time Scheduling for Heterogeneous Datacenters},
+    Institution = {Carnegie Mellon University},
+    Year = {2013},
+    Month = {Dec},
+    URL = {http://www.pdl.cmu.edu/PDL-FTP/CloudComputing/CMU-PDL-13-112_abs.shtml},
+    Number = {CMU-PDL-13-112},
+}
+</pre>
+        </div>
+
+        </p>
+<!--
+        <p>
+Lianghong Xu, James Cipar, Elie Krevat, Alexey Tumanov, Nitin Gupta, Michael A. Kozuch, Gregory R. Ganger.
+<i>SpringFS: Bridging Agility and Performance in Elastic Distributed Storage</i>.
+In Proc. of Usenix FAST’14, Feb 2014.
+<br>
+[<a href="https://www.usenix.org/conference/fast14/technical-sessions/presentation/xu">Abstract</a>]
+[<a href="https://www.usenix.org/system/files/conference/fast14/fast14-paper_xu.pdf">PDF</a>]
+[<a onClick="$('#springfs-bib').toggle();">BibTeX</a>][acceptance: 18%]
+        <div class="bib-bibtex" id="springfs-bib">
+<pre>
+@inproceedings{springfs,
+    author = {Lianghong Xu and James Cipar and Elie Krevat and Alexey Tumanov 
+              and Nitin Gupta and Michael A. Kozuch and Gregory R. Ganger},
+    title = {SpringFS: Bridging Agility and Performance in Elastic Distributed Storage},
+    booktitle = {Proc. of the 12th USENIX FAST},
+    year = {2014},
+    isbn = {ISBN 978-1-931971-08-9},
+    location = {Santa Clara, CA},
+    pages = {243-255},
+    publisher = {USENIX},
+    address = {Berkeley, CA}
+}
+</pre>
+        </div>
+        </p>
+-->
+
+<b><font color="blue" size="-2">[SFMA13]</font>
+<i>Asymmetry-aware execution placement on manycore chips</b></i>.<br> 
+<u>Alexey Tumanov</u>, Joshua Wise, Onur Mutlu, Gregory R. Ganger.<br> 
+In Proc. of the 3rd Workshop on Systems for Future Multicore Architectures (SFMA'13), EuroSys'13, April 2013.<br>
+[<a href="http://www.pdl.cmu.edu/PDL-FTP/NVM/sfma2013_abs.shtml">Abstract</a>]
+[<a href="http://www.pdl.cmu.edu/PDL-FTP/NVM/sfma2013.pdf">PDF</a>]
+[<a onClick="$('#sfma13-bib').toggle();">BibTeX</a>]
+        <div class="bib-bibtex" id="sfma13-bib">
+<pre>
+@inproceedings{atumanov-sfma13,
+    author = {Alexey Tumanov and Joshua Wise and Onur Mutlu and Gregory R. Ganger},
+    title = {Asymmetry-aware execution placement on manycore chips},
+    booktitle = {Proc. of the 3rd Workshop on Systems for 
+                 Future Multicore Architectures (SFMA'13)},
+    series = {SFMA '13},
+    year = {2013},
+    location = {Prague, Czech Republic},
+}
+</pre>
+        </div>
+        </p>
+
+        <!-- <h4 id="pubs2012">2012</h4> -->
+<b><font color="blue" size="-2">[SoCC12]</font>
+<i>alsched: Algebraic Scheduling of Mixed Workloads in Heterogeneous Clouds"</i></b><br> 
+<u>Alexey Tumanov</u>, James Cipar, Michael A. Kozuch, Gregory R. Ganger.<br>
+In Proc. of the 3rd ACM Symposium on Cloud Computing, SoCC'12, Oct 2012.<br> 
+[<a href="http://www.pdl.cmu.edu/PDL-FTP/CloudComputing/alsched-socc2012_abs.shtml">Abstract</a>]
+[<a href="http://www.pdl.cmu.edu/PDL-FTP/CloudComputing/alsched-socc2012.pdf">PDF</a>]
+[<a onClick="$('#alsched-bib').toggle();">BibTeX</a>]
+[acceptance: 15%]
+        <div class="bib-bibtex" id="alsched-bib">
+<pre>
+@inproceedings{alsched-socc12,
+    author = {Alexey Tumanov and James Cipar and Michael A. Kozuch and 
+              Gregory R. Ganger},
+    title = {{a}lsched: algebraic scheduling of mixed workloads in heterogeneous clouds},
+    booktitle = {Proc. of the 3rd ACM Symposium on Cloud Computing},
+    series = {SOCC '12},
+    year = {2012},
+    location = {San Jose, CA},
+    Publisher = {ACM},
+}
+</pre>
+        </div>
+        </p>
+
+<b><font color="blue" size="-2">[SoCC12]</font>
+<i>Heterogeneity and Dynamicity of Clouds at Scale: Google Trace Analysis</i></b><br> 
+Charles Reiss, <u>Alexey Tumanov</u>, Gregory R. Ganger, Randy H. Katz, Michael A. Kozuch.<br> 
+In Proc. of the 3rd ACM Symposium on Cloud Computing, SoCC'12, Oct 2012.<br> 
+[<a href="http://www.pdl.cmu.edu/PDL-FTP/CloudComputing/googletrace-socc2012_abs.shtml">Abstract</a>]
+[<a href="http://www.pdl.cmu.edu/PDL-FTP/CloudComputing/googletrace-socc2012.pdf">PDF</a>]
+[<a onClick="$('#gtrace-bib').toggle();">BibTeX</a>]
+[acceptance: 15%]
+        <div class="bib-bibtex" id="gtrace-bib">
+<pre>
+@inproceedings{gtrace-socc12,
+ author     = {Charles Reiss and Alexey Tumanov and Gregory R. Ganger and
+            Randy H. Katz and Michael A. Kozuch},
+ title      = {Heterogeneity and Dynamicity of Clouds at Scale: {G}oogle Trace
+          Analysis},
+ booktitle  = {Proc. of the 3nd ACM Symposium on Cloud Computing},
+ series     = {SOCC '12},
+ year       = {2012},
+ location   = {San Jose, CA},
+}
+</pre>
+        </div>
+        </p>
+        <!-- <h4 id="pubs2011">2011</h4> -->
+
+<b><font color="blue" size="-2">[EuroSys11]</font>
+<i>Kaleidoscope: Cloud Micro-Elasticity via VM State Coloring</i></b><br> 
+Roy Bryant, <u>Alexey Tumanov</u>, Olga Irzak, Adin Scannell, Kaustubh Joshi, Matti Hiltunen, 
+H. Andr&eacute;s Lagar-Cavilla, Eyal de Lara.<br> 
+In Proc. of EuroSys'11, Salzburg, Austria, April 2011.<br> 
+[<a href="http://dl.acm.org/citation.cfm?id=1966471">Abstract</a>][<a href="docs/eurosys2011-kaleidoscope.pdf">PDF</a>][<a onClick="$('#kaleido-bib').toggle();">BibTeX</a>][acceptance: 15%]
+        <div class="bib-bibtex" id="kaleido-bib">
+<pre>
+@inproceedings{BryantEurosys11,
+  author =       "Roy Bryant and Alexey Tumanov and Olga Irzak and 
+                  Adin Scannell and Kaustubh Joshi and Matti Hiltunen
+                  and H. Andr\'es Lagar-Cavilla and Eyal de Lara",
+  title =        "{Kaleidoscope: Cloud Micro-Elasticity via VM State Coloring}",
+  booktitle =    "{Proc. of Eurosys 2011}",
+  address =      "{Salzburg, Austria}",
+  month =        apr,
+  year =         2011
+}
+</pre>
+        </div>
+        </p>
+
+        <!-- <h4 id="pubsbefore">Earlier</h4> -->
+
+<b><font color="blue" size="-2">[IEEEVR07]</font>
+<i>Variability-Aware Latency Amelioration in Distributed Environments</i></b><br> 
+<u>Alexey Tumanov</u>, Robert Allison, Wolfgang Stuerzlinger.<br> 
+In Proc. of IEEE Virtual Reality Conference, 2007, pp. 123-130, March 2007.<br> 
+[<a href="http://ieeexplore.ieee.org/document/4161014/">Abstract</a>][<a href="docs/Tumanov_IEEEVR2007_confpaper.pdf">PDF</a>][<a onClick="$('#vr-bib').toggle();">BibTeX</a>][acceptance: 20%]
+        <div class="bib-bibtex" id="vr-bib">
+<pre>
+@INPROCEEDINGS{Tumanov-ieeevr07,
+  author={Alexey Tumanov and Robert Allison and Wolfgang Stuerzlinger},
+  booktitle={Proc. of IEEE Virtual Reality Conference, 2007.},
+  series = {IEEE VR'2007},
+  title={Variability-Aware Latency Amelioration in Distributed Environments},
+  year={2007},
+  month={March},
+  volume={},
+  number={},
+  pages={123--130},
+  location={Charlotte, NC},
+  doi={10.1109/VR.2007.352472},
+}
+</pre>
+        </div>
+        </p>
+
+<b><i>Variability-Aware Latency Amelioration in Distributed Interactive Virtual Environments</i></b><br> 
+<u>Alexey Tumanov</u><br> 
+M.Sc. Thesis, York University, Toronto, Canada, April 2006.<br> 
+[<a href="docs/AlexeyTumanov_MScThesis_final.pdf">PDF</a>][<a onClick="$('#mscthesis-bib').toggle();">BibTeX</a>]
+        <div class="bib-bibtex" id="mscthesis-bib">
+<pre>
+@mastersthesis{Tumanov-mscthesis,
+  author = {Alexey Tumanov},
+  title = {Variability-aware latency amelioration in distributed interactive
+           virtual environments},
+  school = {York University},
+  address = {Toronto, Canada},
+  year = {2006},
+  month = {April},
+}
+</pre>
+        </div>
+        </p>
+
+        <h3 id="wips">Preprints</h3>
+
+<b><i>Cloudburst: Stateful Functions-as-a-Service</i></b>
+<img src="img/new.gif"><br>
+Vikram Sreekanti, Chenggang Wu, Xiayue Charles Lin, Jose M. Faleiro, Joseph E. Gonzalez, Joseph M. Hellerstein, <u>Alexey Tumanov</u>
+<br>
+arXiv CoRR preprint, abs/2001.04592, 2020.<br>
+[<a href="https://arxiv.org/abs/2001.04592">Abstract</a>]
+[<a href="https://arxiv.org/pdf/2001.04592.pdf">PDF</a>]
+[<a onClick="$('#cloudburst-bib').toggle();">BibTeX</a>]
+        <div class="bib-bibtex" id="cloudburst-bib">
+<pre>
+@article{cloudburst2020,
+  author    = {Vikram Sreekanti and  Chenggang Wu and Xiayue Charles Lin and Jose M. Faleiro and 
+               Joseph E. Gonzalez and Joseph M. Hellerstein and Alexey Tumanov
+               },
+  title     = {Cloudburst: Stateful Functions-as-a-Service},
+  journal   = {CoRR},
+  volume    = {abs/2001.04592},
+  year      = {2020},
+  url       = {https://arxiv.org/abs/2001.04592},
+  archivePrefix = {arXiv},
+  eprint    = {2001.04592},
+  timestamp = {14 Jan 2020 02:22:02 UTC}
+}
+</pre>
+        </div>
+        </p>
+
+<b><i>The OoO VLIW JIT Compiler for GPU Inference</i></b>
+<br>
+Paras Jain, Xiangxi Mo, Ajay Jain, <u>Alexey Tumanov</u>, Joseph E. Gonzalez, Ion Stoica
+<br>
+arXiv CoRR preprint, abs/1901.10008, 2019.<br>
+[<a href="https://arxiv.org/abs/1901.10008">Abstract</a>]
+[<a href="https://arxiv.org/pdf/1901.10008.pdf">PDF</a>]
+[<a onClick="$('#gpuvliw-bib').toggle();">BibTeX</a>]
+        <div class="bib-bibtex" id="gpuvliw-bib">
+<pre>
+@article{gpu-vliw-scheduler,
+  author    = {Paras Jain and
+               Xiangxi Mo and
+               Ajay Jain and
+               Alexey Tumanov and
+               Joseph E. Gonzalez and
+               Ion Stoica},
+  title     = {The OoO {VLIW} {JIT} Compiler for {GPU} Inference},
+  journal   = {CoRR},
+  volume    = {abs/1901.10008},
+  year      = {2019},
+  url       = {http://arxiv.org/abs/1901.10008},
+  archivePrefix = {arXiv},
+  eprint    = {1901.10008},
+  timestamp = {Sat, 02 Feb 2019 16:56:00 +0100},
+  biburl    = {https://dblp.org/rec/bib/journals/corr/abs-1901-10008},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+</pre>
+        </div>
+        </p>
+
+
+<b><i>InferLine: ML Inference Pipeline Composition Framework</i></b>
+<br>
+Daniel Crankshaw, Gur-Eyal Sela, Corey Zumar, Xiangxi Mo, Joseph E. Gonzalez, Ion Stoica, <u>Alexey Tumanov</u><br>
+arXiv CoRR preprint, abs/1812.01776, Dec 2018.<br>
+[<a href="https://arxiv.org/abs/1812.01776">Abstract</a>]
+[<a href="https://arxiv.org/pdf/1812.01776.pdf">PDF</a>]
+[<a onClick="$('#inferline-bib').toggle();">BibTeX</a>]
+        <div class="bib-bibtex" id="inferline-bib">
+<pre>
+@article{inferline,
+  author    = {Daniel Crankshaw and
+               Gur-Eyal Sela and
+               Corey Zumar and
+               Xiangxi Mo and
+               Joseph E. Gonzalez and
+               Ion Stoica and
+               Alexey Tumanov},
+  title     = {{I}nfer{L}ine: {ML} Inference Pipeline Composition Framework},
+  journal   = {CoRR},
+  volume    = {abs/1812.01776},
+  year      = {2018},
+  url       = {http://arxiv.org/abs/1812.01776},
+  month     = {Dec},
+  archivePrefix = {arXiv}
+}
+</pre>
+        </div>
+        </p>
+
+<b><i>JamaisVu: Robust Scheduling with Auto-Estimated Job Runtimes</i></b><br>
+<u>Alexey Tumanov</u>, Angela Jiang, Jun Woo Park, Michael A. Kozuch, Gregory R. Ganger.<br> 
+Carnegie Mellon University Parallel Data Lab Technical Report CMU-PDL-16-104. September 2016.
+[<a href="http://www.pdl.cmu.edu/PDL-FTP/CloudComputing/CMU-PDL-16-104_abs.shtml">Abstract</a>]
+[<a href="http://www.pdl.cmu.edu/PDL-FTP/CloudComputing/CMU-PDL-16-104.pdf">PDF</a>]
+[<a onClick="$('#jamaisvu-bib').toggle();">BibTeX</a>]
+        <div class="bib-bibtex" id="jamaisvu-bib">
+<pre>
+@techreport{jamaisvu-tr201609,
+    author = {Alexey Tumanov and Angela Jiang and Jun Woo Park and 
+              Michael A. Kozuch and Gregory R. Ganger},
+    title = {{JamaisVu: Robust Scheduling with Auto-Estimated Job Runtimes}},
+    institution = {{Carnegie Mellon University}},
+    year = {2016},
+    month = {September},
+    number = {CMU-PDL-16-104}
+}
+</pre>
+        </div>
+        </p>
+
+        <h3 id="patents">Patents</h3>
+<b><i>Tagging a copy of memory of a virtual machine with information for fetching of relevant portions of the memory</i></b><br>
+Horacio Andres Lagar-cavilla, Roy Bryant, Matti Hiltunen, Olga Irzak, Kaustubh Joshi,
+Adin Matthew Scannell, <u>Alexey Tumanov</u>, Eyal De Lara.<br>
+US Patent <a href="http://www.freepatentsonline.com/9250969.html">9250969</a>. Granted Feb 2, 2016.
+        </p>
+
+		<p class="internallink">[ <a href="#top">Back to top</a> ]</p>
+
+		<h2 id="ta" class="headerstyle">Teaching</h2>
+<p>Teaching at Georgia Tech:
+<ul>
+    <li><b>CS8803</b>: Special Topics in Systems for Machine Learning (Spring 2020)
+</ul>
+
+<p>Carnegie Mellon Graduate  Teaching Assistantship:
+<ul>
+    <li><a href="http://www.cs.cmu.edu/~garth/15719"><b>15-719</b></a>: Advanced Cloud Computing (Fall 2014)
+    <li><a href="http://www.cs.cmu.edu/afs/cs/academic/class/15213-s13/www/"><b>15-213</b></a>: Introduction to Computer Systems (Spring 2013)
+</ul>
+	</p>
+
+<p> Carnegie Mellon Graduate Student Lecturer:
+<ul>
+    <li><a href="http://www.cs.cmu.edu/~garth/15719"><b>15-719</b></a>: Advanced Cloud Computing (Fall 2014) 
+    <li><a href="http://www.andrew.cmu.edu/course/15-440-m14/"><b>15-440</b></a>: Distributed Systems (Summer 2014)
+</ul>
+    </p>
+
+<!--
+    <h2 id="awards" class="headerstyle">Select Fellowships and Awards</h2>
+    <ul><li> Outstanding Graduate Student Teaching Assistant Award, 2015
+        <li> <a href="http://www.nserc-crsng.gc.ca/">NSERC</a> <b><a href="http://www.nserc-crsng.gc.ca/NSERC-CRSNG/FundingDecisions-DecisionsFinancement/ScholarshipsAndFellowships-ConcoursDeBourses/ForeignApplicants-CandidatsEtrangers_eng.asp?Year=2011"> 
+                Alexander Graham Bell CGS-D Scholarship</a></b>, 2011-2014
+    </ul>
+
+-->
+    <h2 id="service" class="headerstyle">Academic Service</h2>
+<p>
+<i><b>Program Committee:</b></i>  
+	<a href="https://acmsocc.github.io/2017/program-committee.html">ACM SoCC 2017</a>,
+	<a href="https://www.usenix.org/conference/atc20/call-for-papers">USENIX ATC 2020</a>.
+<p> <i><b>Reviewer:</b></i> ACM SoCC 2013, ACM SIGMETRICS 2014, IEEE/ACM MICRO 2014, SoCC 2017, SOSP 2019.<br>
+
+    </p>
+
+<!--
+		<p class="internallink">[ <a href="#top">Back to top</a> ]</p>
+        <h2 id="cv" class="headerstyle">Curriculum Vitae</h2>
+        <p>
+            Available upon request.
+        </p>
+		<p class="internallink">[ <a href="#top">Back to top</a> ]</p>
+-->
+	</div>
+
+	<div id="sidebar">
+		<h2 id="sitemenu" class="sidelink menuheader">Site menu:</h2>
+		<a class="sidelink" href="index.html">Home</a><span class="hide"> | </span>
+		<a class="sidelink" href="index.html#aboutme">Brief Bio</a><span class="hide"> | </span>
+		<a class="sidelink" href="index.html#synopsis">Research Synopsis</a><span class="hide"> | </span>
+		<a class="sidelink" href="index.html#researchgroup">Research Group</a><span class="hide"> | </span>
+		<a class="sidelink" href="index.html#research">Publications</a><span class="hide"> | </span>
+		<a class="sidelink" href="index.html#ta">Teaching</a><span class="hide"> | </span>
+		<a class="sidelink" href="index.html#service">Service</a><span class="hide"> | </span>
+		<a class="hide" href="#top" accesskey="1">Top of page</a>
+<br>
+<!--
+        <h2 id="sitemenu" class="sidelink menuheader"><b>Application Materials:</b></h2>
+        <a class="sidelink" href="docs/2016/atumanov-cv-academic.pdf">CV</a><span class="hide"> | </span>
+        <a class="sidelink" href="docs/2016/atumanov-research-statement-v7.pdf">Research Statement</a><span class="hide"> | </span>
+        <a class="sidelink" href="docs/2016/atumanov-teaching-statement.pdf">Teaching Statement</a><span class="hide"> | </span>
+        <a class="hide" href="#top" accesskey="1">Top of page</a>
+-->
+		<h3>Useful Links</h3>
+            <b>UC Berkeley</b><br>
+        <ul>
+            <li><a href="https://github.com/ray-project/ray"><i>Ray</i></a></li>
+            <li><a href="https://rise.cs.berkeley.edu/">RISELab</a></li>
+            <li><a href="https://risecamp.berkeley.edu">RISECamp 2017</a></li>
+        </ul>
+
+            <b>Carnegie Mellon</b><br>
+        <ul>
+            <li><a href="http://www.pdl.cmu.edu/TetriSched/index.shtml"><i>TetriSched</i></a></li>
+            <li><a href="http://www.pdl.cmu.edu/TetriScope/index.shtml">TetriScope</a></li>
+            <li><a href="http://www.pdl.cmu.edu/SpringFS/index.shtml">Elastic Storage</a></li>
+            <li><a href="http://www.pdl.cmu.edu/PriorityMeister/index.shtml">E2E Storage QoS</a></li>
+<!--
+            <li><a href="http://www.pdl.cmu.edu">Parallel Data Lab</a></li>
+            <li><a href="http://www.istc-cc.cmu.edu/index.shtml">ISTC Cloud Computing</a></li>
+-->
+        </ul>
+            <b>Toronto</b><br>
+		<ul>
+			<li><a href="http://sourceforge.net/p/snowflock/wiki/Home/">SnowFlock Wiki</a></li>
+			<li><a href="http://sourceforge.net/projects/snowflock/develop">SnowFlock Source</a></li>
+<!--
+			<li><a href="http://sysweb.cs.toronto.edu/index.php">Systems &amp Networks Group</a></li>
+-->
+		</ul>
+
+		<h3>News/History</h3>
+	<p>Sep'19: Serverless ML accepted at SoCC'19!</p>
+	<p>Sep'19: HyperSched accepted at SoCC'19!</p>
+	<p>Aug'19: Started at Georgia Tech as junior faculty</p>
+	<p>Jul'19: Lineage stash paper accepted to SOSP'19!</p>
+	<p>Jul'18: Ray paper accepted to OSDI'18!</p>
+	<p>Sep'17: organized <a href="https://risecamp.berkeley.edu">RISECamp 2017</a></p>
+	<p>Sep'16: started my postdoc@Berkeley</p>
+	<p>Aug'16: finished my PhD@CMU</p>
+	<p>Jul'16: Morpheus@Microsoft paper accepted to OSDI'16
+	<p>Jul'16: defended!</p>
+        <p>Jun'16: CMU <a href="https://www.cylab.cmu.edu">CyLab</a> press 
+            <a href="https://www.cylab.cmu.edu/news_events/news/2016/cylab-graduate-student-receives-best-paper-award-at-eurosys-2016.html">release</a>. 
+        <p>Apr'16: Best student paper award at EuroSys'16! 
+        <p>Feb'16: Gave an <a href="http://www.pdl.cmu.edu/SDI/">SDI</a> <a href="http://www.pdl.cmu.edu/SDI/2016/021816.html">seminar</a> at CMU
+        </p>
+        <p>Jan'16: TetriSched to appear in EuroSys'16!</p>
+        <p>Summer'15: uber-productive MSR/CISL internship</p>
+        <p>Aug'15: Intel HQ: ISTC-CC Retreat</p>
+        <p>May'15: proposed</p>
+        <p>Aug'14: Intel HQ: ISTC-CC talk</p>
+		<p>Fall'13: presented at SOSP WIP</p>
+		<p>Apr'13: presented at EuroSys SFMA</p>
+		<p>Fall'12: presented at SoCC</p>
+		<p>Summer'12: Google HQ</p>
+		<p>Summer'11: Research Intern at MSR Silicon Valley</p>
+		<p>Apr'11: Had a blast at EuroSys'11.</p>
+		<p>Mar'11: Awarded <a href="http://www.ece.cmu.edu/news/story/2011/06/tumanov_earns_canada/">NSERC CGS-D!</a></p>
+		<p>Jan'11: Kaleidoscope paper accepted to EuroSys'11!</p>
+		<p>Sep'10: Joined CMU PDL.</p>
+		<p>Aug'10: Started as a PhD student at CMU.</p>
+<!--
+<center>
+<a href='http://www.catb.org/hacker-emblem/'>
+<img src='http://www.catb.org/hacker-emblem/glider.png' alt='hacker emblem' /></a>
+</center>
+-->		
+<!--		<p class="block"><strong>Notes:</strong></p>   
+-->
+	</div>
+	<div class="clear">&nbsp;</div>
+</div>
+
+<div id="footer">
+	<p><a href="#aboutme">Brief Bio</a> | <a href="#researchgroup">Research Group</a> | <a href="#synopsis">Synopsis</a> | <a href="#research">Publications</a> | <a href="#ta">Teaching</a> | <a href="#service">Service</a> | <a href="#top">Back to top</a><br />
+	<b>&copy; 2010-2020 <a href="#">Alexey Tumanov</a></b></p>
+</div>
+
+<!-- Previous property tracking code
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-12536401-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-83927965-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

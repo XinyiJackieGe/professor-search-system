@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="https://dair.seas.upenn.edu/xmlrpc.php">
+
+<title>Dynamic Autonomy and Intelligent Robotics</title>
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Dynamic Autonomy and Intelligent Robotics &raquo; Feed" href="https://dair.seas.upenn.edu/feed/" />
+<!-- This site uses the Google Analytics by ExactMetrics plugin v6.0.2 - Using Analytics tracking - https://www.exactmetrics.com/ -->
+<script type="text/javascript" data-cfasync="false">
+	var em_version         = '6.0.2';
+	var em_track_user      = true;
+	var em_no_track_reason = '';
+	
+	var disableStr = 'ga-disable-UA-36057972-4';
+
+	/* Function to detect opted out users */
+	function __gaTrackerIsOptedOut() {
+		return document.cookie.indexOf(disableStr + '=true') > -1;
+	}
+
+	/* Disable tracking if the opt-out cookie exists. */
+	if ( __gaTrackerIsOptedOut() ) {
+		window[disableStr] = true;
+	}
+
+	/* Opt-out function */
+	function __gaTrackerOptout() {
+	  document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+	  window[disableStr] = true;
+	}
+
+	if ( 'undefined' === typeof gaOptout ) {
+		function gaOptout() {
+			__gaTrackerOptout();
+		}
+	}
+	
+	if ( em_track_user ) {
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','__gaTracker');
+
+window.ga = __gaTracker;		__gaTracker('create', 'UA-36057972-4', 'auto');
+		__gaTracker('set', 'forceSSL', true);
+		__gaTracker('send','pageview');
+		__gaTracker( function() { window.ga = __gaTracker; } );
+	} else {
+		console.log( "" );
+		(function() {
+			/* https://developers.google.com/analytics/devguides/collection/analyticsjs/ */
+			var noopfn = function() {
+				return null;
+			};
+			var noopnullfn = function() {
+				return null;
+			};
+			var Tracker = function() {
+				return null;
+			};
+			var p = Tracker.prototype;
+			p.get = noopfn;
+			p.set = noopfn;
+			p.send = noopfn;
+			var __gaTracker = function() {
+				var len = arguments.length;
+				if ( len === 0 ) {
+					return;
+				}
+				var f = arguments[len-1];
+				if ( typeof f !== 'object' || f === null || typeof f.hitCallback !== 'function' ) {
+					console.log( 'Not running function __gaTracker(' + arguments[0] + " ....) because you are not being tracked. " + em_no_track_reason );
+					return;
+				}
+				try {
+					f.hitCallback();
+				} catch (ex) {
+
+				}
+			};
+			__gaTracker.create = function() {
+				return new Tracker();
+			};
+			__gaTracker.getByName = noopnullfn;
+			__gaTracker.getAll = function() {
+				return [];
+			};
+			__gaTracker.remove = noopfn;
+			window['__gaTracker'] = __gaTracker;
+			window.ga = __gaTracker;		})();
+		}
+</script>
+<!-- / Google Analytics by ExactMetrics -->
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/dair.seas.upenn.edu\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.4"}};
+			/*! This file is auto-generated */
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='https://dair.seas.upenn.edu/wp-includes/css/dist/block-library/style.min.css?ver=5.4' type='text/css' media='all' />
+<link rel='stylesheet' id='sequential-montserrat-css'  href='https://fonts.googleapis.com/css?family=Montserrat%3A400%2C700' type='text/css' media='all' />
+<link rel='stylesheet' id='sequential-open-sans-css'  href='https://fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C700italic%2C300%2C400%2C600%2C700&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='sequential-source-code-pro-css'  href='https://fonts.googleapis.com/css?family=Source+Code+Pro%3A400%2C700' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='https://dair.seas.upenn.edu/wp-content/themes/sequential/genericons/genericons/genericons.css?ver=3.4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='sequential-style-css'  href='https://dair.seas.upenn.edu/wp-content/themes/sequential/style.css?ver=5.4' type='text/css' media='all' />
+<link rel='stylesheet' id='upw_theme_standard-css'  href='https://dair.seas.upenn.edu/wp-content/plugins/ultimate-posts-widget/css/upw-theme-standard.min.css?ver=5.4' type='text/css' media='all' />
+<script type='text/javascript'>
+/* <![CDATA[ */
+var exactmetrics_frontend = {"js_events_tracking":"true","download_extensions":"zip,mp3,mpeg,pdf,docx,pptx,xlsx,rar","inbound_paths":"[{\"path\":\"\\\/go\\\/\",\"label\":\"affiliate\"},{\"path\":\"\\\/recommend\\\/\",\"label\":\"affiliate\"}]","home_url":"https:\/\/dair.seas.upenn.edu","hash_tracking":"false"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://dair.seas.upenn.edu/wp-content/plugins/google-analytics-dashboard-for-wp/assets/js/frontend.min.js?ver=6.0.2'></script>
+<script type='text/javascript' src='https://dair.seas.upenn.edu/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://dair.seas.upenn.edu/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel='https://api.w.org/' href='https://dair.seas.upenn.edu/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://dair.seas.upenn.edu/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://dair.seas.upenn.edu/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.4" />
+<link rel="canonical" href="https://dair.seas.upenn.edu/" />
+<link rel='shortlink' href='https://dair.seas.upenn.edu/' />
+<link rel="alternate" type="application/json+oembed" href="https://dair.seas.upenn.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdair.seas.upenn.edu%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://dair.seas.upenn.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdair.seas.upenn.edu%2F&#038;format=xml" />
+
+<!-- teachPress -->
+<script type="text/javascript" src="https://dair.seas.upenn.edu/wp-content/plugins/teachpress/js/frontend.js?ver=6.2.4"></script>
+<!-- END teachPress -->
+<link rel="icon" href="https://dair.seas.upenn.edu/wp-content/uploads/cropped-logo_1_1-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://dair.seas.upenn.edu/wp-content/uploads/cropped-logo_1_1-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://dair.seas.upenn.edu/wp-content/uploads/cropped-logo_1_1-180x180.png" />
+<meta name="msapplication-TileImage" content="https://dair.seas.upenn.edu/wp-content/uploads/cropped-logo_1_1-270x270.png" />
+		<style type="text/css" id="wp-custom-css">
+			/*
+You can add your own CSS here.
+
+Click the help icon above to learn more.
+*/
+
+.site-info {
+ display: none;
+}
+
+.site-footer:before {
+ background: rgba(0,0,0,0);
+}
+
+.site-footer:after {
+ content: 'Powered by WordPress.';
+ text-align: center;
+ color: white;
+ width: 100%;
+ font-size: .8em;
+}		
+
+.entry-title {
+	display: none;
+}		</style>
+		</head>
+
+<body class="home page-template-default page page-id-30">
+<div id="page" class="hfeed site">
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+	<header id="masthead" class="site-header" role="banner">
+				<div class="wrapper">
+			<div class="site-branding">
+								<h1 class="site-title"><a href="https://dair.seas.upenn.edu/" rel="home">Dynamic Autonomy and Intelligent Robotics</a></h1>
+				<h2 class="site-description"></h2>
+			</div>
+
+							<div class="header-image">
+					<!--<a href="https://dair.seas.upenn.edu/" rel="home">-->
+					<a href="http://www.grasp.upenn.edu" target="blank_">
+						<img src="https://dair.seas.upenn.edu/wp-content/uploads/grasp_logo1_white.png" width="1000" height="238" alt="">
+					</a>
+				</div>
+			
+							<nav id="site-navigation" class="main-navigation" role="navigation">
+					<button class="menu-toggle" aria-expanded="false" ><span class="screen-reader-text">Menu</span></button>
+					<div class="menu-primary"><ul id="menu-menu" class="clear nav-menu"><li id="menu-item-33" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-30 current_page_item menu-item-33"><a href="https://dair.seas.upenn.edu/" aria-current="page">Home</a></li>
+<li id="menu-item-325" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-325"><a href="https://dair.seas.upenn.edu/people/">People</a></li>
+<li id="menu-item-35" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35"><a href="https://dair.seas.upenn.edu/publications/">Publications</a></li>
+<li id="menu-item-211" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-211"><a href="https://dair.seas.upenn.edu/projects/">Projects</a></li>
+<li id="menu-item-548" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-548"><a href="https://dair.seas.upenn.edu/?post_type=post">Updates</a></li>
+</ul></div>				</nav><!-- #site-navigation -->
+					</div><!-- .wrapper -->
+			</header><!-- #masthead -->
+
+	<div id="content" class="site-content">
+
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+			
+				
+<article id="post-30" class="post-30 page type-page status-publish hentry">
+	<header class="entry-header"><h1 class="entry-title">Home</h1></header>
+	<div class="entry-content">
+		<p><a href="https://dair.seas.upenn.edu/wp-content/uploads/logo.png"><img class="alignnone size-large wp-image-454" src="https://dair.seas.upenn.edu/wp-content/uploads/logo-1024x321.png" alt="" width="700" height="219" srcset="https://dair.seas.upenn.edu/wp-content/uploads/logo-1024x321.png 1024w, https://dair.seas.upenn.edu/wp-content/uploads/logo-300x94.png 300w, https://dair.seas.upenn.edu/wp-content/uploads/logo-768x241.png 768w, https://dair.seas.upenn.edu/wp-content/uploads/logo-772x242.png 772w, https://dair.seas.upenn.edu/wp-content/uploads/logo-624x195.png 624w, https://dair.seas.upenn.edu/wp-content/uploads/logo.png 1676w" sizes="(max-width: 700px) 100vw, 700px" /></a>Welcome to the Dynamic Autonomy and Intelligent Robotics (DAIR) Lab!</p>
+<p>Our research centers on planning, control, and formal analysis of robots as they interact with the world. Whether a robot is assisting within the home, or operating in a manufacturing plant, the fundamental promise of robotics requires touching and affecting a complex environment in a safe and controlled fashion. We are focused on developing computationally tractable algorithms which enable robots to operate both dynamically and safely as they quickly maneuver through and interact with their environments.</p>
+<p>Right now, we are particularly interested in understanding the interplay between the non-smooth dynamics of contact and numerical optimization, and then testing these techniques on both legged robots and robotic manipulation.</p>
+<p>We are proud to be a group within the Penn Engineering <a href="https://www.grasp.upenn.edu/" target="_blank" rel="noopener">GRASP Lab</a>.</p>
+<p><a href="https://twitter.com/Penn_DAIRLab"><img class="alignnone size-thumbnail wp-image-484" src="https://dair.seas.upenn.edu/wp-content/uploads/Twitter-150x150.png" alt="" width="50" height="50" srcset="https://dair.seas.upenn.edu/wp-content/uploads/Twitter-150x150.png 150w, https://dair.seas.upenn.edu/wp-content/uploads/Twitter-96x96.png 96w, https://dair.seas.upenn.edu/wp-content/uploads/Twitter.png 256w" sizes="(max-width: 50px) 100vw, 50px" /></a><a href="https://www.youtube.com/channel/UCoLet2mlFGHZuoEnAwcZsOw"><img class="alignnone size-thumbnail wp-image-498" src="https://dair.seas.upenn.edu/wp-content/uploads/Youtube-150x150.png" alt="" width="50" height="50" srcset="https://dair.seas.upenn.edu/wp-content/uploads/Youtube-150x150.png 150w, https://dair.seas.upenn.edu/wp-content/uploads/Youtube-96x96.png 96w, https://dair.seas.upenn.edu/wp-content/uploads/Youtube.png 256w" sizes="(max-width: 50px) 100vw, 50px" /></a><a href="https://dair.seas.upenn.edu/feed/"><img class="alignnone size-thumbnail wp-image-499" src="https://dair.seas.upenn.edu/wp-content/uploads/Rss-150x150.png" alt="" width="50" height="50" srcset="https://dair.seas.upenn.edu/wp-content/uploads/Rss-150x150.png 150w, https://dair.seas.upenn.edu/wp-content/uploads/Rss-96x96.png 96w, https://dair.seas.upenn.edu/wp-content/uploads/Rss.png 256w" sizes="(max-width: 50px) 100vw, 50px" /></a></p>
+<h3>The Lab</h3>
+<p>We are excited to be located across the hall from the machine shop in the Towne building of the Penn Engineering campus.</p>
+<p>170B Towne Building<br />
+220 S. 33rd Street<br />
+Philadelphia PA, 19104</p>
+<h3>Software</h3>
+<p>We are committed to the open-source release of software developed in the lab. Where available, standalone software for specific papers and projects can be found linked from the publications page. The bulk of the lab software can be found on our <a href="https://github.com/DAIRLab/dairlib">GitHub page</a>.</p>
+<h3>Joining the Lab</h3>
+<div class="entry-content">
+We are currently looking for exceptional undergraduate students, graduate students, and postdoctoral researchers. <a href="https://dair.seas.upenn.edu/joining-the-lab/">More details can be found here.</a></p>
+<h3>Lab Members</h3>
+<p><a href="https://alliance.seas.upenn.edu/~posa/wiki">Wiki (members only)</a></p>
+<div class="entry-content"></div>
+</div>
+			</div><!-- .entry-content -->
+
+	</article><!-- #post-## -->
+
+				
+			
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+
+<div id="secondary" class="widget-area" role="complementary">
+	<aside id="sticky-posts-2" class="widget widget_ultimate_posts"><h1 class="widget-title">Recent News</h1>
+
+<div class="upw-posts hfeed">
+
+  
+      
+        
+        <article class="post-605 post type-post status-publish format-standard hentry category-uncategorized">
+
+          <header>
+
+            
+                          <h4 class="entry-title">
+                <a href="https://dair.seas.upenn.edu/icra-2020/" rel="bookmark">
+                  ICRA 2020                </a>
+              </h4>
+            
+            
+              <div class="entry-meta">
+
+                                  <time class="published" datetime="2020-01-21T19:46:11-05:00">January 21, 2020</time>
+                
+                
+                
+                
+                
+              </div>
+
+            
+          </header>
+
+                      <div class="entry-content">
+              
+<p>We are happy to have two papers accepted to ICRA this year! Check out the preprints “<a rel="noreferrer noopener" href="https://dair.seas.upenn.edu/wp-content/uploads/Chen2020.pdf" target="_blank">Optimal Reduced-order Modeling of Bipedal Locomotion</a>” and “<a rel="noreferrer noopener" href="https://dair.seas.upenn.edu/wp-content/uploads/Aydinoglu2020.pdf" target="_blank">Contact-Aware Controller Design for Complementarity Systems</a>.”</p>
+            </div>
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+        
+        <article class="post-598 post type-post status-publish format-standard hentry category-uncategorized">
+
+          <header>
+
+            
+                          <h4 class="entry-title">
+                <a href="https://dair.seas.upenn.edu/dynamic-walking-2020/" rel="bookmark">
+                  Dynamic Walking 2020                </a>
+              </h4>
+            
+            
+              <div class="entry-meta">
+
+                                  <time class="published" datetime="2020-01-06T13:28:10-05:00">January 6, 2020</time>
+                
+                
+                
+                
+                
+              </div>
+
+            
+          </header>
+
+                      <div class="entry-content">
+              
+<figure class="wp-block-image"><img src="https://dair.seas.upenn.edu/wp-content/uploads/woodloch.jpg" alt="" class="wp-image-599" srcset="https://dair.seas.upenn.edu/wp-content/uploads/woodloch.jpg 1200w, https://dair.seas.upenn.edu/wp-content/uploads/woodloch-300x116.jpg 300w, https://dair.seas.upenn.edu/wp-content/uploads/woodloch-1024x395.jpg 1024w, https://dair.seas.upenn.edu/wp-content/uploads/woodloch-768x296.jpg 768w, https://dair.seas.upenn.edu/wp-content/uploads/woodloch-772x298.jpg 772w, https://dair.seas.upenn.edu/wp-content/uploads/woodloch-624x241.jpg 624w" sizes="(max-width: 1200px) 100vw, 1200px" /></figure>
+
+
+
+<p>Prof. Aaron Johnson of Carnegie Mellon and I are excited to announce the 2020 Dynamic Walking Conference! Dynamic Walking will be held May 11-14 at Woodloch Resorts in the Poconos of Pennsylvania. Abstract submissions are due <strong>February 21</strong>. See you there! </p>
+
+
+
+<p>Details at <a rel="noreferrer noopener" href="https://t.co/ugRXx3dkUH?amp=1" target="_blank">http://dynamicwalking.org</a><br></p>
+
+
+
+<p></p>
+            </div>
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+        
+        <article class="post-581 post type-post status-publish format-standard hentry category-uncategorized">
+
+          <header>
+
+            
+                          <h4 class="entry-title">
+                <a href="https://dair.seas.upenn.edu/nerc-at-penn/" rel="bookmark">
+                  NERC at Penn                </a>
+              </h4>
+            
+            
+              <div class="entry-meta">
+
+                                  <time class="published" datetime="2019-09-25T16:33:31-04:00">September 25, 2019</time>
+                
+                
+                
+                
+                
+              </div>
+
+            
+          </header>
+
+                      <div class="entry-content">
+              
+<p>The GRASP Lab is excited to be hosting the Northeast Robotics Colloquium this year on October 12, 2019! See <a href="https://nerc.seas.upenn.edu/">https://nerc.seas.upenn.edu/</a> for more details on abstract submission, registration, and other logistics.</p>
+            </div>
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+        
+        <article class="post-577 post type-post status-publish format-standard hentry category-uncategorized">
+
+          <header>
+
+            
+                          <h4 class="entry-title">
+                <a href="https://dair.seas.upenn.edu/new-preprints/" rel="bookmark">
+                  New preprints                </a>
+              </h4>
+            
+            
+              <div class="entry-meta">
+
+                                  <time class="published" datetime="2019-09-16T17:15:35-04:00">September 16, 2019</time>
+                
+                
+                
+                
+                
+              </div>
+
+            
+          </header>
+
+                      <div class="entry-content">
+              <p>We have two new preprints available, &#8220;<a href="https://dair.seas.upenn.edu/wp-content/uploads/Chen2019.pdf" rel="noopener noreferrer" target="_blank">Optimal Reduced-order Modeling of Bipedal Locomotion</a>&#8221; by Yu-Ming Chen and &#8220;<a href="https://dair.seas.upenn.edu/wp-content/uploads/Aydinoglu2020.pdf" rel="noopener noreferrer" target="_blank">Contact-Aware Controller Design for Complementarity Systems</a>&#8221; by by Alp Aydinoglu. Feedback is welcome.</p>
+            </div>
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+        
+        <article class="post-566 post type-post status-publish format-standard hentry category-uncategorized">
+
+          <header>
+
+            
+                          <h4 class="entry-title">
+                <a href="https://dair.seas.upenn.edu/acc-workshop-on-challenges-and-solutions-for-legged-robotics/" rel="bookmark">
+                  ACC workshop on &#8220;Challenges and Solutions for Legged Robotics&#8221;                </a>
+              </h4>
+            
+            
+              <div class="entry-meta">
+
+                                  <time class="published" datetime="2019-07-08T21:02:40-04:00">July 8, 2019</time>
+                
+                
+                
+                
+                
+              </div>
+
+            
+          </header>
+
+                      <div class="entry-content">
+              
+<p>Michael will present some of the lab&#8217;s recent work, titled &#8220;“Exploring models of contact and legged locomotion: existence, uniqueness, and optimality” at the ACC workshop on <a href="https://leggedroboticsacc2019.wordpress.com/">&#8220;Challenges and Solutions for Legged Robotics&#8221; </a></p>
+            </div>
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+        
+        <article class="post-563 post type-post status-publish format-standard hentry category-uncategorized">
+
+          <header>
+
+            
+                          <h4 class="entry-title">
+                <a href="https://dair.seas.upenn.edu/dynamic-walking-2/" rel="bookmark">
+                  Dynamic Walking                </a>
+              </h4>
+            
+            
+              <div class="entry-meta">
+
+                                  <time class="published" datetime="2019-05-30T20:57:37-04:00">May 30, 2019</time>
+                
+                
+                
+                
+                
+              </div>
+
+            
+          </header>
+
+                      <div class="entry-content">
+              <p>We are excited to present two talks at <a href="http://dynamicwalking.org/index.php/dw/2019">Dynamic Walking</a> next week!</p>
+<ul>
+<li>Yu-Ming Chen. &#8220;Optimal Reduced-order Modeling of a Five-link Planar Robot.&#8221; (Wednesday, 11:30am)</li>
+<li>Mathew Halm. &#8220;Modeling and Analysis of Non-unique Behaviors in Multiple Frictional Impacts.&#8221; (Wednesday, 4:30pm)</li>
+</ul>
+            </div>
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+        
+        <article class="post-557 post type-post status-publish format-standard hentry category-uncategorized">
+
+          <header>
+
+            
+                          <h4 class="entry-title">
+                <a href="https://dair.seas.upenn.edu/rss-preprint/" rel="bookmark">
+                  RSS Preprint                </a>
+              </h4>
+            
+            
+              <div class="entry-meta">
+
+                                  <time class="published" datetime="2019-05-05T20:15:40-04:00">May 5, 2019</time>
+                
+                
+                
+                
+                
+              </div>
+
+            
+          </header>
+
+                      <div class="entry-content">
+              <p>Matt has a new preprint available, accepted for publication at RSS 2019, “<a href="https://arxiv.org/pdf/1902.01462
+ target=" rel="noopener noreferrer">Modeling and Analysis of Non-unique Behaviors in Multiple Frictional Impacts</a>.” We provide a rigorous analysis of a differential inclusion model of multiple, simultaneous impacts. Feedback is welcome!</p>
+            </div>
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+        
+        <article class="post-542 post type-post status-publish format-standard hentry category-uncategorized">
+
+          <header>
+
+            
+                          <h4 class="entry-title">
+                <a href="https://dair.seas.upenn.edu/upcoming-talks/" rel="bookmark">
+                  Upcoming talks                </a>
+              </h4>
+            
+            
+              <div class="entry-meta">
+
+                                  <time class="published" datetime="2019-04-09T14:12:46-04:00">April 9, 2019</time>
+                
+                
+                
+                
+                
+              </div>
+
+            
+          </header>
+
+                      <div class="entry-content">
+              
+<p>Michael will be giving a talk at NASA JPL on April 15th and at Caltech on April 16th.</p>
+            </div>
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+        
+        <article class="post-539 post type-post status-publish format-standard hentry category-uncategorized">
+
+          <header>
+
+            
+                          <h4 class="entry-title">
+                <a href="https://dair.seas.upenn.edu/nsf-grfp/" rel="bookmark">
+                  NSF GRFP                </a>
+              </h4>
+            
+            
+              <div class="entry-meta">
+
+                                  <time class="published" datetime="2019-04-09T09:35:23-04:00">April 9, 2019</time>
+                
+                
+                
+                
+                
+              </div>
+
+            
+          </header>
+
+                      <div class="entry-content">
+              
+<p>Congratulations to <a href="https://matthalm.net/">Matt Halm</a>, DAIR lab member, for his 2019 NSF GRFP award! </p>
+            </div>
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+        
+        <article class="post-536 post type-post status-publish format-standard hentry category-uncategorized">
+
+          <header>
+
+            
+                          <h4 class="entry-title">
+                <a href="https://dair.seas.upenn.edu/nsf-national-robotics-initiative/" rel="bookmark">
+                  NSF National Robotics Initiative                </a>
+              </h4>
+            
+            
+              <div class="entry-meta">
+
+                                  <time class="published" datetime="2019-04-04T17:59:20-04:00">April 4, 2019</time>
+                
+                
+                
+                
+                
+              </div>
+
+            
+          </header>
+
+                      <div class="entry-content">
+              
+<p>Old news, but we are happy to receive a 2018 <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1830218&amp;HistoricalAwards=false">NSF National Robotics Initiative (NRI) Award</a>!</p>
+            </div>
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+  
+</div>
+
+</aside></div><!-- #secondary -->
+
+	</div><!-- #content -->
+
+	
+	
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="site-info">
+			<a href="http://wordpress.org/">Proudly powered by WordPress</a>
+			<span class="sep"> &mdash; </span>
+			Theme: Sequential by <a href="http://wordpress.com/themes/sequential/" rel="designer">WordPress.com</a>.		</div><!-- .site-info -->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<script type='text/javascript' src='https://dair.seas.upenn.edu/wp-includes/js/underscore.min.js?ver=1.8.3'></script>
+<script type='text/javascript' src='https://dair.seas.upenn.edu/wp-content/themes/sequential/js/navigation.js?ver=20141022'></script>
+<script type='text/javascript' src='https://dair.seas.upenn.edu/wp-content/themes/sequential/js/thumbnail.js?ver=20141022'></script>
+<script type='text/javascript' src='https://dair.seas.upenn.edu/wp-content/themes/sequential/js/skip-link-focus-fix.js?ver=20130115'></script>
+<script type='text/javascript' src='https://dair.seas.upenn.edu/wp-content/themes/sequential/js/sequential.js?ver=20141022'></script>
+<script type='text/javascript' src='https://dair.seas.upenn.edu/wp-includes/js/wp-embed.min.js?ver=5.4'></script>
+
+</body>
+</html>

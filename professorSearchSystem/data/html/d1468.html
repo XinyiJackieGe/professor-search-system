@@ -1,0 +1,551 @@
+<html>
+<head>
+<title> Steve Zdancewic </title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<!-- <body " link="#800000" vlink="#800000" alink="#800000"> -->
+<body link="#005566" vlink="#005566" alink="#005566">
+
+
+
+<div align="center">
+<table border="0" width="1000" cellspacing="1" cellpadding="10">
+<tr>
+<td class ="aqua" align="left">
+<img border="0" src="images/steve2017.jpg" width="200"  align="left"></img>
+
+<!-- </td> -->
+<!-- <td class="yellow"> -->
+<div style="position:relative;left:60px;top:20px">
+<font size=6> Steve Zdancewic </font> <br>
+<font size=3>
+Professor <br>
+<a href="http://www.cis.upenn.edu">Department of Computer and Information Science</a> <br>
+<a href="http://www.upenn.edu">University of Pennsylvania </a><br>
+<br>
+<b> e-mail: </b> stevez (at) cis.upenn.edu <br>
+<b> phone: </b> 215-898-2661             <br>
+<b> office: </b> 511 Levine Hall         <br>
+<b> office hours: </b> Monday 3:30-5:00pm & by appointment  <br>
+</font>
+</div>
+</td>
+
+</table>
+<table border="0" width="1000" cellspacing="1" cellpadding="3">
+<tr>
+<td class="yellow" align="center">
+<div style="font-size:0.875em">
+<a href="cv.pdf">
+   [Curiculum Vitae]
+</a> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+<a href="papers/publications.html">
+   [Publications]
+</a> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+<a href="#teaching">
+   [Teaching]
+</a> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+<a href="#students">
+   [Students]
+</a>
+  </div>
+</td>
+</tr>
+<tr>
+<td class="lightaqua">
+<font size=3>
+  <h3>Research Interests</h3>
+<p style="margin-left: 20">
+
+  I study programming languages and computer security. I have
+  wide-ranging interests, and some of my most recent work touches on:
+  Coq verification of LLVM program transformations and quantum
+  circuits, type-directed program synthesis, linear types and
+  verified web server implementations.  I have also spent a lot of time thinking about
+  language-based enforcement of information-flow policies, low-level
+  code memory safety, understanding dynamic security policies, and authorization
+  logic.  I am interested in secure concurrent and
+  distributed computing, functional programming languages, type
+  theory, linear and modal logics, theorem proving and mechanized
+  metatheory.  More information about my research can be found in this
+  (out of date) <a href="zdancewic-research.pdf">research
+  statement</a>.
+
+  </p>
+
+<hr/>
+
+  
+<h3>Current Research Projects and Activities</h3>
+<p style="margin-left:20">
+<table border="0" width="100%" cellspacing="20" cellpadding="5"> 
+
+<tr>
+<td align="center" style="height:100;border-width:1;padding:5;border-style:solid;border-color:#e3e7ef;background-color:white">
+  <img border="0" src="images/plclub-logo-small.png" height="100"></img>
+</td>
+<td valign="top">
+  <span style="font-size:125%"><b><a
+  href="http://www.cis.upenn.edu/~plclub/">PL Club</a> </b>
+  </span>
+  <p style="margin-top:0">
+  Penn's programming languages research group, run jointly with <a
+  href="http://www.cis.upenn.edu/~bcpierce">Benjamin Pierce</a> and <a
+  href="http://www.cis.upenn.edu/~sweirich">Stephanie Weirich</a>.  We
+  meet weekly with students and post-docs to discuss current research topics.
+  </p>
+</td>
+</tr>
+
+<tr>
+<td align="center" style="height:100;border-width:1;padding:5;border-style:solid;border-color:#e3e7ef;background-color:white">
+  <img border="0" src="http://deepspec.org/img/deepspec-logo-300dpi.png" height="100"></img>
+</td>
+<td valign="top">
+  <span style="font-size:125%"><b><a href="http://deepspec.org">NSF
+  Expedition on the Science of Deep Specification</a> </b> </span>
+  <p style="margin-top:0">
+  The <i>DeepSpec</i> project focuses on the specification and
+  verification of full functional correctness of software and
+  hardware.  We are bringing Coq formalization to bear on
+  systems-level programs such as compilers, operating systems, and
+  databases. 
+  </p>
+  <p>
+  <img border="0" src="images/git-icon.svg" width="15"></img>
+  <a href="https://github.com/DeepSpec/InteractionTrees">Interaction Trees Coq development</a>
+  </p>
+
+</td>
+
+</tr>
+
+<tr>
+<td style="width:100;border-width:1;padding:5;border-style:solid;border-color:#e3e7ef;background-color:white">
+  <img border="0" src="images/vellvm-logo.png" width="100"  align="top"></img>
+</td>
+<td valign="top">
+  <span style="font-size:125%"><b><a href="http://www.cis.upenn.edu/~stevez/vellvm/">Vellvm</a> </b> </span>
+  <p style="margin-top:0">
+  The <i>verified LLVM</i> project is developing operational semantics
+  for the <a href="http://llvm.org/">LLVM</a> intermediate
+  representation using the interactive theorem prover <a
+  href="http://coq.inria.fr/">Coq</a>.  The resulting tools let us
+  create highly-reliable program transformation passes and optimizations.
+  </p>
+  <p>
+  <img border="0" src="images/git-icon.svg" width="15"></img>
+  <a href="https://github.com/vellvm/vellvm">Vellvm Coq development</a>
+  </p>
+</td>
+</tr>
+
+<tr>
+<td style="width:100;border-width:1;padding:5;border-style:solid;border-color:#e3e7ef;background-color:white">
+  <img border="0" src="images/quantum-logo.png" width="100"  align="top"></img>
+</td>
+<td valign="top">
+  <span style="font-size:125%"><b><a
+  href="http://cs.tulane.edu/quantum/team.html">Semantics, Formal Reasoning, and
+  Tools for Quantum Programming</a> </b> </span>
+  <p style="margin-top:0">
+  Quantum algorithms are complex, and quantum computers explore alternative
+  computation branches in superposition, so programming mistakes in even minor
+  parts of the code can alter the quantum state and invalidate the final
+  result. The goal of this project is to devise novel methods for ensuring that
+  quantum programs are correct.
+    </p>
+  <p>
+  <img border="0" src="images/git-icon.svg" width="15"></img>
+  <a href="https://github.com/inQWIRE/QWIRE">QWIRE Coq development</a>
+  </p>
+
+</td>
+</tr>
+
+
+
+
+
+</table>
+</p>
+
+<h3>Previous Research Projects and Activities</h3>
+<p style="margin-left:20">
+<table border="0" width="100%" cellspacing="3" cellpadding="5"> 
+
+<tr>
+<td style="width:100;border-width:1;padding:5;border-style:solid;border-color:#e3e7ef;background-color:white">
+  <img border="0" src="images/excape-logo.png" width="100"  align="top"></img>
+</td>
+<td valign="top">
+  <span style="font-size:125%"><b><a href="https://excape.cis.upenn.edu/">ExCAPE</a> </b> </span>
+  <p style="margin-top:0">
+  This NSF Expedition on <i>Computer-Augmented Program Engineering</i>
+  seeks to transform the way that programmers develop software by
+  advancing the theory and practice of software synthesis.
+  </p>
+</td>
+</tr>
+
+
+<tr>
+<td style="width:100;border-width:1;padding:5;border-style:solid;border-color:#e3e7ef;background-color:white">
+  <img border="0" src="images/softbound.png" width="100"  align="top"></img>
+</td>
+<td valign="top">
+  <span style="font-size:125%"><b><a
+  href="http://www.cis.upenn.edu/acg/softbound/">SoftBound + CETS</a>
+  </b> </span>
+    <p style="margin-top:0">
+    This project is developing software instrumentation techniques to
+  achieve complete memory safety for C programs, while requiring
+  minimal changes to the source programs.
+  </p>
+</td>
+</tr>
+
+<tr>
+<td style="width:100;border-width:1;padding:5;border-style:solid;border-color:#e3e7ef;background-color:white">
+  <img border="0" src="images/sol-thumbnail.jpg" width="100"  align="top"></img>
+</td>
+<td valign="top">
+  <span style="font-size:125%"><b><a
+  href="http://www.cis.upenn.edu/%7Estevez/sol/">Security-Oriented
+  Languages</a> </b> </span>
+    <p style="margin-top:0">
+    This research seeks to develop programming language abstractions
+  and analyses that let developers create programs that are secure by
+  construction.  
+  </p>
+</td>
+</tr>
+
+  
+</table>
+</p>
+
+<hr/>
+
+<h3>Recent Publications (<a href="papers/publications.html">Complete List</a>)</h3>
+<ul style="list-style-type:square;margin-top:0">
+
+
+  <li>
+  <a href="http://www.cis.upenn.edu/~stevez/papers/XZHH+20.pdf">Interaction
+  Trees: Representing Recursive and Impure Programs in Coq</a>
+  [POPL20] (<b><i>distinguished paper</i></b>)
+  </li>
+    
+
+
+  <li>
+  <a href="http://www.cis.upenn.edu/~stevez/papers/ZHHZ20.pdf">An Equational Theory for Weak Bisimulation via Generalized Parameterized Coinduction</a> [CPP20]
+  </li>
+
+
+  <li>
+  <a href="http://www.cis.upenn.edu/~stevez/MM+19.pdf">Synthesizing Symmetric
+  Lenses</a> [ICFP2019]
+  </li>
+  
+  <li>
+  <a href="http://www.cis.upenn.edu/~stevez/papers/HHNZ19.pdf">SoK: General
+  Purpose Compilers for Secure Multi-Party Computation</a> [Oakland19]
+  </li>
+  
+
+  
+<li>
+  <a href="papers/publications.html">&laquo;more&raquo;</a>
+</li>
+
+
+</ul>
+
+<hr/>
+
+<h3> <a name="teaching">Teaching (<a href="zdancewic-teaching.pdf">Summary</a>)</h3>
+<ul style="list-style-type:square;margin-top:0">
+<li> <i>Programming Languages and Techniques I</i> (CIS 120)<br>
+  <span style="margin-left:20">
+  <a href="http://www.cis.upenn.edu/~cis120/archive/19fa">2019</a>,
+  2017, 2016, 2014, 2012, 2011, <a
+  href="http://www.seas.upenn.edu/~cis120e">
+  2010
+  </a></span></li>
+
+
+<li> <i>Compilers</i> (CIS 341) <br>
+  <span style="margin-left:20"><a
+  href="http://www.seas.upenn.edu/~cis341/index.html">
+  2020
+  </a>, 2018,2017,2015, 2013, 2011, 2008</span></li>
+
+<li <i>Software Foundations</i> (CIS 500) <br>
+  <span style="margin-left:20">2016, <a
+  href="http://www.seas.upenn.edu/~cis500/cis500-f13/index.html">2013
+  </a></span></li>
+
+<li> <i>Software and Compiler Verification</i> (CIS 700)<br>
+  <span style="margin-left:20"><a
+  href="http://www.cis.upenn.edu/~stevez/CIS700-05.html">
+  2005
+  </a></span></li>
+
+
+<li> <i>Computer and Network Security</i> (CIS 551)<br>
+  <span style="margin-left:20"><a
+  href="http://www.cis.upenn.edu/~cis551/index.html">
+  2012
+  </a>,
+
+  <a
+  href="cis551/2009/web/index.html">
+  2009
+  </a>,
+
+  <a
+  href="cis551/2008/web/index.html">
+  2008
+  </a>,
+
+  <a
+  href="cis551/2007/web/index.html">
+  2007
+  </a>,
+
+  <a
+  href="cis551/2006/web/index.html">
+  2006
+  </a>,
+
+  <a
+  href="cis551/2005/web/index.html">
+  2005
+  </a>
+  </span>
+  </li>
+
+
+<li> <i>Introduction to Networks and Security</i> (CSE 331)<br>
+  <span style="margin-left:20">
+  <a
+  href="http://www.cis.upenn.edu/~cse331">
+  2006
+  </a>,
+
+  <a
+  href="http://www.cis.upenn.edu/~cse331/Fall04/index.html">
+  2004
+  </a>,
+
+  <a
+  href="http://www.cis.upenn.edu/~cse331/Fall03/index.html">
+  2003
+  </a>,
+
+  <a
+  href="http://www.cis.upenn.edu/~cse331/Fall02/index.html">
+  2002
+  </a>
+  </span>
+  </li>
+
+<li> <i>&pi;-Calculus and Foundations of
+  Concurrent Systems</i> (CIS 700)<br>
+  <span style="margin-left:20">
+  <a
+  href="http://www.cis.upenn.edu/~stevez/CIS700-04.html">
+  2004
+  </a>
+  </span>
+  </li>
+
+
+<li> <i>Advanced Topics in PL: Safety and Security</i> (CIS 670)<br>
+  <span style="margin-left:20">
+  <a
+  href="http://www.seas.upenn.edu/~cis670/Spring2003/">
+  2003
+  </a>
+  </span>
+  </li>
+</ul>
+
+</p>
+
+<hr/>
+
+<h3>Advising</h3>
+
+<p style="margin-left:20;margin-bottom:0;padding:0">
+<b><a name="students">Post Docs</a></b>
+<ul style="list-style-type:square;margin-top:0">
+  <li> <a href="http://www.irisa.fr/celtique/zakowski/">Yannick Zackowski</a> (post doc 2018 - ) </li>
+</ul>
+</p>
+
+<p style="margin-left:20;margin-bottom:0;padding:0">
+<b><a name="students">Current Ph.D. Students</a></b>
+<ul style="list-style-type:square;margin-top:0">
+  <li> <a href="https://github.com/Chobbes">Calvin Beck</a> (Coadvised with Benjamin Pierce)</li>
+  <li> <a href="https://paulhe.com/">Paul He</a></li>
+  <li> <a href="https://www.cis.upenn.edu/~yishuai/">Yishuai Li</a> (Coadvised with Benjamin Pierce)</li>
+  <li> <a href="">Solomon Maina</a></li>
+  <li> <a href="https://scholar.google.com/citations?user=hrtzZP0AAAAJ&hl=en">Nick Rioux</a></li>
+  <li> <a href="https://poisson.chat/">Li-yao Xia</a>  (Coadvised with Benjamin Pierce)</li>
+</ul>
+</p>
+
+<p style="margin-left:20;margin-bottom:0;padding:0">
+<b>Former Students and Post Docs</b>
+<ul style="list-style-type:square;margin-top:0">
+  <li> <a href="">Nicolas Koh</a> (2015-2019, Coadvised with Benjamin Pierce)</li>
+  
+  <li> <a href="http://www.cse.unsw.edu.au/~crizkallah/">Christine Rizkallah</a>
+  (post doc 2016-2018, now a UNSW)</li>  
+
+  <li> <a href="https://www.cs.umd.edu/~rrand/">Robert Rand</a> (Ph.D. 2018, now
+  at UMD)</li>
+
+  <li> <a href="https://jpaykin.github.io/">Jennifer Paykin</a> (Ph.D. 2018, now
+  at Galois)</li>
+
+  <li> Dmitri Garbuzov (Masters 2016) </li>
+
+  <li> <a href="https://www.cs.uic.edu/~mansky/">William Mansky</a>
+  (post doc 2015-2016, now at UIC)</li>
+
+  
+  <li> <a href="https://iampmo.com/">Peter-Michael Osera
+  </a> (Ph.D. 2015, now at Grinnell College)</li>
+
+  <li> <a href="http://www.monoidal.net/">Beno&icirc;t Valiron</a>
+  (post doc 2012-2013)
+  </li>
+
+  <li> <a href="http://www.linkedin.com/pub/hongbo-zhang/57/741/a85">Hongbo (Bob) Zhang</a>
+  (Masters 2013, now at Bloomberg)
+  </li>
+
+  <li> Jianzhou Zhao
+  (Ph.D. 2013, now at Facebook)
+  </li>
+
+  <li>
+  <a href="http://www.linkedin.com/in/karlmazurak">Karl Mazurak</a>
+  (Ph.D. 2013, now at Google)
+  </li>
+
+  <li> 
+  <a href="http://www.jeffvaughan.net/">Jeff Vaughan</a>
+  (Ph.D. 2009, now at LogicBlox) </li>
+
+<li>
+  <a href="http://www.andrew.cmu.edu/user/liminjia/">
+  Limin Jia, Ph.D.
+  </a>
+  (post doc 2007-2009, now at CMU)
+</li>
+
+<li>
+ Peng Li
+ (Ph.D. 2008, now at Google)
+</li>
+
+<li>
+  Stephen Tse
+  (Ph.D. 2007, now at a startup) </li>
+</ul>
+</p>
+
+<hr/>
+
+<h3> Awards and Honors </h3>
+<ul style="margin:0;list-style-type:square">
+  <li> IEEE MICRO <a
+  href="http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6487479">"top picks"</a>, 2013</li>
+  <li> Alfred P. Sloan Fellow, 2009-2010 </li>
+<li> NSF CAREER award, 2004 </li>
+<li> Best Paper award at SOSP, 2001 </li>
+<li> Intel Foundation Graduate Fellowship, 2001 </li>
+<li> Best Paper award at ICFP, 1999 </li>
+<li> NSF Graduate Student Fellowship, 1996 </li>
+</ul>
+<br>
+
+<hr/>
+
+<!-- <h3> Funding </h3> -->
+<!-- <p style="margin-left:20;margin-bottom:0;margin-top:0"> -->
+<!-- My research has been supported in part by the following grants.  Any -->
+<!-- opinions, findings, and conclusions or recommendations expressed in -->
+<!-- this material are those of the author(s) and do not necessarily -->
+<!-- reflect the views of the National Science Foundation. -->
+
+<!-- <ul style="list-style-type:square"> -->
+<!--   <li> NSF: <i>Dynamic Security Policies</i> </li> -->
+<!--   <li> NSF: <i>CAREER: Language-based Distributed -->
+<!--   System Security</i> </li> -->
+   
+<!--   <li> ONR:  <a href="http://www.cis.upenn.edu/group/spyce/timedc/">TIME-DC</a></li> -->
+<!--   <li> NSF: <i>Resource-guided Implementation -->
+<!--   of Secure Embedded Software</i></li> -->
+<!--   <li> NSF:  -->
+<!--   <i>Flexible, Decentralized Infomation-flow Control -->
+<!--   for Dynamic Environments</i> </li> -->
+<!--   <li> NSF CRI: <i> Machine Assistance for -->
+<!--   Programming Language Research</i> </li> -->
+<!--   <li> NSF CCF: <i>Unifying Events and Threads: -->
+<!--   Language Support for Network Services</i></li> -->
+<!--   <li> NSF CT-T: <i>Collaborative Research: Manifest -->
+<!--   Security</i></li> -->
+<!--   <li> DARPA: <i>Machine-checked Metatheory for Security-oriented Languages</i></li> -->
+<!--   <li> ONR: <i> Networks Opposing Botnets</i></li> -->
+<!--   <li> NSF SHF: <i>Practical Linear Types for Safe Protocols</i></li> -->
+<!--   <li> NSF CCF: <i>Validating Program Transformations in a Mechanized -->
+<!--   LLVM</i></li> -->
+<!--   <li> ONR: <i> Ironclad C/C++: Enforcing Memory Safety to Prevent -->
+<!--   Low-level Security Vulnerabilities</i></li> -->
+<!--   <li> NSF TC: <i>WATCHDOG: Hardware-Assisted Prevention of All Use-After-Free Security Vulnerabilities</i> -->
+  
+<!-- </ul> -->
+<!-- </p> -->
+
+
+</font>
+</td>
+</tr>
+<tr>
+<td class="aqua" align=left>
+
+<h3> Miscellany </h3>
+<p style="margin-left:20">
+<ul style="list-style-type:square">
+<li> My wife, <a href="http://www.cis.upenn.edu/~sweirich">Stephanie
+Weirich</a>, is also on the Computer and Information Science Faculty at
+Penn. </li>
+<li> Some of my old <a href="talks.html">talks</a> are available.
+<li> At some point I wrote up some   <a
+href="writing-tips.html">writing tips</a> for Ph.D. students.
+
+</ul>
+</p>
+
+  
+</td>
+</tr>
+<tr>
+<td class="yellow" align=right>
+<font size=1>
+<!-- hhmts start -->Last modified: Thu Jan 16 13:42:34 EST 2020 <!-- hhmts end -->
+</font>
+</td>
+</tr>
+</table>
+
+</div>
+</body>
+</html>

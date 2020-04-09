@@ -28,6 +28,13 @@ public class Indexing {
     File urlPath = new File("data/txt");
     UrlMap.createUrlMap(urlPath);
     Map<String, String> urlMap = UrlMap.getMap();
+
+    //    for (Map.Entry<String, String> entry : urlMap.entrySet()) {
+    //      if (entry.getValue().equals("http://lfzhao.com")) {
+    //        System.out.println(entry.getKey());
+    //      }
+    //    }
+
     Indexing.buildIndex(docsPath, indexPath1, urlMap, "NotStem");
     Indexing.buildIndex(docsPath, indexPath2, urlMap, "Stem");
   }
@@ -50,14 +57,14 @@ public class Indexing {
               directory,
               new PositionalPorterStopAnalyzer(), // new StandardAnalyzer(Version.LUCENE_30),
               IndexWriter.MaxFieldLength.UNLIMITED);
-    }else {
+    } else {
       writer =
           new IndexWriter(
               directory,
               new StandardAnalyzer(Version.LUCENE_30), // new StandardAnalyzer(Version.LUCENE_30),
               IndexWriter.MaxFieldLength.UNLIMITED);
     }
-    
+
     String docId = "";
     String title = "";
     String content = "";
@@ -68,7 +75,7 @@ public class Indexing {
       title = ParseDoc.parseTitle(htmlDoc);
       url = ParseDoc.getUrl(docId, urlMap);
       content = ParseDoc.parseContent(htmlDoc);
-      if (title != null && content != null) {
+      if (url != null && title != null && content != null) {
         insertDocument(indexPath, writer, docId, title, url, content);
       }
     }

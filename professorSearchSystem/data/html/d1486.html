@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr"
+  >
+  <head profile="http://www.w3.org/1999/xhtml/vocab">
+      <meta charset="utf-8">
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"NRJS-1aa00bfcf66dd80d478",applicationID:"217948986"};window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var i=n[t]={exports:{}};e[t][0].call(i.exports,function(n){var i=e[t][1][n];return r(i||n)},i,i.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<t.length;i++)r(t[i]);return r}({1:[function(e,n,t){function r(){}function i(e,n,t){return function(){return o(e,[u.now()].concat(f(arguments)),n?null:this,t),n?void 0:this}}var o=e("handle"),a=e(4),f=e(5),c=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",d=l+"ixn-";a(p,function(e,n){s[n]=i(l+n,!0,"api")}),s.addPageAction=i(l+"addPageAction",!0),s.setCurrentRouteName=i(l+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,i="function"==typeof n;return o(d+"tracer",[u.now(),e,t],r),function(){if(c.emit((i?"":"no-")+"fn-start",[u.now(),r,i],t),i)try{return n.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],t),e}finally{c.emit("fn-end",[u.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=i(d+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){var t=e.getEntries();t.forEach(function(e){"first-paint"===e.name?c("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&c("timing",["fcp",Math.floor(e.startTime)])})}function i(e,n){var t=e.getEntries();t.length>0&&c("lcp",[t[t.length-1]])}function o(e){if(e instanceof s&&!l){var n,t=Math.round(e.timeStamp);n=t>1e12?Date.now()-t:u.now()-t,l=!0,c("timing",["fi",t,{type:e.type,fid:n}])}}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var a,f,c=e("handle"),u=e("loader"),s=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){a=new PerformanceObserver(r),f=new PerformanceObserver(i);try{a.observe({entryTypes:["paint"]}),f.observe({entryTypes:["largest-contentful-paint"]})}catch(p){}}if("addEventListener"in document){var l=!1,d=["click","keydown","mousedown","pointerdown","touchstart"];d.forEach(function(e){document.addEventListener(e,o,!1)})}}},{}],3:[function(e,n,t){function r(e,n){if(!i)return!1;if(e!==i)return!1;if(!n)return!0;if(!o)return!1;for(var t=o.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var f=navigator.userAgent,c=f.match(a);c&&f.indexOf("Chrome")===-1&&f.indexOf("Chromium")===-1&&(i="Safari",o=c[1])}n.exports={agent:i,version:o,match:r}},{}],4:[function(e,n,t){function r(e,n){var t=[],r="",o=0;for(r in e)i.call(e,r)&&(t[o]=n(r,e[r]),o+=1);return t}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],5:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,i=t-n||0,o=Array(i<0?0:i);++r<i;)o[r]=e[n+r];return o}n.exports=r},{}],6:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function i(e){function n(e){return e&&e instanceof r?e:e?c(e,f,o):o()}function t(t,r,i,o){if(!l.aborted||o){e&&e(t,r,i);for(var a=n(i),f=v(t),c=f.length,u=0;u<c;u++)f[u].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function d(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||i(t)}function w(e,n){u(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:d,addEventListener:d,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(l.aborted=!0,s=l.backlog={})}var f="nr@context",c=e("gos"),u=e(4),s={},p={},l=n.exports=i();l.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(i.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[n]=r,r}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){i.buffer([e],r),i.emit(e,n,t)}var i=e("ee").get("handle");n.exports=r,r.ee=i},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=E.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();u(y,function(n,t){e[n]||(e[n]=t)}),c("mark",["onload",a()+E.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function i(){"complete"===d.readyState&&o()}function o(){c("mark",["domContent",a()+E.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(f=Math.max((new Date).getTime(),f))-E.offset}var f=(new Date).getTime(),c=e("handle"),u=e(4),s=e("ee"),p=e(3),l=window,d=l.document,m="addEventListener",v="attachEvent",g=l.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:g,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1167.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),E=n.exports={offset:f,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),e(2),d[m]?(d[m]("DOMContentLoaded",o,!1),l[m]("load",r,!1)):(d[v]("onreadystatechange",i),l[v]("onload",r)),c("mark",["firstbyte",f],null,"api");var x=0,O=e(6)},{}],"wrap-function":[function(e,n,t){function r(e){return!(e&&e instanceof Function&&e.apply&&!e[a])}var i=e("ee"),o=e(5),a="nr@original",f=Object.prototype.hasOwnProperty,c=!1;n.exports=function(e,n){function t(e,n,t,i){function nrWrapper(){var r,a,f,c;try{a=this,r=o(arguments),f="function"==typeof t?t(r,a):t||{}}catch(u){l([u,"",[r,a,i],f])}s(n+"start",[r,a,i],f);try{return c=e.apply(a,r)}catch(p){throw s(n+"err",[r,a,p],f),p}finally{s(n+"end",[r,a,c],f)}}return r(e)?e:(n||(n=""),nrWrapper[a]=e,p(e,nrWrapper),nrWrapper)}function u(e,n,i,o){i||(i="");var a,f,c,u="-"===i.charAt(0);for(c=0;c<n.length;c++)f=n[c],a=e[f],r(a)||(e[f]=t(a,u?f+i:i,o,f))}function s(t,r,i){if(!c||n){var o=c;c=!0;try{e.emit(t,r,i,n)}catch(a){l([a,t,r,i])}c=o}}function p(e,n){if(Object.defineProperty&&Object.keys)try{var t=Object.keys(e);return t.forEach(function(t){Object.defineProperty(n,t,{get:function(){return e[t]},set:function(n){return e[t]=n,n}})}),n}catch(r){l([r])}for(var i in e)f.call(e,i)&&(n[i]=e[i]);return n}function l(n){try{e.emit("internal-error",n)}catch(t){}}return e||(e=i),t.inPlace=u,t.flag=a,t}},{}]},{},["loader"]);</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5S984M');</script>
+  <!-- End Google Tag Manager -->
+        <title>
+                  Yasmin B. Kafai | Penn GSE  </title>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="Yasmin B. Kafai is a learning scientist and designer of online tools and communities to promote coding, crafting, and creativity across grades K–16. Her work empowers students to use computer programming to design games, sew electronic textiles, and grow applications in biology with the goal of supporting creative expression, building social connections, and broadening" />
+<meta name="generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="canonical" href="https://www.gse.upenn.edu/academics/faculty-directory/kafai" />
+<link rel="shortlink" href="https://www.gse.upenn.edu/node/4987" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@PennGSE" />
+<meta name="twitter:url" content="https://www.gse.upenn.edu/academics/faculty-directory/kafai" />
+<meta name="twitter:title" content="Yasmin B. Kafai" />
+<meta name="twitter:description" content="Yasmin B. Kafai is a learning scientist and designer of online tools and communities to promote coding, crafting, and creativity across grades K–16. Her work empowers students to use computer" />
+    <!-- Start Stylesheets -->
+<style type="text/css" media="all">
+@import url("https://www.gse.upenn.edu/modules/system/system.base.css?q8fhze");
+@import url("https://www.gse.upenn.edu/modules/system/system.menus.css?q8fhze");
+@import url("https://www.gse.upenn.edu/modules/system/system.messages.css?q8fhze");
+@import url("https://www.gse.upenn.edu/modules/system/system.theme.css?q8fhze");
+</style>
+<style type="text/css" media="all">
+@import url("https://www.gse.upenn.edu/sites/all/modules/field_group/horizontal-tabs/horizontal-tabs.css?q8fhze");
+</style>
+<style type="text/css" media="all">
+@import url("https://www.gse.upenn.edu/modules/aggregator/aggregator.css?q8fhze");
+@import url("https://www.gse.upenn.edu/sites/all/modules/date/date_api/date.css?q8fhze");
+@import url("https://www.gse.upenn.edu/sites/all/modules/date/date_popup/themes/datepicker.1.7.css?q8fhze");
+@import url("https://www.gse.upenn.edu/modules/field/theme/field.css?q8fhze");
+@import url("https://www.gse.upenn.edu/modules/node/node.css?q8fhze");
+@import url("https://www.gse.upenn.edu/modules/search/search.css?q8fhze");
+@import url("https://www.gse.upenn.edu/modules/user/user.css?q8fhze");
+@import url("https://www.gse.upenn.edu/sites/all/modules/calendar%202/css/calendar_multiday.css?q8fhze");
+@import url("https://www.gse.upenn.edu/sites/all/modules/views/css/views.css?q8fhze");
+</style>
+<style type="text/css" media="all">
+@import url("https://www.gse.upenn.edu/sites/all/modules/ctools/css/ctools.css?q8fhze");
+@import url("https://www.gse.upenn.edu/sites/all/modules/field_collection/field_collection.theme.css?q8fhze");
+@import url("https://www.gse.upenn.edu/sites/all/libraries/superfish/css/superfish.css?q8fhze");
+</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="/sites/gse.upenn.edu/themes/gse_2019/newSass/stylesheets/screen.css?192ff9b" rel="stylesheet">
+    <link href="/sites/gse.upenn.edu/themes/gse_2019/stylesheets/tabletStylesInner.css?192ff9a" rel="stylesheet">
+<link href="/sites/gse.upenn.edu/themes/gse_2019/stylesheets/videoDisplay.css?192ff9a" rel="stylesheet">
+<link href="/sites/gse.upenn.edu/themes/gse_2019/stylesheets/overrides.css?192ff9a" rel="stylesheet">
+<link href="/sites/gse.upenn.edu/themes/gse_2019/stylesheets/darViewStyles.css?192ff9a" rel="stylesheet">
+<link href="/sites/gse.upenn.edu/themes/gse_2019/stylesheets/responsive_overrides.css?192ff9a" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:500,600,700,900" rel="stylesheet">
+<link rel="stylesheet" href="/sites/gse.upenn.edu/themes/gse_2019/stylesheets/font-awesome.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+<!-- End Stylesheets -->       <script type="text/javascript"> </script>
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+     <!-- jQuery UI and Files -->
+       <!-- End jQuery UI and Files -->
+   <script type="text/javascript" src="/sites/gse.upenn.edu/themes/gse_2019/js/jquery-migrate-1.2.1.min.js"></script>
+   <script type="text/javascript">
+      //jQuery = $.noConflict(true);
+      //jQuery.ui = (typeof $ != 'undefined') ? $.ui : null;
+      //jQuery.datepicker = (typeof $ != 'undefined') ? $.datepicker : null;
+      jQ1102 = jQuery.noConflict();
+      jQ1102.ui = (typeof jQuery != 'undefined' ? jQuery.ui : null);
+      jQ1102.datepicker = (typeof jQuery != 'undefined' ? jQuery.datepicker : null);
+   </script>
+   <!-- Bootstrap JS -->
+    <script src="/sites/gse.upenn.edu/themes/gse_2019/js/bootstrap/bootstrap.min.js"></script>
+    <script src="/sites/gse.upenn.edu/themes/gse_2019/js/general.js?192ff9b"></script>
+                <script src="/sites/gse.upenn.edu/themes/gse_2019/js/flipThrough.js?192ff9a"></script>
+        <script src="/sites/gse.upenn.edu/themes/gse_2019/js/css_browser_selector.js"></script>
+    <script type="text/javascript" src="https://www.gse.upenn.edu/misc/jquery.js?v=1.4.4"></script>
+<script type="text/javascript" src="https://www.gse.upenn.edu/misc/jquery-extend-3.4.0.js?v=1.4.4"></script>
+<script type="text/javascript" src="https://www.gse.upenn.edu/misc/jquery.once.js?v=1.2"></script>
+<script type="text/javascript" src="https://www.gse.upenn.edu/misc/drupal.js?q8fhze"></script>
+<script type="text/javascript" src="https://www.gse.upenn.edu/misc/jquery.cookie.js?v=1.0"></script>
+<script type="text/javascript" src="https://www.gse.upenn.edu/misc/jquery.form.js?v=2.52"></script>
+<script type="text/javascript" src="https://www.gse.upenn.edu/sites/all/modules/field_group/horizontal-tabs/horizontal-tabs.js?v=1.0"></script>
+<script type="text/javascript" src="https://www.gse.upenn.edu/misc/ajax.js?v=7.67"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function($){ $(document).ready(function() {
+	    $(".toggler").next().hide();
+
+	    /* Required otherwise Double-Binds! */
+	    $(".toggler").unbind();
+
+	    /* Bind SHOW/HIDE to Clicking toggler */
+	    $(".toggler").click(function(){
+	      /* Create & Indent DIV for visual purposes */
+	      if(!($(this).next().children().hasClass("indent"))){
+            if ($(this).next().is("table")) { // assume this is a one cell table
+                var tableCell = $(this).next().find("td").eq(0);
+                if (!tableCell.children(0).hasClass("indent")) {
+                    tableCell.wrapInner("<div class='indent'></div>")
+                }
+            } else {
+    	        newHTML = "<div class='indent'>";
+    	        newHTML += $(this).next().html();
+    	        newHTML += "</div>";
+                $(this).next().html( newHTML );
+            }
+	      }
+              if ($(this).html().indexOf(" view") != -1) {
+                $(this).html($(this).html().replace(" view", " hide"));
+              } else {
+                $(this).html($(this).html().replace(" hide", " view"));
+              }
+	      if(($(this).next().css("display")) != "none"){
+	         $(this).next().css("display","none");
+	      } else {
+	         $(this).next().css("display","block");
+	      }
+	      $(this).toggleClass("opened");
+	      $(this).attr("aria-expanded", function(_, attr) { return !(attr == "true") });
+	  }).next;
+	  })
+    })(jQuery)
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://www.gse.upenn.edu/sites/all/modules/views/js/base.js?q8fhze"></script>
+<script type="text/javascript" src="https://www.gse.upenn.edu/misc/progress.js?v=7.67"></script>
+<script type="text/javascript" src="https://www.gse.upenn.edu/sites/all/modules/views/js/ajax_view.js?q8fhze"></script>
+<script type="text/javascript" src="https://www.gse.upenn.edu/sites/all/modules/google_analytics/googleanalytics.js?q8fhze"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-12025688-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://www.gse.upenn.edu/sites/all/modules/field_group/field_group.js?q8fhze"></script>
+<script type="text/javascript" src="https://www.gse.upenn.edu/sites/all/libraries/superfish/jquery.hoverIntent.minified.js?q8fhze"></script>
+<script type="text/javascript" src="https://www.gse.upenn.edu/sites/all/libraries/superfish/supposition.js?q8fhze"></script>
+<script type="text/javascript" src="https://www.gse.upenn.edu/sites/all/libraries/superfish/superfish.js?q8fhze"></script>
+<script type="text/javascript" src="https://www.gse.upenn.edu/sites/all/libraries/superfish/supersubs.js?q8fhze"></script>
+<script type="text/javascript" src="https://www.gse.upenn.edu/sites/all/modules/superfish/superfish.js?q8fhze"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"gse_2019","theme_token":"NiHHHRad9FuxynnCodAHO4w-RXQS9w0FhV1mYzw5UM8","js":{"misc\/jquery.js":1,"misc\/jquery-extend-3.4.0.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"misc\/jquery.cookie.js":1,"misc\/jquery.form.js":1,"sites\/all\/modules\/field_group\/horizontal-tabs\/horizontal-tabs.js":1,"misc\/ajax.js":1,"0":1,"sites\/all\/modules\/views\/js\/base.js":1,"misc\/progress.js":1,"sites\/all\/modules\/views\/js\/ajax_view.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"1":1,"sites\/all\/modules\/field_group\/field_group.js":1,"sites\/all\/libraries\/superfish\/jquery.hoverIntent.minified.js":1,"sites\/all\/libraries\/superfish\/supposition.js":1,"sites\/all\/libraries\/superfish\/superfish.js":1,"sites\/all\/libraries\/superfish\/supersubs.js":1,"sites\/all\/modules\/superfish\/superfish.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"sites\/all\/modules\/field_group\/horizontal-tabs\/horizontal-tabs.css":1,"modules\/aggregator\/aggregator.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/calendar 2\/css\/calendar_multiday.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/field_collection\/field_collection.theme.css":1,"sites\/all\/libraries\/superfish\/css\/superfish.css":1}},"better_exposed_filters":{"views":{"faculty_news_media_hits":{"displays":{"block_1":{"filters":[]},"block":{"filters":[]}}},"faculty_associated_bookshelf":{"displays":{"block":{"filters":[]}}},"homepage_news_grid":{"displays":{"block_1":{"filters":[]}}},"homepage_events_block":{"displays":{"block_1":{"filters":[]}}}}},"field_group":{"html-element":"teaser","div":"full","htabs":"full","htab":"full"},"views":{"ajax_path":"\/views\/ajax","ajaxViews":{"views_dom_id:bd7e89e8673879e039f3c324de56c5c3":{"view_name":"homepage_events_block","view_display_id":"block_1","view_args":"","view_path":"node\/4987","view_base_path":null,"view_dom_id":"bd7e89e8673879e039f3c324de56c5c3","pager_element":0}}},"urlIsAjaxTrusted":{"\/views\/ajax":true,"\/academics\/faculty-directory\/kafai":true},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"avi|csv|doc|flv|gif|jpe?g|js|mp(3|4|e?g)|mov|pdf|png|ppt|txt|wma|wmv|xls|xml|zip"},"superfish":[{"id":"1","sf":{"animation":{"opacity":"show","height":"show"},"speed":"fast","autoArrows":false,"dropShadows":false},"plugins":{"supposition":true,"supersubs":true}},{"id":"3","sf":{"animation":{"opacity":"show","height":"show"},"speed":"fast","autoArrows":false,"dropShadows":false},"plugins":{"supposition":true,"supersubs":true}}]});
+//--><!]]>
+</script>
+   <script type="text/javascript">
+        $ = jQ1102;
+   </script>
+   <script src="/sites/gse.upenn.edu/themes/gse_2019/js/videoDisplay.js"></script>
+   <script src="/sites/gse.upenn.edu/themes/gse_2019/js/base/modernizr.js"></script>
+   <script src="/sites/gse.upenn.edu/themes/gse_2019/js/base/backstretch_stellar_scrollr.js"></script>
+   <!-- End Bootstrap JS -->
+   <!-- Twitter -->
+    <script>window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+
+      t._e = [];
+      t.ready = function(f) {
+        t._e.push(f);
+      };
+
+      return t;
+    }(document, "script", "twitter-wjs"));</script>
+   <!-- Custom jQuery Scripts -->
+
+   <!-- Webform CSS/Scripts -->
+      <!-- / Webform CSS/Scripts -->
+
+   <!-- // <script type="text/javascript" src="https://use.fortawesome.com/349cfdf6.js"></script> --></head>
+      <body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-4987 node-type-faculty no-banner-for-page">
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5S984M"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->        <style type="text/css">
+                    </style><!--[if lt IE 9]>
+    <div id="warning-wrapper" style="position:fixed;background-image: url('/sites/gse.upenn.edu/themes/gse_2019/img/videoAssets/video_dimmer.png'); height: 200%; width: 100%; top: 0px; z-index:9999999999999999999">
+    <div class="alert alert-warning error" style="padding: 40px 60px; position: fixed; left: 50%; margin-left: -250px; top: 30%; z-index: 99999999999; border-color: red; width: 500px;">
+      <div style="font-family: Arial; font-size: 22px; font-weight: bold; margin-top: -30px; text-align: right; margin-right: -30px"><a href="#" style="color: #000" onclick="$('#warning-wrapper').fadeOut(1200); return false;">x</a></div>
+      <p style="font-family: Georgia; serif">You are using an outdated browser. This website is best viewed in IE 9 and above. You may continue using the site in this browser. However, the site may not display properly and some features may not be supported. For a better experience using this site, we recommend upgrading your version of Internet Explorer or using another browser to view this website.</p>
+      <p style="margin-left: 80px; margin-top:10px; font-family: Georgia; font-size: 16px; line-height: 18px;"><a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">- Download the latest Internet Explorer</a><br><a href="#" onclick="$('#warning-wrapper').fadeOut(1200); return false;">- No thanks (close this window)</a></p>
+    </div>
+</div>
+<![endif]-->
+<!-- START WRAP FOR STICKY FOOTER -->
+<div id="wrap">
+	<div class="banner-wrap" role="banner">
+	    <div class="frame">
+	<a id="skippy" class="sr-only sr-only-focusable" href="#main-content" aria-label="Skip to main content">
+	  <div class="container">
+	    <span class="skiplink-text">Skip to main content</span>
+	  </div>
+	</a>
+	<div id="video_dimmer"><div class="video_container"></div></div><!-- video_dimmer container, hidden by default-->
+	<div id="navbar" class="navbar navbar">
+        <button aria-label="Toggle Mobile Navigation" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrap" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <div id="navbar-wrap" class="navbar-wrap">
+            <div class='logo-well'>
+            	<a href="/"><span class="sr-only">University of Pennsylvania Graduate School of Education</span><img id="main-logo" width="350" src="/sites/gse.upenn.edu/themes/gse_2019/img/PennGSE_UPenn_Logo.svg" alt="Penn GSE Logo" /></a>
+            </div>
+			<div role="navigation" aria-label="Main Menu" class="navbar-collapse collapse">
+	            <div id="main-menu">
+	                <div class="region region-primarymenu">
+    <div id="block-superfish-1" class="block block-superfish">
+
+    
+  <div class="content">
+    <ul  id="superfish-1" class="menu sf-menu sf-main-menu sf-horizontal sf-style-none sf-total-items-7 sf-parent-items-7 sf-single-items-0"><li id="menu-82395-1" class="first odd sf-item-1 sf-depth-1 sf-total-children-6 sf-parent-children-2 sf-single-children-4 menuparent"><a href="/about-penn-gse" class="sf-depth-1 menuparent">About Penn GSE &amp; Our Impact</a><ul><li id="menu-82402-1" class="first odd sf-item-1 sf-depth-2"><a href="/about-penn-gse/philadelphia-impact" title="Penn GSE in Philadelphia" class="sf-depth-2">Philadelphia Impact</a></li><li id="menu-82401-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="/about-penn-gse/global-initiatives" title="Penn GSE&#039;s Global Initiatives" class="sf-depth-2">Global Initiatives</a></li><li id="menu-133147-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="/about-penn-gse/diversity-inclusion" class="sf-depth-2">Diversity &amp; Inclusion</a></li><li id="menu-133182-1" class="middle even sf-item-4 sf-depth-2"><a href="/about-penn-gse/catalyst" class="sf-depth-2">Catalyst @ Penn GSE</a></li><li id="menu-85027-1" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a href="/about-penn-gse/leadership" class="sf-depth-2">Penn GSE Leadership</a></li><li id="menu-82405-1" class="last even sf-item-6 sf-depth-2 sf-no-children"><a href="/about-penn-gse/contact-us" class="sf-depth-2">Contact Us</a></li></ul></li><li id="menu-82396-1" class="middle even sf-item-2 sf-depth-1 sf-total-children-11 sf-parent-children-3 sf-single-children-8 menuparent"><a href="/academics" class="sf-depth-1 menuparent">Academics &amp; Research</a><ul><li id="menu-133181-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="/academics/program-finder" class="sf-depth-2">Program Finder</a></li><li id="menu-133156-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="/academics/programs" class="sf-depth-2">Academic Divisions &amp; Programs</a></li><li id="menu-133159-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="/academics/professional-learning" class="sf-depth-2">Professional Development and Continuing Education</a></li><li id="menu-133164-1" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a href="/academics/teacher-education-programs-certification" class="sf-depth-2">Teacher Programs &amp; Certifications</a></li><li id="menu-133188-1" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a href="/academics/undergraduates" class="sf-depth-2">Undergraduates</a></li><li id="menu-133161-1" class="middle even sf-item-6 sf-depth-2 sf-no-children"><a href="/academics/dual-joint-degrees" class="sf-depth-2">Dual and Joint Degrees</a></li><li id="menu-133116-1" class="middle odd sf-item-7 sf-depth-2"><a href="/academics/faculty-directory" class="sf-depth-2">Faculty Directory</a></li><li id="menu-133162-1" class="middle even sf-item-8 sf-depth-2"><a href="/academics/research" class="sf-depth-2">Research Centers, Projects &amp; Initiatives</a></li><li id="menu-133137-1" class="middle odd sf-item-9 sf-depth-2"><a href="/academics/lectures-colloquia" class="sf-depth-2">Lectures &amp; Colloquia</a></li><li id="menu-133206-1" class="middle even sf-item-10 sf-depth-2 sf-no-children"><a href="/academics/publications" class="sf-depth-2">Books &amp; Publications</a></li><li id="menu-133158-1" class="last odd sf-item-11 sf-depth-2 sf-no-children"><a href="/academics/journals" class="sf-depth-2">Academic Journals</a></li></ul></li><li id="menu-82397-1" class="middle odd sf-item-3 sf-depth-1 sf-total-children-7 sf-parent-children-3 sf-single-children-4 menuparent"><a href="/admissions" class="sf-depth-1 menuparent">Admissions &amp; Financial Aid</a><ul><li id="menu-133165-1" class="first odd sf-item-1 sf-depth-2"><a href="/admissions/application-requirements-deadlines" class="sf-depth-2">Application Requirements &amp; Deadlines</a></li><li id="menu-82447-1" class="middle even sf-item-2 sf-depth-2"><a href="/admissions/financial-aid" class="sf-depth-2">Tuition &amp; Financial Aid</a></li><li id="menu-131487-1" class="middle odd sf-item-3 sf-depth-2"><a href="/admissions/visits" class="sf-depth-2">Campus Visits &amp; Events</a></li><li id="menu-132793-1" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a href="/admissions/international-students" class="sf-depth-2">International Students</a></li><li id="menu-133234-1" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a href="/admissions/penn-undergraduates" class="sf-depth-2">Penn Undergraduates</a></li><li id="menu-133235-1" class="middle even sf-item-6 sf-depth-2 sf-no-children"><a href="/admissions/non-degree" class="sf-depth-2">Non-Degree Studies</a></li><li id="menu-133236-1" class="last odd sf-item-7 sf-depth-2 sf-no-children"><a href="/admissions/information" class="sf-depth-2">Contact Admissions / Request Information</a></li></ul></li><li id="menu-82398-1" class="middle even sf-item-4 sf-depth-1 sf-total-children-6 sf-parent-children-1 sf-single-children-5 menuparent"><a href="/student" class="sf-depth-1 menuparent">Student Experience</a><ul><li id="menu-133202-1" class="first odd sf-item-1 sf-depth-2"><a href="/student/life-at-penn-gse" class="sf-depth-2">Life at Penn GSE</a></li><li id="menu-133154-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="/student/career-paths" class="sf-depth-2">Penn GSE Career Paths</a></li><li id="menu-133150-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="/student/living-in-philadelphia" class="sf-depth-2">Living in Philadelphia</a></li><li id="menu-133226-1" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a href="/student/organizations" class="sf-depth-2">Student Organizations</a></li><li id="menu-82429-1" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a href="/student/student-blogs" class="sf-depth-2">Student Blogs</a></li><li id="menu-133196-1" class="last even sf-item-6 sf-depth-2 sf-no-children"><a href="/student/career-professional-development" class="sf-depth-2">Career &amp; Professional Development</a></li></ul></li><li id="menu-82399-1" class="middle odd sf-item-5 sf-depth-1 sf-total-children-4 sf-parent-children-1 sf-single-children-3 menuparent"><a href="/news" class="sf-depth-1 menuparent">News &amp; Events</a><ul><li id="menu-133197-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="/news/archive" class="sf-depth-2">News</a></li><li id="menu-133198-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="/news/events-calendar" class="sf-depth-2">Events Calendar</a></li><li id="menu-133230-1" class="middle odd sf-item-3 sf-depth-2"><a href="/news/educators-playbook" class="sf-depth-2">The Educator&#039;s Playbook</a></li><li id="menu-133200-1" class="last even sf-item-4 sf-depth-2 sf-no-children"><a href="/news/find-an-expert" class="sf-depth-2">Find an Expert</a></li></ul></li><li id="menu-133168-1" class="middle even sf-item-6 sf-depth-1 sf-total-children-10 sf-parent-children-0 sf-single-children-10 menuparent"><a href="/explore-by-topic" class="sf-depth-1 menuparent">Explore by Topic</a><ul><li id="menu-133174-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="/explore-by-topic/philadelphia-impact" title="Topic: Philadelphia Impact" class="sf-depth-2">Philadelphia Impact</a></li><li id="menu-133173-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="/explore-by-topic/global-initiatives" title="Topic: Global Initiatives" class="sf-depth-2">Global Initiatives</a></li><li id="menu-133172-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="/explore-by-topic/race-equity-inclusion" title="Topic: Race, Equity, &amp; Inclusion" class="sf-depth-2">Race, Equity &amp; Inclusion</a></li><li id="menu-133177-1" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a href="/explore-by-topic/counseling-psychology" title="Topic: Counseling &amp; Psychology" class="sf-depth-2">Counseling &amp; Psychology</a></li><li id="menu-133175-1" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a href="/explore-by-topic/education-innovation-entrepreneurship" title="Topic: Education Innovation &amp; Entrepreneurship" class="sf-depth-2">Education Innovation &amp; Entrepreneurship</a></li><li id="menu-133169-1" class="middle even sf-item-6 sf-depth-2 sf-no-children"><a href="/explore-by-topic/education-policy-analysis" title="Topic: Education Policy" class="sf-depth-2">Education Policy &amp; Analysis</a></li><li id="menu-133178-1" class="middle odd sf-item-7 sf-depth-2 sf-no-children"><a href="/explore-by-topic/higher-education" title="Topic: Higher Education" class="sf-depth-2">Higher Education</a></li><li id="menu-133170-1" class="middle even sf-item-8 sf-depth-2 sf-no-children"><a href="/explore-by-topic/language-literacy-culture" title="Topic: Language &amp; Literacy" class="sf-depth-2">Language, Literacy &amp; Culture</a></li><li id="menu-133171-1" class="middle odd sf-item-9 sf-depth-2 sf-no-children"><a href="/explore-by-topic/leadership" title="Topic: Leadership" class="sf-depth-2">Leadership</a></li><li id="menu-133176-1" class="last even sf-item-10 sf-depth-2 sf-no-children"><a href="/explore-by-topic/teaching-learning" title="Topic: Teaching &amp; Learning" class="sf-depth-2">Teaching &amp; Learning</a></li></ul></li><li id="menu-82437-1" class="last odd sf-item-7 sf-depth-1 sf-total-children-5 sf-parent-children-2 sf-single-children-3 menuparent"><a href="/support" class="sf-depth-1 menuparent">Support Penn GSE</a><ul><li id="menu-130129-1" class="first odd sf-item-1 sf-depth-2"><a href="/support/future-education" class="sf-depth-2">The Future of Education</a></li><li id="menu-130130-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="/support/our-impact" class="sf-depth-2">Our Impact</a></li><li id="menu-130131-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="/support/extraordinary-impact" class="sf-depth-2">The Campaign for Penn GSE</a></li><li id="menu-82457-1" class="middle even sf-item-4 sf-depth-2"><a href="/support/ways-to-give" class="sf-depth-2">Ways to Give</a></li><li id="menu-130138-1" class="last odd sf-item-5 sf-depth-2 sf-no-children"><a href="/support/contact" class="sf-depth-2">Contact Development &amp; Alumni Relations</a></li></ul></li></ul>  </div>
+</div>
+  </div>
+	            </div>
+			</div><!--/.navbar-collapse -->
+			<div class="utility-nav-bar">
+	            <div role="navigation" aria-label="Secondary Menu" class="navbar-form navbar-right">
+	                <!-- Utility Menu -->
+	                <ul id="resources-menu" class="nav navbar-nav">
+		                <div class="region region-resourcesmenu">
+    <div id="block-superfish-3" class="block block-superfish">
+
+    
+  <div class="content">
+    <ul  id="superfish-3" class="menu sf-menu sf-menu-utility-menu sf-horizontal sf-style-none sf-total-items-5 sf-parent-items-1 sf-single-items-4"><li id="menu-132920-3" class="first odd sf-item-1 sf-depth-1 sf-no-children"><a href="/academics/program-finder" class="sf-depth-1">Find a Program</a></li><li id="menu-132926-3" class="middle even sf-item-2 sf-depth-1 sf-no-children"><a href="https://www.gse.upenn.edu/request-information" target="_blank" class="sf-depth-1">Request Info</a></li><li id="menu-133205-3" class="middle odd sf-item-3 sf-depth-1 sf-no-children"><a href="/admissions/application-requirements-deadlines" class="sf-depth-1">Apply</a></li><li id="menu-133261-3" class="middle even sf-item-4 sf-depth-1 sf-no-children"><a href="https://giving.apps.upenn.edu/fund?program=GSE&amp;fund=342117&amp;bhcp=1" class="sf-depth-1">Make a Gift</a></li><li id="menu-132921-3" class="last odd sf-item-5 sf-depth-1 sf-total-children-5 sf-parent-children-0 sf-single-children-5 menuparent"><a href="/" class="sf-depth-1 menuparent">Info For</a><ul><li id="menu-132927-3" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="/alumni" class="sf-depth-2">Alumni</a></li><li id="menu-133212-3" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="http://onepenn.gse.upenn.edu/student-services" class="sf-depth-2">Current Students</a></li><li id="menu-133213-3" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="http://onepenn.gse.upenn.edu" class="sf-depth-2">Staff &amp; Faculty</a></li><li id="menu-132923-3" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a href="/support/ways-to-give" class="sf-depth-2">Donors</a></li><li id="menu-132924-3" class="last odd sf-item-5 sf-depth-2 sf-no-children"><a href="/student/career-professional-development" class="sf-depth-2">Employers</a></li></ul></li></ul>  </div>
+</div>
+  </div>
+	                </ul>
+	                <!-- Search Bar -->
+	                <div class="search-header" role="search" style="display:none">
+	                       <div class="region region-search">
+    <div id="block-search-form" class="block block-search">
+
+    
+  <div class="content">
+    <form action="/academics/faculty-directory/kafai" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+      <h2 class="element-invisible">Search form</h2>
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text" />
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-gX-YRa5QM51oOqyaFsSc63ovIzFuvTdnTIuQYyG9uHU" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div>
+</div></form>  </div>
+</div>
+  </div>
+	                </div>
+	            </div>
+			</div>
+        </div>
+	</div>
+</div>
+	      <div id="breadcrumb-wrapper"> 
+<div id="breadcrumbs" role="navigation" aria-label="Breadcrumbs">
+    <h2 class="element-invisible">You are here</h2><div class="breadcrumb"><span class="inline odd first"><a href="/">Home</a></span> <span class="delimiter">&gt;</span> <span class="inline even"><a href="/academics">Academics &amp; Research</a></span> <span class="delimiter">&gt;</span> <span class="inline odd"><a href="/academics/faculty-directory">Faculty Directory</a></span> <span class="delimiter">&gt;</span> <span class="inline even last">Yasmin B. Kafai</span></div></div>
+</div><!-- end banner -->
+	</div><!-- end banner-wrap -->
+          <div id="main-content-wrapper" class="container">
+      <div id="main-content-row" class="row">
+      					                                            <div id="main-content" role="main" class="col-md-12">
+                            <div class="main-title-wrap">
+            <div class="container">
+              <h1 class="title">Yasmin B. Kafai</h1>
+            </div>
+          </div>
+                                                                <div class="region region-content">
+    <div id="block-block-118" class="block block-block">
+
+    
+  <div class="content">
+    <style type="text/css">
+.alert-info {
+    color: #00277F;
+    background-color: #efefef;
+    border-color: #ccc;
+    border-radius: 0;
+    padding: 20px;
+}
+
+.alert-info p {
+    margin: 15px 0;
+}
+
+.alert-info p+p {
+    margin-bottom: 10px;
+}
+.alert.alert-info.show-info-icon:before {
+    content: "\f05a";
+    display: inline-block;
+    float: left;
+    height: 80px;
+    width: 40px;
+    font-family: "Font Awesome 5 Pro";
+    font-size: 30px;
+    margin-top: 20px;
+}
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+	function updateCancelledEventTitleHtml(el) {
+		var eventTitle = el.html().substr(10)
+		var titleWithCancelledWrapped = '<span style="color: #b90036">Cancelled:</span>' + eventTitle;
+		el.html(titleWithCancelledWrapped);
+	}
+
+	function updatePostponedEventTitleHtml(el) {
+		var eventTitle = el.html().substr(10)
+		var titleWithCancelledWrapped = '<span style="color: #b90036">Postponed:</span>' + eventTitle;
+		el.html(titleWithCancelledWrapped);
+	}
+
+	var title = $('.node-type-event h1.news-title');
+	if (title.length && title.eq(0).html().indexOf('Cancelled:') == 0) {
+		updateCancelledEventTitleHtml(title.eq(0));
+	}
+
+	var title = $('.node-type-event h1.news-title');
+	if (title.length && title.eq(0).html().indexOf('Postponed:') == 0) {
+		updatePostponedEventTitleHtml(title.eq(0));
+	}
+
+	var allEventTitles = $('.feed-panel .node-event .field-name-title a, .view-id-calendar_of_events.view-display-id-page_4 .views-field-title h2, .view-id-homepage_events_block .field-name-title a');
+	for (var i = 0; i < allEventTitles.length; i++) {
+	    if (allEventTitles.eq(i).html().indexOf('Cancelled:') == 0) {
+		    updateCancelledEventTitleHtml(allEventTitles.eq(i));
+	    }
+	    if (allEventTitles.eq(i).html().indexOf('Postponed:') == 0) {
+		    updatePostponedEventTitleHtml(allEventTitles.eq(i));
+	    }
+	}
+})
+</script>  </div>
+</div>
+<div id="block-block-104" class="block block-block">
+
+    
+  <div class="content">
+    <style type="text/css">
+td.table-highlight {
+    background: #90bac7;
+}
+
+td.table-highlight a {
+    color: #044053;
+}
+
+td.table-highlight a:hover {
+    color: #357c92;
+}
+</style>  </div>
+</div>
+<div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    
+
+<div  class="node node-faculty node-promoted view-mode-full faculty-type-Full Faculty Bio Page faculty-programs-Teaching, Learning, and Teacher Education Ph.D., Teaching, Learning, and Teacher Education Ed.D., Learning Sciences and Technologies Ph.D., Learning Sciences and Technologies M.S.Ed., Teaching, Learning, and Leadership M.S.Ed., Medical Education M.S.Ed., Penn Chief Learning Officer Ed.D.">
+
+<div class="">
+  <div class="top-left-content-wrap">
+    <div class="container">
+      <div class="row">
+        <div class="group-photo-wrap field-group-div"><div class="faculty-photo"><img src="https://www.gse.upenn.edu/sites/default/files/styles/faculty_photo/public/Kafai_Yasmin%20Oct%202018%20thumb.jpg?itok=A4qikdXA" width="180" height="225" alt="Penn GSE Faculty Yasmin B. Kafai" /></div><div class="field field-name-field-faculty-hi-res field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><a href="https://www.gse.upenn.edu/sites/default/files/Kafai%20Yasmin%20Oct%202018.jpg">Download Hi-Res Photo</a></div></div></div></div><div class="group-title-info-wrap field-group-div"><div class="field field-name-field-title field-type-text field-label-hidden"><div class="pseudo-h4">Lori and Michael Milken President’s Distinguished Professor</div></div><div class="faculty-division"><div class="pseudo-h4"><div>Teaching, Learning, and Leadership Division</div></div></div><div class="field field-name-field-faculty-titles field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Chair, Teaching, Learning, and Leadership Division</p></div></div></div></div><div class="group-contact field-group-div"><h2><span>Contact</span></h2><div class="group-faculty-contact-info field-group-div"><div class="field field-name-field-email field-type-email field-label-hidden"><div class="field-items"><div class="field-item even"><a href="mailto:kafai@upenn.edu">kafai@upenn.edu</a></div></div></div><div class="field field-name-field-phone-number field-type-text field-label-hidden"><div class="field-items"><div class="field-item even">(215) 746-3468</div></div></div></div><div class="field field-name-media-inquiries field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even">  <p class="media-inquiries-text"><strong>Media Inquiries:</strong><br><a href="mailto:katstein@gse.upenn.edu?cc=frantzj@gse.upenn.edu&subject=Media Inquiry: Yasmin B. Kafai">Contact Penn GSE Communications.</a></p>
+</div></div></div></div>      </div>
+    </div>
+  </div>
+<div class="row">
+<div class="col-sm-4 ">
+  <div class="left-content-wrap">
+  	<div class="field field-name-page-not-visible-404">   </div><div class="field field-item field-name-field-education" ><div class="label-above">Education</div><ul><li>Ed.D. Harvard University, 1993</li><li>Diplompsychologie Technische Universität, Berlin, 1987</li></ul></div><div class="field-item  field-name-field-areas-of-expertise"><div class="label-above">Areas of Expertise</div><ul><li>Constructionism</li><li>Learning Sciences</li><li>Computer Science Education</li><li>Equity and Diversity</li><li>Serious Gaming</li></ul></div><div class="field field-name-field-programs field-type-entityreference field-label-above" ><div class="label-above">Programs</div><li><a href="/academics/programs/teaching-learning-teacher-education-phd">Teaching, Learning, and Teacher Education Ph.D.</a></li><li><a href="/academics/programs/teaching-learning-teacher-education-edd">Teaching, Learning, and Teacher Education Ed.D.</a></li><li><a href="/academics/programs/learning-sciences-technology-phd">Learning Sciences and Technologies Ph.D.</a></li><li><a href="/academics/programs/learning-sciences-technology-masters">Learning Sciences and Technologies M.S.Ed.</a></li><li><a href="/academics/programs/teaching-learning-leadership-masters">Teaching, Learning, and Leadership M.S.Ed.</a></li><li><a href="/academics/programs/medical-education-masters">Medical Education M.S.Ed.</a></li><li><a href="/academics/programs/penn-chief-learning-officer-edd">Penn Chief Learning Officer Ed.D.</a></li></div><div class="field field-name-field-more-information"><div class="label-above">More Information</div><p><a href="http://www.yasminkafai.com/" target="_blank">Dr. Kafai's web page</a></p></div>  </div>
+  <div class="">
+    <div class="additional-left-content-wrap">
+          </div>
+  </div>  
+</div>
+
+<div class="col-sm-8  faculty-type-Full Faculty Bio Page">
+<div class="right-content-wrap">
+<div class="field-group-htabs-wrapper group-bio-nav field-group-htabs"><h2 class="element-invisible">Bio Nav</h2><div class="horizontal-tabs-panes"><fieldset class="collapsible collapsed group-biography field-group-htab form-wrapper"><legend><span class="fieldset-legend">Biography</span></legend><div class="fieldset-wrapper"><div class="field field-name-body field-type-text-with-summary field-label-above" ><h2 class="label-above">Professional Biography</h2><p>Yasmin B. Kafai is a learning scientist and designer of online tools and communities to promote coding, crafting, and creativity across grades K–16. Her work empowers students to use computer programming to design games, sew electronic textiles, and grow applications in biology with the goal of supporting creative expression, building social connections, and broadening participation in computing. She helped develop with MIT colleagues the popular programming tool <a href="https://scratch.mit.edu/" target="_blank">Scratch</a>—known as the YouTube of interactive media—where millions of kids create and share their programs. With her pioneering research on children’s learning when programming digital games, she was an early contributor to the field of serious gaming. Currently, she is developing a high school curriculum with electronic textiles that introduces students to computer science. She is also creating new fabrication tools and activities that bring biomaking into classrooms. She has written and edited books for MIT Press in addition to several national policy reports. Her award-winning work has received generous funding from the National Science Foundation, the Spencer Foundation, and the MacArthur Foundation.   </p><p> In her recent book series on youth digital media, she unveils the connections between playing online, learning programming, and making games for more constructive and creative participation in networked communities. With <em>Connected Play: Tweens in a Virtual World</em>, written with Deborah Fields, she investigates what happens when kids play in virtual worlds, how this affects their offline lives, and what this means for the design of educational opportunities. A second book <em><a href="https://www.amazon.com/Connected-Code-Programming-Catherine-Foundation/dp/0262027755/ref=pd_bxgy_14_img_2?_encoding=UTF8&amp;pd_rd_i=0262027755&amp;pd_rd_r=NN0XW0FD3D15BHYDKPEP&amp;pd_rd_w=NNlX8&amp;pd_rd_wg=bfMmO&amp;psc=1&amp;refRID=NN0XW0FD3D15BHYDKPEP" target="_blank">Connected Code: Why Children Need to Learn Programming</a></em>, written with Quinn Burke, examines the downfall and comeback of programming and connects coding to design and participation in digital media cultures. The third book <em><a href="https://www.amazon.com/Connected-Gaming-Catherine-MacArthur-Foundation/dp/0262035375/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1507131176&amp;sr=1-1&amp;keywords=connected+gaming" target="_blank">Connected Gaming: What Making Video Games Can Teach Us about Learning and Literacy</a></em>, also with Quinn Burke, looks at constructionist approaches to serious gaming and proposes new directions for educational gaming.</p><p> Other recent publications include co-editing <em>Textile Messages: Dispatches from the World of e-Textiles and Education</em>, focused on the emerging field of electronic textiles for learning about circuitry and programming; the two-volume series <a href="https://www.amazon.com/Makeology-Makerspaces-Environments-Kylie-Peppler/dp/1138847771" target="_blank"><em>Makeology: Makerspaces as Learning Environments</em></a> (Volume 1) and <em><a href="https://www.amazon.com/Makeology-Makers-as-Learners-2/dp/113884781X" target="_blank">Makers as Learners</a> </em>(Volume 2)<em> </em>that examines the growing maker movement in K–12 education; <em><a href="http://press.etc.cmu.edu/index.php/product/diversifying-barbie-and-mortal-kombat-intersectional-perspectives-and-inclusive-designs-in-gaming/" target="_blank">Diversifying Barbie and Mortal Kombat: Intersectional Perspectives and Inclusive Designs in Gaming</a></em> and <em>Beyond Barbie and Mortal Kombat: New Perspectives on Gender and Gaming</em> that discuss developments in equity and education in gaming; and <em>The Computer Clubhouse: Constructionism and Creativity in Youth Communities</em> which presents an overview and learning outcomes of the international network of community technology centers.</p><p> Dr. Kafai coauthored the 2010 <em>National Educational Technology Plan</em> for the United States Department of Education and wrote the 2006 synthesis report <em>Under the Microscope: A Decade of Gender Equity Projects in the Sciences</em> for the American Association of University Women. She also briefed the National Research Council for the 2011 report <em>Learning about Science through Games and Simulations</em> and was a contributing member of the National Research Council’s workshop series <em>Computational Thinking for Everyone</em>. For the academic community, she served as editor of the <em>Journal of the Learning Sciences</em> and president of the International Society of the Learning Sciences. Her community outreach includes a $25,000 Rosenfield Community Prize together with Youth Opportunities Unlimited and recognition by the City of Los Angeles for her mentoring partnership initiatives.</p><p> A graduate of the Technische Universität Berlin, she was awarded a DAAD fellowship to work with Elliot Soloway in computer science departments first at Yale University and then at the University of Michigan before attending graduate school at Harvard University. She worked with Seymour Papert and Idit Harel at the MIT Media Laboratory from 1989–1994 where she received a postdoctoral fellowship from the Nintendo Corporation. In 1994, she joined the faculty at the University of California, Los Angeles, and was a postdoctoral fellow of the National Academy of Education and a recipient of the National Science Foundation Early Career Award. She is a fellow of the American Educational Research Association and the International Society of the Learning Sciences. </p></div></div></fieldset>
+<fieldset class="collapsible collapsed group-publications field-group-htab form-wrapper"><legend><span class="fieldset-legend">Publications</span></legend><div class="fieldset-wrapper"><div class="field field-name-books-by-this-faculty-member field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even"><div id="block-views-8bcd5fee80635d48f84c94d677d2b93c" class="block block-views">
+
+    
+  <div class="content">
+    <div class="view view-faculty-associated-bookshelf view-id-faculty_associated_bookshelf view-display-id-block view-dom-id-e84d7cd69278560046adba34f4b392aa">
+            <div class="view-header">
+      <h3>Featured Books</h3>    </div>
+  
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first contextual-links-region">
+      
+  <div class="views-field views-field-nothing">        <span class="field-content"><div class="bookshelf-profile-author"><img alt="Connected Gaming: What Making Video Games Can Teach Us about Learning and Literacy Cover" src="/sites/default/files/styles/medium/public/connected_gaming_0.jpg?itok=OH_OYXHU" style="margin-right: auto !important;
+margin-left: auto !important;
+float:none !important;" height="150" /><a href="http://mitpress.mit.edu/books/connected-gaming" target="_blank"><em>Connected Gaming: What Making Video Games Can Teach Us about Learning and Literacy</em></a></div>
+
+</span>  </div>  
+  <div class="views-field views-field-contextual-links">        <span class="field-content"></span>  </div>  </div>
+  <div class="views-row views-row-2 views-row-even contextual-links-region">
+      
+  <div class="views-field views-field-nothing">        <span class="field-content"><div class="bookshelf-profile-author"><img alt="Makeology: Volumes 1 and 2  Cover" src="/sites/default/files/styles/medium/public/makeology_0.jpg?itok=Xd7fKRmU" style="margin-right: auto !important;
+margin-left: auto !important;
+float:none !important;" height="150" /><a href="https://www.amazon.com/Makeology-Makers-as-Learners-2/dp/113884781X/ref=sr_1_2?ie=UTF8&amp;qid=1466812755&amp;sr=8-2&amp;keywords=makeology" target="_blank"><em>Makeology: Volumes 1 and 2 </em></a></div>
+
+</span>  </div>  
+  <div class="views-field views-field-contextual-links">        <span class="field-content"></span>  </div>  </div>
+  <div class="views-row views-row-3 views-row-odd contextual-links-region">
+      
+  <div class="views-field views-field-nothing">        <span class="field-content"><div class="bookshelf-profile-author"><img alt="Connected Code: Why Children Need To Learn Programming  Cover" src="/sites/default/files/styles/medium/public/ConnectedCode_0.jpg?itok=td7S7mtz" style="margin-right: auto !important;
+margin-left: auto !important;
+float:none !important;" height="150" /><a href="https://mitpress.mit.edu/books/connected-code" target="_blank"><em>Connected Code: Why Children Need To Learn Programming </em></a></div>
+
+</span>  </div>  
+  <div class="views-field views-field-contextual-links">        <span class="field-content"></span>  </div>  </div>
+  <div class="views-row views-row-4 views-row-even contextual-links-region">
+      
+  <div class="views-field views-field-nothing">        <span class="field-content"><div class="bookshelf-profile-author"><img alt="Connected Play: Tweens In A Virtual World  Cover" src="/sites/default/files/styles/medium/public/ConnectedPlay_0.jpg?itok=7rzmJ5p9" style="margin-right: auto !important;
+margin-left: auto !important;
+float:none !important;" height="150" /><a href="http://mitpress.mit.edu/books/connected-play" target="_blank"><em>Connected Play: Tweens In A Virtual World </em></a></div>
+
+</span>  </div>  
+  <div class="views-field views-field-contextual-links">        <span class="field-content"></span>  </div>  </div>
+  <div class="views-row views-row-5 views-row-odd views-row-last contextual-links-region">
+      
+  <div class="views-field views-field-nothing">        <span class="field-content"><div class="bookshelf-profile-author"><img alt="Textile Messages: Dispatches From The World Of E-Textiles And Education Cover" src="/sites/default/files/styles/medium/public/TextileMessages_0.jpg?itok=fD9tBbNA" style="margin-right: auto !important;
+margin-left: auto !important;
+float:none !important;" height="150" /><a href="https://www.amazon.com/Textile-Messages-Dispatches-E-Textiles-Epistemplogies/Dp/143311920X" target="_blank"><em>Textile Messages: Dispatches From The World Of E-Textiles And Education</em></a></div>
+
+</span>  </div>  
+  <div class="views-field views-field-contextual-links">        <span class="field-content"></span>  </div>  </div>
+    </div>
+  
+  
+  
+  
+      <div class="view-footer">
+      <div class="clearfix"></div>    </div>
+  
+  
+</div>  </div>
+</div>
+</div></div></div><h2 class="label-above">Selected Publications</h2><p><strong>Kafai, Y. B. </strong>&amp; Burke, Q. (2016). <em>Connected gaming: What making video games can teach us about learning and literacy</em>. Cambridge, MA: The MIT Press.</p><p> <strong>Kafai, Y. B. </strong>&amp; Burke, Q. (2014). <em>Connected code: Why children need to learn programming</em>. Cambridge, MA: The MIT Press.</p><p> <strong>Kafai, Y. B., </strong>Searle, K. A., Fields, D. A., Lee, E., Kaplan, E., &amp; Lui, D. (2014). A crafts-oriented approach to computing in high school: Introducing computational concepts, practices and perspectives with e-Textiles. <em>Transactions on Computing Education, 14</em>(1) 1–20.</p><p> <strong>Kafai, Y. B. </strong>&amp; Fields, D. A. (2013). <em>Connected play: Tweens in a virtual world</em>. Cambridge, MA: The MIT Press.</p><p> Buechley, L., Peppler, K. A., Eisenberg, M., &amp;<strong> Kafai, Y. B. </strong>(Eds.) (2013). Textile messages: Dispatches from the world of electronic textiles and education. New York: Peter Lang Publishers.</p><p> <strong>Kafai, Y. B. </strong>&amp; Burke, Q. (2013). Computer programming goes back to school. <em>Phi Delta Kappan, 95</em>(1), 63–65. </p><p> <strong>Kafai, Y. B., </strong>Peppler, K. A., &amp; Chapman, R. N. (Eds.) (2009). The computer clubhouse: Constructionism and creativity in youth communities. New York: Teachers College Press.</p><p> <strong>Kafai, Y. B., </strong>Heeter, C., Denner, J., &amp; Sun, J. (Eds.) (2008). Beyond Barbie and Mortal Kombat: New perspectives on gender and gaming. Cambridge, MA: The MIT Press.</p><p> <strong>Kafai, Y. B. </strong>(2006).<strong> </strong>Constructionism. In K. Sawyer (Ed.), <em>Cambridge handbook of the learning sciences</em>(pp. 35–46). New York: Cambridge University Press. </p><p> <strong>Kafai, Y. B. </strong>(2006). Playing and making games for learning: Instructionist and constructionist perspectives for game studies. <em>Games and Culture 1</em>(1): 34–40.</p><p> <strong>Kafai, Y. B., </strong>&amp; Resnick, M. (Eds.) (1996). Constructionism in practice: Designing, thinking, and learning in a digital world. Mahwah, NJ: Lawrence Erlbaum.</p><p> <strong>Kafai, Y. B. </strong>(1995). Minds in play: Computer game design as a context for children’s learning. Mahwah, NJ: Lawrence Erlbaum.</p></div></fieldset>
+<fieldset class="collapsible collapsed group-news field-group-htab form-wrapper"><legend><span class="fieldset-legend">News &amp; Media</span></legend><div class="fieldset-wrapper"><div class="field field-name-faculty-media-hits field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even"><div id="block-views-faculty-news-media-hits-block" class="block block-views">
+
+    
+  <div class="content">
+    <div class="view view-faculty-news-media-hits view-id-faculty_news_media_hits view-display-id-block view-dom-id-710e017d8e5bc01a08541c10a4230ee9">
+        
+  
+  
+      <div class="view-content">
+        <h2>Penn GSE News</h2>  <div class="views-row views-row-1 views-row-odd views-row-first">
+    
+
+<div  class="node node-gse-news node-promoted node-teaser view-mode-teaser ">
+    <div class="row">
+    <div class="col-sm-12 ">
+      <div class="field field-name-title field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even"><a href="/news/yasmin-kafai-nobel-prize-dialogue">What to do when computers are everywhere</a></div></div></div><div class="field field-name-field-news-front-teaser field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Fresh from an appearance at a Nobel Prize Dialogue, Penn GSE’s Yasmin Kafai explains why we need to change how we think about digital learning.</p></div></div></div><div class="odd field-item date-display first last" ><span class="date-display-single">February 18, 2019</span></div>    </div>
+  </div>
+</div>
+
+
+<!-- Needed to activate display suite support on forms -->
+  </div>
+  <div class="views-row views-row-2 views-row-even">
+    
+
+<div  class="node node-gse-news node-promoted node-teaser view-mode-teaser ">
+    <div class="row">
+    <div class="col-sm-12 ">
+      <div class="field field-name-title field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even"><a href="/news/creating-through-electronic-textiles-and-dna-penn-gse%E2%80%99s-dr-yasmin-kafai-advances-active">Creating Through Electronic Textiles and DNA: Penn GSE’s Dr. Yasmin Kafai Advances Active Learning</a></div></div></div><div class="field field-name-field-news-front-teaser field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Whether she uses e-textiles, video games, or—most recently—synthetic biology to improve learning, Dr. Yasmin Kafai focuses on access, creativity, and community.</p></div></div></div><div class="odd field-item date-display first last" ><span class="date-display-single">July 23, 2018</span></div>    </div>
+  </div>
+</div>
+
+
+<!-- Needed to activate display suite support on forms -->
+  </div>
+  <div class="views-row views-row-3 views-row-odd">
+    
+
+<div  class="node node-gse-news node-promoted node-teaser view-mode-teaser ">
+    <div class="row">
+    <div class="col-sm-12 ">
+      <div class="field field-name-title field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even"><a href="/news/vote-penn-gse-projects-national-science-foundation-stem-all-video-showcase">Vote for Penn GSE projects in National Science Foundation STEM For All Video Showcase</a></div></div></div><div class="field field-name-field-news-front-teaser field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Yasmin Kafai and the Consortium for Policy Research in Education are competing in the STEM For All Video Showcase, with viewer’s choice voting open May 14-21. </p></div></div></div><div class="odd field-item date-display first last" ><span class="date-display-single">May 14, 2018</span></div>    </div>
+  </div>
+</div>
+
+
+<!-- Needed to activate display suite support on forms -->
+  </div>
+  <div class="views-row views-row-4 views-row-even">
+    
+
+<div  class="node node-gse-news node-promoted node-teaser view-mode-teaser ">
+    <div class="row">
+    <div class="col-sm-12 ">
+      <div class="field field-name-title field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even"><a href="/news/synthetic-biology-high-school-students-design-lab-kafai">Putting synthetic biology in the hands of high school students</a></div></div></div><div class="field field-name-field-news-front-teaser field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Watch the video: <span>Penn GSE's </span><a href="http://scholar.gse.upenn.edu/kafai" target="_blank">Yasmin Kafai</a><span> is bringing the new field of synthetic biology into Philadelphia high schools.</span></p></div></div></div><div class="odd field-item date-display first last" ><span class="date-display-single">October 26, 2017</span></div>    </div>
+  </div>
+</div>
+
+
+<!-- Needed to activate display suite support on forms -->
+  </div>
+  <div class="views-row views-row-5 views-row-odd">
+    
+
+<div  class="node node-gse-news node-promoted node-teaser view-mode-teaser ">
+    <div class="row">
+    <div class="col-sm-12 ">
+      <div class="field field-name-title field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even"><a href="/news/new-honor-pioneering-faculty-member-yasmin-kafai">New honor for pioneering faculty member Yasmin Kafai</a></div></div></div><div class="field field-name-field-news-front-teaser field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p><a href="https://scholar.gse.upenn.edu/kafai">Yasmin Kafai</a>, the chair of Penn GSE’s Teaching, Learning and Leadership division, has been named the inaugural Lori and Michael Milken President’s Distinguished Professor in Education. </p></div></div></div><div class="odd field-item date-display first last" ><span class="date-display-single">October 12, 2017</span></div>    </div>
+  </div>
+</div>
+
+
+<!-- Needed to activate display suite support on forms -->
+  </div>
+  <div class="views-row views-row-6 views-row-even">
+    
+
+<div  class="node node-gse-news node-promoted node-teaser view-mode-teaser ">
+    <div class="row">
+    <div class="col-sm-12 ">
+      <div class="field field-name-title field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even"><a href="/news/students-create-wearable-tech-learn-computer-science">Students create wearable tech to learn computer science</a></div></div></div><div class="field field-name-field-news-front-teaser field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>With a new curriculum, Penn GSE’s Yasmin Kafai aimed to show high schoolers what’s inside their Fitbits. </p></div></div></div><div class="odd field-item date-display first last" ><span class="date-display-single">January 24, 2017</span></div>    </div>
+  </div>
+</div>
+
+
+<!-- Needed to activate display suite support on forms -->
+  </div>
+  <div class="views-row views-row-7 views-row-odd views-row-last">
+    
+
+<div  class="node node-gse-news node-promoted node-teaser view-mode-teaser ">
+    <div class="row">
+    <div class="col-sm-12 ">
+      <div class="field field-name-title field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even"><a href="/news/learning-making-and-sometimes-failing">Learning by making, and sometimes failing</a></div></div></div><div class="field field-name-field-news-front-teaser field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Grid magazine profiles Philadelphia’s Maker Jawn project, and Yasmin Kafai’s role supporting a new generation of creators.</p></div></div></div><div class="odd field-item date-display first last" ><span class="date-display-single">December 1, 2015</span></div>    </div>
+  </div>
+</div>
+
+
+<!-- Needed to activate display suite support on forms -->
+  </div>
+  <h2>In the Media</h2>  <div class="views-row views-row-1 views-row-odd views-row-first">
+    
+
+<div  class="node node-in-the-media node-promoted node-teaser view-mode-teaser ">
+    <div class="row">
+    <div class="col-sm-12 ">
+      <div class="field field-name-in-the-media-title-as-link field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even"><a href="https://www.inquirer.com/philly/health/20160809_Not_your_momma_s_microbe_lab__a_new_genetic_engineering_machine_takes_microbial_design_to_the_masses.html" target="_blank">Not your momma&#039;s microbe lab: a new genetic engineering machine takes microbial design to the masses</a></div></div></div><div class="field field-name-field-inthemedia-description field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p><span>Yasmin Kafai will help design an educational version of the Microbial Design Studio, a new genetic engineering machine, for high schools and community colleges.</span></p></div></div></div><strong class="inthemedia-pub">The Philadelphia Inquirer</strong>&nbsp;|&nbsp;<span class="inthemedia-pub"><span class="date-display-single">August 8, 2016</span></span>    </div>
+  </div>
+</div>
+
+
+<!-- Needed to activate display suite support on forms -->
+  </div>
+  <div class="views-row views-row-2 views-row-even">
+    
+
+<div  class="node node-in-the-media node-promoted node-teaser view-mode-teaser ">
+    <div class="row">
+    <div class="col-sm-12 ">
+      <div class="field field-name-in-the-media-title-as-link field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even"><a href="http://www.cbsnews.com/news/sxsw-gamergate-online-harassment-of-female-gamers/" target="_blank">Harassment of female gamers an issue at SXSW and beyond</a></div></div></div><div class="field field-name-field-inthemedia-description field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Yasmin Kafai notes that it's only recently that women players have been recognized as valid gamers in the eyes of companies.  </p></div></div></div><strong class="inthemedia-pub">CBS News</strong>&nbsp;|&nbsp;<span class="inthemedia-pub"><span class="date-display-single">March 14, 2016</span></span>    </div>
+  </div>
+</div>
+
+
+<!-- Needed to activate display suite support on forms -->
+  </div>
+  <div class="views-row views-row-3 views-row-odd">
+    
+
+<div  class="node node-in-the-media node-promoted node-teaser view-mode-teaser ">
+    <div class="row">
+    <div class="col-sm-12 ">
+      <div class="field field-name-in-the-media-title-as-link field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even"><a href="http://www.philly.com/philly/opinion/20151211_Schools_must_make_computer_science_a_priority.html#vZh6k32G4lPqGIvB.99" target="_blank">Schools must make computer science a priority </a></div></div></div><div class="field field-name-field-inthemedia-description field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>In this op-ed, Yasmin Kafai advocates for increased computer science curricula on the eve of the Hour of Code. </p></div></div></div><strong class="inthemedia-pub">Philadelphia Inquirer</strong>&nbsp;|&nbsp;<span class="inthemedia-pub"><span class="date-display-single">December 11, 2015</span></span>    </div>
+  </div>
+</div>
+
+
+<!-- Needed to activate display suite support on forms -->
+  </div>
+  <div class="views-row views-row-4 views-row-even">
+    
+
+<div  class="node node-in-the-media node-promoted node-teaser view-mode-teaser ">
+    <div class="row">
+    <div class="col-sm-12 ">
+      <div class="field field-name-in-the-media-title-as-link field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even"><a href="https://www.apnews.com/1cd1248a5b8849b5a71185c2145e984a" target="_blank">Growing Push to Expose More Students to Computer Science</a></div></div></div><div class="field field-name-field-inthemedia-description field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p><span>Bringing computer science into the schools ensures that everyone has an opportunity to become digitally literate, says Yasmin Kafai.</span></p></div></div></div><strong class="inthemedia-pub">ABC News</strong>&nbsp;|&nbsp;<span class="inthemedia-pub"><span class="date-display-single">December 2, 2015</span></span>    </div>
+  </div>
+</div>
+
+
+<!-- Needed to activate display suite support on forms -->
+  </div>
+  <div class="views-row views-row-5 views-row-odd views-row-last">
+    
+
+<div  class="node node-in-the-media node-promoted node-teaser view-mode-teaser ">
+    <div class="row">
+    <div class="col-sm-12 ">
+      <div class="field field-name-in-the-media-title-as-link field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even"><a href="http://www.gridphilly.com/grid-magazine/2015/10/26/philadelphias-maker-jawn-program" target="_blank">Philadelphia&#039;s Maker Jawn program</a></div></div></div><div class="field field-name-field-inthemedia-description field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>Students in Yasmin Kafai's courses engage in creative work through Philadelphia's Maker Jawn program.</p></div></div></div><strong class="inthemedia-pub">Grid Magazine</strong>&nbsp;|&nbsp;<span class="inthemedia-pub"><span class="date-display-single">October 29, 2015</span></span>    </div>
+  </div>
+</div>
+
+
+<!-- Needed to activate display suite support on forms -->
+  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>  </div>
+</div>
+</div></div></div><div class="field field-name-awards- field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even"><div id="block-views-faculty-news-media-hits-block-1" class="block block-views">
+
+    
+  <div class="content">
+    <div class="view view-faculty-news-media-hits view-id-faculty_news_media_hits view-display-id-block_1 view-dom-id-98024d1939ac2c205cd6b1e339f2c078">
+            <div class="view-header">
+      <h2>Awards &amp; Honors</h2>    </div>
+  
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+    
+
+<div  class="node node-awards-honors node-promoted node-teaser view-mode-teaser ">
+    <div class="row">
+    <div class="col-sm-12 ">
+      <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even"><p>Yasmin Kafai has received a $97,000 grant through Google's Computer Science Education Research Awards. The grant will support the MADE (Music Art Design with Etextiles) program, which will introduce students in Career and Technical Education courses to more advanced computing concepts through electronic textile designs.</p></div></div></div><div class="field field-name-post-date field-type-ds field-label-hidden">Posted on <span>December 5, 2018</span></div>    </div>
+  </div>
+</div>
+
+
+<!-- Needed to activate display suite support on forms -->
+  </div>
+  <div class="views-row views-row-2 views-row-even">
+    
+
+<div  class="node node-awards-honors node-promoted node-teaser view-mode-teaser ">
+    <div class="row">
+    <div class="col-sm-12 ">
+      <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even"><p>Yasmin Kafai, with Co-Principal Investigators Orkan Telhan of PennDesign and Karen Hogan of Biorealize, has received a $99,855 grant from the National Science Foundation. The grant will support the project "Learn.design.compute with bio: A Workshop for Connecting Computational Thinking with Synthetic Biology Applications in K-16 Education."</p></div></div></div><div class="field field-name-post-date field-type-ds field-label-hidden">Posted on <span>November 20, 2018</span></div>    </div>
+  </div>
+</div>
+
+
+<!-- Needed to activate display suite support on forms -->
+  </div>
+  <div class="views-row views-row-3 views-row-odd">
+    
+
+<div  class="node node-awards-honors node-promoted node-teaser view-mode-teaser ">
+    <div class="row">
+    <div class="col-sm-12 ">
+      <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even"><p>Yasmin Kafai and her project partner Michael Eisenberg from University of Colorado-Boulder received a $1.2 million grant from the National Science Foundation for their project “Debugging by Design: Developing a Tool Set for Debugging with Electronic Textiles to Promote Computational and Engineering Thinking in High School.” The goal is to strengthen teachers’ and students’ computational and engineering thinking by helping them to become better at locating and fixing problems in their software and circuit designs. The project will investigate a new instructional approach in which students and teachers themselves (rather than the researchers) will design their own debugging activities and materials with electronic textiles.</p></div></div></div><div class="field field-name-post-date field-type-ds field-label-hidden">Posted on <span>September 19, 2017</span></div>    </div>
+  </div>
+</div>
+
+
+<!-- Needed to activate display suite support on forms -->
+  </div>
+  <div class="views-row views-row-4 views-row-even views-row-last">
+    
+
+<div  class="node node-awards-honors node-promoted node-teaser view-mode-teaser ">
+    <div class="row">
+    <div class="col-sm-12 ">
+      <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even"><p>The bioMAKERlab, an innovative wetlab starter   kit and activities funded by the National Science Foundation, will enable high school students and teachers to   engage in synthetic biology by building genetic circuits that let   microorganisms change color, smell, and shape. In synthetic biology,   participants make their own DNA—gene by gene—and then grow their designs   into real applications by inserting them into microorganisms to develop   different traits and characteristics provided by the genes. The project will   involve students from a Philadelphia public high school and young people   participating in weekend workshops at The Franklin Institute, a   Philadelphia-based science museum.  </p></div></div></div><div class="field field-name-post-date field-type-ds field-label-hidden">Posted on <span>August 2, 2016</span></div>    </div>
+  </div>
+</div>
+
+
+<!-- Needed to activate display suite support on forms -->
+  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>  </div>
+</div>
+</div></div></div></div></fieldset>
+<fieldset class="collapsible collapsed group-journals field-group-htab form-wrapper"><legend><span class="fieldset-legend">Journal Editorial Boards</span></legend><div class="fieldset-wrapper"><div class="field-collection-container clearfix"><div class="field field-name-field-academic-journals field-type-field-collection field-label-above" ><h2 class="label-above" >Journal Editorial Boards</h2><div class="field-collection-view clearfix view-mode-full field-collection-view-final"><div  class="ds-1col entity entity-field-collection-item field-collection-item-field-academic-journals view-mode-full  clearfix">
+
+  
+  <div class="field field-name-field-link-to-journal field-type-link-field field-label-hidden"><div class="field-items"><div class="field-item even"><a href="https://toce.acm.org/" target="_top" rel="nofollow">ACM Transactions on Computing Education</a></div></div></div><div class="field field-name-field-affiliation-role field-type-text field-label-hidden"><div class="field-items"><div class="field-item even">Associate Editor</div></div></div></div>
+
+</div></div></div></div></fieldset>
+</div></div></div>
+</div>
+
+</div><!-- end .row -->
+</div>
+
+
+  </div>
+</div>
+  </div>
+              </div><!-- end main-content -->
+                  </div><!-- end main-content-row -->
+       </div><!-- end #main-content-wrapper -->
+      <div id="push"></div>
+</div>
+<!-- END WRAP FOR STICKY FOOTER -->
+<!-- START FOOTER SECTION -->
+<footer class="footer">
+    <a id="footer" name="footer"></a>
+    <div class="footer-nav-row row">
+      <div class="col-sm-6 col-md-4 address-column">
+          <div class="region region-footer-col-1">
+    <div id="block-block-105" class="block block-block">
+
+    
+  <div class="content">
+    <div><a href="/"><img src="/sites/default/themes/gse_2019/img/PennGSE_UPenn_Logo.png" alt="Penn GSE Logo" /></a></div><address><p><strong>University of Pennsylvania<br />Graduate School of Education</strong><br/><span style="font-size: 16px">3700 Walnut Street<br />Philadelphia, PA 19104</span></p><p style="font-size: 16px;">1-877-PENN-GSE<br/><a href="mailto:admissions@gse.upenn.edu">admissions@gse.upenn.edu</a></p></address>  </div>
+</div>
+  </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+          <div class="region region-footer-col-2">
+    <div id="block-block-106" class="block block-block">
+
+    
+  <div class="content">
+    <ul><li><a href="/about-penn-gse">About</a></li><li><a href="/admissions">Admissions &amp; Financial Aid</a></li><li><a href="/academics/program-finder">Find a Program</a></li><li><a href="/admissions/visits">Visiting Campus</a></li><li><a href="/alumni">Alumni</a></li><li><a href="/about-penn-gse/diversity-inclusion">Diversity &amp; Inclusion</a></li><li><a href="/academics/faculty-directory">Faculty Directory</a></li><li><a href="/academics/faculty-directory/open-faculty-positions">Open Faculty Positions</a></li><li><a href="/support">Support Penn GSE</a></li></ul>  </div>
+</div>
+  </div>
+      </div>
+      <div class="col-sm-6 col-md-3 sm-below-address-column">
+          <div class="region region-footer-col-3">
+    <div id="block-block-108" class="block block-block">
+
+    
+  <div class="content">
+    <ul><li><a href="/academiccalendar" target="_blank">Academic Calendar</a></li><li><a href="/news/events-calendar">Events Calendar</a></li><li><a href="/student/career-professional-development">Career &amp; Professional Development</a></li><li><a href="https://canvas.upenn.edu">Canvas Access</a></li><li><a href="http://pennintouch.apps.upenn.edu/">PennInTouch</a></li><li><a href="http://www.library.upenn.edu/">Libraries</a></li><li><a href="https://onepenn.gse.upenn.edu/student-records-registrar">Registrar/Student Records Office</a></li><li><a href="http://www.costore.com/penngse/welcome.asp">Penn GSE Online Store</a></li><li><a href="http://www.upenn.edu/computing/webmail/">Webmail</a></li></ul>  </div>
+</div>
+  </div>
+      </div>
+      <div class="col-sm-6 col-md-2">
+          <div class="region region-footer-col-4">
+    <div id="block-block-107" class="block block-block">
+
+    
+  <div class="content">
+    <ul><li><a href="https://onepenn.gse.upenn.edu/business-office">Business Office</a></li><li><a href="https://onepenn.gse.upenn.edu/facility-services">Facility Services</a></li><li><a href="https://onepenn.gse.upenn.edu/human-resources">Human Resources</a></li><li><a href="https://onepenn.gse.upenn.edu/information-technology">Information Technology</a></li><li><a href="https://onepenn.gse.upenn.edu/human-resources/staff-directory">Staff Directory</a></li><li><a href="http://www.upenn.edu/u@penn">U@Penn</a></li></ul><p style="font-size: 14px; font-style: italic; margin-right: 50px; line-height: 17px;"><a class="external-link" href="https://accessibility.web-resources.upenn.edu/get-help">Report accessibility issues and request help</a></p>  </div>
+</div>
+  </div>
+      </div>
+    </div>
+    <div class="footer-copyright-row row">
+      <div class="col-sm-12">
+        <p>&copy; 2020 Penn Graduate School of Education</p>
+              </div>
+    </div>
+    <div class="footer-social-row row">
+      <div class="col-sm-4">
+        <div class="penn-logo">
+          <img src="/sites/gse.upenn.edu/themes/gse_2019/img/UniversityofPennsylvania_FullLogo_RGB.png" alt="University of Pennsylvania Logo" style="width:200px;" />
+        </div>
+      </div>
+      <div class="social-icons col-sm-8 text-right">
+          <div class="region region-below-footer">
+    <div id="block-block-109" class="block block-block">
+
+    
+  <div class="content">
+    <a class="fa-icon fab fa-facebook-f" href="https://www.facebook.com/penngse/ ">Facebook</a> <a class="fa-icon fab fa-twitter" href="https://twitter.com/PennGSE">Twitter</a> <a class="fa-icon fab fa-vimeo-v" href="https://vimeo.com/penngse">Vimeo</a> <a class="fa-icon fab fa-linkedin" href="https://www.linkedin.com/school/penngse">LinkedIn</a> <a class="fa-icon fab fa-instagram" href="https://www.instagram.com/penngse">Instagram</a>  </div>
+</div>
+<div id="block-block-112" class="block block-block">
+
+    
+  <div class="content">
+    <p><a href="https://www.upenn.edu/about/disclaimer">Disclaimer</a>  |  <a href="https://www.upenn.edu/about/privacy_policy">Privacy Policy</a>  |  <a href="https://onepenn.gse.upenn.edu/human-resources/policies-procedures/equal-opportunity-harassment">Penn GSE Equal Opportunity &amp; Harassment Policies</a></p>  </div>
+</div>
+  </div>
+      </div>
+    </div>
+</footer><!--- END FOOTER -->
+     <!-- Additional Styles & Scripts. -->
+ 
+  
+   <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"NRJS-1aa00bfcf66dd80d478","applicationID":"217948986","transactionName":"Z1ZWYkdSDEsAUhIKV14cdVVBWg1WTl8JB11vQ1VRUGwUUQRG","queueTime":0,"applicationTime":2005,"atts":"SxFVFA9IH0U=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

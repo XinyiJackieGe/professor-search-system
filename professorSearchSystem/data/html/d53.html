@@ -1,217 +1,731 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" itemscope="" itemtype="http://schema.org/WebPage">
+<!DOCTYPE html>
+<!--[if (lte IE 9) ]><html lang="en" class="no-js oldie"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en" class="no-js"><!--<![endif]-->
 <head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="chrome=1" />
-<script type="text/javascript">/* Copyright 2008 Google. */ (function() { (function(){function e(g){this.t={};this.tick=function(h,k,f){this.t[h]=[void 0!=f?f:(new Date).getTime(),k];if(void 0==f)try{window.console.timeStamp("CSI/"+h)}catch(m){}};this.tick("start",null,g)}var a;if(window.performance)var d=(a=window.performance.timing)&&a.responseStart;var l=0<d?new e(d):new e;window.jstiming={Timer:e,load:l};if(a){var b=a.navigationStart;0<b&&d>=b&&(window.jstiming.srt=d-b)}if(a){var c=window.jstiming.load;0<b&&d>=b&&(c.tick("_wtsrt",void 0,b),c.tick("wtsrt_","_wtsrt",
-d),c.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),c&&0<b&&(c.tick("_tbnd",void 0,window.chrome.csi().startE),c.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,c&&0<b&&(c.tick("_tbnd",void 0,window.external.startE),c.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(g){}})(); })()
-</script>
-<link rel="shortcut icon" type="image/x-icon" href="//www.google.com/images/icons/product/sites-16.ico" />
-<link rel="apple-touch-icon" href="https://ssl.gstatic.com/sites/p/93cc3e/system/app/images/apple-touch-icon.png" type="image/png" />
-<script type="text/javascript">/* Copyright 2008 Google. */ (function() { function d(a){return document.getElementById(a)}window.byId=d;function g(a){return a.replace(/^\s+|\s+$/g,"")}window.trim=g;var h=[],k=0;window.JOT_addListener=function(a,b,c){var f=new String(k++);a={eventName:a,handler:b,compId:c,key:f};h.push(a);return f};window.JOT_removeListenerByKey=function(a){for(var b=0;b<h.length;b++)if(h[b].key==a){h.splice(b,1);break}};window.JOT_removeAllListenersForName=function(a){for(var b=0;b<h.length;b++)h[b].eventName==a&&h.splice(b,1)};
-window.JOT_postEvent=function(a,b,c){var f={eventName:a,eventSrc:b||{},payload:c||{}};if(window.JOT_fullyLoaded)for(b=h.length,c=0;c<b&&c<h.length;c++){var e=h[c];e&&e.eventName==a&&(f.listenerCompId=e.compId||"",(e="function"==typeof e.handler?e.handler:window[e.handler])&&e(f))}else window.JOT_delayedEvents.push({eventName:a,eventSrc:b,payload:c})};window.JOT_delayedEvents=[];window.JOT_fullyLoaded=!1;
-window.JOT_formatRelativeToNow=function(a,b){a=((new Date).getTime()-a)/6E4;if(1440<=a||0>a)return null;var c=0;60<=a&&(a/=60,c=2);2<=a&&c++;return b?window.JOT_siteRelTimeStrs[c].replace("__duration__",Math.floor(a)):window.JOT_userRelTimeStrs[c].replace("__duration__",Math.floor(a))}; })()
-</script>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://www.khoury.northeastern.edu/wp-content/themes/ccis_theme/lib/modernizr.min.js"></script>
+	<link rel="shortcut icon" href="https://www.khoury.northeastern.edu/wp-content/themes/ccis_theme/img/favicon.ico" type="image/x-icon" />
+	<meta name="apple-mobile-web-app-title" content="NU Khoury">
+	<link rel="apple-touch-icon" href="https://www.khoury.northeastern.edu/wp-content/themes/ccis_theme/img/touchicon.png" />
+	<link rel="apple-touch-icon-precomposed" href="https://www.khoury.northeastern.edu/wp-content/themes/ccis_theme/img/touchicon.png" />
+	<link rel="apple-touch-icon" sizes="180x180" href="https://www.khoury.northeastern.edu/wp-content/themes/ccis_theme/img/touchicon-180.png" />
+
+	<link href="https://fast.fonts.com/cssapi/cac43e8c-6965-44df-b8ca-9784607a3b53.css" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" type="text/css" media="all" href="https://www.khoury.northeastern.edu/wp-content/themes/ccis_theme/prod/prod.min.css" />
+	<link rel="stylesheet" type="text/css" media="all" href="https://www.khoury.northeastern.edu/wp-content/themes/ccis_theme/lib/ccis.css" />
+<!-- NU Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WGQLLJ');</script>
+<!-- End Google Tag Manager -->
+<!-- Khoury Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KN6KMJB');</script>
+<!-- End Google Tag Manager -->
+<!-- Google CSE code -->
 <script>
-
-  
-
-  var breadcrumbs = [{"path":"/site/nghaiesrc/home","deleted":false,"title":"Home","dir":"ltr"}];
-  var JOT_clearDotPath = 'https://ssl.gstatic.com/sites/p/93cc3e/system/app/images/cleardot.gif';
-
-  
-  var JOT_userRelTimeStrs = ["a minute ago","__duration__ minutes ago","an hour ago","__duration__ hours ago"];
-
-  
-  
-
-  
-
-  var webspace = {"gvizGstaticVersion":"current","enableAnalytics":true,"pageSharingId":"jotspot_page","codeembeds":{"outerIframeSrc":"https://www.gstatic.com/jotspot/embeds/code/0f08d42392f2000e7e3f3daf5b427a43/outer_iframe.html","innerIframeSrc":"https://217777043-jotspot-embeds.googleusercontent.com/code/8d87fa64604b2a11fae2ed06104c58d3/inner_iframe.html"},"enableUniversalAnalytics":false,"sharingPolicy":"OPENED","siteTitle":"Hai N. Nguyen","jot2atari":{"eligibility":"ineligible"},"onepickUrl":"https://docs.google.com/picker","adsensePublisherId":null,"features":{"moreMobileStyleImprovements":null,"subscriptionDataMigrationInProgress":null,"plusBadge":false,"disableGooglePhotos":true},"isPublic":true,"newSitesBaseUrl":"https://sites.google.com","isConsumer":true,"serverFlags":{"jot2AtariLearnMoreUrl":"https://support.google.com/sites/answer/7035197"},"domainAnalyticsAccountId":"","plusPageId":"","signInUrl":"https://accounts.google.com/AccountChooser?continue\u003dhttps://sites.google.com/site/nghaiesrc/home\u0026service\u003djotspot","analyticsAccountId":"UA-81522406-1","scottyUrl":"/_/upload","homePath":"/","siteNoticeUrlEnabled":null,"plusPageUrl":"","adsensePromoClickedOrSiteIneligible":true,"csiReportUri":"https://gg.google.com/csi","sharingId":"jotspot","termsUrl":"//www.google.com/intl/en/policies/terms/","gvizVersion":1,"editorResources":{"sitelayout":["https://ssl.gstatic.com/sites/p/93cc3e/system/app/css/sitelayouteditor.css"],"text":["https://ssl.gstatic.com/sites/p/93cc3e/system/js/codemirror.js","https://ssl.gstatic.com/sites/p/93cc3e/system/app/css/codemirror_css.css","https://ssl.gstatic.com/sites/p/93cc3e/system/js/trog_edit__en.js","https://ssl.gstatic.com/sites/p/93cc3e/system/app/css/trogedit.css","/site/nghaiesrc/_/rsrc/1585207404000/system/app/css/editor.css","https://ssl.gstatic.com/sites/p/93cc3e/system/app/css/codeeditor.css","/site/nghaiesrc/_/rsrc/1585207404000/system/app/css/camelot/editor-jfk.css"]},"sharingUrlPrefix":"/_/sharing","isAdsenseEnabled":true,"domain":"defaultdomain","baseUri":"/site/nghaiesrc","name":"nghaiesrc","siteTemplateId":false,"siteNoticeRevision":null,"siteNoticeUrlAddress":null,"siteNoticeMessage":null,"page":{"isRtlLocale":false,"canDeleteWebspace":null,"isPageDraft":null,"parentPath":null,"parentWuid":null,"siteLocale":"en","timeZone":"America/Los_Angeles","type":"text","title":"Home","locale":"en","wuid":"wuid:gx:470d70b00db07716","revision":180,"path":"/home","isSiteRtlLocale":false,"pageInheritsPermissions":null,"name":"home","canChangePath":false,"state":"","properties":{},"bidiEnabled":false,"currentTemplate":{"path":"/system/app/pagetemplates/text","title":"Web Page"}},"canPublishScriptToAnyone":true,"user":{"keyboardShortcuts":true,"sessionIndex":"","onePickToken":"","guest_":true,"displayNameOrEmail":"guest","userName":"guest","uid":"","renderMobile":false,"domain":"","namespace":"","hasWriteAccess":false,"namespaceUser":false,"primaryEmail":"guest","hasAdminAccess":false},"gadgets":{"baseUri":"/site/nghaiesrc/system/app/pages/gadgets"}};
-  webspace.page.breadcrumbs = breadcrumbs;
-
-  
-  var JOT_siteRelTimeStrs = ["a minute ago","__duration__ minutes ago","an hour ago","__duration__ hours ago"];
-
+(function() {
+var cx = '004538069614616277034:sltf9o73gg0';
+var gcse = document.createElement('script');
+gcse.type = 'text/javascript';
+gcse.async = true;
+gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(gcse, s);
+})();
 </script>
-<script type="text/javascript">
-                window.jstiming.load.tick('scl');
-              </script>
-<meta name="title" content="Hai N. Nguyen" />
-<meta itemprop="name" content="Hai N. Nguyen" />
-<meta property="og:title" content="Hai N. Nguyen" />
-<style type="text/css">
-      
-      @font-face {
-  font-family: 'Alex Brush';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Alex Brush Regular'), local('AlexBrush-Regular'), url(https://fonts.gstatic.com/s/alexbrush/v11/SZc83FzrJKuqFbwMKk6EhUXz6A.ttf) format('truetype');
-}
+<script type="text/javascript" src="https://www.khoury.northeastern.edu/wp-content/themes/ccis_theme/lib/google-cse.js"></script>
+<!-- begin wp_head -->
+<title>Emanuele Viola &#8211; Khoury College of Computer Sciences</title>
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel='stylesheet' id='tribe-common-skeleton-style-css'  href='https://www.khoury.northeastern.edu/wp-content/plugins/the-events-calendar/common/src/resources/css/common-skeleton.min.css?ver=4.11.5.1' type='text/css' media='all' />
+<link rel='stylesheet' id='tribe-tooltip-css'  href='https://www.khoury.northeastern.edu/wp-content/plugins/the-events-calendar/common/src/resources/css/tooltip.min.css?ver=4.11.5.1' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://www.khoury.northeastern.edu/wp-includes/css/dist/block-library/style.min.css?ver=5.3.2' type='text/css' media='all' />
+<script type='text/javascript' src='https://www.khoury.northeastern.edu/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://www.khoury.northeastern.edu/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel='https://api.w.org/' href='https://www.khoury.northeastern.edu/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.khoury.northeastern.edu/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.khoury.northeastern.edu/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Jonathan Ullman' href='https://www.khoury.northeastern.edu/people/jonathan-ullman/' />
+<link rel='next' title='Lu Wang' href='https://www.khoury.northeastern.edu/people/lu-wang/' />
+<meta name="generator" content="WordPress 5.3.2" />
+<link rel="canonical" href="https://www.khoury.northeastern.edu/people/emanuele-viola/" />
+<link rel='shortlink' href='https://www.khoury.northeastern.edu/?p=2422' />
+<link rel="alternate" type="application/json+oembed" href="https://www.khoury.northeastern.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.khoury.northeastern.edu%2Fpeople%2Femanuele-viola%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.khoury.northeastern.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.khoury.northeastern.edu%2Fpeople%2Femanuele-viola%2F&#038;format=xml" />
+<meta name="tec-api-version" content="v1"><meta name="tec-api-origin" content="https://www.khoury.northeastern.edu"><link rel="https://theeventscalendar.com/" href="https://www.khoury.northeastern.edu/wp-json/tribe/events/v1/" /><!-- end wp_head -->
 
-    
-    </style>
-<link rel="stylesheet" type="text/css" href="https://ssl.gstatic.com/sites/p/93cc3e/system/app/themes/terraice/standard-css-terraice-ltr-ltr.css" />
-<link rel="stylesheet" type="text/css" href="/site/nghaiesrc/_/rsrc/1585207404000/system/app/css/overlay.css?cb=terraice8a80%25150goog-ws-nav-nosidenone30themedefaultstandard" />
-<link rel="stylesheet" type="text/css" href="/site/nghaiesrc/_/rsrc/1585207404000/system/app/css/camelot/allthemes-view.css" />
-<!--[if IE]>
-          <link rel="stylesheet" type="text/css" href="/site/nghaiesrc/system/app/css/camelot/allthemes%2die.css" />
-        <![endif]-->
-<title>Hai N. Nguyen</title>
-<meta itemprop="image" content="https://sites.google.com/site/nghaiesrc/_/rsrc/1468858602799/home/prof.png" />
-<meta property="og:image" content="https://sites.google.com/site/nghaiesrc/_/rsrc/1468858602799/home/prof.png" />
-<script type="text/javascript">
-                window.jstiming.load.tick('cl');
-              </script>
 </head>
-<body xmlns="http://www.google.com/ns/jotspot" id="body" class=" en            ">
-<div id="sites-page-toolbar" class="sites-header-divider">
-<div xmlns="http://www.w3.org/1999/xhtml" id="sites-status" class="sites-status" style="display:none;"><div id="sites-notice" class="sites-notice" role="status" aria-live="assertive"> </div></div>
-</div>
-<div id="sites-chrome-everything-scrollbar">
-<div id="sites-chrome-everything" class="">
-<div id="sites-chrome-page-wrapper" style="direction: ltr">
-<div id="sites-chrome-page-wrapper-inside">
-<div xmlns="http://www.w3.org/1999/xhtml" id="sites-chrome-header-wrapper" style="">
-<table id="sites-chrome-header" class="sites-layout-hbox" cellspacing="0" style="">
-<tr class="sites-header-primary-row" id="sites-chrome-userheader">
-<td id="sites-header-title" class="" role="banner"><div class="sites-header-cell-buffer-wrapper"><h2><a href="https://sites.google.com/site/nghaiesrc/" dir="ltr" id="sites-chrome-userheader-title">Hai N. Nguyen</a></h2></div></td><td class="sites-layout-searchbox  "><div class="sites-header-cell-buffer-wrapper"><form id="sites-searchbox-form" action="/site/nghaiesrc/system/app/pages/search" role="search"><input type="hidden" id="sites-searchbox-scope" name="scope" value="search-site" /><input type="text" id="jot-ui-searchInput" name="q" size="20" value="" aria-label="Search this site" /><div id="sites-searchbox-button-set" class="goog-inline-block"><div role="button" id="sites-searchbox-search-button" class="goog-inline-block jfk-button jfk-button-standard" tabindex="0">Search this site</div></div></form></div></td>
-</tr>
-<tr class="sites-header-secondary-row" id="sites-chrome-horizontal-nav">
-<td colspan="2" id="sites-chrome-header-horizontal-nav-container" role="navigation">
-<div class="sites-header-nav"><ul class="sites-header-nav-container-tabs"><li class="current"><a class="sites-navigation-link current" href="/site/nghaiesrc/home">Home</a></li><li class="unselected"><a class="sites-navigation-link unselected" href="https://drive.google.com/file/d/0ByJKIVQF_0VYNTk1OFJzYTV6VU0/view?usp=sharing" target="_blank">CV</a></li><li class="unselected"><a class="sites-navigation-link unselected" href="/site/nghaiesrc/http-streaming">Research</a></li><li class="unselected"><a class="sites-navigation-link unselected" href="/site/nghaiesrc/miscellaneous">Miscellaneous</a></li></ul><div style="clear: both;"></div></div>
-</td>
-</tr>
-</table>
-</div>
-<div id="sites-chrome-main-wrapper">
-<div id="sites-chrome-main-wrapper-inside">
-<table id="sites-chrome-main" class="sites-layout-hbox" cellspacing="0" cellpadding="{scmCellpadding}" border="0">
-<tr>
-<td id="sites-chrome-sidebar-left" class="sites-layout-sidebar-left" style="display: none; width: 150px">
-<div xmlns="http://www.w3.org/1999/xhtml" id="COMP_11211632587946951" class="sites-embed" role="navigation"><div class="sites-embed-content sites-sidebar-nav"><ul role="navigation" jotId="navList"><li class="nav-first "><div class="current-bg" jotId="wuid:gx:470d70b00db07716" dir="ltr" style="padding-left: 5px;">Home</div></li><li class=""><div dir="ltr" style="padding-left: 5px;"><a href="/site/nghaiesrc/http-streaming" jotId="wuid:gx:2de0e56cc3de45cd" class="sites-navigation-link">Research</a></div></li><li class=""><div dir="ltr" style="padding-left: 5px;"><a href="/site/nghaiesrc/miscellaneous" jotId="wuid:gx:67394b722e1d75c6" class="sites-navigation-link">Miscellaneous</a></div></li></ul></div></div>
-</td>
-<td id="sites-canvas-wrapper">
-<div id="sites-canvas" role="main">
-<div id="goog-ws-editor-toolbar-container"> </div>
-<div xmlns="http://www.w3.org/1999/xhtml" id="title-crumbs" style="display: none;">
-</div>
-<h3 xmlns="http://www.w3.org/1999/xhtml" id="sites-page-title-header" style="display: none;" align="left">
-<span id="sites-page-title" dir="ltr" tabindex="-1" style="outline: none">Home</span>
-</h3>
-<div id="sites-canvas-main" class="sites-canvas-main">
-<div id="sites-canvas-main-content">
-<div xmlns="http://www.w3.org/1999/xhtml" class="sites-layout-name-left-sidebar-hf sites-layout-vbox"><div class="sites-layout-tile sites-tile-name-header sites-layout-empty-tile"><div dir="ltr"><div></div></div></div><table cellspacing="0" class="sites-layout-hbox"><tbody><tr><td class="sites-layout-tile sites-tile-name-content-1 sites-canvas-sidebar"><div dir="ltr"><blockquote style="margin:0 0 0 40px;border:none;padding:0px"><blockquote style="margin:0 0 0 40px;border:none;padding:0px"><blockquote style="margin:0 0 0 40px;border:none;padding:0px"><blockquote style="margin:0 0 0 40px;border:none;padding:0px"><blockquote style="margin:0 0 0 40px;border:none;padding:0px"><br /><br /></blockquote></blockquote></blockquote></blockquote></blockquote><div dir="ltr"><div dir="ltr"><div dir="ltr"><div style="display:block;text-align:left"><a href="https://sites.google.com/site/nghaiesrc/home/prof.png?attredirects=0" imageanchor="1"><img border="0" src="https://sites.google.com/site/nghaiesrc/_/rsrc/1468858602799/home/prof.png" /></a></div><div style="display:block;text-align:left"><br /></div><div style="display:block;text-align:left">Me in 2010, and do you believe now I don't look much different to this? </div></div></div></div></div></td><td class="sites-layout-tile sites-tile-name-content-2"><div dir="ltr"><div><br /></div><div><span> </span><b style="line-height:1.25;font-size:10pt;background-color:transparent">             <span>    <span>    <span>    <span>    <span>    <span>    <span>  </span></span></span></span></span></span></span></b></div><div><b style="line-height:1.25;font-size:10pt;background-color:transparent"><font size="5"><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>  </span>Hai N. Nguyen<br /><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>  </span></font></b><font size="4"><b style="line-height:1.25;background-color:transparent"><span><span lang="ja"><span>グエン</span></span></span></b></font><font size="4"><b style="line-height:1.25;background-color:transparent"><span><span lang="ja"><span>・ゴック</span></span></span></b></font><font size="4"><b style="line-height:1.25;background-color:transparent"><span><span lang="ja"><span>・</span><span>ハイ<br /></span></span></span></b></font></div><div><font size="4"><b style="line-height:1.25;background-color:transparent"><span><span lang="ja"><span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>  </span></span></span></span></b></font><font size="4"><b style="line-height:1.25;background-color:transparent"><span><span lang="ja"><span><span>阮</span></span></span></span></b></font><font size="4"><b style="line-height:1.25;background-color:transparent"><span><span lang="ja"><span><span>玉海 </span></span></span></span></b></font></div><div><b style="line-height:1.25;font-size:10pt;background-color:transparent"><font size="5"><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span> <span> </span></span></font><span style="font-size:small;background-color:transparent;font-weight:normal">(Nguyễn Ngọc Hải in Vietnamese order)</span></b></div><div><b style="line-height:1.25;font-size:10pt;background-color:transparent"><span style="font-size:small;background-color:transparent;font-weight:normal"><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><br /></span></b></div><div><b style="line-height:1.25;font-size:10pt;background-color:transparent"><span style="font-size:small;background-color:transparent;font-weight:normal"><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>   <font size="4"><i><b>The content of this website is outdated. I've moved to</b></i></font></span></span></b><span style="line-height:1.25;font-size:10pt;background-color:transparent"><span style="font-size:small;background-color:transparent"><span><font size="4"> <a href="https://www.ccs.neu.edu/home/hainng/" rel="nofollow"><b><i>https://www.ccs.neu.edu/home/hainng/</i></b></a></font></span></span></span><b style="line-height:1.25;font-size:10pt;background-color:transparent"><span style="font-size:small;background-color:transparent;font-weight:normal"><br /></span></b></div><div><b style="line-height:1.25;font-size:10pt;background-color:transparent"><span style="font-size:small;background-color:transparent;font-weight:normal"><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>   </span><br /></span></b></div><div><span><span><span><span><span><span><span><span><span><span><span><span><br /></span></span></span></span></span></span></span></span></span></span></span></span></div><div><span><span><span><span><span><span><span><span><span><span><span><span>    <span>            <span>    <span>    <span>    <span>    <span>    <span>    </span></span></span></span></span></span><b>Email                           </b>nguyen DOT hai AT husky DOT neu DOT ed<b>u</b></span></span><br /></span></span></span></span></span></span></span></span></span></span></span></div><div><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span>                <span>    <span>    <span>    <span>    <span>    <span>    </span></span></span></span></span></span><b>Address                      </b>Cybersecurity and Privacy Institute, 6th Floor</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></div><div><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><b><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span> <span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>  </span></b></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span style="background-color:transparent">Interdisciplinary Science and Engineering Complex (ISEC) </span></div><div><span style="background-color:transparent"><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>   </span></span><span style="font-size:13.3333px;background-color:transparent">805 Columbus Avenue,</span><span style="font-size:13.3333px;background-color:transparent"> </span><span style="background-color:transparent;font-size:10pt">Boston, MA 02115</span></div><div><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    <span>    </span><span>    </span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></div><div><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span><span>    </span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><a href="https://vn.linkedin.com/in/hai-n-nguyen-a0596586" style="background-color:transparent;font-size:small" target="_blank" rel="nofollow">My Linkedin profile</a></div><div><br /></div><div><br /></div><div><br /></div></div></td></tr></tbody></table><div class="sites-layout-tile sites-tile-name-footer"><div dir="ltr"><div><hr /></div><font size="4"><b>About me</b></font><div><br /></div><div style="text-align:left"><font size="2"><span style="line-height:22.5px">I am a Ph.D. student in Computer Science@Northeastern University advised by <a href="http://www.ccs.neu.edu/home/noubir/" target="_blank" rel="nofollow">Prof. Guevara Noubir</a> . I am interested in solving <i><b>practical </b></i>problems of security and networked systems, broadly defined. Previously, I got my B.E. on Electronics and Communication Engineering at Hanoi University of Science and Technology (HUST) in June 2016 in the highest honor program. At HUST, I had worked with <a href="http://web-ext.u-aizu.ac.jp/~thang/" target="_blank" rel="nofollow">Prof. Thang Truong</a> (the University of Aizu, Japan) and Prof. Nam Pham (HUST) on problems of Quality-of-Experience assurance in multimedia streaming. </span></font></div><div style="text-align:left"><font size="2"><span style="line-height:22.5px"><br /></span></font></div><div style="text-align:left"><font size="2"><span style="line-height:22.5px"><br /></span></font></div><div><hr /></div><div><b style="font-size:large;background-color:transparent">Publications</b></div><div><ol><li><span style="line-height:22.5px;font-size:small;background-color:transparent">Hung T. Le, <b>Hai N. Nguyen</b>, Nam Pham Ngoc, Anh T. Pham and Truong Cong Thang, ”A </span><span style="line-height:22.5px;font-size:small;background-color:transparent">Novel Adaptation Method for HTTP Streaming of VBR Videos over Mobile Networks”, J</span><span style="line-height:22.5px;font-size:small;background-color:transparent"><i>ournal of Mobile Information System, vol. 2016, Special Issue on Advances in Mobile Video Networking, </i>Article ID 2920850, 2016. <a href="https://www.hindawi.com/journals/misy/2016/2920850/" target="_blank" rel="nofollow">[Article]</a></span></li><li><font size="2"><b style="line-height:22.5px">Hai N. Nguyen, </b><span style="line-height:22.5px">Tuan Vu, Hung T. Le, Nam Pham Ngoc and Truong Cong Thang, "Smooth Quality Adaptation Method for VBR Video Streaming over HTTP," in Proceedings of</span><i style="line-height:22.5px"> International Conference on Computing, Management and Telecommunications (COMMANTEL'15)</i><span style="line-height:22.5px">, pp. 184 - 188, Danang, Vietnam, Dec. 2015.</span></font></li><li><font size="2"><span style="line-height:22.5px">Hung T. Le, <b>Hai N. Nguyen, </b>Nam Pham Ngoc, Anh T. Pham, Hoa Le Minh and Truong Cong Thang, "Quality-driven Bitrate Adaptation Method for HTTP Live-streaming," in Proceedings of <i>IEEE International Conference on Communications, QoE-FI workshop (IEEE ICC '15), </i>pp. 1771 - 1776,<i> </i>London, UK, Jun. 2015. </span></font></li></ol><div><font size="2"><span style="line-height:22.5px"><br /></span></font></div></div><div><font size="2"><span style="line-height:22.5px"><br /></span></font></div></div></div></div>
-</div> 
-</div> 
-<div id="sites-canvas-bottom-panel">
-<div xmlns="http://www.w3.org/1999/xhtml" id="COMP_page-subpages"> </div>
-<div id="sites-attachments-container">
-</div>
-</div>
-</div> 
-</td> 
-</tr>
-</table> 
-</div> 
-</div> 
-<div id="sites-chrome-footer-wrapper">
-<div id="sites-chrome-footer-wrapper-inside">
-<div id="sites-chrome-footer">
-</div>
-</div>
-</div>
-</div> 
-</div> 
-<div id="sites-chrome-adminfooter-container">
-<div xmlns="http://www.w3.org/1999/xhtml" class="sites-adminfooter" role="navigation"><p><a class="sites-system-link" href="https://accounts.google.com/ServiceLogin?continue=https://sites.google.com/site/nghaiesrc/home&amp;service=jotspot">Sign in</a><span aria-hidden="true">|</span><a class="sites-system-link" href="/site/nghaiesrc/system/app/pages/recentChanges">Recent Site Activity</a><span aria-hidden="true">|</span><a class="sites-system-link" href="https://sites.google.com/site/nghaiesrc/system/app/pages/reportAbuse" target="_blank">Report Abuse</a><span aria-hidden="true">|</span><a class="sites-system-link" href="javascript:;" onclick="window.open(webspace.printUrl)">Print Page</a><span aria-hidden="true">|</span><span class="sites-system-link">Powered By</span> <b class="powered-by"><a href="http://sites.google.com/site">Google Sites</a></b></p></div>
-</div>
-</div> 
-</div> 
-<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
-    window.jstiming.load.tick('sjl');
-  </script>
-<script xmlns="http://www.w3.org/1999/xhtml" src="https://ssl.gstatic.com/sites/p/93cc3e/system/js/jot_min_view__en.js"></script>
-<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
-    window.jstiming.load.tick('jl');
-  </script>
-<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
-                    sites.Searchbox.initialize(
-                        'sites-searchbox-search-button',
-                        {"object":[{"action":"/site/nghaiesrc/system/app/pages/search","id":"search-site","label":"Search this site"}]}['object'],
-                        'search-site',
-                        {"label":"Configure search options...","url":"/site/nghaiesrc/system/app/pages/admin/settings"});
-                  </script>
-<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
-      gsites.HoverPopupMenu.createSiteDropdownMenus('sites-header-nav-dropdown', false);
-    </script>
-<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" defer="true">
-            JOT_setupNav("11211632587946951", "Navigation", false);
-            JOT_addListener('titleChange', 'JOT_NAVIGATION_titleChange', 'COMP_11211632587946951');
-          </script>
-<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
-  setTimeout(function() {
-    var fingerprint = gsites.date.TimeZone.getFingerprint([1109635200000, 1128902400000, 1130657000000, 1143333000000, 1143806400000, 1145000000000, 1146380000000, 1152489600000, 1159800000000, 1159500000000, 1162095000000, 1162075000000, 1162105500000]);
-    gsites.Xhr.send('https://sites.google.com/site/nghaiesrc/_/tz', null, null, 'GET', null, null, { afjstz: fingerprint });
-  }, 500);
-</script>
-<script xmlns="http://www.w3.org/1999/xhtml">
-                    window.onload = function() {
-                      if (false) {
-                        JOT_setMobilePreview();
-                      }
-                      var loadTimer = window.jstiming.load;
-                      loadTimer.tick("ol");
-                      loadTimer["name"] = "load," + webspace.page.type + ",user_page";
-                      window.jstiming.report(loadTimer, {}, 'https://gg.google.com/csi');
-                    }
-                  </script>
-<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
-        JOT_insertAnalyticsCode(false,
-            false);
-      </script>
-<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
-    var maestroRunner = new gsites.pages.view.SitesMaestroRunner(
-        webspace, "en");
-    maestroRunner.initListeners();
-    maestroRunner.installEditRender();
-  </script>
-<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" defer="true">
-  //<![CDATA[
-    // Decorate any fastUI buttons on the page with a class of 'goog-button'.
-    if (webspace.user.hasWriteAccess) {
-      JOT_decorateButtons();
-    }
 
-    // Fires delayed events.
-    (function() {
-      JOT_fullyLoaded = true;
-      var delayedEvents = JOT_delayedEvents;
-      for (var x = 0; x < delayedEvents.length; x++) {
-        var event = delayedEvents[x];
-        JOT_postEvent(event.eventName, event.eventSrc, event.payload);
-      }
-      JOT_delayedEvents = null;
-      JOT_postEvent('pageLoaded');
-    })();
-  //]]>
-</script>
-<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript">
-    JOT_postEvent('decorateGvizCharts');
-  </script>
-<script type="text/javascript">
-          JOT_setupPostRenderingManager();
-        </script>
-<script type="text/javascript">
-          JOT_postEvent('renderPlus', null, 'sites-chrome-main');
-        </script>
-<script type="text/javascript">
-          sites.codeembed.init();
-        </script>
-<div id="server-timer-div" style="display:none"> </div>
-<script type="text/javascript">
-          window.jstiming.load.tick('render');
-          JOT_postEvent('usercontentrendered', this);
-        </script>
+
+
+<body class="people-template-default single single-people postid-2422 tribe-no-js tribe-events-filter-view tribe-filters-closed tribe-filters-horizontal">
+<!-- NU Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WGQLLJ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Khoury Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KN6KMJB" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->	<a id="top" class="sr-only" href="#main-content">Skip to main content</a>
+
+	<header id="site-header" role="banner">
+
+		<div id="contact-region">
+			<div class="container">
+				<div class="contact-contents expanded">
+
+					
+					<div class="contact-col">
+						<h4>Main</h4>
+<a href="mailto:khoury@northeastern.edu">khoury@northeastern.edu</a>
+<a href="tel:6173732462">617.373.2462</a>
+<a href="http://www.northeastern.edu/nupd/campus-safety/">Campus Safety</a>
+<a href="https://www.northeastern.edu/campusmap/map/index.html">Campus Map</a>					</div>
+
+					<div class="contact-col">
+						<h4>Undergraduate</h4>
+<a href="tel:6173736519">617.373.6519</a>
+<a href="mailto:admissions@northeastern.edu">admissions@northeastern.edu</a>
+<a href="mailto:khoury-advising@northeastern.edu">khoury-advising@northeastern.edu</a>					</div>
+
+					<div class="contact-col">
+						<h4>Graduate</h4>
+<a href="tel:6173738613">617.373.5545</a>
+<a href="mailto:khoury-gradschool@northeastern.edu">khoury-gradschool@northeastern.edu</a>					</div>
+
+					
+					<nav id="menu-contact-header" class="contact-col" aria-label="Contact">
+						<ul id="menu-contact-menu" class="menu menu-contact menu-vertical"><li id="menu-item-3010" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3010"><a rel="nofollow" href="#">Contact &#8211; Parent</a>
+<ul class="sub-menu">
+	<li id="menu-item-4598" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4598"><a href="https://www.khoury.northeastern.edu/directions-and-parking/">Directions &#038; Parking</a></li>
+	<li id="menu-item-2530" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2530"><a href="https://www.khoury.northeastern.edu/facilities/">Facilities</a></li>
+	<li id="menu-item-5831" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5831"><a href="https://www.khoury.northeastern.edu/systems/">Systems</a></li>
+	<li id="menu-item-4627" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4627"><a href="https://www.khoury.northeastern.edu/about/">About</a></li>
+	<li id="menu-item-6161" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6161"><a href="https://www.ccis.northeastern.edu/events/">Events</a></li>
+	<li id="menu-item-4629" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-4629"><a href="https://www.khoury.northeastern.edu/news/">News</a></li>
+</ul>
+</li>
+</ul>					</nav>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+
+			<div id="utilities-region">
+				<div id="utilities">
+					<nav id="menu-utility" aria-label="Utility">
+						<ul id="menu-utility-menu" class="menu menu-utility menu-horizontal"><li id="menu-item-2766" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2766"><a rel="nofollow" href="#">Utility &#8211; Parent</a>
+<ul class="sub-menu">
+	<li id="menu-item-2294" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2294"><a href="https://www.khoury.northeastern.edu/open-positions/">We’re hiring</a></li>
+	<li id="menu-item-13723" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13723"><a href="https://www.khoury.northeastern.edu/current-students/">Current Students</a></li>
+	<li id="menu-item-403" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-403"><a href="https://www.khoury.northeastern.edu/industry/">Industry</a></li>
+	<li id="menu-item-7849" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7849"><a href="https://www.khoury.northeastern.edu/diversity/">Diversity</a></li>
+	<li id="menu-item-402" class="toggle menu-item menu-item-type-post_type menu-item-object-page menu-item-402"><a href="https://www.khoury.northeastern.edu/contact/">Contact</a></li>
+</ul>
+</li>
+</ul>					</nav>
+					<form role="search" id="searchform-q" onsubmit="return submitQuery()">
+    <label class="screen-reader-text" for="q">Search</label>
+    <input type="text" placeholder="Search" value="" name="q" id="q" />
+    <button type="submit" id="searchsubmit" value="Search"></button>
+</form>
+<noscript>
+    <form role="search" method="get" id="searchform" action="https://www.khoury.northeastern.edu/">
+        <label class="screen-reader-text" for="s">Search</label>
+        <input type="text" placeholder="Search"  value="" name="s" id="s" />
+	<button type="submit" id="searchsubmit" value="Search"></button>
+    </form>
+</noscript>
+				</div>
+			</div><!-- /#utilities-region -->
+
+			<div id="branding-region">
+
+				<h1 id="site-logo">
+					<a href="https://www.khoury.northeastern.edu">
+						<span>Khoury College of Computer Sciences</span>
+						<!-- main Khoury logo -->
+						<img src="/wp-content/uploads/2019/02/nu-khoury-lockup.png" alt="college lockup" />
+					</a>
+				</h1>
+			</div><!-- /#branding-region -->
+
+
+			<nav role="navigation" id="menu-primary" aria-label="Primary">
+				<!-- main nav here -->
+				<ul class="menu menu-primary menu-horizontal">
+										<li class="bucket">
+						<a class="toggle" href="#menu-academics">Academics</a><div class="expanded"><div class="menu-description"><p><strong>Computer science for everyone</strong><br />
+Now more than ever, computer science is everywhere. Our innovative, interdisciplinary programs deliver the knowledge and perspective you need to succeed in a highly demanding job market.</p>
+</div><ul id="menu-academics" class="submenu menu-vertical"><li id="menu-item-2222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2222"><a rel="nofollow" href="https://www.khoury.northeastern.edu/academics/">Academics – FLYOUT</a>
+<ul class="sub-menu">
+	<li id="menu-item-980" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-980"><a href="https://www.khoury.northeastern.edu/academics/undergraduate/">Undergraduate</a></li>
+	<li id="menu-item-978" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-978"><a href="https://www.khoury.northeastern.edu/academics/masters/">Masters</a></li>
+	<li id="menu-item-979" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-979"><a href="https://www.khoury.northeastern.edu/academics/phd/">PhD</a></li>
+	<li id="menu-item-973" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-973"><a href="https://www.khoury.northeastern.edu/academics/certificate/">Certificate</a></li>
+	<li id="menu-item-3266" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3266"><a href="https://www.khoury.northeastern.edu/academics/courses/">Courses</a></li>
+</ul>
+</li>
+</ul></div>					</li>
+											<li class="bucket">
+						<a class="toggle" href="#menu-research">Research</a><div class="expanded"><div class="menu-description"><p><strong>Solving today’s challenges</strong><br />
+Bringing together students and faculty across disciplines, the Khoury research community finds impactful solutions to everyday problems.</p>
+</div><ul id="menu-research" class="submenu menu-vertical"><li id="menu-item-2307" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2307"><a rel="nofollow" href="https://www.khoury.northeastern.edu/research/">Research</a>
+<ul class="sub-menu">
+	<li id="menu-item-400" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-400"><a href="https://www.khoury.northeastern.edu/research/research-areas/">Research Areas</a></li>
+	<li id="menu-item-1192" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1192"><a href="https://www.khoury.northeastern.edu/research/research-projects/">Research Projects</a></li>
+	<li id="menu-item-998" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-998"><a href="https://www.khoury.northeastern.edu/research/labs-groups/">Labs and Groups</a></li>
+	<li id="menu-item-1021" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1021"><a href="https://www.khoury.northeastern.edu/research/institutes/">Institutes and Centers</a></li>
+	<li id="menu-item-1022" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1022"><a href="https://www.khoury.northeastern.edu/research/speaker-series/">Speaker Series</a></li>
+</ul>
+</li>
+</ul></div>					</li>
+											<li class="bucket">
+						<a class="toggle" href="#menu-coop">Experiential Learning & Co-op</a><div class="expanded"><div class="menu-description"><p><strong>A real-world education</strong><br />
+Khoury experiential learning and co-op programs deliver a hands-on education to enhance your studies—and advance your career.</p>
+</div><ul id="menu-experiential-learning-co-op" class="submenu menu-vertical"><li id="menu-item-399" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-399"><a rel="nofollow" href="https://www.khoury.northeastern.edu/experiential-learning/">Experiential Learning &#038; Co-op – FLYOUT</a>
+<ul class="sub-menu">
+	<li id="menu-item-2256" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2256"><a href="https://www.khoury.northeastern.edu/experiential-learning/undergraduate/">Undergraduate</a></li>
+	<li id="menu-item-2262" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2262"><a href="https://www.khoury.northeastern.edu/experiential-learning/masters/">Masters</a></li>
+	<li id="menu-item-2264" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2264"><a href="https://www.khoury.northeastern.edu/experiential-learning/phd/">PhD</a></li>
+	<li id="menu-item-2265" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2265"><a href="https://www.khoury.northeastern.edu/experiential-learning/employers/">Employers</a></li>
+</ul>
+</li>
+</ul></div>					</li>
+											<li class="bucket current-bucket">
+						<a class="toggle" href="#menu-people">People</a><div class="expanded"><div class="menu-description"><p><strong>Experienced, engaged, inspiring</strong><br />
+Our renowned faculty shape minds, spark innovation, and inspire ideas. Our dedicated advisors and coordinators build connections and confidence. Our committed staff provide support every step of the way.</p>
+</div><ul id="menu-people" class="submenu menu-vertical"><li id="menu-item-2282" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2282"><a rel="nofollow" href="https://www.khoury.northeastern.edu/people/">People</a>
+<ul class="sub-menu">
+	<li id="menu-item-727" class="menu-item menu-item-type-taxonomy menu-item-object-role current-people-ancestor current-menu-parent current-people-parent menu-item-727"><a href="https://www.khoury.northeastern.edu/role/tenured-and-tenure-track-faculty/">Tenured and Tenure Track Faculty</a></li>
+	<li id="menu-item-8882" class="menu-item menu-item-type-taxonomy menu-item-object-role menu-item-8882"><a href="https://www.khoury.northeastern.edu/role/professors-practice/">Professors of the Practice</a></li>
+	<li id="menu-item-733" class="menu-item menu-item-type-taxonomy menu-item-object-role menu-item-733"><a href="https://www.khoury.northeastern.edu/role/teaching-faculty/">Teaching Faculty</a></li>
+	<li id="menu-item-728" class="menu-item menu-item-type-taxonomy menu-item-object-role menu-item-728"><a href="https://www.khoury.northeastern.edu/role/research-faculty/">Research Faculty and Staff</a></li>
+	<li id="menu-item-5778" class="menu-item menu-item-type-taxonomy menu-item-object-role menu-item-5778"><a href="https://www.khoury.northeastern.edu/role/courtesy-appointments/">Courtesy Appointments</a></li>
+	<li id="menu-item-725" class="menu-item menu-item-type-taxonomy menu-item-object-role menu-item-725"><a href="https://www.khoury.northeastern.edu/role/co-op-and-advising/">Co-op and Advising</a></li>
+	<li id="menu-item-726" class="menu-item menu-item-type-taxonomy menu-item-object-role menu-item-726"><a href="https://www.khoury.northeastern.edu/role/administrative-staff/">Administrative Staff</a></li>
+	<li id="menu-item-729" class="menu-item menu-item-type-taxonomy menu-item-object-role menu-item-729"><a href="https://www.khoury.northeastern.edu/role/systems-staff/">Systems Staff</a></li>
+	<li id="menu-item-730" class="menu-item menu-item-type-taxonomy menu-item-object-role menu-item-730"><a href="https://www.khoury.northeastern.edu/role/post-docs/">Post Docs</a></li>
+	<li id="menu-item-731" class="menu-item menu-item-type-taxonomy menu-item-object-role menu-item-731"><a href="https://www.khoury.northeastern.edu/role/phd-students/">PhD Students</a></li>
+	<li id="menu-item-413" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-413"><a href="https://www.khoury.northeastern.edu/people-view-all/">View All</a></li>
+</ul>
+</li>
+</ul></div>					</li>
+											<li class="bucket">
+						<a class="toggle" href="#menu-alumni">Alumni & Friends</a><div class="expanded"><div class="menu-description"><p><strong>This is your community</strong><br />
+It’s time to get involved and give back. Engage and explore. Connect and keep in touch. Your Khoury community welcomes you!  </p>
+</div><ul id="menu-alumni-friends" class="submenu menu-vertical"><li id="menu-item-2281" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2281"><a rel="nofollow" href="https://www.khoury.northeastern.edu/alumni-and-friends/">Alumni &#038; Friends – FLYOUT</a>
+<ul class="sub-menu">
+	<li id="menu-item-2283" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2283"><a href="https://www.khoury.northeastern.edu/alumni-and-friends/welcome-back/">Welcome Back</a></li>
+	<li id="menu-item-1140" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1140"><a href="https://www.khoury.northeastern.edu/alumni-and-friends/alumni-news-events/">Alumni News &#038; Events</a></li>
+	<li id="menu-item-7062" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7062"><a href="https://www.khoury.northeastern.edu/alumni-and-friends/class-notes/">Alumni Class Notes</a></li>
+	<li id="menu-item-1145" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1145"><a href="https://www.khoury.northeastern.edu/alumni-and-friends/parents/">Parents</a></li>
+	<li id="menu-item-1141" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1141"><a href="https://www.khoury.northeastern.edu/alumni-and-friends/connect/">Connect</a></li>
+	<li id="menu-item-2284" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2284"><a href="https://careers.northeastern.edu/">Career Services</a></li>
+	<li id="menu-item-1142" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1142"><a href="https://www.khoury.northeastern.edu/alumni-and-friends/give/">Give</a></li>
+</ul>
+</li>
+</ul></div>					</li>
+										</ul>
+			</nav>
+
+
+		</div> <!-- /.container -->
+
+	</header>
+		<main class="container" id="main-content">
+		<div class="row">
+			<section id="primary-content">
+								<article class="people">
+					<header class="people-header">
+						<div class="section-inner">
+						<h1 class="page-title">
+													<a href="https://www.khoury.northeastern.edu/people/emanuele-viola/" title="Emanuele Viola">
+							Emanuele Viola							</a>
+												</h1>
+
+								<h2>
+							Associate Professor						</h2>
+	
+							<section class="related-groups related-section">
+						<div class="section-inner">
+															<a href="http://www.ccs.neu.edu/theory/" class="button-red button-arrow-right">Algorithms &#038; Theory</a>
+													</div>
+					</section>
+	
+								<img width="2400" height="1000" src="https://www.khoury.northeastern.edu/wp-content/uploads/2016/02/Viola_Emanuele_crop.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="Emanuele Viola" srcset="https://www.khoury.northeastern.edu/wp-content/uploads/2016/02/Viola_Emanuele_crop.jpg 2400w, https://www.khoury.northeastern.edu/wp-content/uploads/2016/02/Viola_Emanuele_crop-800x333.jpg 800w, https://www.khoury.northeastern.edu/wp-content/uploads/2016/02/Viola_Emanuele_crop-1500x625.jpg 1500w" sizes="(max-width: 2400px) 100vw, 2400px" />						</div>
+					</header>
+
+
+					<section class="people-info">
+								<div class="supplemental">
+							<div class="contact-block">
+																<h2 class="section-title">
+									Contact
+								</h2>
+								<div class="contact-links">
+									<p class="personal-site"><span>W</span><a href="http://www.ccs.neu.edu/home/viola/">Personal site</a>									<p class="google-scholar"><span>G</span><a href="https://scholar.google.com/citations?user=MA8PTRUAAAAJ&hl=en&oi=ao">Google Scholar</a>																		<p class="contact-email"><span>E</span><a href="mailto:v&#105;&#111;l&#97;&#64;ccs&#46;ne&#117;&#46;&#101;&#100;u">&#118;i&#111;l&#97;&#64;&#99;&#99;s.neu&#46;&#101;&#100;&#117;</a>
+																			<p class="contact-phone"><span>T</span><a href="tel:6173738298">617.373.8298</a>								</div>
+																	<div class="address">
+										<h2 class="section-title">
+											Office Location
+										</h2>
+										<p>440 Huntington Avenue<br />
+338 West Village H<br />
+Boston, MA  02115<br />
+</p>
+									</div>
+																		<div class="address-mailing">
+										<h2 class="section-title">
+											Mailing Address
+										</h2>
+									<p>Northeastern University <br />
+ATTN: Emanuele Viola, 338 WVH<br />
+360 Huntington Avenue<br />
+Boston, MA  02115<br />
+</p>
+									</div>
+																</div>
+						</div>
+	
+							<div class="main-content">
+							<h2>Research Interests</h2>
+<ul>
+<li>Theoretical Computer Science</li>
+</ul>
+<h2>Education</h2>
+<ul>
+<li>PhD, Harvard University</li>
+</ul>
+<h2>Biography</h2>
+<p>Emanuele Viola received a Laurea cum laude in computer science from the Italian university &#8220;La Sapienza&#8221; in 2000, and then a PhD in computer science from Harvard University in 2006. Subsequently, he was a postdoctoral member of the Institute for Advanced Study in Princeton and Columbia University in New York.</p>
+<p>Professor Viola&#8217;s main research interest is in theoretical computer science, where he has worked in a wide variety of areas, including pseudorandomness, cryptography, data structures, communication complexity, and circuit lower bounds. He has made several fundamental contributions, in some cases, by solving long-standing open problems. His research has influenced not only computer scientists, but also leading researchers in the fields of mathematics and finance. Professor Viola received the NSF CAREER Award in 2009, the Best Paper Award at the Computational Complexity Conference in 2008, and the SIAM Student Paper Prize in 2006.</p>
+													</div>
+					</section>
+
+							<section class="related-projects related-section">
+						<div class="section-inner">
+							<h2 class="section-title">
+								Projects
+							</h2>
+															<article class="project">
+	<div class="project-content">
+		<h3 class="project-title">
+		Research in Complexity and Related Areas	</h3>
+<!--
+	<div class="content">
+			</div>						
+-->
+	<div class="lead-pi">
+		<h4>Lead PI</h4>							<p><a href="https://www.khoury.northeastern.edu/people/emanuele-viola/">Emanuele Viola</a></p>
+										</div>
+			<div class="co-pi">
+						</div>
+			<div class="funding">
+			<h4>Funding</h4>							<p><a href="http://www.nsf.gov">National Science Foundation</a></p>
+										</div>
+	</div>
+
+	<div class="lightbox hidden">	
+		<div class="lightbox-inner">
+		<button class="close-x close-lightbox button-red"></button>
+			<h3 class="project-title">
+				Research in Complexity and Related Areas			</h3>
+
+		<div class="project-text">
+			<div class="content">
+				<p>The objective of the proposed research is to make progress on several mutually enriching directions in computational complexity theory, including problems at the intersections with algorithms and cryptography.</p>
+			</div>						
+						<div class="project-abstract">
+				<p>Computational inefficiency is a common experience: the computer cannot complete a certain task due to lack of resources such as time, memory, or bandwidth. Computational complexity theory classifies &#8212; or aims to classify &#8212; computational tasks according to their inherent inefficiency. Since tasks requiring excessive resources must be avoided, complexity theory is often indispensable in the design of a computer system. Inefficiency can also be harnessed to our advantage. Indeed, most modern cryptography and electronic commerce rely on the (presumed) inefficiency of certain computational tasks.</p>
+<p>The objective of the proposed research is to make progress on several mutually enriching directions in computational complexity theory, including problems at the intersections with algorithms and cryptography. Building on the principal investigator&#8217;s (PI&#8217;s) previous works, the main proposed directions are:</p>
+<ul>
+<li>computational tasks whose inputs are distributed among several computers which communicate either by broadcast or through a dynamic network,</li>
+<li>structures that store data compactly while allowing efficient answers to queries,</li>
+<li>linking the inefficiency of computational tasks by establishing reductions among them, and</li>
+<li>compiling any cryptographic protocol into a circuit that remains secure even when in the hands of an adversary who observes it during execution.</li>
+</ul>
+<p>This research is closely integrated with a plan to achieve broad impact through education. The PI is reshaping the theory curriculum at Northeastern on multiple levels. At the undergraduate level, the PI is working on and using in his classes a set of lecture notes aimed towards students lacking mathematical maturity. At the Ph.D. level, the PI is including into core classes current research topics including some of the above. Finally, the PI will continue to do research working closely with students at all levels.</p>
+			</div>
+					</div>
+		<div class="project-links">
+			<div class="lead-pi">
+			<h4>Lead PI</h4>						<p><a href="https://www.khoury.northeastern.edu/people/emanuele-viola/">Emanuele Viola</a></p>
+										</div>
+			<div class="co-pi">
+							</div>
+			<div class="funding">
+				<h4>Funding</h4>							<p><a href="http://www.nsf.gov">National Science Foundation</a></p>
+										</div>
+		</div>
+			<div class="button-wrapper">
+				<a class="button close-lightbox">Close</a>
+			</div>
+		</div>
+	</div>
+</article>
+													</div>
+					</section>
+	
+
+							<section class="recent-publications related-section">
+						<div class="section-inner">
+							<h2 class="section-title">
+								Recent Publications
+							</h2>
+											<article class="publication">
+					<div class="publication-content">
+						<h3 class="publication-title">
+													<a href="https://eprint.iacr.org/2011/226.pdf" title="Substitution-permutation networks, pseudo random functions, and natural proofs">
+								Substitution-permutation networks, pseudo random functions, and natural proofs							</a>
+												</h3>
+												<p>Eric Miles and Emanuele Viola</p>
+												<div class="publication-abstract">
+							<h4>Abstract</h4>
+<section id="Abs1" class="Abstract" lang="en">
+<p id="Par1" class="Para">This paper takes a new step towards closing the troubling gap between pseudorandom functions (PRF) and their popular, bounded-input-length counterparts. This gap is both quantitative, because these counterparts are more efficient than PRF in various ways, and methodological, because these counterparts usually fit in the substitution-permutation network paradigm (SPN) which has not been used to construct PRF.</p>
+<p id="Par2" class="Para">We give several candidate PRF <span id="IEq1" class="InlineEquation"><span id="MathJax-Element-1-Frame" class="MathJax" style="font-style: normal;font-weight: normal;line-height: normal;font-size: 17px;text-indent: 0px;text-align: left;letter-spacing: normal;float: none;direction: ltr;max-width: none;max-height: none;min-width: 0px;min-height: 0px;border: 0px;padding: 0px;margin: 0px" role="presentation"><span id="MathJax-Span-1" class="math"><span id="MathJax-Span-2" class="mrow"><span id="MathJax-Span-3" class="msubsup"><span id="MathJax-Span-4" class="texatom"><span id="MathJax-Span-5" class="mrow"><span id="MathJax-Span-6" class="mi">F</span></span></span><span id="MathJax-Span-7" class="mi">i</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation">Fi</span></span></span> that are inspired by the SPN paradigm. This paradigm involves a “substitution function” (S-box). Our main candidates are:</p>
+<p id="Par3" class="Para"><span id="IEq2" class="InlineEquation"><span id="MathJax-Element-2-Frame" class="MathJax" style="font-style: normal;font-weight: normal;line-height: normal;font-size: 17px;text-indent: 0px;text-align: left;letter-spacing: normal;float: none;direction: ltr;max-width: none;max-height: none;min-width: 0px;min-height: 0px;border: 0px;padding: 0px;margin: 0px" role="presentation"><span id="MathJax-Span-8" class="math"><span id="MathJax-Span-9" class="mrow"><span id="MathJax-Span-10" class="msubsup"><span id="MathJax-Span-11" class="texatom"><span id="MathJax-Span-12" class="mrow"><span id="MathJax-Span-13" class="mi">F</span></span></span><span id="MathJax-Span-14" class="mn">1</span></span><span id="MathJax-Span-15" class="mo">:</span><span id="MathJax-Span-16" class="mo">{</span><span id="MathJax-Span-17" class="mn">0</span><span id="MathJax-Span-18" class="mo">,</span><span id="MathJax-Span-19" class="mn">1</span><span id="MathJax-Span-20" class="msubsup"><span id="MathJax-Span-21" class="mo">}</span><span id="MathJax-Span-22" class="mi">n</span></span><span id="MathJax-Span-23" class="mo">→</span><span id="MathJax-Span-24" class="mo">{</span><span id="MathJax-Span-25" class="mn">0</span><span id="MathJax-Span-26" class="mo">,</span><span id="MathJax-Span-27" class="mn">1</span><span id="MathJax-Span-28" class="msubsup"><span id="MathJax-Span-29" class="mo">}</span><span id="MathJax-Span-30" class="mi">n</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation">F1:{0,1}n→{0,1}n</span></span></span> is an SPN whose S-box is a random function on <em class="EmphasisTypeItalic ">b</em> bits given as part of the seed. We prove unconditionally that <span id="IEq3" class="InlineEquation"><span id="MathJax-Element-3-Frame" class="MathJax" style="font-style: normal;font-weight: normal;line-height: normal;font-size: 17px;text-indent: 0px;text-align: left;letter-spacing: normal;float: none;direction: ltr;max-width: none;max-height: none;min-width: 0px;min-height: 0px;border: 0px;padding: 0px;margin: 0px" role="presentation"><span id="MathJax-Span-31" class="math"><span id="MathJax-Span-32" class="mrow"><span id="MathJax-Span-33" class="msubsup"><span id="MathJax-Span-34" class="texatom"><span id="MathJax-Span-35" class="mrow"><span id="MathJax-Span-36" class="mi">F</span></span></span><span id="MathJax-Span-37" class="mn">1</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation">F1</span></span></span> resists attacks that run in time <span id="IEq4" class="InlineEquation"><span id="MathJax-Element-4-Frame" class="MathJax" style="font-style: normal;font-weight: normal;line-height: normal;font-size: 17px;text-indent: 0px;text-align: left;letter-spacing: normal;float: none;direction: ltr;max-width: none;max-height: none;min-width: 0px;min-height: 0px;border: 0px;padding: 0px;margin: 0px" role="presentation"><span id="MathJax-Span-38" class="math"><span id="MathJax-Span-39" class="mrow"><span id="MathJax-Span-40" class="mo">≤</span><span id="MathJax-Span-41" class="msubsup"><span id="MathJax-Span-42" class="mn">2</span><span id="MathJax-Span-43" class="texatom"><span id="MathJax-Span-44" class="mrow"><span id="MathJax-Span-45" class="mi">ϵ</span><span id="MathJax-Span-46" class="mi">b</span></span></span></span></span></span><span class="MJX_Assistive_MathML" role="presentation">≤2ϵb</span></span></span>. Setting <span id="IEq5" class="InlineEquation"><span id="MathJax-Element-5-Frame" class="MathJax" style="font-style: normal;font-weight: normal;line-height: normal;font-size: 17px;text-indent: 0px;text-align: left;letter-spacing: normal;float: none;direction: ltr;max-width: none;max-height: none;min-width: 0px;min-height: 0px;border: 0px;padding: 0px;margin: 0px" role="presentation"><span id="MathJax-Span-47" class="math"><span id="MathJax-Span-48" class="mrow"><span id="MathJax-Span-49" class="mi">b</span><span id="MathJax-Span-50" class="mo">=</span><span id="MathJax-Span-51" class="mi">ω</span><span id="MathJax-Span-52" class="mo">(</span><span id="MathJax-Span-53" class="mi">lg</span><span id="MathJax-Span-54" class="mo"></span><span id="MathJax-Span-55" class="mi">n</span><span id="MathJax-Span-56" class="mo">)</span></span></span><span class="MJX_Assistive_MathML" role="presentation">b=ω(lg⁡n)</span></span></span> we obtain an inefficient PRF, which however seems to be the first such construction using the SPN paradigm.</p>
+<p id="Par4" class="Para"><span id="IEq6" class="InlineEquation"><span id="MathJax-Element-6-Frame" class="MathJax" style="font-style: normal;font-weight: normal;line-height: normal;font-size: 17px;text-indent: 0px;text-align: left;letter-spacing: normal;float: none;direction: ltr;max-width: none;max-height: none;min-width: 0px;min-height: 0px;border: 0px;padding: 0px;margin: 0px" role="presentation"><span id="MathJax-Span-57" class="math"><span id="MathJax-Span-58" class="mrow"><span id="MathJax-Span-59" class="msubsup"><span id="MathJax-Span-60" class="texatom"><span id="MathJax-Span-61" class="mrow"><span id="MathJax-Span-62" class="mi">F</span></span></span><span id="MathJax-Span-63" class="mn">2</span></span><span id="MathJax-Span-64" class="mo">:</span><span id="MathJax-Span-65" class="mo">{</span><span id="MathJax-Span-66" class="mn">0</span><span id="MathJax-Span-67" class="mo">,</span><span id="MathJax-Span-68" class="mn">1</span><span id="MathJax-Span-69" class="msubsup"><span id="MathJax-Span-70" class="mo">}</span><span id="MathJax-Span-71" class="mi">n</span></span><span id="MathJax-Span-72" class="mo">→</span><span id="MathJax-Span-73" class="mo">{</span><span id="MathJax-Span-74" class="mn">0</span><span id="MathJax-Span-75" class="mo">,</span><span id="MathJax-Span-76" class="mn">1</span><span id="MathJax-Span-77" class="msubsup"><span id="MathJax-Span-78" class="mo">}</span><span id="MathJax-Span-79" class="mi">n</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation">F2:{0,1}n→{0,1}n</span></span></span> is an SPN where the S-box is (patched) field inversion, a common choice in practical constructions. <span id="IEq7" class="InlineEquation"><span id="MathJax-Element-7-Frame" class="MathJax" style="font-style: normal;font-weight: normal;line-height: normal;font-size: 17px;text-indent: 0px;text-align: left;letter-spacing: normal;float: none;direction: ltr;max-width: none;max-height: none;min-width: 0px;min-height: 0px;border: 0px;padding: 0px;margin: 0px" role="presentation"><span id="MathJax-Span-80" class="math"><span id="MathJax-Span-81" class="mrow"><span id="MathJax-Span-82" class="msubsup"><span id="MathJax-Span-83" class="texatom"><span id="MathJax-Span-84" class="mrow"><span id="MathJax-Span-85" class="mi">F</span></span></span><span id="MathJax-Span-86" class="mn">2</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation">F2</span></span></span> is computable with Boolean circuits of size <span id="IEq8" class="InlineEquation"><span id="MathJax-Element-8-Frame" class="MathJax" style="font-style: normal;font-weight: normal;line-height: normal;font-size: 17px;text-indent: 0px;text-align: left;letter-spacing: normal;float: none;direction: ltr;max-width: none;max-height: none;min-width: 0px;min-height: 0px;border: 0px;padding: 0px;margin: 0px" role="presentation"><span id="MathJax-Span-87" class="math"><span id="MathJax-Span-88" class="mrow"><span id="MathJax-Span-89" class="mi">n</span><span id="MathJax-Span-90" class="mo">⋅</span><span id="MathJax-Span-91" class="msubsup"><span id="MathJax-Span-92" class="mi">log</span><span id="MathJax-Span-93" class="texatom"><span id="MathJax-Span-94" class="mrow"><span id="MathJax-Span-95" class="mi">O</span><span id="MathJax-Span-96" class="mo">(</span><span id="MathJax-Span-97" class="mn">1</span><span id="MathJax-Span-98" class="mo">)</span></span></span></span><span id="MathJax-Span-99" class="mo"></span><span id="MathJax-Span-100" class="mi">n</span></span></span><span class="MJX_Assistive_MathML" role="presentation">n⋅logO(1)⁡n</span></span></span>, and in particular with seed length <span id="IEq9" class="InlineEquation"><span id="MathJax-Element-9-Frame" class="MathJax" style="font-style: normal;font-weight: normal;line-height: normal;font-size: 17px;text-indent: 0px;text-align: left;letter-spacing: normal;float: none;direction: ltr;max-width: none;max-height: none;min-width: 0px;min-height: 0px;border: 0px;padding: 0px;margin: 0px" role="presentation"><span id="MathJax-Span-101" class="math"><span id="MathJax-Span-102" class="mrow"><span id="MathJax-Span-103" class="mi">n</span><span id="MathJax-Span-104" class="mo">⋅</span><span id="MathJax-Span-105" class="msubsup"><span id="MathJax-Span-106" class="mi">log</span><span id="MathJax-Span-107" class="texatom"><span id="MathJax-Span-108" class="mrow"><span id="MathJax-Span-109" class="mi">O</span><span id="MathJax-Span-110" class="mo">(</span><span id="MathJax-Span-111" class="mn">1</span><span id="MathJax-Span-112" class="mo">)</span></span></span></span><span id="MathJax-Span-113" class="mo"></span><span id="MathJax-Span-114" class="mi">n</span></span></span><span class="MJX_Assistive_MathML" role="presentation">n⋅logO(1)⁡n</span></span></span>. We prove that this candidate has exponential security <span id="IEq10" class="InlineEquation"><span id="MathJax-Element-10-Frame" class="MathJax" style="font-style: normal;font-weight: normal;line-height: normal;font-size: 17px;text-indent: 0px;text-align: left;letter-spacing: normal;float: none;direction: ltr;max-width: none;max-height: none;min-width: 0px;min-height: 0px;border: 0px;padding: 0px;margin: 0px" role="presentation"><span id="MathJax-Span-115" class="math"><span id="MathJax-Span-116" class="mrow"><span id="MathJax-Span-117" class="msubsup"><span id="MathJax-Span-118" class="mn">2</span><span id="MathJax-Span-119" class="texatom"><span id="MathJax-Span-120" class="mrow"><span id="MathJax-Span-121" class="mi">Ω</span><span id="MathJax-Span-122" class="mo">(</span><span id="MathJax-Span-123" class="mi">n</span><span id="MathJax-Span-124" class="mo">)</span></span></span></span></span></span><span class="MJX_Assistive_MathML" role="presentation">2Ω(n)</span></span></span> against linear and differential cryptanalysis.</p>
+<p id="Par5" class="Para"><span id="IEq11" class="InlineEquation"><span id="MathJax-Element-11-Frame" class="MathJax" style="font-style: normal;font-weight: normal;line-height: normal;font-size: 17px;text-indent: 0px;text-align: left;letter-spacing: normal;float: none;direction: ltr;max-width: none;max-height: none;min-width: 0px;min-height: 0px;border: 0px;padding: 0px;margin: 0px" role="presentation"><span id="MathJax-Span-125" class="math"><span id="MathJax-Span-126" class="mrow"><span id="MathJax-Span-127" class="msubsup"><span id="MathJax-Span-128" class="texatom"><span id="MathJax-Span-129" class="mrow"><span id="MathJax-Span-130" class="mi">F</span></span></span><span id="MathJax-Span-131" class="mn">3</span></span><span id="MathJax-Span-132" class="mo">:</span><span id="MathJax-Span-133" class="mo">{</span><span id="MathJax-Span-134" class="mn">0</span><span id="MathJax-Span-135" class="mo">,</span><span id="MathJax-Span-136" class="mn">1</span><span id="MathJax-Span-137" class="msubsup"><span id="MathJax-Span-138" class="mo">}</span><span id="MathJax-Span-139" class="mi">n</span></span><span id="MathJax-Span-140" class="mo">→</span><span id="MathJax-Span-141" class="mo">{</span><span id="MathJax-Span-142" class="mn">0</span><span id="MathJax-Span-143" class="mo">,</span><span id="MathJax-Span-144" class="mn">1</span><span id="MathJax-Span-145" class="mo">}</span></span></span><span class="MJX_Assistive_MathML" role="presentation">F3:{0,1}n→{0,1}</span></span></span> is a non-standard variant on the SPN paradigm, where “states” grow in length. <span id="IEq12" class="InlineEquation"><span id="MathJax-Element-12-Frame" class="MathJax" style="font-style: normal;font-weight: normal;line-height: normal;font-size: 17px;text-indent: 0px;text-align: left;letter-spacing: normal;float: none;direction: ltr;max-width: none;max-height: none;min-width: 0px;min-height: 0px;border: 0px;padding: 0px;margin: 0px" role="presentation"><span id="MathJax-Span-146" class="math"><span id="MathJax-Span-147" class="mrow"><span id="MathJax-Span-148" class="msubsup"><span id="MathJax-Span-149" class="texatom"><span id="MathJax-Span-150" class="mrow"><span id="MathJax-Span-151" class="mi">F</span></span></span><span id="MathJax-Span-152" class="mn">3</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation">F3</span></span></span> is computable with size <span id="IEq13" class="InlineEquation"><span id="MathJax-Element-13-Frame" class="MathJax" style="font-style: normal;font-weight: normal;line-height: normal;font-size: 17px;text-indent: 0px;text-align: left;letter-spacing: normal;float: none;direction: ltr;max-width: none;max-height: none;min-width: 0px;min-height: 0px;border: 0px;padding: 0px;margin: 0px" role="presentation"><span id="MathJax-Span-153" class="math"><span id="MathJax-Span-154" class="mrow"><span id="MathJax-Span-155" class="msubsup"><span id="MathJax-Span-156" class="mi">n</span><span id="MathJax-Span-157" class="texatom"><span id="MathJax-Span-158" class="mrow"><span id="MathJax-Span-159" class="mn">1</span><span id="MathJax-Span-160" class="mo">+</span><span id="MathJax-Span-161" class="mi">ϵ</span></span></span></span></span></span><span class="MJX_Assistive_MathML" role="presentation">n1+ϵ</span></span></span>, for any <span id="IEq14" class="InlineEquation"><span id="MathJax-Element-14-Frame" class="MathJax" style="font-style: normal;font-weight: normal;line-height: normal;font-size: 17px;text-indent: 0px;text-align: left;letter-spacing: normal;float: none;direction: ltr;max-width: none;max-height: none;min-width: 0px;min-height: 0px;border: 0px;padding: 0px;margin: 0px" role="presentation"><span id="MathJax-Span-162" class="math"><span id="MathJax-Span-163" class="mrow"><span id="MathJax-Span-164" class="mi">ϵ</span><span id="MathJax-Span-165" class="mo">&gt;</span><span id="MathJax-Span-166" class="mn">0</span></span></span><span class="MJX_Assistive_MathML" role="presentation">ϵ&gt;0</span></span></span>, in the restricted circuit class <span id="IEq15" class="InlineEquation"><span id="MathJax-Element-15-Frame" class="MathJax" style="font-style: normal;font-weight: normal;line-height: normal;font-size: 17px;text-indent: 0px;text-align: left;letter-spacing: normal;float: none;direction: ltr;max-width: none;max-height: none;min-width: 0px;min-height: 0px;border: 0px;padding: 0px;margin: 0px" role="presentation"><span id="MathJax-Span-167" class="math"><span id="MathJax-Span-168" class="mrow"><span id="MathJax-Span-169" class="msubsup"><span id="MathJax-Span-170" class="texatom"><span id="MathJax-Span-171" class="mrow"><span id="MathJax-Span-172" class="mi">T</span><span id="MathJax-Span-173" class="mi">C</span></span></span><span id="MathJax-Span-174" class="mn">0</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation">TC0</span></span></span> of unbounded fan-in majority circuits of constant-depth. We prove that <span id="IEq16" class="InlineEquation"><span id="MathJax-Element-16-Frame" class="MathJax" style="font-style: normal;font-weight: normal;line-height: normal;font-size: 17px;text-indent: 0px;text-align: left;letter-spacing: normal;float: none;direction: ltr;max-width: none;max-height: none;min-width: 0px;min-height: 0px;border: 0px;padding: 0px;margin: 0px" role="presentation"><span id="MathJax-Span-175" class="math"><span id="MathJax-Span-176" class="mrow"><span id="MathJax-Span-177" class="msubsup"><span id="MathJax-Span-178" class="texatom"><span id="MathJax-Span-179" class="mrow"><span id="MathJax-Span-180" class="mi">F</span></span></span><span id="MathJax-Span-181" class="mn">3</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation">F3</span></span></span> is almost 3-wise independent.</p>
+<p id="Par6" class="Para"><span id="IEq17" class="InlineEquation"><span id="MathJax-Element-17-Frame" class="MathJax" style="font-style: normal;font-weight: normal;line-height: normal;font-size: 17px;text-indent: 0px;text-align: left;letter-spacing: normal;float: none;direction: ltr;max-width: none;max-height: none;min-width: 0px;min-height: 0px;border: 0px;padding: 0px;margin: 0px" role="presentation"><span id="MathJax-Span-182" class="math"><span id="MathJax-Span-183" class="mrow"><span id="MathJax-Span-184" class="msubsup"><span id="MathJax-Span-185" class="texatom"><span id="MathJax-Span-186" class="mrow"><span id="MathJax-Span-187" class="mi">F</span></span></span><span id="MathJax-Span-188" class="mn">4</span></span><span id="MathJax-Span-189" class="mo">:</span><span id="MathJax-Span-190" class="mo">{</span><span id="MathJax-Span-191" class="mn">0</span><span id="MathJax-Span-192" class="mo">,</span><span id="MathJax-Span-193" class="mn">1</span><span id="MathJax-Span-194" class="msubsup"><span id="MathJax-Span-195" class="mo">}</span><span id="MathJax-Span-196" class="mi">n</span></span><span id="MathJax-Span-197" class="mo">→</span><span id="MathJax-Span-198" class="mo">{</span><span id="MathJax-Span-199" class="mn">0</span><span id="MathJax-Span-200" class="mo">,</span><span id="MathJax-Span-201" class="mn">1</span><span id="MathJax-Span-202" class="mo">}</span></span></span><span class="MJX_Assistive_MathML" role="presentation">F4:{0,1}n→{0,1}</span></span></span> uses an extreme setting of the SPN parameters (one round, one S-box, no diffusion matrix). The S-box is again (patched) field inversion. We prove that this candidate fools all parity tests that look at <span id="IEq18" class="InlineEquation"><span id="MathJax-Element-18-Frame" class="MathJax" style="font-style: normal;font-weight: normal;line-height: normal;font-size: 17px;text-indent: 0px;text-align: left;letter-spacing: normal;float: none;direction: ltr;max-width: none;max-height: none;min-width: 0px;min-height: 0px;border: 0px;padding: 0px;margin: 0px" role="presentation"><span id="MathJax-Span-203" class="math"><span id="MathJax-Span-204" class="mrow"><span id="MathJax-Span-205" class="mo">≤</span><span id="MathJax-Span-206" class="msubsup"><span id="MathJax-Span-207" class="mn">2</span><span id="MathJax-Span-208" class="texatom"><span id="MathJax-Span-209" class="mrow"><span id="MathJax-Span-210" class="mn">0.9</span><span id="MathJax-Span-211" class="mi">n</span></span></span></span></span></span><span class="MJX_Assistive_MathML" role="presentation">≤20.9n</span></span></span> outputs.</p>
+<p id="Par7" class="Para">Assuming the security of our candidates, our work also narrows the gap between the “Natural Proofs barrier” [Razborov &amp; Rudich; JCSS ’97] and existing lower bounds, in three models: unbounded-depth circuits, <span id="IEq19" class="InlineEquation"><span id="MathJax-Element-19-Frame" class="MathJax" style="font-style: normal;font-weight: normal;line-height: normal;font-size: 17px;text-indent: 0px;text-align: left;letter-spacing: normal;float: none;direction: ltr;max-width: none;max-height: none;min-width: 0px;min-height: 0px;border: 0px;padding: 0px;margin: 0px" role="presentation"><span id="MathJax-Span-212" class="math"><span id="MathJax-Span-213" class="mrow"><span id="MathJax-Span-214" class="msubsup"><span id="MathJax-Span-215" class="texatom"><span id="MathJax-Span-216" class="mrow"><span id="MathJax-Span-217" class="mi">T</span><span id="MathJax-Span-218" class="mi">C</span></span></span><span id="MathJax-Span-219" class="mn">0</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation">TC0</span></span></span> circuits, and Turing machines. In particular, the efficiency of the circuits computing <span id="IEq20" class="InlineEquation"><span id="MathJax-Element-20-Frame" class="MathJax" style="font-style: normal;font-weight: normal;line-height: normal;font-size: 17px;text-indent: 0px;text-align: left;letter-spacing: normal;float: none;direction: ltr;max-width: none;max-height: none;min-width: 0px;min-height: 0px;border: 0px;padding: 0px;margin: 0px" role="presentation"><span id="MathJax-Span-220" class="math"><span id="MathJax-Span-221" class="mrow"><span id="MathJax-Span-222" class="msubsup"><span id="MathJax-Span-223" class="texatom"><span id="MathJax-Span-224" class="mrow"><span id="MathJax-Span-225" class="mi">F</span></span></span><span id="MathJax-Span-226" class="mn">3</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation">F3</span></span></span> is related to a result by Allender and Koucky [JACM ’10] who show that a lower bound for such circuits would imply a lower bound for <span id="IEq21" class="InlineEquation"><span id="MathJax-Element-21-Frame" class="MathJax" style="font-style: normal;font-weight: normal;line-height: normal;font-size: 17px;text-indent: 0px;text-align: left;letter-spacing: normal;float: none;direction: ltr;max-width: none;max-height: none;min-width: 0px;min-height: 0px;border: 0px;padding: 0px;margin: 0px" role="presentation"><span id="MathJax-Span-227" class="math"><span id="MathJax-Span-228" class="mrow"><span id="MathJax-Span-229" class="msubsup"><span id="MathJax-Span-230" class="texatom"><span id="MathJax-Span-231" class="mrow"><span id="MathJax-Span-232" class="mi">T</span><span id="MathJax-Span-233" class="mi">C</span></span></span><span id="MathJax-Span-234" class="mn">0</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation">TC0</span></span></span>.</p>
+</section>
+<div class="HeaderArticleNotes"></div>
+						</div>
+					</div>
+				</article>
+				<article class="publication">
+					<div class="publication-content">
+						<h3 class="publication-title">
+													<a href="http://ieeexplore.ieee.org/document/7782942/" title="The multiparty communication complexity of interleaved group products">
+								The multiparty communication complexity of interleaved group products							</a>
+												</h3>
+												<p> W.T. Gowers and Emanuele Viola</p>
+												<div class="publication-abstract">
+							<h4>Abstract</h4>
+<div class="abstract-text ng-binding">Party A<sub>i</sub> of k parties A<sub>1</sub>,&#8230;,A<sub>k</sub> receives on its forehead a t-tuple (a<sub>i1</sub>,&#8230;,a<sub>it</sub>) of elements from the group G = SL(2, q). The parties are promised that the interleaved product a<sub>11</sub>&#8230;a<sub>k1</sub>a<sub>12</sub>&#8230;a<sub>k2</sub>&#8230;a<sub>1t</sub>&#8230;a<sub>kt</sub> is equal either to the identity e or to some other fixed element g ∈ G. Their goal is to determine which of e and g the interleaved product is equal to, using the least amount of communication. We show that for all fixed k and all sufficiently large t the communication is Ω(t log |G|), which is tight. As an application, we establish the security of the leakage-resilient circuits studied by Miles and Viola (STOC 2013) in the &#8220;only computation leaks&#8221; model. Our main technical contribution is of independent interest. We show that if X is a probability distribution on G<sup>m</sup> such that any two coordinates are uniform in G<sup>2</sup>, then a pointwise product of s independent copies of X is nearly uniform in G<sup>m</sup>, where s depends on m only.</div>
+						</div>
+					</div>
+				</article>
+							<!-- put more pubs link here -->
+													</div>
+					</section>
+	
+	
+
+							<section class="related-news-events related-section">
+												<div class="section-inner">
+							<h2 class="section-title">
+								Related News
+							</h2>
+															<div class="news">
+									<h3>
+										<a href="https://www.khoury.northeastern.edu/current-students/northeastern-student-presents-at-prestigious-icalp-conference-in-kyoto/">Northeastern student presents at prestigious ICALP conference in Kyoto</a>									</h3>
+								</div>
+													</div>
+						
+													</section>
+	
+							<section class="current-students related-people related-section">
+						<div class="section-inner">
+							<h2 class="section-title">
+								Khoury PhD Students &amp; Post-Docs
+							</h2>
+							<div class="row">
+															<div class="grid-people">
+													<article class="people">
+					<div class="grid-item">
+						<a href="https://www.khoury.northeastern.edu/people/xuangui-huang/">
+								<div class="grid-image"><img src="https://www.khoury.northeastern.edu/wp-content/uploads/2017/11/phd-index-6824.jpg" alt="" /></div>
+															<p class="roles"><span class="role-32">PhD Students</span></p>
+														<h3 class="person-name">
+									Xuangui Huang							</h3>
+						</a>
+												<div class="position-list">
+															<p class="position">PhD Student</p>
+													</div>
+																	</div>
+				</article>
+								</div>
+															<div class="grid-people">
+													<article class="people">
+					<div class="grid-item">
+						<a href="https://www.khoury.northeastern.edu/people/peter-ivanov/">
+								<div class="grid-image"><img src="https://www.khoury.northeastern.edu/wp-content/uploads/2018/08/linderpix-NEU-4866-crop.jpg" alt="" /></div>
+															<p class="roles"><span class="role-32">PhD Students</span></p>
+														<h3 class="person-name">
+									Peter Ivanov							</h3>
+						</a>
+												<div class="position-list">
+															<p class="position">PhD Student</p>
+													</div>
+																	</div>
+				</article>
+								</div>
+														</div>
+						</div>
+					</section>
+	
+							<section class="past-students related-people related-section">
+						<div class="section-inner">
+							<h2 class="section-title">
+								Past PhD Students &amp; Post-Docs
+							</h2>
+							<div class="row">
+															<div class="grid-people">
+													<article class="people">
+					<div class="grid-item">
+						<a href="https://www.khoury.northeastern.edu/people/hamidreza-jahanjou/">
+								<div class="grid-image"><img src="https://www.khoury.northeastern.edu/wp-content/uploads/2016/02/linderpix-NEU-57648-crop.jpg" alt="" /></div>
+															<p class="roles"><span class="role-27">Part Time Faculty</span> <span class="role-25">Teaching Faculty</span></p>
+														<h3 class="person-name">
+									Hamidreza Jahanjou							</h3>
+						</a>
+												<div class="position-list">
+															<p class="position">Part-Time Lecturer - Silicon Valley</p>
+													</div>
+																	</div>
+				</article>
+								</div>
+															<div class="grid-people">
+													<article class="people">
+					<div class="grid-item">
+						<a href="https://www.khoury.northeastern.edu/people/chin-ho-lee/">
+								<div class="grid-image"><img src="https://www.khoury.northeastern.edu/wp-content/uploads/2016/05/Lee_Chin-Ho_index-image.jpg" alt="" /></div>
+															<p class="roles"><span class="role-32">PhD Students</span></p>
+														<h3 class="person-name">
+									Chin Ho Lee							</h3>
+						</a>
+												<div class="position-list">
+															<p class="position">PhD Student</p>
+													</div>
+																	</div>
+				</article>
+								</div>
+														</div>
+						</div>
+					</div>
+					</article>
+
+			</section>
+		</div><!-- / .row -->
+	</main>
+<footer role="contentinfo" id="site-footer">
+	<div class="container">
+		<div id="menu-prefooter" class="row">
+			<div class="footer-logo">
+				<!-- Khoury College wordmark only -->
+				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+					 viewBox="0 0 323 20.5" style="enable-background:new 0 0 323 20.5;" xml:space="preserve">
+				<style type="text/css">
+					.st0{fill:#625445;}
+				</style>
+				<g>
+					<path class="st0" d="M0,0.3h2.6v7h0l4.9-7h2.8L5.7,7.1l5.1,9.3H7.9L4,9.2l-1.4,2v5.2H0V0.3z"/>
+					<path class="st0" d="M11.5,0.3h2.4v5.3l0.1,0c0.6-1,1.8-1.7,3-1.7c1.8,0,3,0.8,3,3.3v9.1h-2.4V8.1c0-1.6-0.5-2.2-1.7-2.2
+						c-1,0-1.9,0.8-1.9,2.4v8.1h-2.4L11.5,0.3z"/>
+					<path class="st0" d="M26.4,4c3.5,0,4.5,2.6,4.5,6.4s-1.1,6.4-4.5,6.4s-4.5-2.6-4.5-6.4S22.9,4,26.4,4z M26.4,14.9
+						c1.8,0,2.1-1.5,2.1-4.6c0-2.7-0.3-4.6-2.1-4.6c-1.8,0-2.1,1.9-2.1,4.6C24.3,13.4,24.6,14.9,26.4,14.9z"/>
+					<path class="st0" d="M39,15L39,15c-0.7,1.1-1.9,1.8-3.2,1.7c-1.8,0-3-0.8-3-4V4.3h2.4V13c0,1.3,0.6,1.8,1.6,1.8c1,0,2-0.7,2-2V4.3
+						h2.4v12.1h-2.3L39,15z"/>
+					<path class="st0" d="M43.6,4.3H46v1.9h0C46.6,4.8,47.5,4,48.9,4c0.2,0,0.4,0,0.6,0.1v2.5c-0.3-0.1-0.7-0.1-1-0.1
+						c-1.1,0-2.4,0.5-2.4,2.7v7.3h-2.4L43.6,4.3z"/>
+					<path class="st0" d="M52.7,4.3l2.1,9.1h0l1.9-9.1h2.5L56,16.8c-0.9,3.3-1.7,3.7-4.2,3.7c-0.3,0-0.6,0-1-0.1v-1.9
+						c0.3,0.1,0.5,0.1,0.8,0.1c0.8,0,1.4-0.2,1.6-0.9l0.3-1L50.1,4.3L52.7,4.3z"/>
+					<path class="st0" d="M76.1,10.6V11c0,2.9-1.2,5.7-4.9,5.7c-4,0-5.3-2.6-5.3-8.3S67.1,0,71.2,0C75.8,0,76,3.4,76,5v0.3h-2.6V5.1
+						c0-1.5-0.4-3.2-2.3-3.1c-1.9,0-2.7,1.2-2.7,6.3s0.9,6.5,2.7,6.5c2.1,0,2.4-2.4,2.4-3.9v-0.3L76.1,10.6z"/>
+					<path class="st0" d="M81.8,4c3.5,0,4.5,2.6,4.5,6.4s-1.1,6.4-4.5,6.4s-4.5-2.6-4.5-6.4S78.3,4,81.8,4z M81.8,14.9
+						c1.8,0,2.1-1.5,2.1-4.6c0-2.7-0.3-4.6-2.1-4.6s-2.1,1.9-2.1,4.6C79.7,13.4,80,14.9,81.8,14.9z"/>
+					<path class="st0" d="M88.3,0.3h2.4v16.1h-2.4V0.3z"/>
+					<path class="st0" d="M93.3,0.3h2.4v16.1h-2.4V0.3z"/>
+					<path class="st0" d="M100.3,10.6v0.7c0,1.6,0.2,3.7,2,3.7c1.7,0,1.9-2,1.9-2.7h2.3c0,2.7-1.6,4.4-4.3,4.4c-2,0-4.4-0.6-4.4-6.2
+						c0-3.2,0.7-6.5,4.5-6.5c3.4,0,4.3,2,4.3,5.4v1.3L100.3,10.6z M104.2,9V8.3c0-1.5-0.5-2.7-1.9-2.7c-1.6,0-2,1.5-2,3.1V9L104.2,9z"/>
+					<path class="st0" d="M111,17.4c0,0.7,0.7,1.4,1.8,1.4c1.3,0,2-0.9,2-2.3v-2h0c-0.5,1.1-1.6,1.7-2.7,1.7c-2.8,0-3.6-2.8-3.6-6.1
+						c0-2.7,0.4-6.2,3.8-6.2c1.4,0,2.4,0.9,2.7,1.8h0V4.3h2.3v11.5c0,2.9-1.3,4.7-4.5,4.7c-3.6,0-4-2.1-4-3.1L111,17.4z M112.7,14.4
+						c1.9,0,2.1-2.4,2.1-4.3c0-2-0.2-4.2-1.9-4.2c-1.8,0-2,1.8-2,4C110.8,12,110.9,14.4,112.7,14.4z"/>
+					<path class="st0" d="M121.5,10.6v0.7c0,1.6,0.2,3.7,2,3.7c1.7,0,1.9-2,1.9-2.7h2.3c0,2.7-1.6,4.4-4.3,4.4c-2,0-4.4-0.6-4.4-6.2
+						c0-3.2,0.7-6.5,4.5-6.5c3.4,0,4.3,2,4.3,5.4v1.3L121.5,10.6z M125.4,9V8.3c0-1.5-0.5-2.7-1.9-2.7c-1.6,0-2,1.5-2,3.1V9L125.4,9z"/>
+					<path class="st0" d="M139.3,4c3.5,0,4.5,2.6,4.5,6.4s-1.1,6.4-4.5,6.4s-4.5-2.6-4.5-6.4S135.8,4,139.3,4z M139.3,14.9
+						c1.8,0,2.1-1.5,2.1-4.6c0-2.7-0.3-4.6-2.1-4.6s-2.1,1.9-2.1,4.6C137.2,13.4,137.5,14.9,139.3,14.9z"/>
+					<path class="st0" d="M146.4,6.1h-1.7V4.3h1.7V3.2c0-2.3,1.1-3,3.1-3c0.4,0,0.9,0,1.3,0.1v1.9h-0.7c-0.9,0-1.3,0.3-1.3,1.1v1.1h2
+						v1.8h-2v10.3h-2.4L146.4,6.1z"/>
+					<path class="st0" d="M167.3,10.6V11c0,2.9-1.2,5.7-4.9,5.7c-4,0-5.3-2.6-5.3-8.3s1.3-8.3,5.3-8.3c4.6,0,4.8,3.4,4.8,5v0.3h-2.6V5.1
+						c0-1.5-0.5-3.2-2.3-3.1c-1.9,0-2.7,1.2-2.7,6.3s0.9,6.5,2.7,6.5c2.1,0,2.4-2.4,2.4-3.9v-0.3L167.3,10.6z"/>
+					<path class="st0" d="M173,4c3.5,0,4.5,2.6,4.5,6.4s-1.1,6.4-4.5,6.4c-3.4,0-4.5-2.6-4.5-6.4S169.5,4,173,4z M173,14.9
+						c1.8,0,2.1-1.5,2.1-4.6c0-2.7-0.3-4.6-2.1-4.6s-2.1,1.9-2.1,4.6C171,13.4,171.3,14.9,173,14.9z"/>
+					<path class="st0" d="M179.5,4.3h2.3v1.4h0.1c0.6-1.1,1.7-1.7,2.9-1.7c1.7,0,2.5,0.8,2.8,1.8c0.7-1.2,1.6-1.8,3.1-1.8
+						c1.7,0,2.9,0.9,2.9,3.2v9.2h-2.4V8.1c0-1.6-0.5-2.2-1.5-2.2c-1,0-1.9,0.8-1.9,2.4v8.1h-2.4V8.1c0-1.6-0.5-2.2-1.5-2.2
+						c-1,0-1.9,0.8-1.9,2.4v8.1h-2.4L179.5,4.3z"/>
+					<path class="st0" d="M196.1,4.3h2.3v1.5h0c0.5-1.1,1.4-1.8,2.7-1.8c2.8,0,3.9,2.4,3.9,6.5c0,5.1-2.1,6.2-3.7,6.2
+						c-1.3,0-2.3-0.7-2.7-1.7h0v5.4h-2.4L196.1,4.3z M200.4,14.8c1.4,0,2-1,2-4.4c0-2.7-0.4-4.5-2-4.5c-1.7,0-2,1.7-2,4.3
+						C198.4,13.1,198.7,14.8,200.4,14.8L200.4,14.8z"/>
+					<path class="st0" d="M213.1,15L213.1,15c-0.7,1.1-1.9,1.8-3.2,1.7c-1.8,0-3-0.8-3-4V4.3h2.4V13c0,1.3,0.6,1.8,1.6,1.8
+						c1,0,2-0.7,2-2V4.3h2.4v12.1h-2.3L213.1,15z"/>
+					<path class="st0" d="M216.6,4.3h1.7V0.8h2.4v3.4h2v1.8h-2v7.2c0,0.9,0.3,1.3,1.1,1.3c0.3,0,0.6,0,0.9-0.1v1.8
+						c-0.6,0.1-1.3,0.2-2,0.2c-1.6,0-2.5-0.4-2.5-2.9V6.1h-1.7L216.6,4.3z"/>
+					<path class="st0" d="M226.1,10.6v0.7c0,1.6,0.2,3.7,2,3.7c1.7,0,1.9-2,1.9-2.7h2.3c0,2.7-1.6,4.4-4.3,4.4c-2,0-4.4-0.6-4.4-6.2
+						c0-3.2,0.7-6.5,4.5-6.5c3.4,0,4.3,2,4.3,5.4v1.3L226.1,10.6z M230,9V8.3c0-1.5-0.5-2.7-1.9-2.7c-1.6,0-2,1.5-2,3.1V9L230,9z"/>
+					<path class="st0" d="M234.4,4.3h2.4v1.9h0c0.5-1.3,1.4-2.2,2.8-2.2c0.2,0,0.4,0,0.6,0.1v2.5c-0.3-0.1-0.7-0.1-1-0.1
+						c-1.1,0-2.4,0.5-2.4,2.7v7.3h-2.4L234.4,4.3z"/>
+					<path class="st0" d="M249,11.4v0.4c0,2,0.9,2.9,2.6,2.9c1.6,0,2.4-1.1,2.4-2.3c0-1.7-0.9-2.4-2.3-2.9L250,9
+						c-2.3-0.9-3.4-2.1-3.4-4.4c0-2.9,2-4.5,5-4.5c4.1,0,4.5,2.6,4.5,4.2v0.4h-2.6V4.3c0-1.5-0.7-2.3-2.3-2.3c-1.1,0-2.2,0.6-2.2,2.3
+						c0,1.4,0.7,2.1,2.4,2.7l1.7,0.6c2.3,0.8,3.3,2,3.3,4.3c0,3.4-2.1,4.8-5.3,4.8c-4,0-4.9-2.7-4.9-4.9v-0.4H249z"/>
+					<path class="st0" d="M266.7,12c-0.2,2.9-1.2,4.7-4.1,4.7c-3.5,0-4.5-2.6-4.5-6.4s1-6.4,4.5-6.4c3.6,0,4.2,2.8,4.2,4.3h-2.4
+						c0-1.1-0.3-2.6-1.7-2.5c-1.8,0-2.1,1.9-2.1,4.6s0.3,4.6,2.1,4.6c1.3,0,1.8-1.1,1.8-2.9L266.7,12z"/>
+					<path class="st0" d="M268.7,0.1h2.4v2.4h-2.4V0.1z M268.7,4.3h2.4v12.1h-2.4V4.3z"/>
+					<path class="st0" d="M275.6,10.6v0.7c0,1.6,0.2,3.7,2,3.7c1.7,0,1.9-2,1.9-2.7h2.3c0,2.7-1.6,4.4-4.3,4.4c-2,0-4.4-0.6-4.4-6.2
+						c0-3.2,0.7-6.5,4.5-6.5c3.4,0,4.3,2,4.3,5.4v1.3L275.6,10.6z M279.5,9V8.3c0-1.5-0.5-2.7-1.9-2.7c-1.6,0-2,1.5-2,3.1V9L279.5,9z"/>
+					<path class="st0" d="M284,4.3h2.3v1.4h0.1c0.6-1.1,1.8-1.8,3.1-1.7c1.8,0,3,0.8,3,3.3v9.1H290V8.1c0-1.6-0.5-2.2-1.7-2.2
+						c-1,0-1.9,0.8-1.9,2.4v8.1H284L284,4.3z"/>
+					<path class="st0" d="M303,12c-0.2,2.9-1.1,4.7-4.1,4.7c-3.5,0-4.5-2.6-4.5-6.4s1-6.4,4.5-6.4c3.6,0,4.2,2.8,4.2,4.3h-2.4
+						c0-1.1-0.3-2.6-1.7-2.5c-1.8,0-2.1,1.9-2.1,4.6s0.3,4.6,2.1,4.6c1.3,0,1.8-1.1,1.8-2.9L303,12z"/>
+					<path class="st0" d="M306.9,10.6v0.7c0,1.6,0.2,3.7,2,3.7c1.7,0,1.9-2,1.9-2.7h2.3c0,2.7-1.6,4.4-4.3,4.4c-2,0-4.4-0.6-4.4-6.2
+						c0-3.2,0.7-6.5,4.5-6.5c3.4,0,4.3,2,4.3,5.4v1.3L306.9,10.6z M310.8,9V8.3c0-1.5-0.5-2.7-1.9-2.7c-1.6,0-2,1.5-2,3.1V9L310.8,9z"/>
+					<path class="st0" d="M320.4,7.8V7.5c0-1-0.3-1.9-1.6-1.9c-1,0-1.7,0.4-1.7,1.6c0,0.9,0.4,1.3,1.7,1.8l1.6,0.5
+						c1.8,0.6,2.6,1.6,2.6,3.5c0,2.6-1.9,3.7-4.3,3.7c-3.1,0-4-1.4-4-3.8v-0.4h2.2v0.4c0,1.4,0.5,2.2,1.9,2.2c1.3,0,2-0.7,2-1.8
+						c0-0.9-0.5-1.5-1.3-1.8l-2-0.7c-1.8-0.6-2.6-1.6-2.6-3.5c0-2.3,1.6-3.3,4.1-3.3c3.1,0,3.8,1.8,3.8,3.3v0.5L320.4,7.8z"/>
+				</g>
+				</svg>
+        <span>Northeastern University</span>
+			</div>
+			<nav class="footer-nav" aria-label="Footer">
+				<ul id="menu-action" class="menu menu-horizontal menu-action"><li id="menu-item-412" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-412"><a href="https://www.khoury.northeastern.edu/apply/">Apply</a></li>
+<li id="menu-item-411" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-411"><a href="https://www.khoury.northeastern.edu/inquire/">Inquire</a></li>
+<li id="menu-item-410" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-410"><a href="https://www.khoury.northeastern.edu/alumni-and-friends/give/">Give</a></li>
+</ul><ul id="menu-contact" class="menu menu-horizontal"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3010"><a rel="nofollow" href="#">Contact &#8211; Parent</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4598"><a href="https://www.khoury.northeastern.edu/directions-and-parking/">Directions &#038; Parking</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2530"><a href="https://www.khoury.northeastern.edu/facilities/">Facilities</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5831"><a href="https://www.khoury.northeastern.edu/systems/">Systems</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4627"><a href="https://www.khoury.northeastern.edu/about/">About</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6161"><a href="https://www.ccis.northeastern.edu/events/">Events</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-4629"><a href="https://www.khoury.northeastern.edu/news/">News</a></li>
+</ul>
+</li>
+</ul><ul id="menu-social" class="menu menu-horizontal"><li id="menu-item-379" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-379"><a href="https://www.youtube.com/channel/UChz4r4VXwPxTqx083Am0IeQ">Youtube</a></li>
+<li id="menu-item-380" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-380"><a href="http://www.twitter.com/khourycollege">Twitter</a></li>
+<li id="menu-item-381" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-381"><a href="https://www.linkedin.com/groups/1943637">LinkedIn</a></li>
+<li id="menu-item-383" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-383"><a href="http://www.instagram.com/khourycollege">Instagram</a></li>
+<li id="menu-item-382" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-382"><a href="http://www.facebook.com/khourycollege">Facebook</a></li>
+</ul>			</nav>
+		</div><!-- / #menu-prefooter -->
+	</div><!-- / .container -->
+	<div id="menu-footer-area">
+		<div class="container">
+			<div class="row">
+				<div class="footer-logo">
+					<a href="http://www.northeastern.edu" target="_blank">
+					<!-- northeastern wordmark only -->
+					<svg version="1.1" id="nu_logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"  viewBox="0 0 500 50" style="enable-background:new 0 0 500 50;" xml:space="preserve">
+						<style type="text/css"> .st2{fill:#FFFFFF;}</style>
+						<g class="st2">
+							<path d="M321.472,1.443v1.151c-5.079,0.367-5.079,3.037-5.079,7.328v9.788c0,4.554,0,6.805-1.36,9.318 c-1.833,3.348-5.968,5.967-12.196,5.967c-7.171,0-10.364-3.089-11.726-5.078c-1.727-2.565-1.727-4.973-1.727-10.835v-8.899 c0-7.014-0.052-7.59-4.658-7.59h-0.786V1.443h14.97v1.151c-5.181,0-5.338,0-5.338,7.486v9.159c0,4.973,0,7.747,1.308,9.945 c1.204,2.042,4.082,4.084,9.055,4.084c3.35,0,7.486-1.204,9.737-4.711c1.464-2.25,1.464-4.658,1.464-9.055V9.452 c0-4.188,0-6.491-5.285-6.858V1.443H321.472z"/>
+							<path d="M327.174,12.592c0.417,1.204,0.626,3.245,0.68,4.344c2.668-2.931,5.025-4.344,8.06-4.344 c4.816,0,6.543,3.349,6.543,6.856v7.747c0,5.705,0,6.018,3.454,6.018v1.152h-10.731v-1.152c3.613,0,3.613-0.313,3.613-6.018v-6.752 c0-4.763-1.675-6.282-4.24-6.282c-2.985,0-4.921,2.513-6.7,4.502v8.532c0,5.653,0,6.018,3.454,6.018v1.152h-10.573v-1.152 c3.454,0,3.454-0.313,3.454-6.018v-6.23c0-5.705,0-6.019-3.454-6.019v-1.152c2.146-0.314,4.868-0.838,5.757-1.204H327.174z"/>
+							<path d="M355.591,29.236c0,3.352,0.315,3.978,2.879,3.978h0.786v1.152h-11.149v-1.152h0.889 c2.67,0,3.193-0.418,3.193-3.978v-8.374c0-5.705-0.313-5.757-4.082-5.757v-1.152c1.57-0.052,4.764-0.732,6.962-1.36h0.523V29.236z" />
+							<circle cx="353.371" cy="5.968" r="2.261"/>
+							<path d="M371.136,35.204l-7.432-16.75c-1.362-3.036-1.884-3.769-3.821-3.874v-1.152h9.422v1.152 c-1.362,0-2.67,0-2.67,1.256c0,0.209,0.052,0.576,0.575,1.78l6.072,13.661l5.079-11.358c0.732-1.675,1.203-2.827,1.203-3.507 c0-1.57-1.623-1.781-2.565-1.833v-1.152h7.065v1.152c-2.198,0.157-3.035,2.094-4.658,5.653l-6.804,14.97H371.136z"/>
+							<path d="M388.669,21.438c-0.054,0.472-0.105,1.204-0.105,1.57c0,6.647,2.094,10.836,7.171,10.836 c2.931,0,5.287-1.309,6.752-4.189h1.204c-1.308,3.455-4.397,5.549-8.637,5.549c-5.863,0-10.731-4.397-10.731-11.149 c0-6.491,4.24-11.463,10.521-11.463c5.915,0,8.9,3.873,9.055,8.845H388.669z M388.775,20.392h11.201 c-0.054-2.461-0.734-6.648-5.235-6.648C390.606,13.743,389.036,17.512,388.775,20.392z"/>
+							<path d="M414.107,27.196c0,5.339,0,6.018,3.087,6.018h0.734v1.152H406.83v-1.152c3.612,0,3.612-0.208,3.612-6.018 v-5.915c0-5.811,0-6.019-3.612-6.019V14.11c2.355-0.314,5.077-1.152,5.915-1.414l0.367-0.104c0.261,0.837,0.734,2.513,0.734,5.495 c1.621-3.873,5.39-5.495,8.059-5.495c2.724,0,4.032,1.936,4.032,3.193c0,0.941-0.682,1.884-1.781,1.884 c-1.151,0-1.727-0.785-2.04-1.674c-0.211-0.576-0.628-1.57-1.833-1.57c-2.094,0-6.176,2.513-6.176,7.851V27.196z"/>
+							<path d="M427.871,28.138h0.993c0.524,2.513,2.355,5.914,7.173,5.914c4.344,0,4.868-2.668,4.868-3.715 c0-2.565-2.722-3.769-6.02-4.973c-4.816-1.779-6.962-3.297-6.962-6.962c0-2.668,1.99-5.809,6.7-5.809 c2.459,0,4.24,0.994,5.444,2.198c0.417-0.471,0.941-1.727,0.993-1.833h0.943v6.491h-0.943c-0.471-2.407-2.565-5.705-6.28-5.705 c-3.404,0-4.555,1.675-4.555,3.194c0,2.46,1.988,3.349,5.811,4.71c4.186,1.467,7.379,3.194,7.379,7.381 c0,3.56-2.565,6.176-7.327,6.176c-3.089,0-4.921-1.204-6.124-2.356c-0.524,0.577-0.995,1.675-1.1,2.147h-0.993V28.138z"/>
+							<path d="M454.25,29.236c0,3.352,0.313,3.978,2.878,3.978h0.786v1.152h-11.149v-1.152h0.889 c2.67,0,3.194-0.418,3.194-3.978v-8.374c0-5.705-0.315-5.757-4.084-5.757v-1.152c1.57-0.052,4.764-0.732,6.962-1.36h0.524V29.236z" />
+							<circle cx="452.055" cy="5.968" r="2.261"/>
+							<path d="M466.601,14.581v12.667c0,2.879,0,6.178,3.141,6.178c1.779,0,2.722-1.415,3.193-2.095l0.786,0.472 c-1.623,3.402-4.973,3.402-5.34,3.402c-1.464,0-2.616-0.315-3.454-0.994c-1.362-1.048-1.988-2.984-1.988-6.072V14.581H459.9v-1.152 c2.303-0.105,5.077-1.622,5.863-6.543h0.837v6.543h6.333v1.152H466.601z"/>
+							<path d="M493.765,17.983c0.365-0.838,0.732-1.622,0.732-2.041c0-1.099-1.884-1.361-2.826-1.361v-1.152H499v1.152 c-2.618,0.157-3.142,1.466-4.449,4.606l-9.319,22.508c-1.362,3.245-2.616,5.548-4.658,5.548c-0.838,0-1.621-0.524-1.621-1.518 c0-1.727,1.727-2.513,2.668-2.931c1.781-0.786,2.357-1.099,3.089-2.931l1.988-4.973l-7.851-16.854 c-1.204-2.565-1.621-3.403-4.082-3.455v-1.152h9.63v1.152c-1.308,0.105-2.565,0.157-2.565,1.047c0,0.419,0.628,1.728,0.995,2.565 l5.757,12.248L493.765,17.983z"/>
+							<path d="M7.857,4.245v23.449c0,3.455,0.732,5.392,6.071,5.549v1.151H1v-1.151c5.705-0.261,5.601-2.616,5.601-5.549 V9.741c0-6.648-0.366-7.119-5.129-7.119V1.472h9.421l19.629,26.066V7.595c0-2.775-0.366-4.921-5.915-4.973V1.472h12.562v1.151 c-5.077,0.471-5.391,2.251-5.391,5.338v27.218h-0.732L7.857,4.245z"/>
+							<path d="M47.843,12.62c6.176,0,11.202,4.658,11.202,11.306c0,7.432-5.6,11.305-11.202,11.305 c-5.391,0-11.148-3.611-11.148-11.358C36.695,17.383,41.615,12.62,47.843,12.62z M47.843,33.976c4.816,0,6.962-3.297,6.962-9.892 c0-5.654-1.518-10.208-6.962-10.208c-5.286,0-6.909,4.45-6.909,10.155C40.934,30.73,43.081,33.976,47.843,33.976z"/>
+							<path d="M68.36,27.223c0,5.338,0,6.019,3.088,6.019h0.732v1.151H61.084v-1.151c3.612,0,3.612-0.209,3.612-6.019v-5.915 c0-5.81,0-6.019-3.612-6.019v-1.152c2.356-0.314,5.078-1.152,5.915-1.413l0.366-0.105c0.262,0.837,0.733,2.512,0.733,5.495 c1.623-3.873,5.391-5.495,8.061-5.495c2.721,0,4.03,1.936,4.03,3.193c0,0.942-0.68,1.884-1.779,1.884 c-1.152,0-1.727-0.785-2.042-1.674c-0.209-0.575-0.628-1.57-1.832-1.57c-2.094,0-6.176,2.513-6.176,7.851V27.223z"/>
+							<path d="M88.668,14.609v12.667c0,2.879,0,6.176,3.14,6.176c1.779,0,2.722-1.414,3.192-2.094l0.786,0.471 c-1.622,3.402-4.973,3.402-5.338,3.402c-1.466,0-2.618-0.315-3.455-0.994c-1.361-1.046-1.989-2.984-1.989-6.072V14.609h-3.036 v-1.152c2.303-0.104,5.077-1.621,5.862-6.543h0.838v6.543H95v1.152H88.668z"/>
+							<path d="M119.548,27.223c0,5.758,0,6.019,3.558,6.019v1.151h-10.834v-1.151c3.611,0,3.611-0.261,3.611-6.019v-6.752 c0-4.869-1.465-6.281-4.554-6.281c-2.408,0-4.71,2.46-6.385,4.606v8.426c0,5.6,0,6.019,3.298,6.019v1.151H97.617v-1.151 c3.664,0,3.664-0.209,3.664-6.019V8.118c0-3.664,0-4.868-3.454-4.868V2.1c2.145,0,5.025-0.472,6.699-1.1h0.366v15.964 c2.617-2.774,4.92-4.344,7.642-4.344c4.658,0,7.014,2.46,7.014,7.223V27.223z"/>
+							<path d="M128.287,21.465c-0.053,0.472-0.105,1.205-0.105,1.57c0,6.648,2.094,10.835,7.171,10.835 c2.931,0,5.287-1.309,6.753-4.188h1.203c-1.308,3.454-4.396,5.548-8.635,5.548c-5.863,0-10.731-4.397-10.731-11.148 c0-6.491,4.24-11.463,10.521-11.463c5.914,0,8.899,3.873,9.055,8.845H128.287z M128.392,20.418h11.2 c-0.052-2.46-0.732-6.647-5.234-6.647C130.224,13.772,128.654,17.54,128.392,20.418z"/>
+							<path d="M167.367,30.573c-0.42,2.457-1.491,2.606-2.118,2.606c-1.623,0-1.651-1.15-1.651-4.752v-8.479 c0-3.089-0.399-7.328-7.623-7.328c-5.234,0-8.427,2.669-8.427,4.763c0,0.942,0.576,1.518,1.413,1.518 c1.361,0,1.885-0.995,2.199-2.146c0.365-1.414,1.151-2.983,4.501-2.983c3.925,0,4.396,2.513,4.396,5.6v1.308l-3.978,1.362 c-7.38,2.513-9.63,5.443-9.63,8.427c0,2.983,2.354,4.447,5.391,4.447c2.51,0,5.128-1.045,8.217-3.663 c0.262,1.256,0.942,3.663,4.011,3.663c2.879,0,4.136-1.987,4.24-4.343H167.367z M160.057,30.089 c-2.107,1.822-4.954,3.271-6.89,3.271c-2.221,0-3.302-1.609-3.302-3.54c0-2.895,2.733-5.523,7.174-6.971l3.018-0.963V30.089z"/>
+							<path d="M170.439,28.165h0.994c0.523,2.513,2.355,5.914,7.171,5.914c4.345,0,4.867-2.668,4.867-3.715 c0-2.565-2.721-3.768-6.019-4.972c-4.815-1.779-6.962-3.297-6.962-6.962c0-2.668,1.99-5.809,6.7-5.809 c2.46,0,4.24,0.994,5.443,2.199c0.42-0.472,0.943-1.728,0.995-1.833h0.941v6.49h-0.941c-0.471-2.407-2.566-5.705-6.281-5.705 c-3.402,0-4.553,1.675-4.553,3.193c0,2.46,1.989,3.349,5.81,4.71c4.187,1.466,7.38,3.194,7.38,7.381c0,3.559-2.566,6.175-7.33,6.175 c-3.088,0-4.919-1.204-6.123-2.356c-0.523,0.577-0.993,1.675-1.098,2.147h-0.994V28.165z"/>
+							<path d="M195.561,14.609v12.667c0,2.879,0,6.176,3.141,6.176c1.779,0,2.72-1.414,3.193-2.094l0.786,0.471 c-1.623,3.402-4.973,3.402-5.34,3.402c-1.466,0-2.616-0.315-3.454-0.994c-1.362-1.046-1.99-2.984-1.99-6.072V14.609h-3.035v-1.152 c2.303-0.104,5.077-1.621,5.863-6.543h0.837v6.543h6.334v1.152H195.561z"/>
+							<path d="M208.226,21.465c-0.052,0.472-0.105,1.205-0.105,1.57c0,6.648,2.094,10.835,7.173,10.835 c2.93,0,5.285-1.309,6.751-4.188h1.204c-1.308,3.454-4.397,5.548-8.637,5.548c-5.861,0-10.731-4.397-10.731-11.148 c0-6.491,4.24-11.463,10.521-11.463c5.915,0,8.898,3.873,9.055,8.845H208.226z M208.332,20.418h11.201 c-0.054-2.46-0.734-6.647-5.235-6.647C210.163,13.772,208.593,17.54,208.332,20.418z"/>
+							<path d="M233.034,27.223c0,5.338,0,6.019,3.089,6.019h0.734v1.151h-11.097v-1.151c3.613,0,3.613-0.209,3.613-6.019 v-5.915c0-5.81,0-6.019-3.613-6.019v-1.152c2.355-0.314,5.077-1.152,5.915-1.413l0.367-0.105c0.261,0.837,0.732,2.512,0.732,5.495 c1.623-3.873,5.39-5.495,8.06-5.495c2.722,0,4.03,1.936,4.03,3.193c0,0.942-0.678,1.884-1.779,1.884 c-1.151,0-1.727-0.785-2.04-1.674c-0.211-0.575-0.63-1.57-1.834-1.57c-2.092,0-6.176,2.513-6.176,7.851V27.223z"/>
+							<path d="M253.133,12.62c0.417,1.204,0.628,3.245,0.68,4.344c2.668-2.931,5.024-4.344,8.06-4.344 c4.814,0,6.543,3.349,6.543,6.856v7.747c0,5.706,0,6.019,3.454,6.019v1.151H261.14v-1.151c3.611,0,3.611-0.313,3.611-6.019v-6.752 c0-4.763-1.675-6.281-4.238-6.281c-2.985,0-4.921,2.513-6.7,4.501v8.532c0,5.652,0,6.019,3.454,6.019v1.151h-10.573v-1.151 c3.454,0,3.454-0.313,3.454-6.019v-6.229c0-5.705,0-6.019-3.454-6.019v-1.152c2.147-0.314,4.868-0.838,5.757-1.204H253.133z"/>
+						</g>
+					</svg>
+
+					<span>Khoury College of Computer Sciences</span>
+					</a>
+				</div><!-- / .footer-logo -->
+				<div class="footer-nav">
+					<nav id="menu-footer" class="menu-links-menu-container"><ul id="menu-links-menu" class="menu menu-horizontal"><li id="menu-item-377" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-377"><a href="http://my.northeastern.edu/">myNortheastern</a></li>
+<li id="menu-item-2809" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2809"><a href="https://prod-web.neu.edu/wasapp/employeelookup/public/main.action#_ga=1.152250297.1229401008.1453998512">Find Faculty &#038; Staff</a></li>
+<li id="menu-item-2810" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2810"><a href="http://www.northeastern.edu/neuhome/adminlinks/findaz.html">Find A-Z</a></li>
+<li id="menu-item-2811" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2811"><a href="http://www.northeastern.edu/emergency/index.html">Emergency Information</a></li>
+<li id="menu-item-11292" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11292"><a href="https://www.northeastern.edu/privacy-information/">Privacy</a></li>
+<li id="menu-item-378" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-378"><a href="http://www.northeastern.edu/search/index.html">Search</a></li>
+</ul></nav>					<div class="copy">
+											<address><p>
+							360 Huntington Ave. Boston, Massachusetts 02115							<a class="tel" href="tel:6173732000"><strong>617.373.2000</strong></a>
+							<a class="tel" href="tel:6173733768"><strong>TTY: 617.373.3768</strong></a>
+						</p></address>
+						<p>© 2020 Northeastern University										</div><!-- / .copy -->
+				</div><!-- / .footer-nav -->
+			</div><!-- / .row -->
+		</div><!-- / .container -->
+	</div><!-- / #menu-footer -->
+</footer>
+<!-- as purely supplemental info, flyout is at the end. -->
+<aside id="flyout">
+
+	<h2 class="flyout-label">Look<br />
+Inside:<br />
+People</h2>
+	<div class="flyout-content">
+
+		<h3 class="flyout-title">People</h3>
+		<div class="main-content">
+			<h2>Scaling to meet growing demands</h2>
+<p>The rise of computer science begets the need for more—and more diverse—expertise. Khoury College answers the call with highly talented faculty and dedicated advisors, coordinators, and staff.</p>
+		</div>
+
+			<div class="row">
+			<div class="stripe-stat">
+				<div class="stat-item"><h4>65%</h4><p>increase in tenure-track faculty over the past five years</p>
+</div><div class="stat-item"><h4>27%</h4><p>of current tenure-track faculty are interdisciplinary with other colleges</p>
+</div>			</div>
+		</div>
+			<div class="row">
+			<div class="stripe-image">
+				<img src="https://www.khoury.northeastern.edu/wp-content/uploads/2018/11/CCIS_interdisciplinary_faculty_2018.png" alt="" />			</div>
+		</div>
+			<div class="row">
+			<div class="stripe-text">
+				<p>“I joined CCIS to be at a place on the rise. There is an enormous opportunity for collaboration with highly motivated, smart faculty looking to do interesting, relevant work—and not caring about individual credit or traditional boundaries. We all want to be part of making something great.”<br />
+<em>-David Choffnes, Assistant Professor</em></p>
+			</div>
+		</div>
+	
+	</div>
+</aside>
+	<script type="text/javascript">
+	_linkedin_data_partner_id = "8239";
+	</script><script type="text/javascript">
+	(function(){var s = document.getElementsByTagName("script")[0];
+	var b = document.createElement("script");
+	b.type = "text/javascript";b.async = true;
+	b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+	s.parentNode.insertBefore(b, s);})();
+	</script>
+	<noscript>
+		<img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=8239&fmt=gif" />
+	</noscript>
+			<script>
+		( function ( body ) {
+			'use strict';
+			body.className = body.className.replace( /\btribe-no-js\b/, 'tribe-js' );
+		} )( document.body );
+		</script>
+		<script> /* <![CDATA[ */var tribe_l10n_datatables = {"aria":{"sort_ascending":": activate to sort column ascending","sort_descending":": activate to sort column descending"},"length_menu":"Show _MENU_ entries","empty_table":"No data available in table","info":"Showing _START_ to _END_ of _TOTAL_ entries","info_empty":"Showing 0 to 0 of 0 entries","info_filtered":"(filtered from _MAX_ total entries)","zero_records":"No matching records found","search":"Search:","all_selected_text":"All items on this page were selected. ","select_all_link":"Select all pages","clear_selection":"Clear Selection.","pagination":{"all":"All","next":"Next","previous":"Previous"},"select":{"rows":{"0":"","_":": Selected %d rows","1":": Selected 1 row"}},"datepicker":{"dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesMin":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"nextText":"Next","prevText":"Prev","currentText":"Today","closeText":"Done","today":"Today","clear":"Clear"}};/* ]]> */ </script><script type='text/javascript' src='https://www.khoury.northeastern.edu/wp-content/themes/ccis_theme/prod/prod.js?ver=5.3.2'></script>
+<script type='text/javascript' src='https://www.khoury.northeastern.edu/wp-includes/js/wp-embed.min.js?ver=5.3.2'></script>
 </body>
 </html>

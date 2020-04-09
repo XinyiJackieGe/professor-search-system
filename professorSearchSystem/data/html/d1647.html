@@ -1,0 +1,734 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Cognitive Computing | A research blog by Ashwin Ram, PhD</title>
+<!--[if IE 6]><link rel="stylesheet" href="https://s2.wp.com/wp-content/themes/pub/springloaded/ie6.css" type="text/css" media="screen" /><![endif]-->
+<link rel="pingback" href="https://ashwinram.org/xmlrpc.php" />
+<!--[if lt IE 7.]>
+<script defer type="text/javascript" src="https://s2.wp.com/wp-content/themes/pub/springloaded/pngfix.js"></script>
+<![endif]-->
+
+<!-- Async WordPress.com Remote Login -->
+<script id="wpcom_remote_login_js">
+var wpcom_remote_login_extra_auth = '';
+function wpcom_remote_login_remove_dom_node_id( element_id ) {
+	var dom_node = document.getElementById( element_id );
+	if ( dom_node ) { dom_node.remove(); }
+}
+function wpcom_remote_login_remove_dom_node_classes( class_name ) {
+	var dom_nodes = document.querySelectorAll( '.' + class_name );
+	for ( var i = 0; i < dom_nodes.length; i++ ) {
+		dom_nodes[i].remove();
+	}
+}
+function wpcom_remote_login_final_cleanup() {
+	wpcom_remote_login_remove_dom_node_classes( "wpcom_remote_login_msg" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_remote_login_key" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_remote_login_validate" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_remote_login_js" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_request_access_iframe" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_request_access_styles" );
+}
+
+// Watch for messages back from the remote login
+window.addEventListener( "message", function( e ) {
+	if ( e.origin === "https://r-login.wordpress.com" ) {
+		var data = {};
+		try {
+			data = JSON.parse( e.data );
+		} catch( e ) {
+			wpcom_remote_login_final_cleanup();
+			return;
+		}
+
+		if ( data.msg === 'LOGIN' ) {
+			// Clean up the login check iframe
+			wpcom_remote_login_remove_dom_node_id( "wpcom_remote_login_key" );
+
+			var id_regex = new RegExp( /^[0-9]+$/ );
+			var token_regex = new RegExp( /^.*|.*|.*$/ );
+			if (
+				token_regex.test( data.token )
+				&& id_regex.test( data.wpcomid )
+			) {
+				// We have everything we need to ask for a login
+				var script = document.createElement( "script" );
+				script.setAttribute( "id", "wpcom_remote_login_validate" );
+				script.src = '/remote-login.php?wpcom_remote_login=validate'
+					+ '&wpcomid=' + data.wpcomid
+					+ '&token=' + encodeURIComponent( data.token )
+					+ '&host=' + window.location.protocol
+						+ '//' + window.location.hostname;
+				document.body.appendChild( script );
+			}
+
+			return;
+		}
+
+		// Safari ITP, not logged in, so redirect
+		if ( data.msg === 'LOGIN-REDIRECT' ) {
+			window.location = 'https://wordpress.com/log-in?redirect_to=' + window.location.href;
+			return;
+		}
+
+		// Safari ITP, storage access failed, remove the request
+		if ( data.msg === 'LOGIN-REMOVE' ) {
+			var css_zap = 'html { -webkit-transition: margin-top 1s; transition: margin-top 1s; } /* 9001 */ html { margin-top: 0 !important; } * html body { margin-top: 0 !important; } @media screen and ( max-width: 782px ) { html { margin-top: 0 !important; } * html body { margin-top: 0 !important; } }';
+			var style_zap = document.createElement( 'style' );
+			style_zap.type = 'text/css';
+			style_zap.appendChild( document.createTextNode( css_zap ) );
+			document.body.appendChild( style_zap );
+
+			var e = document.getElementById( 'wpcom_request_access_iframe' );
+			e.parentNode.removeChild( e );
+
+			document.cookie = 'wordpress_com_login_access=denied; path=/; max-age=31536000';
+
+			return;
+		}
+
+		// Safari ITP
+		if ( data.msg === 'REQUEST_ACCESS' ) {
+			console.log( 'request access: safari' );
+
+			// Check ITP iframe enable/disable knob
+			if ( wpcom_remote_login_extra_auth !== 'safari_itp_iframe' ) {
+				return;
+			}
+
+			// If we are in a "private window" there is no ITP.
+			var private_window = false;
+			try {
+				var opendb = window.openDatabase( null, null, null, null );
+			} catch( e ) {
+				private_window = true;
+			}
+
+			if ( private_window ) {
+				console.log( 'private window' );
+				return;
+			}
+
+			var iframe = document.createElement( 'iframe' );
+			iframe.id = 'wpcom_request_access_iframe';
+			iframe.setAttribute( 'scrolling', 'no' );
+			iframe.setAttribute( 'sandbox', 'allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-top-navigation-by-user-activation' );
+			iframe.src = 'https://r-login.wordpress.com/remote-login.php?wpcom_remote_login=request_access&origin=' + encodeURIComponent( data.origin ) + '&wpcomid=' + encodeURIComponent( data.wpcomid );
+
+			var css = 'html { -webkit-transition: margin-top 1s; transition: margin-top 1s; } /* 9001 */ html { margin-top: 46px !important; } * html body { margin-top: 46px !important; } @media screen and ( max-width: 660px ) { html { margin-top: 71px !important; } * html body { margin-top: 71px !important; } #wpcom_request_access_iframe { display: block; height: 71px !important; } } #wpcom_request_access_iframe { border: 0px; height: 46px; position: fixed; top: 0; left: 0; width: 100%; min-width: 100%; z-index: 99999; background: #23282d; } ';
+
+			var style = document.createElement( 'style' );
+			style.type = 'text/css';
+			style.id = 'wpcom_request_access_styles';
+			style.appendChild( document.createTextNode( css ) );
+			document.body.appendChild( style );
+
+			document.body.appendChild( iframe );
+		}
+
+		if ( data.msg === 'DONE' ) {
+			wpcom_remote_login_final_cleanup();
+		}
+	}
+}, false );
+
+// Inject the remote login iframe after the page has had a chance to load
+// more critical resources
+window.addEventListener( "DOMContentLoaded", function( e ) {
+	var iframe = document.createElement( "iframe" );
+	iframe.style.display = "none";
+	iframe.setAttribute( "scrolling", "no" );
+	iframe.setAttribute( "id", "wpcom_remote_login_key" );
+	iframe.src = "https://r-login.wordpress.com/remote-login.php"
+		+ "?wpcom_remote_login=key"
+		+ "&origin=aHR0cHM6Ly9hc2h3aW5yYW0ub3Jn"
+		+ "&wpcomid=8523614"
+		+ "&time=1586408293";
+	document.body.appendChild( iframe );
+}, false );
+</script>
+<link rel='dns-prefetch' href='//s1.wp.com' />
+<link rel='dns-prefetch' href='//s2.wp.com' />
+<link rel='dns-prefetch' href='//cognitivecomputing.wordpress.com' />
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel="alternate" type="application/rss+xml" title="Cognitive Computing &raquo; Feed" href="https://ashwinram.org/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Cognitive Computing &raquo; Comments Feed" href="https://ashwinram.org/comments/feed/" />
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		function addLoadEvent(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != 'function') {
+				window.onload = func;
+			} else {
+				window.onload = function () {
+					oldonload();
+					func();
+				}
+			}
+		}
+		/* ]]> */
+	</script>
+			<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/72x72\/","ext":".png","svgUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/s0.wp.com\/wp-includes\/js\/wp-emoji-release.min.js?m=1582709031h&ver=5.4"}};
+			/*! This file is auto-generated */
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='all-css-0-1' href='https://s0.wp.com/_static/??-eJyllNlywjAMRX+ojpsWAjx0+i1ZhCvqbWyZNH9fZaFloAlMeclIss/1HVmObL2onSWwJE0SXieFNsrW186IaFBDd5FldYxP8gw7MfuktYhIIKBBQqsmNVnsXlerl/VOsopxVjYYaYqvxM48oN2jRep+grs20wcYiNKnSkYf2IV2ZQPNrGuVOK0gKF4JIDfZJstllVA3stKu/hQaq1CGTkbqNNwhM1BRHoB82eNl5xIJFbD5r0Qo+27GG/jt9sOR9zOXLDWuteMxD6ueXBIa0GjhYUG2xUUXKU4Oh3k5IrSzorWbWpZnL89ZLoaBHblxIRtNDff6gLXRlWbdc2uX1aU57YeM68aX1O8wfFIJmkfW0hLWYqOAGI+nWBB8LSPDo60qHyBGwV+DyYjxeVxxM69m5i7/MEbOj3d2G1HgBLeJh5r/BeeJ2OsSwxIaoB8ODtXQid+0h97NW77errfFNi+KwzdBls5o?cssminify=yes' type='text/css' media='all' />
+<style id='wp-block-library-inline-css'>
+.has-text-align-justify {
+	text-align:justify;
+}
+</style>
+<link rel='stylesheet' id='print-css-1-1' href='https://s2.wp.com/wp-content/mu-plugins/global-print/global-print.css?m=1465851035h&cssminify=yes' type='text/css' media='print' />
+<link rel='stylesheet' id='all-css-2-1' href='https://s0.wp.com/_static/??-eJxlzEEOwiAQheELiZMqELowngUQ6SgMjTOk8fbWpEYTd2/xvR+WWcVGkkigdjWXnpEYfBRsFPzju/aReQc//GOvvRTFKEmlCwpS3ipgx6PWBzNCLi341cizJAYWLxghFE/3v6hMqa5m0tvpDc71NBhnnHWDtbcXJHY//w==?cssminify=yes' type='text/css' media='all' />
+<style id='jetpack-global-styles-frontend-style-inline-css'>
+:root { --font-headings: unset; --font-base: unset; --font-headings-default: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; --font-base-default: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;}
+</style>
+<script type='text/javascript' src='https://s2.wp.com/_static/??-eJx9zk0KhDAMBeALWYtIZTbiWfyJ0mLS2qQM3t4KymwcIZBFPt6L/gZlaVzTBKxdni1B3K9VOi70G1Bol9gLlGjpxqMnAZLTBs+CwNwv8HBFP9gVVGKIGZDkmtk/VXL4pf//9VIdtpUxn9o0jandAcDzUjU='></script>
+<link rel='stylesheet' id='all-css-0-2' href='https://s0.wp.com/wp-content/mu-plugins/highlander-comments/style.css?m=1530132353h&cssminify=yes' type='text/css' media='all' />
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='highlander-comments-ie7-css'  href='https://s2.wp.com/wp-content/mu-plugins/highlander-comments/style-ie7.css?m=1351637563h&#038;ver=20110606' media='all' />
+<![endif]-->
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://cognitivecomputing.wordpress.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://s1.wp.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress.com" />
+<link rel='shortlink' href='https://wp.me/zLnE' />
+
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Cognitive Computing" />
+<meta property="og:description" content="A research blog by Ashwin Ram, PhD" />
+<meta property="og:url" content="https://ashwinram.org/" />
+<meta property="og:site_name" content="Cognitive Computing" />
+<meta property="og:image" content="https://s0.wp.com/i/blank.jpg" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:creator" content="@ashwinram" />
+<meta name="twitter:site" content="@ashwinram" />
+
+<!-- End Jetpack Open Graph Tags -->
+<link rel="shortcut icon" type="image/x-icon" href="https://s1.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48" />
+<link rel="icon" type="image/x-icon" href="https://s1.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48" />
+<link rel="apple-touch-icon" href="https://s2.wp.com/i/webclip.png" />
+<link rel='openid.server' href='https://ashwinram.org/?openidserver=1' />
+<link rel='openid.delegate' href='https://ashwinram.org/' />
+<link rel="search" type="application/opensearchdescription+xml" href="https://ashwinram.org/osd.xml" title="Cognitive Computing" />
+<link rel="search" type="application/opensearchdescription+xml" href="https://s1.wp.com/opensearch.xml" title="WordPress.com" />
+<style type="text/css">
+.widget_twitter li {
+	word-wrap: break-word;
+}
+</style>
+<meta name="application-name" content="Cognitive Computing" /><meta name="msapplication-window" content="width=device-width;height=device-height" /><meta name="msapplication-tooltip" content="A research blog by Ashwin Ram, PhD" /><meta name="msapplication-task" content="name=Subscribe;action-uri=https://ashwinram.org/feed/;icon-uri=https://s1.wp.com/i/favicon.ico" /><meta name="msapplication-task" content="name=Sign up for a free blog;action-uri=http://wordpress.com/signup/;icon-uri=https://s1.wp.com/i/favicon.ico" /><meta name="msapplication-task" content="name=WordPress.com Support;action-uri=http://support.wordpress.com/;icon-uri=https://s1.wp.com/i/favicon.ico" /><meta name="msapplication-task" content="name=WordPress.com Forums;action-uri=http://forums.wordpress.com/;icon-uri=https://s1.wp.com/i/favicon.ico" /><meta name="description" content="A research blog by Ashwin Ram, PhD" />
+</head>
+<body class="home blog customizer-styles-applied highlander-enabled highlander-light infinite-scroll neverending">
+
+<div id="header">
+	<div class="sleeve">
+	<h1><a href="https://ashwinram.org/">Cognitive Computing</a> <span>A research blog by Ashwin Ram, PhD</span></h1>
+
+	<div class="search-bar">
+		<form method="get" id="searchform" action="https://ashwinram.org/">
+			<p><input type="text" name="s" onblur="this.value=(this.value=='' ) ? 'Search this Blog' : this.value;" onfocus="this.value=(this.value=='Search this Blog' ) ? '' : this.value;" value="Search this Blog" id="s" />
+			<button type="submit" id="top-search-submit"><img src="https://s2.wp.com/wp-content/themes/pub/springloaded/images/search-btn.gif" alt="Search" /></button></p>
+		</form>
+	</div>
+	</div>
+</div><!-- /header -->
+
+
+<div id="wrapper">
+<div id="main">
+
+<ul id="navigation">
+	<li class="page_item current_page_item"><a href="https://ashwinram.org/">Home</a></li>
+	<li class="page_item page-item-2"><a href="https://ashwinram.org/ashwinram/">About Me</a></li>
+<li class="page_item page-item-1243"><a href="https://ashwinram.org/bio/">Formal Bio</a></li>
+<li class="page_item page-item-1030"><a href="https://ashwinram.org/products/">Products</a></li>
+<li class="page_item page-item-403"><a href="https://ashwinram.org/startups/">Startups</a></li>
+<li class="page_item page-item-391"><a href="https://ashwinram.org/ccl-team/">Students</a></li>
+</ul>
+
+<div id="content">
+
+
+	
+		
+<div class="post-1260 post type-post status-publish format-standard hentry category-agents category-language category-learning category-opinion category-talks tag-information-retrieval tag-learning tag-natural-language" id="post-1260">
+	<p class="post-date" title="April 17, 2019 at 10:00 am">
+		<span class="date-day">17</span>
+		<span class="date-month">Apr</span>
+	</p>
+	<h2><a href="https://ashwinram.org/2019/04/17/hardware-as-the-interface-for-ai-ml-and-data/" rel="bookmark">Hardware as the interface for AI, ML, and&nbsp;Data</a></h2>
+	<p class="metadata">
+	Posted by cognitivecomputing in <a href="https://ashwinram.org/category/agents/" rel="category tag">Agents</a>, <a href="https://ashwinram.org/category/language/" rel="category tag">Language</a>, <a href="https://ashwinram.org/category/learning/" rel="category tag">Learning</a>, <a href="https://ashwinram.org/category/opinion/" rel="category tag">Opinion</a>, <a href="https://ashwinram.org/category/talks/" rel="category tag">Talks</a>.	Tagged: <a href="https://ashwinram.org/tag/information-retrieval/" rel="tag">information retrieval</a>, <a href="https://ashwinram.org/tag/learning/" rel="tag">Learning</a>, <a href="https://ashwinram.org/tag/natural-language/" rel="tag">natural language</a>.	<span class="feedback"><a href="https://ashwinram.org/2019/04/17/hardware-as-the-interface-for-ai-ml-and-data/#respond">Leave a Comment</a></span></p>
+	<div class="entry">
+		<p>AI is getting liberated – it is coming out of tech companies and research labs and is rapidly entering daily life. In this event-opening keynote, I take a forward-looking perspective of AI in hardware and discuss h<span style="color:var(--color-text);">ow the burgeoning ubiquity of AI is going to affect hardware businesses moving forward. </span></p>
+<p><span style="color:var(--color-text);">As AI begins to pave the way toward the creation of more intelligent hardware devices, t</span><span style="color:var(--color-text);">he timing is perfect to be focusing on the impact that AI will have on all aspects of hardware, durable goods, and consumer products. This ranges from design and manufacturing to collecting, organizing and analyzing large amounts of data that enable new capabilities and business models. I</span><span style="color:var(--color-text);"> present our vision to democratize AI and how you can use Google AI to capture this impact in your own work.</span></p>
+<address>Keynote talk at <a href="https://www.hardwarecon.com/agenda/session/45697">HardwareCon 2019</a>, Computer History Museum, Mountain View, April 2019.</address>
+<address> </address>
+<p>VIEW THE KEYNOTE:</p>
+<pre><a href="https://youtu.be/WHQUgkf4TrQ">youtu.be/WHQUgkf4TrQ</a></pre>
+<span class="embed-youtube" style="text-align:center; display: block;"><iframe class='youtube-player' type='text/html' width='570' height='321' src='https://www.youtube.com/embed/WHQUgkf4TrQ?version=3&#038;rel=1&#038;fs=1&#038;autohide=2&#038;showsearch=0&#038;showinfo=1&#038;iv_load_policy=1&#038;wmode=transparent' allowfullscreen='true' style='border:0;'></iframe></span>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+			</div>
+</div>
+
+	
+		
+<div class="post-1254 post type-post status-publish format-standard hentry category-agents category-language category-learning category-opinion category-talks tag-information-retrieval tag-learning tag-natural-language" id="post-1254">
+	<p class="post-date" title="March 19, 2019 at 9:00 am">
+		<span class="date-day">19</span>
+		<span class="date-month">Mar</span>
+	</p>
+	<h2><a href="https://ashwinram.org/2019/03/19/innovatinginteracting-with-ai/" rel="bookmark">Innovating+Interacting with AI</a></h2>
+	<p class="metadata">
+	Posted by cognitivecomputing in <a href="https://ashwinram.org/category/agents/" rel="category tag">Agents</a>, <a href="https://ashwinram.org/category/language/" rel="category tag">Language</a>, <a href="https://ashwinram.org/category/learning/" rel="category tag">Learning</a>, <a href="https://ashwinram.org/category/opinion/" rel="category tag">Opinion</a>, <a href="https://ashwinram.org/category/talks/" rel="category tag">Talks</a>.	Tagged: <a href="https://ashwinram.org/tag/information-retrieval/" rel="tag">information retrieval</a>, <a href="https://ashwinram.org/tag/learning/" rel="tag">Learning</a>, <a href="https://ashwinram.org/tag/natural-language/" rel="tag">natural language</a>.	<span class="feedback"><a href="https://ashwinram.org/2019/03/19/innovatinginteracting-with-ai/#respond">Leave a Comment</a></span></p>
+	<div class="entry">
+		<p>Google has created 8 products with over a billion users each. These products are powered by AI (artificial intelligence) at every level &#8212; from the core infrastructure and software platform to the application logic and the user interface. I’ll share a behind-the-scenes look at how Google AI works and how we use it to create innovative UX (user experience) at a planetary scale. I’ll end with our vision to democratize AI and how you can use Google AI in your own work.</p>
+<address>Keynote talk at ACM IUI-2019 Intelligent User Interfaces: Where HCI Meets AI, Los Angeles, March 2019.</address>
+<address> </address>
+<p>VIEW THE KEYNOTE:</p>
+<pre><a href="https://youtu.be/r_bCV3IvctQ">youtu.be/r_bCV3IvctQ</a></pre>
+<span class="embed-youtube" style="text-align:center; display: block;"><iframe class='youtube-player' type='text/html' width='570' height='321' src='https://www.youtube.com/embed/r_bCV3IvctQ?version=3&#038;rel=1&#038;fs=1&#038;autohide=2&#038;showsearch=0&#038;showinfo=1&#038;iv_load_policy=1&#038;wmode=transparent' allowfullscreen='true' style='border:0;'></iframe></span>
+<p>&nbsp;</p>
+
+			</div>
+</div>
+
+	
+		
+<div class="post-1238 post type-post status-publish format-standard hentry category-agents category-language category-learning tag-learning tag-natural-language" id="post-1238">
+	<p class="post-date" title="September 28, 2018 at 9:00 am">
+		<span class="date-day">28</span>
+		<span class="date-month">Sep</span>
+	</p>
+	<h2><a href="https://ashwinram.org/2018/09/28/alexa-prize-state-of-the-art-in-conversational-ai/" rel="bookmark">Alexa Prize — State of the Art in Conversational&nbsp;AI</a></h2>
+	<p class="metadata">
+	Posted by cognitivecomputing in <a href="https://ashwinram.org/category/agents/" rel="category tag">Agents</a>, <a href="https://ashwinram.org/category/language/" rel="category tag">Language</a>, <a href="https://ashwinram.org/category/learning/" rel="category tag">Learning</a>.	Tagged: <a href="https://ashwinram.org/tag/learning/" rel="tag">Learning</a>, <a href="https://ashwinram.org/tag/natural-language/" rel="tag">natural language</a>.	<span class="feedback"><a href="https://ashwinram.org/2018/09/28/alexa-prize-state-of-the-art-in-conversational-ai/#respond">Leave a Comment</a></span></p>
+	<div class="entry">
+		<p>To advance the state of the art in conversational AI, Amazon launched the Alexa Prize, a 2.5 million dollar competition that challenges university teams to build conversational agents, or &#8220;socialbots&#8221;, that can converse coherently and engagingly with humans on popular topics for 20 minutes. The Alexa Prize offers the academic community a unique opportunity to perform research at scale with real conversational data obtained by interacting with millions of Alexa users, along with user-provided ratings and feedback, over several months. This enables teams to effectively iterate, improve and evaluate their socialbots throughout the competition. Sixteen teams were selected for the inaugural competition last year. To build their socialbots, the students combined state-of-the-art techniques with their own novel strategies in the areas of Natural Language Understanding and Conversational AI. This article reports on the research conducted over the 2017-2018 year. While the 20 minute grand challenge was not achieved in the first year, the competition produced several conversational agents that advanced the state of the art, are interesting for everyday users to interact with, and help form a baseline for the second year of the competition.</p>
+<p>READ THE PAPER:</p>
+<p><strong>Alexa Prize — State of the Art in Conversational AI</strong><br />
+<strong>by C Khatri, A Venkatesh, B Hedayatnia, R Gabriel, A Ram, R Prasad</strong><br />
+<em>AI Magazine 39(3)</em></p>
+<pre><a href="https://doi.org/10.1609/aimag.v39i3.2810">doi.org/10.1609/aimag.v39i3.2810</a></pre>
+<p>&nbsp;</p>
+
+			</div>
+</div>
+
+	
+		
+<div class="post-1229 post type-post status-publish format-standard hentry category-agents category-language category-learning category-opinion category-talks tag-learning tag-multistrategy-learning tag-natural-language" id="post-1229">
+	<p class="post-date" title="January 31, 2018 at 3:40 pm">
+		<span class="date-day">31</span>
+		<span class="date-month">Jan</span>
+	</p>
+	<h2><a href="https://ashwinram.org/2018/01/31/an-inside-look-at-the-2017-alexa-prize-finals/" rel="bookmark">An Inside Look at the 2017 Alexa Prize&nbsp;Finals</a></h2>
+	<p class="metadata">
+	Posted by cognitivecomputing in <a href="https://ashwinram.org/category/agents/" rel="category tag">Agents</a>, <a href="https://ashwinram.org/category/language/" rel="category tag">Language</a>, <a href="https://ashwinram.org/category/learning/" rel="category tag">Learning</a>, <a href="https://ashwinram.org/category/opinion/" rel="category tag">Opinion</a>, <a href="https://ashwinram.org/category/talks/" rel="category tag">Talks</a>.	Tagged: <a href="https://ashwinram.org/tag/learning/" rel="tag">Learning</a>, <a href="https://ashwinram.org/tag/multistrategy-learning/" rel="tag">multistrategy learning</a>, <a href="https://ashwinram.org/tag/natural-language/" rel="tag">natural language</a>.	<span class="feedback"><a href="https://ashwinram.org/2018/01/31/an-inside-look-at-the-2017-alexa-prize-finals/#respond">Leave a Comment</a></span></p>
+	<div class="entry">
+		<p>The <a href="https://developer.amazon.com/blogs/alexa/post/Tx221UQAWNUXON3/are-you-up-to-the-challenge-announcing-the-alexa-prize-2-5-million-to-advance-conversational-artificial-intelligence">Alexa Prize</a> is an annual university competition to advance the state of Conversational AI. Last November, Rohit Prasad, vice president and head scientist, Alexa Machine Learning, and I had the pleasure of <a href="//ashwinram.org/2017/11/28/announcing-winners-of-2017-alexa-prize/">announcing the winner</a> of the inaugural competition. </p>
+<p>Judging a conversational AI competition is super hard because conversation is inherently subjective; there isn’t a clear right or wrong response at each turn in a dialog, nor a precise definition of what makes a conversation “coherent” or “engaging”. This short film explains how the finals were conducted, and showcases the winning teams from <a href="https://developer.amazon.com/alexaprize/teams/sounding-board">University of Washington</a>, <a href="https://developer.amazon.com/alexaprize/teams/alquist"> Czech Technical University</a>, and <a href="https://developer.amazon.com/alexaprize/teams/whats-up-bot">Heriot-Watt University</a>. </p>
+<p>See what the best conversational socialbots can do today, and what more needs to be done to solve this very hard problem. </p>
+<p><P><br />
+VIEW THE FILM:</p>
+<pre><a href="https://youtu.be/WTGuOg7GXYU">youtu.be/WTGuOg7GXYU</a></pre>
+<p><P><br />
+SPEAK WITH THE SOCIALBOTS:<br />
+Just say &#8220;Alexa, let&#8217;s chat&#8221; to your Alexa-enabled device.</p>
+
+			</div>
+</div>
+
+	
+		
+<div class="post-1204 post type-post status-publish format-standard hentry category-agents category-language category-learning category-opinion category-talks tag-learning tag-natural-language tag-semantic-memory tag-social-learning" id="post-1204">
+	<p class="post-date" title="January 3, 2018 at 1:00 am">
+		<span class="date-day">3</span>
+		<span class="date-month">Jan</span>
+	</p>
+	<h2><a href="https://ashwinram.org/2018/01/03/podcast-how-amazons-alexa-learns/" rel="bookmark">Podcast: How Amazon&#8217;s Alexa&nbsp;Learns</a></h2>
+	<p class="metadata">
+	Posted by cognitivecomputing in <a href="https://ashwinram.org/category/agents/" rel="category tag">Agents</a>, <a href="https://ashwinram.org/category/language/" rel="category tag">Language</a>, <a href="https://ashwinram.org/category/learning/" rel="category tag">Learning</a>, <a href="https://ashwinram.org/category/opinion/" rel="category tag">Opinion</a>, <a href="https://ashwinram.org/category/talks/" rel="category tag">Talks</a>.	Tagged: <a href="https://ashwinram.org/tag/learning/" rel="tag">Learning</a>, <a href="https://ashwinram.org/tag/natural-language/" rel="tag">natural language</a>, <a href="https://ashwinram.org/tag/semantic-memory/" rel="tag">semantic memory</a>, <a href="https://ashwinram.org/tag/social-learning/" rel="tag">social learning</a>.	<span class="feedback"><a href="https://ashwinram.org/2018/01/03/podcast-how-amazons-alexa-learns/#respond">Leave a Comment</a></span></p>
+	<div class="entry">
+		<p>Much of the ballyhoo around intelligent home assistance devices is that they make life easier for us: from regulating our thermostats to freeing our hands while we check a favorite recipe for roast turkey, to playing that favorite jam to get us pumped up in the morning. And it turns out that because these devices are designed to learn from our patterns and habits, they become more helpful the longer we live with them.</p>
+<p>In this podcast, Ashwin Ram, one of the minds behind Amazon Alexa, describes how the company is balancing privacy concerns with natural language recognition to design a more effective device.</p>
+<p><em>KelloggInsight podcast with Jennifer Cutler, Northwestern University&#8217;s Kellogg School of Management</em></p>
+<p>&nbsp;</p>
+<p>LISTEN TO THE PODCAST / READ THE TRANSCRIPT:</p>
+<pre><a href="https://insight.kellogg.northwestern.edu/article/podcast-how-amazons-alexa-learns">insight.kellogg.northwestern.edu/article/podcast-how-amazons-alexa-learns</a></pre>
+
+			</div>
+</div>
+
+	
+		
+<div class="post-1206 post type-post status-publish format-standard hentry category-agents category-language category-learning category-opinion category-talks tag-believable-agents tag-goal-driven-learning tag-information-retrieval tag-learning tag-meta-reasoning tag-natural-language tag-personality-models tag-planning tag-problem-solving tag-semantic-memory tag-social-learning tag-virtual-worlds" id="post-1206">
+	<p class="post-date" title="December 31, 2017 at 8:00 pm">
+		<span class="date-day">31</span>
+		<span class="date-month">Dec</span>
+	</p>
+	<h2><a href="https://ashwinram.org/2017/12/31/ted-imagine-a-world-of-ai/" rel="bookmark">TED: Imagine a world of&nbsp;AI</a></h2>
+	<p class="metadata">
+	Posted by cognitivecomputing in <a href="https://ashwinram.org/category/agents/" rel="category tag">Agents</a>, <a href="https://ashwinram.org/category/language/" rel="category tag">Language</a>, <a href="https://ashwinram.org/category/learning/" rel="category tag">Learning</a>, <a href="https://ashwinram.org/category/opinion/" rel="category tag">Opinion</a>, <a href="https://ashwinram.org/category/talks/" rel="category tag">Talks</a>.	Tagged: <a href="https://ashwinram.org/tag/believable-agents/" rel="tag">believable agents</a>, <a href="https://ashwinram.org/tag/goal-driven-learning/" rel="tag">goal-driven learning</a>, <a href="https://ashwinram.org/tag/information-retrieval/" rel="tag">information retrieval</a>, <a href="https://ashwinram.org/tag/learning/" rel="tag">Learning</a>, <a href="https://ashwinram.org/tag/meta-reasoning/" rel="tag">meta-reasoning</a>, <a href="https://ashwinram.org/tag/natural-language/" rel="tag">natural language</a>, <a href="https://ashwinram.org/tag/personality-models/" rel="tag">personality models</a>, <a href="https://ashwinram.org/tag/planning/" rel="tag">planning</a>, <a href="https://ashwinram.org/tag/problem-solving/" rel="tag">problem solving</a>, <a href="https://ashwinram.org/tag/semantic-memory/" rel="tag">semantic memory</a>, <a href="https://ashwinram.org/tag/social-learning/" rel="tag">social learning</a>, <a href="https://ashwinram.org/tag/virtual-worlds/" rel="tag">virtual worlds</a>.	<span class="feedback"><a href="https://ashwinram.org/2017/12/31/ted-imagine-a-world-of-ai/#respond">Leave a Comment</a></span></p>
+	<div class="entry">
+		<p class=" l-h:n m-b:1 ">Ashwin Ram works on the AI behind Alexa, one of several new bots that might change the way your home and your life function within the next few years. Imagine a bot that turns on your lights, shops for you, even helps you make decisions. Learn more about a bot-enabled future that might have you saying (like Shah Rukh Khan does): &#8220;Alexa, I love you!&#8221;</p>
+<p>&nbsp;</p>
+<p><strong>TALK &amp; TRANSCRIPT:</strong><br />
+#TomorrowsWorld made easier with Artificial Intelligence. #TEDTalksIndiaNayiSoch</p>
+<pre><a href="https://www.ted.com/talks/ashwin_ram_could_bots_make_your_life_better">ted.com/talks/ashwin_ram_could_bots_make_your_life_better</a></pre>
+<p><strong>BEHIND THE SCENES:</strong><br />
+Innovator and entrepreneur, Ashwin Ram believes AI will changes our lives in future. #TomorrowsWorld #TEDTalksIndiaNayiSoch</p>
+<pre><a href="https://www.youtube.com/watch?v=kDvIsRuaq5k">youtube.com/watch?v=kDvIsRuaq5k</a></pre>
+<p><strong>FULL #TOMORROWSWORLD EPISODE:</strong><br />
+Can you imagine what #TomorrowsWorld will be like? Shah Rukh Khan introduces.</p>
+<pre><a href="http://tedtalksindianayisoch.hotstar.com/TED/episode-4.php">tedtalksindianayisoch.hotstar.com/TED/episode-4.php</a></pre>
+<p><strong>ALL TED TALKS INDIA NAYI SOCH:</strong><br />
+#TEDTalksIndiaNayiSoch is a groundbreaking TV series showcasing new thinking from some of the brightest brains in India and beyond and hosted by “The King of Bollywood,” Shah Rukh Khan.</p>
+<pre><a href="https://www.ted.com/series/ted_talks_india_nayi_soch">ted.com/series/ted_talks_india_nayi_soch</a></pre>
+
+			</div>
+</div>
+
+	
+		
+<div class="post-1214 post type-post status-publish format-standard hentry category-agents category-language category-learning tag-learning tag-natural-language" id="post-1214">
+	<p class="post-date" title="December 8, 2017 at 1:00 pm">
+		<span class="date-day">8</span>
+		<span class="date-month">Dec</span>
+	</p>
+	<h2><a href="https://ashwinram.org/2017/12/08/on-evaluating-and-comparing-conversational-agents/" rel="bookmark">On Evaluating and Comparing Conversational&nbsp;Agents</a></h2>
+	<p class="metadata">
+	Posted by cognitivecomputing in <a href="https://ashwinram.org/category/agents/" rel="category tag">Agents</a>, <a href="https://ashwinram.org/category/language/" rel="category tag">Language</a>, <a href="https://ashwinram.org/category/learning/" rel="category tag">Learning</a>.	Tagged: <a href="https://ashwinram.org/tag/learning/" rel="tag">Learning</a>, <a href="https://ashwinram.org/tag/natural-language/" rel="tag">natural language</a>.	<span class="feedback"><a href="https://ashwinram.org/2017/12/08/on-evaluating-and-comparing-conversational-agents/#respond">Leave a Comment</a></span></p>
+	<div class="entry">
+		<p>Conversational agents are exploding in popularity. However, much work remains in the area of non goal-oriented conversations, despite significant growth in research interest over recent years. To advance the state of the art in conversational AI, Ama- zon launched the Alexa Prize, a 2.5-million dollar university competition where sixteen selected university teams built conversational agents to deliver the best social conversational experience. Alexa Prize provided the academic community with the unique opportunity to perform research with a live system used by millions of users. The subjectivity associated with evaluating conversations is key element underlying the challenge of building non-goal oriented dialogue systems.</p>
+<p>In this paper, we propose a comprehensive evaluation strategy with multiple metrics de- signed to reduce subjectivity by selecting metrics which correlate well with human judgement. The proposed metrics provide granular analysis of the conversational agents, which is not captured in human ratings. We show that these metrics can be used as a reasonable proxy for human judgment. We provide a mechanism to unify the metrics for selecting the top performing agents, which has also been applied throughout the Alexa Prize competition. To our knowledge, to date it is the largest setting for evaluating agents with millions of conversations and hundreds of thousands of ratings from users. We believe that this work is a step towards an automatic evaluation process for conversational AIs.</p>
+<p>READ THE PAPER:</p>
+<p><strong>On Evaluating and Comparing Conversational Agents</strong><br />
+<strong>by A Venkatesh, C Khatri, A Ram, F Guo, R Gabriel, A Nagar, R Prasad, M Cheng, B Hedayatnia, A Metallinou, R Goel, S Yang, A Raju</strong><br />
+<em>NIPS-2017 Workshop on Conversational AI</em></p>
+<pre><a href="https://arxiv.org/abs/1801.03625">arxiv.org/abs/1801.03625</a></pre>
+<p> </p>
+
+			</div>
+</div>
+
+	
+		<div class="prev-next">
+			<div class="alignleft"><a href="https://ashwinram.org/page/2/" >&laquo; Older Entries</a></div>
+			<div class="alignright"></div>
+		</div>
+
+
+</div><!-- /content -->
+
+</div><!-- /main -->
+
+<div id="sidebar">
+
+<div class="side-widget widget_text"><div class="side-widget-wrap"><h3>About Ashwin Ram</h3>			<div class="textwidget">Professor. Researcher. Entrepreneur.
+<br>
+<br>
+<a href="http://www.linkedin.com/in/ashwinram"><span style="font:80% Arial, sans-serif;color:#0783B6;"><img src="https://i1.wp.com/www.linkedin.com/img/webpromo/btn_in_20x15.gif" width="20" height="15" alt="View my LinkedIn profile" style="vertical-align:middle;" border="0">View my profile</span></a>
+<a href="http://en.wikipedia.org/wiki/Ashwin_Ram"><span style="font:80% Arial, sans-serif;color:#0783B6;"><img src="https://upload.wikimedia.org/wikipedia/commons/0/07/Wikipedia_logo_(svg).svg" width="20" height="20" alt="Read my bio on Wikipedia" style="vertical-align:middle;" border="20">Read my bio</span></a>
+<br>
+<a href="http://twitter.com/ashwinram"><span style="font:80% Arial, sans-serif;color:#0783B6;"><img src="https://i0.wp.com/www.crmsol.net/images/icon_twitter.gif" width="20" height="15" alt="Follow me on Twitter" style="vertical-align:middle;" border="0">Follow me</span></a>
+<a href="http://openstudy.com/users/ashwinram"><span style="font:80% Arial, sans-serif;color:#0783B6;"><img src="https://i0.wp.com/www.cc.gatech.edu/faculty/ashwin/os1.png" width="20" height="20" alt="OpenStudy with me" style="vertical-align:middle;" border="0">OpenStudy with me</span></a></div>
+		</div></div><div class="side-widget wp_widget_tag_cloud"><div class="side-widget-wrap"><h3>Tags</h3><div style="overflow:hidden"><a href="https://ashwinram.org/tag/believable-agents/" class="tag-cloud-link tag-link-24900806 tag-link-position-1" style="font-size: 14.924731182796pt;" aria-label="believable agents (22 items)">believable agents</a>
+<a href="https://ashwinram.org/tag/case-based-reasoning/" class="tag-cloud-link tag-link-5473040 tag-link-position-2" style="font-size: 22pt;" aria-label="case-based reasoning (66 items)">case-based reasoning</a>
+<a href="https://ashwinram.org/tag/cognitive-media/" class="tag-cloud-link tag-link-24900988 tag-link-position-3" style="font-size: 16.430107526882pt;" aria-label="cognitive media (28 items)">cognitive media</a>
+<a href="https://ashwinram.org/tag/creativity/" class="tag-cloud-link tag-link-789 tag-link-position-4" style="font-size: 12.215053763441pt;" aria-label="creativity (14 items)">creativity</a>
+<a href="https://ashwinram.org/tag/educational-technology/" class="tag-cloud-link tag-link-9667 tag-link-position-5" style="font-size: 14.322580645161pt;" aria-label="educational technology (20 items)">educational technology</a>
+<a href="https://ashwinram.org/tag/games/" class="tag-cloud-link tag-link-21 tag-link-position-6" style="font-size: 17.935483870968pt;" aria-label="games (35 items)">games</a>
+<a href="https://ashwinram.org/tag/goal-driven-learning/" class="tag-cloud-link tag-link-24878311 tag-link-position-7" style="font-size: 16.731182795699pt;" aria-label="goal-driven learning (29 items)">goal-driven learning</a>
+<a href="https://ashwinram.org/tag/healthcare/" class="tag-cloud-link tag-link-1460 tag-link-position-8" style="font-size: 14.924731182796pt;" aria-label="healthcare (22 items)">healthcare</a>
+<a href="https://ashwinram.org/tag/information-retrieval/" class="tag-cloud-link tag-link-57493 tag-link-position-9" style="font-size: 17.182795698925pt;" aria-label="information retrieval (31 items)">information retrieval</a>
+<a href="https://ashwinram.org/tag/interactive-drama/" class="tag-cloud-link tag-link-2937557 tag-link-position-10" style="font-size: 14.924731182796pt;" aria-label="interactive drama (22 items)">interactive drama</a>
+<a href="https://ashwinram.org/tag/learning/" class="tag-cloud-link tag-link-264 tag-link-position-11" style="font-size: 12.967741935484pt;" aria-label="Learning (16 items)">Learning</a>
+<a href="https://ashwinram.org/tag/meta-reasoning/" class="tag-cloud-link tag-link-9222033 tag-link-position-12" style="font-size: 17.333333333333pt;" aria-label="meta-reasoning (32 items)">meta-reasoning</a>
+<a href="https://ashwinram.org/tag/multistrategy-learning/" class="tag-cloud-link tag-link-24880938 tag-link-position-13" style="font-size: 15.225806451613pt;" aria-label="multistrategy learning (23 items)">multistrategy learning</a>
+<a href="https://ashwinram.org/tag/natural-language/" class="tag-cloud-link tag-link-418256 tag-link-position-14" style="font-size: 20.645161290323pt;" aria-label="natural language (54 items)">natural language</a>
+<a href="https://ashwinram.org/tag/open-education/" class="tag-cloud-link tag-link-393211 tag-link-position-15" style="font-size: 8pt;" aria-label="open education (7 items)">open education</a>
+<a href="https://ashwinram.org/tag/personality-models/" class="tag-cloud-link tag-link-24900787 tag-link-position-16" style="font-size: 8.752688172043pt;" aria-label="personality models (8 items)">personality models</a>
+<a href="https://ashwinram.org/tag/planning/" class="tag-cloud-link tag-link-4599 tag-link-position-17" style="font-size: 17.483870967742pt;" aria-label="planning (33 items)">planning</a>
+<a href="https://ashwinram.org/tag/problem-based-learning/" class="tag-cloud-link tag-link-253322 tag-link-position-18" style="font-size: 8.752688172043pt;" aria-label="problem-based learning (8 items)">problem-based learning</a>
+<a href="https://ashwinram.org/tag/problem-solving/" class="tag-cloud-link tag-link-133044 tag-link-position-19" style="font-size: 18.236559139785pt;" aria-label="problem solving (37 items)">problem solving</a>
+<a href="https://ashwinram.org/tag/real-time-cbr/" class="tag-cloud-link tag-link-24851654 tag-link-position-20" style="font-size: 14.924731182796pt;" aria-label="real-time cbr (22 items)">real-time cbr</a>
+<a href="https://ashwinram.org/tag/rts-games/" class="tag-cloud-link tag-link-1206893 tag-link-position-21" style="font-size: 14.924731182796pt;" aria-label="rts games (22 items)">rts games</a>
+<a href="https://ashwinram.org/tag/semantic-memory/" class="tag-cloud-link tag-link-2674995 tag-link-position-22" style="font-size: 18.086021505376pt;" aria-label="semantic memory (36 items)">semantic memory</a>
+<a href="https://ashwinram.org/tag/social-learning/" class="tag-cloud-link tag-link-1397296 tag-link-position-23" style="font-size: 13.41935483871pt;" aria-label="social learning (17 items)">social learning</a>
+<a href="https://ashwinram.org/tag/text-cbr/" class="tag-cloud-link tag-link-24883754 tag-link-position-24" style="font-size: 11.161290322581pt;" aria-label="text cbr (12 items)">text cbr</a>
+<a href="https://ashwinram.org/tag/virtual-worlds/" class="tag-cloud-link tag-link-59141 tag-link-position-25" style="font-size: 10.10752688172pt;" aria-label="virtual worlds (10 items)">virtual worlds</a></div></div></div><div class="side-widget widget_categories"><div class="side-widget-wrap"><h3>Categories</h3>		<ul>
+				<li class="cat-item cat-item-5682"><a href="https://ashwinram.org/category/agents/">Agents</a> (50)
+</li>
+	<li class="cat-item cat-item-178"><a href="https://ashwinram.org/category/books/">Books</a> (3)
+</li>
+	<li class="cat-item cat-item-1342"><a href="https://ashwinram.org/category/education/">Education</a> (20)
+</li>
+	<li class="cat-item cat-item-1698347"><a href="https://ashwinram.org/category/game-ai/">Game AI</a> (37)
+</li>
+	<li class="cat-item cat-item-13985"><a href="https://ashwinram.org/category/health-wellness/">Health &amp; Wellness</a> (23)
+</li>
+	<li class="cat-item cat-item-1934"><a href="https://ashwinram.org/category/language/">Language</a> (58)
+</li>
+	<li class="cat-item cat-item-264"><a href="https://ashwinram.org/category/learning/">Learning</a> (96)
+</li>
+	<li class="cat-item cat-item-352"><a href="https://ashwinram.org/category/opinion/">Opinion</a> (32)
+</li>
+	<li class="cat-item cat-item-309"><a href="https://ashwinram.org/category/reviews/">Reviews</a> (2)
+</li>
+	<li class="cat-item cat-item-13426"><a href="https://ashwinram.org/category/robotics/">Robotics</a> (13)
+</li>
+	<li class="cat-item cat-item-42375"><a href="https://ashwinram.org/category/talks/">Talks</a> (35)
+</li>
+	<li class="cat-item cat-item-24901008"><a href="https://ashwinram.org/category/web-web-2-0/">Web / Web 2.0</a> (41)
+</li>
+		</ul>
+			</div></div>		<div class="side-widget widget_recent_entries"><div class="side-widget-wrap">		<h3>Recent Posts</h3>		<ul>
+											<li>
+					<a href="https://ashwinram.org/2019/04/17/hardware-as-the-interface-for-ai-ml-and-data/">Hardware as the interface for AI, ML, and&nbsp;Data</a>
+									</li>
+											<li>
+					<a href="https://ashwinram.org/2019/03/19/innovatinginteracting-with-ai/">Innovating+Interacting with AI</a>
+									</li>
+											<li>
+					<a href="https://ashwinram.org/2018/09/28/alexa-prize-state-of-the-art-in-conversational-ai/">Alexa Prize — State of the Art in Conversational&nbsp;AI</a>
+									</li>
+											<li>
+					<a href="https://ashwinram.org/2018/01/31/an-inside-look-at-the-2017-alexa-prize-finals/">An Inside Look at the 2017 Alexa Prize&nbsp;Finals</a>
+									</li>
+											<li>
+					<a href="https://ashwinram.org/2018/01/03/podcast-how-amazons-alexa-learns/">Podcast: How Amazon&#8217;s Alexa&nbsp;Learns</a>
+									</li>
+					</ul>
+		</div></div><div class="side-widget widget_top-posts"><div class="side-widget-wrap"><h3>Top Posts</h3><ul>				<li>
+					<a href="https://ashwinram.org/ashwinram/" class="bump-view" data-bump-view="tp">About Me</a>					</li>
+								<li>
+					<a href="https://ashwinram.org/bio/" class="bump-view" data-bump-view="tp">Formal Bio</a>					</li>
+				</ul></div></div><div class="side-widget widget_twitter"><div class="side-widget-wrap"><h3><a href='http://twitter.com/ashwinram'>Twitter Updates</a></h3><ul class='tweets'>
+			<li>
+				RT @<a href='http://twitter.com/GoogleDoodles'>GoogleDoodles</a>: Today, we’d like to say: 
+
+To all emergency services workers, thank you.
+
+ <a href='http://twitter.com/search?q=%23GoogleDoodle'>#GoogleDoodle</a> → <a href="http://goo.gle/2UJqn0O"> goo.gle/2UJqn0O</a> https… 				<a href="http://twitter.com/ashwinram/statuses/1248101489215590400" class="timesince">45&nbsp;minutes&nbsp;ago</a>
+			</li>
+
+			
+			<li>
+				RT @<a href='http://twitter.com/SusanWojcicki'>SusanWojcicki</a>: Great to see @<a href='http://twitter.com/annewoj23'>annewoj23</a>!  With millions of users, @<a href='http://twitter.com/23andMe'>23andMe</a> data could shed some valuable insights into <a href='http://twitter.com/search?q=%23covid19'>#covid19</a> and why… 				<a href="http://twitter.com/ashwinram/statuses/1248074337787109376" class="timesince">2&nbsp;hours&nbsp;ago</a>
+			</li>
+
+			
+			<li>
+				RT @<a href='http://twitter.com/jack'>jack</a>: I’m moving $1B of my Square equity (~28% of my wealth) to <a href='http://twitter.com/search?q=%23startsmall'>#startsmall</a> LLC to fund global COVID-19 relief. After we disarm this pa… 				<a href="http://twitter.com/ashwinram/statuses/1247992903005114368" class="timesince">7&nbsp;hours&nbsp;ago</a>
+			</li>
+
+			
+			<li>
+				RT @<a href='http://twitter.com/BarackObama'>BarackObama</a>: It’s World Health Day, and we owe a profound debt of gratitude to all our medical professionals. They’re still giving thei… 				<a href="http://twitter.com/ashwinram/statuses/1247904152748879877" class="timesince">13&nbsp;hours&nbsp;ago</a>
+			</li>
+
+			
+			<li>
+				RT @<a href='http://twitter.com/chronicle'>chronicle</a>: Opinion: Graduate-student labor sustains colleges. Now, amid the coronavirus outbreak, it’s time for colleges to sustain us.… 				<a href="http://twitter.com/ashwinram/statuses/1247333970468958208" class="timesince">2&nbsp;days&nbsp;ago</a>
+			</li>
+
+			</ul></div></div><div class="side-widget widget_calendar"><div class="side-widget-wrap"><div id="calendar_wrap" class="calendar_wrap"><table id="wp-calendar" class="wp-calendar-table">
+	<caption>April 2020</caption>
+	<thead>
+	<tr>
+		<th scope="col" title="Monday">M</th>
+		<th scope="col" title="Tuesday">T</th>
+		<th scope="col" title="Wednesday">W</th>
+		<th scope="col" title="Thursday">T</th>
+		<th scope="col" title="Friday">F</th>
+		<th scope="col" title="Saturday">S</th>
+		<th scope="col" title="Sunday">S</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td colspan="2" class="pad">&nbsp;</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+	</tr>
+	<tr>
+		<td>6</td><td>7</td><td id="today">8</td><td>9</td><td>10</td><td>11</td><td>12</td>
+	</tr>
+	<tr>
+		<td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td>
+	</tr>
+	<tr>
+		<td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td>
+	</tr>
+	<tr>
+		<td>27</td><td>28</td><td>29</td><td>30</td>
+		<td class="pad" colspan="3">&nbsp;</td>
+	</tr>
+	</tbody>
+	</table><nav aria-label="Previous and next months" class="wp-calendar-nav">
+		<span class="wp-calendar-nav-prev"><a href="https://ashwinram.org/2019/04/">&laquo; Apr</a></span>
+		<span class="pad">&nbsp;</span>
+		<span class="wp-calendar-nav-next">&nbsp;</span>
+	</nav></div></div></div>
+</div><!-- /sidebar -->
+
+<div id="footer">
+	<p class="wpcom-credits">
+		<a href="https://wordpress.com/?ref=footer_blog" rel="nofollow">Blog at WordPress.com.</a>
+			</p>
+</div><!-- /footer -->
+
+</div><!-- /wrapper -->
+
+		<script type="text/javascript">
+		//<![CDATA[
+		var infiniteScroll = JSON.parse( decodeURIComponent( '%7B%22settings%22%3A%7B%22id%22%3A%22content%22%2C%22ajaxurl%22%3A%22https%3A%5C%2F%5C%2Fashwinram.org%5C%2F%3Finfinity%3Dscrolling%22%2C%22type%22%3A%22scroll%22%2C%22wrapper%22%3Atrue%2C%22wrapper_class%22%3A%22infinite-wrap%22%2C%22footer%22%3Atrue%2C%22click_handle%22%3A%221%22%2C%22text%22%3A%22Older%20posts%22%2C%22totop%22%3A%22Scroll%20back%20to%20top%22%2C%22currentday%22%3A%2208.12.17%22%2C%22order%22%3A%22DESC%22%2C%22scripts%22%3A%5B%5D%2C%22styles%22%3A%5B%5D%2C%22google_analytics%22%3Afalse%2C%22offset%22%3A0%2C%22history%22%3A%7B%22host%22%3A%22ashwinram.org%22%2C%22path%22%3A%22%5C%2Fpage%5C%2F%25d%5C%2F%22%2C%22use_trailing_slashes%22%3Atrue%2C%22parameters%22%3A%22%22%7D%2C%22query_args%22%3A%7B%22error%22%3A%22%22%2C%22m%22%3A%22%22%2C%22p%22%3A0%2C%22post_parent%22%3A%22%22%2C%22subpost%22%3A%22%22%2C%22subpost_id%22%3A%22%22%2C%22attachment%22%3A%22%22%2C%22attachment_id%22%3A0%2C%22name%22%3A%22%22%2C%22pagename%22%3A%22%22%2C%22page_id%22%3A0%2C%22second%22%3A%22%22%2C%22minute%22%3A%22%22%2C%22hour%22%3A%22%22%2C%22day%22%3A0%2C%22monthnum%22%3A0%2C%22year%22%3A0%2C%22w%22%3A0%2C%22category_name%22%3A%22%22%2C%22tag%22%3A%22%22%2C%22cat%22%3A%22%22%2C%22tag_id%22%3A%22%22%2C%22author%22%3A%22%22%2C%22author_name%22%3A%22%22%2C%22feed%22%3A%22%22%2C%22tb%22%3A%22%22%2C%22paged%22%3A0%2C%22meta_key%22%3A%22%22%2C%22meta_value%22%3A%22%22%2C%22preview%22%3A%22%22%2C%22s%22%3A%22%22%2C%22sentence%22%3A%22%22%2C%22title%22%3A%22%22%2C%22fields%22%3A%22%22%2C%22menu_order%22%3A%22%22%2C%22embed%22%3A%22%22%2C%22category__in%22%3A%5B%5D%2C%22category__not_in%22%3A%5B%5D%2C%22category__and%22%3A%5B%5D%2C%22post__in%22%3A%5B%5D%2C%22post__not_in%22%3A%5B%5D%2C%22post_name__in%22%3A%5B%5D%2C%22tag__in%22%3A%5B%5D%2C%22tag__not_in%22%3A%5B%5D%2C%22tag__and%22%3A%5B%5D%2C%22tag_slug__in%22%3A%5B%5D%2C%22tag_slug__and%22%3A%5B%5D%2C%22post_parent__in%22%3A%5B%5D%2C%22post_parent__not_in%22%3A%5B%5D%2C%22author__in%22%3A%5B%5D%2C%22author__not_in%22%3A%5B%5D%2C%22posts_per_page%22%3A7%2C%22ignore_sticky_posts%22%3Afalse%2C%22suppress_filters%22%3Afalse%2C%22cache_results%22%3Afalse%2C%22update_post_term_cache%22%3Atrue%2C%22lazy_load_term_meta%22%3Atrue%2C%22update_post_meta_cache%22%3Atrue%2C%22post_type%22%3A%22%22%2C%22nopaging%22%3Afalse%2C%22comments_per_page%22%3A%2250%22%2C%22no_found_rows%22%3Afalse%2C%22order%22%3A%22DESC%22%7D%2C%22last_post_date%22%3A%222017-12-08%2013%3A00%3A52%22%2C%22stats%22%3A%22blog%3D8523614%26v%3Dwpcom%26tz%3D-7%26user_id%3D0%26subd%3Dcognitivecomputing%26x_pagetype%3Dinfinite%22%7D%7D' ) );
+		//]]>
+		</script>
+		<!--  -->
+<script src='//0.gravatar.com/js/gprofiles.js?ver=202015y'></script>
+<script>
+var WPGroHo = {"my_hash":""};
+</script>
+<script type='text/javascript' src='https://s1.wp.com/wp-content/mu-plugins/gravatar-hovercards/wpgroho.js?m=1380573781h'></script>
+
+	<script>
+		//initialize and attach hovercards to all gravatars
+		jQuery( document ).ready( function( $ ) {
+
+			if (typeof Gravatar === "undefined"){
+				return;
+			}
+
+			if ( typeof Gravatar.init !== "function" ) {
+				return;
+			}			
+
+			Gravatar.profile_cb = function( hash, id ) {
+				WPGroHo.syncProfileData( hash, id );
+			};
+			Gravatar.my_hash = WPGroHo.my_hash;
+			Gravatar.init( 'body', '#wp-admin-bar-my-account' );
+		});
+	</script>
+
+		<div style="display:none">
+	</div>
+<script>
+var HighlanderComments = {"loggingInText":"Logging In\u2026","submittingText":"Posting Comment\u2026","postCommentText":"Post Comment","connectingToText":"Connecting to %s","commentingAsText":"%1$s: You are commenting using your %2$s account.","logoutText":"Log Out","loginText":"Log In","connectURL":"https:\/\/cognitivecomputing.wordpress.com\/public.api\/connect\/?action=request&domain=ashwinram.org","logoutURL":"https:\/\/cognitivecomputing.wordpress.com\/wp-login.php?action=logout&_wpnonce=6938883e7d","homeURL":"https:\/\/ashwinram.org\/","postID":"1260","gravDefault":"identicon","enterACommentError":"Please enter a comment","enterEmailError":"Please enter your email address here","invalidEmailError":"Invalid email address","enterAuthorError":"Please enter your name here","gravatarFromEmail":"This picture will show whenever you leave a comment. Click to customize it.","logInToExternalAccount":"Log in to use details from one of these accounts.","change":"Change","changeAccount":"Change Account","comment_registration":"0","userIsLoggedIn":"","isJetpack":"","text_direction":"ltr"};
+</script>
+<script type='text/javascript' src='https://s0.wp.com/_static/??/wp-content/js/jquery/jquery.autoresize.js,/wp-content/mu-plugins/highlander-comments/script.js?m=1573483029j'></script>
+		<div id="infinite-footer">
+			<div class="container">
+				<div class="blog-info">
+					<a id="infinity-blog-title" href="https://ashwinram.org/" rel="home">
+						Cognitive Computing					</a>
+				</div>
+				<div class="blog-credits">
+					<a href="https://wordpress.com/?ref=footer_blog" rel="nofollow">Blog at WordPress.com.</a> 				</div>
+			</div>
+		</div><!-- #infinite-footer -->
+		<script src='https://platform.twitter.com/widgets.js?ver=20111117'></script>
+
+	<div id="carousel-reblog-box">
+		<form action="#" name="carousel-reblog">
+			<textarea id="carousel-reblog-content" name="carousel-reblog-content" placeholder="Add your thoughts here... (optional)"></textarea>
+			<label for="carousel-reblog-to-blog-id" id="carousel-reblog-lblogid">Post to</label>
+			<select name="carousel-reblog-to-blog-id" id="carousel-reblog-to-blog-id">
+						</select>
+
+			<div class="submit">
+				<span class="canceltext"><a href="#" class="cancel">Cancel</a></span>
+				<input type="submit" name="carousel-reblog-submit" class="button" id="carousel-reblog-submit" value="Reblog Post" />
+				<input type="hidden" id="carousel-reblog-blog-id" value="8523614" />
+				<input type="hidden" id="carousel-reblog-blog-url" value="https://ashwinram.org" />
+				<input type="hidden" id="carousel-reblog-blog-title" value="Cognitive Computing" />
+				<input type="hidden" id="carousel-reblog-post-url" value="" />
+				<input type="hidden" id="carousel-reblog-post-title" value="" />
+			</div>
+
+			<input type="hidden" id="_wpnonce" name="_wpnonce" value="5d0938e9b7" /><input type="hidden" name="_wp_http_referer" value="/" />		</form>
+
+		<div class="arrow"></div>
+	</div>
+<link rel='stylesheet' id='all-css-0-3' href='https://s0.wp.com/_static/??-eJx9jNEKwjAMRX/IGGQW5oP4LV0XS7esLUmK7O+d4ERffDz3cg4+KoSSjbJh5RZTVoxtw4EkwsAlzIoTWfVhBvZraQZR0ojv6y6bfAyqB/wqLQ32WPBSmhJ/IvvwT7LENEL0zCTrL72023I9ub7ru/PFuekJkfFIxQ==?cssminify=yes' type='text/css' media='all' />
+<script>
+var actionbardata = {"siteID":"8523614","siteName":"Cognitive Computing","siteURL":"https:\/\/ashwinram.org","icon":"<img alt='' src='https:\/\/s2.wp.com\/i\/logo\/wpcom-gray-white.png' class='avatar avatar-50' height='50' width='50' \/>","canManageOptions":"","canCustomizeSite":"","isFollowing":"","themeSlug":"pub\/springloaded","signupURL":"https:\/\/wordpress.com\/start\/","loginURL":"https:\/\/wordpress.com\/log-in?redirect_to=https%3A%2F%2Fashwinram.org%2F2019%2F04%2F17%2Fhardware-as-the-interface-for-ai-ml-and-data%2F&signup_flow=account&domain=ashwinram.org","themeURL":"","xhrURL":"https:\/\/ashwinram.org\/wp-admin\/admin-ajax.php","nonce":"1dd98a4b90","isSingular":"","isFolded":"","isLoggedIn":"","isMobile":"","subscribeNonce":"<input type=\"hidden\" id=\"_wpnonce\" name=\"_wpnonce\" value=\"0e5e89eadc\" \/>","referer":"https:\/\/ashwinram.org\/","canFollow":"1","feedID":"11793184","statusMessage":"","customizeLink":"https:\/\/cognitivecomputing.wordpress.com\/wp-admin\/customize.php?url=https%3A%2F%2Fcognitivecomputing.wordpress.com%2F","i18n":{"view":"View site","follow":"Follow","following":"Following","edit":"Edit","login":"Log in","signup":"Sign up","customize":"Customize","report":"Report this content","themeInfo":"Get theme: Spring Loaded","shortlink":"Copy shortlink","copied":"Copied","followedText":"New posts from this site will now appear in your <a href=\"https:\/\/wordpress.com\/read\">Reader<\/a>","foldBar":"Collapse this bar","unfoldBar":"Expand this bar","editSubs":"Manage subscriptions","viewReader":"View site in Reader","viewReadPost":"View post in Reader","subscribe":"Sign me up","enterEmail":"Enter your email address","followers":"Join 4,131 other followers","alreadyUser":"Already have a WordPress.com account? <a href=\"https:\/\/wordpress.com\/log-in?redirect_to=https%3A%2F%2Fashwinram.org%2F2019%2F04%2F17%2Fhardware-as-the-interface-for-ai-ml-and-data%2F&signup_flow=account&domain=ashwinram.org\">Log in now.<\/a>","stats":"Stats"}};
+</script>
+<script>
+var jetpackCarouselStrings = {"widths":[370,700,1000,1200,1400,2000],"is_logged_in":"","lang":"en","ajaxurl":"https:\/\/ashwinram.org\/wp-admin\/admin-ajax.php","nonce":"3d5fc306c0","display_exif":"1","display_geo":"1","single_image_gallery":"1","single_image_gallery_media_file":"","background_color":"black","comment":"Comment","post_comment":"Post Comment","write_comment":"Write a Comment...","loading_comments":"Loading Comments...","download_original":"View full size <span class=\"photo-size\">{0}<span class=\"photo-size-times\">\u00d7<\/span>{1}<\/span>","no_comment_text":"Please be sure to submit some text with your comment.","no_comment_email":"Please provide an email address to comment.","no_comment_author":"Please provide your name to comment.","comment_post_error":"Sorry, but there was an error posting your comment. Please try again later.","comment_approved":"Your comment was approved.","comment_unapproved":"Your comment is in moderation.","camera":"Camera","aperture":"Aperture","shutter_speed":"Shutter Speed","focal_length":"Focal Length","copyright":"Copyright","comment_registration":"0","require_name_email":"1","login_url":"https:\/\/cognitivecomputing.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Fashwinram.org%2F2017%2F12%2F08%2Fon-evaluating-and-comparing-conversational-agents%2F","blog_id":"8523614","meta_data":["camera","aperture","shutter_speed","focal_length","copyright"],"local_comments_commenting_as":"<fieldset><label for=\"email\">Email (Required)<\/label> <input type=\"text\" name=\"email\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-email-field\" \/><\/fieldset><fieldset><label for=\"author\">Name (Required)<\/label> <input type=\"text\" name=\"author\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-author-field\" \/><\/fieldset><fieldset><label for=\"url\">Website<\/label> <input type=\"text\" name=\"url\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-url-field\" \/><\/fieldset>","reblog":"Reblog","reblogged":"Reblogged","reblog_add_thoughts":"Add your thoughts here... (optional)","reblogging":"Reblogging...","post_reblog":"Post Reblog","stats_query_args":"blog=8523614&v=wpcom&tz=-7&user_id=0&subd=cognitivecomputing","is_public":"1","reblog_enabled":""};
+</script>
+<script type='text/javascript' src='https://s0.wp.com/_static/??-eJydUu1uwyAMfKFR1K2N2h/TnoWAEzkjdoRNsr79aNpEWrVFWv+gs487f4CdBuOZFEhtJzbAiB6Gr10nL7ZQSD7mADJzKGpHoMDpSg0cLw3GuOuRluuL0xBziyS2yTEaQQUDARWpNTfGVue3w+H1eLae+57p5n3Dj159NosdUoOEelnB83XryCXJomIK9J/36RCm5z2hLEeLLpMGnuhuPJ/ySG5M6ULZqKldsr0ThVSQ4RFSwutDrLl/OmhypY0tkVdkuopW9NsvkKnhugOvf+1pLG2ydSKgs2COhwSyVdy7xFkg2g50KI2aJbGhUYwQTOtihHT5GRXVR/++P56Op+q0r6ruG+NWFCg='></script>
+<script type='text/javascript'>
+( 'fetch' in window ) || document.write( '<script src="https://s0.wp.com/wp-includes/js/dist/vendor/wp-polyfill-fetch.min.js?m=1573572739h&#038;ver=3.0.0"></scr' + 'ipt>' );( document.contains ) || document.write( '<script src="https://s1.wp.com/wp-includes/js/dist/vendor/wp-polyfill-node-contains.min.js?m=1540208548h&#038;ver=3.42.0"></scr' + 'ipt>' );( window.DOMRect ) || document.write( '<script src="https://s0.wp.com/wp-includes/js/dist/vendor/wp-polyfill-dom-rect.min.js?m=1585663916h&#038;ver=3.42.0"></scr' + 'ipt>' );( window.URL && window.URL.prototype && window.URLSearchParams ) || document.write( '<script src="https://s2.wp.com/wp-includes/js/dist/vendor/wp-polyfill-url.min.js?m=1585663916h&#038;ver=3.6.4"></scr' + 'ipt>' );( window.FormData && window.FormData.prototype.keys ) || document.write( '<script src="https://s1.wp.com/wp-includes/js/dist/vendor/wp-polyfill-formdata.min.js?m=1550600082h&#038;ver=3.0.12"></scr' + 'ipt>' );( Element.prototype.matches && Element.prototype.closest ) || document.write( '<script src="https://s2.wp.com/wp-includes/js/dist/vendor/wp-polyfill-element-closest.min.js?m=1540208548h&#038;ver=2.0.2"></scr' + 'ipt>' );
+</script>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script><script type="text/javascript">
+			jQuery.extend( infiniteScroll.settings.scripts, ["jquery-core","jquery-migrate","jquery","postmessage","mobile-useragent-info","spin","jquery.spin","grofiles-cards","wpgroho","jquery.autoresize","highlander-comments","twitter-widgets","devicepx","wp-polyfill","a8c-fse-common-script","the-neverending-homepage","blog-posts-block-view","event-countdown-js","wpcom-masterbar-js","wpcom-masterbar-tracks-js","wpcom-actionbar-bar","swfobject","videopress","jetpack-carousel","tiled-gallery"] );
+			jQuery.extend( infiniteScroll.settings.styles, ["wpcom-smileys","a8c-fse-common-style","the-neverending-homepage","springloaded-infinite-scroll","wp-block-library","jetpack-layout-grid","jetpack-ratings","jetpack-event-countdown","jetpack-timeline","blog-posts-block-view","coblocks-frontend","posts-list-block-style","wpcom-core-compat-playlist-styles","wpcom-text-widget-styles","wpcom-bbpress2-staff-css","springloaded","jetpack-top-posts-widget","geo-location-flair","reblogging","a8c-global-print","wpcom-actionbar-bar","jetpack-global-styles-frontend-style","h4-global","highlander-comments","highlander-comments-ie7","wpcom-layout-grid-front","jetpack-carousel","tiled-gallery"] );
+		</script><script src="//stats.wp.com/w.js?61" type="text/javascript" async defer></script>
+<script type="text/javascript">
+_tkq = window._tkq || [];
+_stq = window._stq || [];
+_tkq.push(['storeContext', {'blog_id':'8523614','blog_tz':'-7','user_lang':'en','blog_lang':'en','user_id':'0'}]);
+_stq.push(['view', {'blog':'8523614','v':'wpcom','tz':'-7','user_id':'0','subd':'cognitivecomputing'}]);
+_stq.push(['extra', {'crypt':'UE40eW5QN0p8M2Y/RE1TaVhzUzFMbjdWNHpwZGhTayxPSUFCMGNrd29+Smw0TDhnZmRTK0hlRi9QSGh6bi9GXVhBJWIlZlR5U1JMLU8/MkNtblkvY1dDWk14VkxIcWxsa2RLcFdsb0hoSzk/eTM2Ml01R2JJWkdici8lX3cuYXlNL2pCPUdFSVJiQ2pPbi1zNyUtamUuWSZ4fEN0ZFJJMUhrMFlQbSVMN1hibVdkd2dpWW9BUnYlUWcxLFlzakVJVVNxP0NKeXcxRXBtNzZfPUdmUUJYJVo1dHU4LnJULUI1NS5Ofj8wc1ZEN20tVnlxOSxWK0l1ZkYzMl9Mdy9kUE00Uz0zfDBMOEdGdC5YS0liTjd8LkV2OXxZeGpVUnVDRllBX11bfFo/QTFK'}]);
+_stq.push([ 'clickTrackerInit', '8523614', '0' ]);
+	</script>
+<noscript><img src="https://pixel.wp.com/b.gif?v=noscript" style="height:0px;width:0px;overflow:hidden" alt="" /></noscript>
+<script>
+if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+	wpcom_mobile_user_agent_info.init();
+	var mobileStatsQueryString = "";
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+		mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + wpcom_mobile_user_agent_info.matchedPlatformName;
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+		mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + wpcom_mobile_user_agent_info.matchedUserAgentName;
+	
+	if( wpcom_mobile_user_agent_info.isIPad() )
+		mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+	if( "" != mobileStatsQueryString ) {
+		new Image().src = document.location.protocol + '//pixel.wp.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba=' + Math.random();
+	}
+	
+}
+</script></body>
+</html>

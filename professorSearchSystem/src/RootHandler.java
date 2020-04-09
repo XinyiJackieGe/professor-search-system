@@ -14,7 +14,8 @@ public class RootHandler implements HttpHandler {
             + "<form method=\"Post\"\n"
             + "    action=\"search\">\n"
             + "    Your keywords: <input type=\"text\" name=\"query\" size=\"60\"><br>\n"
-            + "    <input type=\"submit\" value=\"Search\"><br><br>\n"
+            + "    <input type=\"submit\" value=\"Search\"><br><br><br><br>\n"
+            + "Note: No punctuations in the search box.\n"
             + "</form>\n"
             + "</body>\n"
             + "</html>";
