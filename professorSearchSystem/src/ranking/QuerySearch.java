@@ -29,7 +29,7 @@ public class QuerySearch {
     for (String term : queryTerms.split(" ")) {
       query.add(new Term("content", term));
     }
-    TopDocs docs = searcher.search(query, 30);
+    TopDocs docs = searcher.search(query, 200);
 
     return docs;
   }
@@ -52,7 +52,7 @@ public class QuerySearch {
       //      combinedBoolean.add(queryTerm, BooleanClause.Occur.MUST);
       combinedBoolean.add(queryTerm, BooleanClause.Occur.SHOULD);
     }
-    TopDocs docs = searcher.search(combinedBoolean, 30);
+    TopDocs docs = searcher.search(combinedBoolean, 200);
 
     return docs;
   }
