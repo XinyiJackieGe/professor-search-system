@@ -41,8 +41,8 @@ public class EchoPostHandler implements HttpHandler {
         queryT.append(" ");
       }
     }
-    String queryTerms = queryT.toString();
-    System.out.println(queryTerms);
+    String queryTermsTemp = queryT.toString();
+    System.out.println(queryTermsTemp);
     
     Analyzer analyzer = new PositionalPorterStopAnalyzer();
     String queryTerms = "";
@@ -52,7 +52,7 @@ public class EchoPostHandler implements HttpHandler {
       queryTerms += term.term() + " ";
     }
     queryTerms.trim();
-    System.out.println(queryTerms);
+    //System.out.println(queryTerms);
 
     // Send response.
     File indexPath = new File("data/invertedIndexStem");
